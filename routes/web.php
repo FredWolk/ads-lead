@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Main\CpaController;
+use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Auth::routes();
+
+Route::get('/', [IndexController::class, '__invoke'])->name('index');
+Route::get('cpa', [CpaController::class, '__invoke'])->name('cpa');
