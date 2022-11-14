@@ -468,6 +468,11 @@ a, button{
     align-items: center;
     gap: 30px;
 }
+.article--card.big img{
+    max-width: 789px;
+    width: 100%;
+    height: 400px;
+}
 .article--card.big
 .article--card_info-views{
     top: 100%;
