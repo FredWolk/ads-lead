@@ -9,7 +9,7 @@
             <div class="main_articles_top_link-wrapp">
                 <div class="main_articles_top_link-wrapp-arrows">
                     @for ($i=0; $i<10; $i++)
-                        <img src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.2425 6L6.43923 2.1967L8.56055 0.0753784L15.9852 7.5L8.56055 14.9246L6.43923 12.8033L10.2425 9L1.13593 9L1.13593 6H10.2425Z" fill="#272C31"/></svg>                        
                     @endfor
                 </div>
                 <a class="btn--grey" href="{{ route('index') }}">Show all</a>
