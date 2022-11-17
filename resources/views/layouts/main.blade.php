@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
 </head>   
@@ -168,6 +169,7 @@
     </footer>
 </div>
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
 </body>
 </html>
