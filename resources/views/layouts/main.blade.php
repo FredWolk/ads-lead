@@ -112,7 +112,11 @@
     </section>
 
     <section class="banner">
-        <img src="{{asset('assets/images/banner.jpg')}}" alt="banner">
+        <picture>
+            <source srcset="{{asset('assets/images/banner.jpg')}}"
+                    media="(min-width: 600px)">
+            <img src="{{asset('assets/images/banner-mobile.png')}}" alt="banner">
+        </picture>
     </section>
     <main class="main">
         @yield('content')
