@@ -24,19 +24,19 @@
                 <nav class="header_nav">
                     <ul class="header_nav_list">
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('index') }}">Articles</a>
+                            <a class="header_nav--link" href="{{ route('blog') }}">Articles</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('index') }}">Video</a>
+                            <a class="header_nav--link" href="{{ route('video') }}">Video</a>
                         </li>
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('index') }}">Forum</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('index') }}">CPA-networks</a>
+                            <a class="header_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('index') }}">Ad-networks</a>
+                            <a class="header_nav--link" href="{{ route('ad') }}">Ad-networks</a>
                         </li>
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('index') }}">Services</a>

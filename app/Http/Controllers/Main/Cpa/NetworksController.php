@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Http\Controllers\Main\Cpa;
+
+use App\Http\Controllers\Controller;
+
+class NetworksController extends Controller
+{
+    public function __invoke()
+    {
+        return view('cpa.networks');
+    }
+}
