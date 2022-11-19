@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Main\Blog;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class IndexController extends Controller
 {
     public function __invoke()
     {
-        return view('blog.blog');
+
+        return view('admin.index');
     }
 }

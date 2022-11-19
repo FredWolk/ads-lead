@@ -24,7 +24,7 @@
                 <nav class="header_nav">
                     <ul class="header_nav_list">
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('blog') }}">Articles</a>
+                            <a class="header_nav--link" href="{{ route('articles') }}">Articles</a>
                         </li>
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('video') }}">Video</a>
