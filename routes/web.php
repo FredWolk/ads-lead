@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\IndexController;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //Auth::routes();
-Route::domain('ads-lead.loc')->group(function () {
+//Route::domain('ads-lead.loc')->group(function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('index');
 
     /**
@@ -65,10 +66,23 @@ Route::domain('ads-lead.loc')->group(function () {
         Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
         Route::get('/{video}', [VideoController::class, '__invoke'])->name('video.page');
     });
-});
+//});
 
 /* ДАЛЬШЕ ИДЕТ МРАК АДМИНКИ */
 
-Route::domain('admin.ads-lead.loc')->group(function () {
+//Route::domain('admin.ads-lead.loc')->group(function () {
+Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
     Route::get('/', [\App\Http\Controllers\Admin\IndexController::class, '__invoke'])->name('admin');
+
+    Route::group(['namespace' => 'seo', 'prefix' => 'seo'], function () {
+        Route::get('/', [SeoController::class, 'index'])->name('seo.index');
+        Route::get('/create', [SeoController::class, 'create'])->name('seo.create');
+        Route::post('/store', [SeoController::class, 'store'])->name('seo.store');
+        Route::post('/show/{id}', [SeoController::class, 'show'])->name('seo.show');
+        Route::get('/edit/{id}', [SeoController::class, 'edit'])->name('seo.edit');
+        Route::patch('/update/{id}', [SeoController::class, 'update'])->name('seo.update');
+        Route::delete('/destroy/{id}', [SeoController::class, 'destroy'])->name('seo.destroy');
+    });
 });
+
+//});
