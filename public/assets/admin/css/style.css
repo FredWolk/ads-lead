@@ -1,0 +1,10 @@
+.alert{
+    max-width: fit-content;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.gap__flex{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
