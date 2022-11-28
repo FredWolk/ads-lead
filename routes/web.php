@@ -73,7 +73,6 @@ use Illuminate\Support\Facades\Route;
 //Route::domain('admin.ads-lead.loc')->group(function () {
 Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
     Route::get('/', [\App\Http\Controllers\Admin\IndexController::class, '__invoke'])->name('admin');
-
     Route::group(['namespace' => 'seo', 'prefix' => 'seo'], function () {
         Route::get('/', [SeoController::class, 'index'])->name('seo.index');
         Route::get('/create', [SeoController::class, 'create'])->name('seo.create');
