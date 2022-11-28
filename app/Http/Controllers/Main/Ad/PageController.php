@@ -9,6 +9,6 @@ class PageController extends Controller
 {
     public function __invoke()
     {
-        return view('ad.page');
+        return view('main.ad.page');
     }
 }

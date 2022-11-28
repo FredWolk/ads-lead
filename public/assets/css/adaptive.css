@@ -338,4 +338,36 @@
         font-weight: 700;
         font-size: 16px;
     }
+    .articlespage .link--black-rotateble-arrows {
+        display: flex;
+    }
+    .breadcrambs.top{
+        display: none;
+    }
+    .breadcrambs.bot{
+        display: block;
+    }
+    .articlespage .container{
+        padding-top: 30px;
+        padding-bottom: 0px;
+    }
+    .articlespage .title{
+        margin-bottom: 5px;
+    }
+    .articlespage-text{
+        font-size: 14px;
+        line-height: 140%;
+        color: #272C31;
+        margin-bottom: 20px;
+    }
+    .articles_seo-text{
+        margin-top: 63px;
+    }
+    .articles_seo-text--title{
+        margin-bottom: 15px;
+    }
+    .articles_seo-text--text{
+        font-size: 12px;
+        line-height: 140%;
+    }
 }

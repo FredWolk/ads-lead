@@ -9,6 +9,6 @@ class AllVideoController extends Controller
 {
     public function __invoke()
     {
-        return view('video.all-video');
+        return view('main.video.all-video');
     }
 }

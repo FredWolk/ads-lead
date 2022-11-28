@@ -9,6 +9,6 @@ class CatalogController extends Controller
 {
     public function __invoke()
     {
-       return view('ad.catalog');
+       return view('main.ad.catalog');
     }
 }
