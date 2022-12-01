@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
@@ -77,10 +78,13 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/', [SeoController::class, 'index'])->name('seo.index');
         Route::get('/create', [SeoController::class, 'create'])->name('seo.create');
         Route::post('/store', [SeoController::class, 'store'])->name('seo.store');
-        Route::post('/show/{id}', [SeoController::class, 'show'])->name('seo.show');
-        Route::get('/edit/{id}', [SeoController::class, 'edit'])->name('seo.edit');
-        Route::patch('/update/{id}', [SeoController::class, 'update'])->name('seo.update');
-        Route::delete('/destroy/{id}', [SeoController::class, 'destroy'])->name('seo.destroy');
+        Route::get('/{seo}', [SeoController::class, 'show'])->name('seo.show');
+        Route::get('/{seo}/edit', [SeoController::class, 'edit'])->name('seo.edit');
+        Route::patch('/{seo}', [SeoController::class, 'update'])->name('seo.update');
+    });
+    Route::group(['namespace' => 'filters', 'prefix' => 'filters'], function () {
+        Route::get('/{filters}/edit', [FiltersController::class, 'edit'])->name('filters.edit');
+        Route::patch('/{filters}', [FiltersController::class, 'update'])->name('filters.update');
     });
 });
 

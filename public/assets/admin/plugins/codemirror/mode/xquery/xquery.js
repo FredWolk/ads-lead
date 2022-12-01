@@ -297,7 +297,7 @@ CodeMirror.defineMode("xquery", function() {
     return "variable";
   }
 
-  // tokenizer for XML tags
+  // tokenizer for XML verticales
   function tokenTag(name, isclose) {
     return function(stream, state) {
       stream.eatSpace();

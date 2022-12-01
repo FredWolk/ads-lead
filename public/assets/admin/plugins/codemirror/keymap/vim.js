@@ -3393,7 +3393,7 @@
      *   ```
      *   <!-- <div>broken</div> -->
      *   ```
-     * - Does not work when tags have different cases:
+     * - Does not work when verticales have different cases:
      *   ```
      *   <div>broken</DIV>
      *   ```

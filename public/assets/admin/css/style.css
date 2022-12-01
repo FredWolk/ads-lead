@@ -3,7 +3,7 @@
     margin-bottom: 0;
     cursor: pointer;
 }
-.gap__flex{
+.gap__flex, .pt_gap__flex{
     display: flex;
     align-items: center;
     gap: 5px;

@@ -82,6 +82,14 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('filters.edit', 1) }}" class="nav-link">
+                            <i class="nav-icon fas fa-filter"></i>
+                            <p>
+                                Filters
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

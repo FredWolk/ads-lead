@@ -60,7 +60,7 @@
       }
 
       // Ignore completely any stream series that do not match the
-      // Django template opening tags.
+      // Django template opening verticales.
       while (stream.next() != null && !stream.match(/\{[{%#]/, false)) {}
       return null;
     }
