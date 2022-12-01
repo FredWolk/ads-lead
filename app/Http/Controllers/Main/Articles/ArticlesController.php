@@ -9,6 +9,6 @@ class ArticlesController extends Controller
 {
     public function __invoke()
     {
-        return view('articles.all-articles');
+        return view('main.articles.all-articles');
     }
 }

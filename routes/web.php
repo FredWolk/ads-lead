@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-//Auth::routes();
+// Auth::routes();
 //Route::domain('ads-lead.loc')->group(function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('index');
 

@@ -8,6 +8,6 @@ class NetworksController extends Controller
 {
     public function __invoke()
     {
-        return view('cpa.networks');
+        return view('main.cpa.networks');
     }
 }
