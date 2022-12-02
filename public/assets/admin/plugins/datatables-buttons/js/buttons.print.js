@@ -40,7 +40,7 @@ var DataTable = $.fn.dataTable;
 var _link = document.createElement( 'a' );
 
 /**
- * Clone link and style tags, taking into account the need to change the source
+ * Clone link and style verticales, taking into account the need to change the source
  * path.
  *
  * @param  {node}     el Element to convert
@@ -150,7 +150,7 @@ DataTable.ext.buttons.print = {
 
 		win.document.close();
 
-		// Inject the title and also a copy of the style and link tags from this
+		// Inject the title and also a copy of the style and link verticales from this
 		// document so the table can retain its base styling. Note that we have
 		// to use string manipulation as IE won't allow elements to be created
 		// in the host document and then appended to the new window.

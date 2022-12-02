@@ -19,7 +19,7 @@
   var media = ["all", "screen", "print", "embossed", "braille", "handheld", "print", "projection", "screen", "tty", "tv", "speech",
                "3d-glasses", "resolution [>][<][=] [X]", "device-aspect-ratio: X/Y", "orientation:portrait",
                "orientation:landscape", "device-height: [X]", "device-width: [X]"];
-  var s = { attrs: {} }; // Simple tag, reused for a whole lot of tags
+  var s = { attrs: {} }; // Simple tag, reused for a whole lot of verticales
 
   var data = {
     a: {

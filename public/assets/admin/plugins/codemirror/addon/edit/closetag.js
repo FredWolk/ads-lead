@@ -15,9 +15,9 @@
  * `whenOpening` (default true)
  *   Whether to autoclose the tag when the final '>' of an opening
  *   tag is typed.
- * `dontCloseTags` (default is empty tags for HTML, none for XML)
+ * `dontCloseTags` (default is empty verticales for HTML, none for XML)
  *   An array of tag names that should not be autoclosed.
- * `indentTags` (default is block tags for HTML, none for XML)
+ * `indentTags` (default is block verticales for HTML, none for XML)
  *   An array of tag names that should, when opened, cause a
  *   blank line to be added inside the tag, and the blank line and
  *   closing line to be indented.
@@ -168,7 +168,7 @@
     if (!nextClose || nextClose.tag != tagName) return false;
     // If the immediate wrapping context contains onCx instances of
     // the same tag, a closing tag only exists if there are at least
-    // that many closing tags of that type following.
+    // that many closing verticales of that type following.
     var onCx = newTag ? 1 : 0
     for (var i = context.length - 1; i >= 0; i--) {
       if (context[i] == tagName) ++onCx

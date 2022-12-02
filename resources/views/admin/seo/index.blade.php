@@ -1,5 +1,15 @@
 @extends('admin.layouts.admin')
-
+@php(
+  $pageName = [
+    'main' => 'Главная',
+    'cpa' => 'Партнерки',
+    'ads' => 'Реклама',
+    'articles' => 'Статьи',
+    'videos' => 'Видео',
+    'events' => 'События',
+    'forum' => 'Форум',
+  ]
+)
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
@@ -10,7 +20,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
                             <li class="breadcrumb-item active">SEO</li>
                         </ol>
                     </div>
@@ -51,40 +61,37 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($seo as $k => $i)
                                 <tr>
                                     <td>
-                                        1
+                                        {{ $k + 1 }}
                                     </td>
                                     <td>
                                         <a>
-                                            Главная
+                                            {{ $pageName[$i['page']] }}
                                         </a>
                                         <br>
                                         <small>
-                                            Создано 01.01.2019
+                                            Создано {{ date('d.m.Y', strtotime($i['created_at'])) }}
                                         </small>
                                     </td>
                                     <td class="project-state">
-                                        <span class="badge badge-success">Активна</span>
+                                        <span class="badge badge-{{ $i['status'] === 1 ? 'success' : 'danger' }}">{{ $i['status'] === 1 ? 'Активна' : 'Не активна' }}</span>
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="#">
+                                        <a class="btn btn-primary btn-sm" href="{{ route('seo.show', $i['id']) }}">
                                             <i class="fas fa-folder">
                                             </i>
-                                            View
+                                            Просмотр
                                         </a>
-                                        <a class="btn btn-info btn-sm" href="#">
+                                        <a class="btn btn-info btn-sm" href="{{ route('seo.edit', $i['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
-                                            Edit
-                                        </a>
-                                        <a class="btn btn-danger btn-sm" href="#">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Delete
+                                            Редактировать
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

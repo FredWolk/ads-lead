@@ -11,7 +11,7 @@
 })(function(CodeMirror) {
   "use strict";
 
-  CodeMirror.defineSimpleMode("handlebars-tags", {
+  CodeMirror.defineSimpleMode("handlebars-verticales", {
     start: [
       { regex: /\{\{\{/, push: "handlebars_raw", token: "tag" },
       { regex: /\{\{!--/, push: "dash_comment", token: "comment" },
@@ -58,7 +58,7 @@
   });
 
   CodeMirror.defineMode("handlebars", function(config, parserConfig) {
-    var handlebars = CodeMirror.getMode(config, "handlebars-tags");
+    var handlebars = CodeMirror.getMode(config, "handlebars-verticales");
     if (!parserConfig || !parserConfig.base) return handlebars;
     return CodeMirror.multiplexingMode(
       CodeMirror.getMode(config, parserConfig.base),

@@ -57,7 +57,7 @@
       if (cmipVerbs.propertyIsEnumerable(cur)) return "variable cmipVerbs";
       if (compareTypes.propertyIsEnumerable(cur)) return "atom compareTypes";
       if (status.propertyIsEnumerable(cur)) return "comment status";
-      if (tags.propertyIsEnumerable(cur)) return "variable-3 tags";
+      if (tags.propertyIsEnumerable(cur)) return "variable-3 verticales";
       if (storage.propertyIsEnumerable(cur)) return "builtin storage";
       if (modifier.propertyIsEnumerable(cur)) return "string-2 modifier";
       if (accessTypes.propertyIsEnumerable(cur)) return "atom accessTypes";
