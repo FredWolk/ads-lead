@@ -482,4 +482,7 @@
     .filter-aside_list-item_wrapper{
         padding: 0px 10px 20px 10px;
     }
+    .cpapage_main-to-show_filter__tags{
+        width: 330px;
+    }
 }
