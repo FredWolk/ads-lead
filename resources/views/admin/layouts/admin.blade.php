@@ -86,7 +86,31 @@
                         <a href="{{ route('filters.edit', 1) }}" class="nav-link">
                             <i class="nav-icon fas fa-filter"></i>
                             <p>
-                                Filters
+                                Фильтры
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('article.index') }}" class="nav-link">
+                            <i class="nav-icon far fa-newspaper"></i>
+                            <p>
+                                Статьи
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('article.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-handshake"></i>
+                            <p>
+                                Партнерки
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('article.index') }}" class="nav-link">
+                            <i class="nav-icon fab fa-buysellads"></i>
+                            <p>
+                                Рекламы
                             </p>
                         </a>
                     </li>

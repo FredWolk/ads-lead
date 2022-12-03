@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('pt_name', 511);
             $table->string('image', 1023);
             $table->string('logo', 1023);
-            $table->string('prev_text', 2047);
-            $table->string('pt_prev_text', 2047);
-            $table->string('url', 2047);
-            $table->integer('views', 11)->default(0);
-            $table->integer('author_id', 11);
+            $table->text('prev_text');
+            $table->text('pt_prev_text');
+            $table->string('url', 1023);
+            $table->integer('views')->default(0);
+            $table->integer('author_id')->default(0);
             $table->string('verticales_id', 255);
             $table->string('countries_id', 255);
             $table->string('payment_models_id', 255);
@@ -35,14 +35,14 @@ return new class extends Migration
             $table->text('pt_main_text');
 
             $table->string('date_of_creation', 255);
-            $table->string('geography_of_offers:', 511);
-            $table->string('themes_of_offers:', 1023);
-            $table->string('inhaus_offers:', 255);
-            $table->string('minimum_withdrawal_amount:', 255);
-            $table->string('payment_methods:', 511);
-            $table->string('payment_schedule:', 511);
-            $table->string('referral_program:', 255);
-            $table->string('tools:', 1023);
+            $table->string('geography_of_offers', 511);
+            $table->string('themes_of_offers', 1023);
+            $table->string('inhaus_offers', 255);
+            $table->string('minimum_withdrawal_amount', 255);
+            $table->string('payment_methods', 511);
+            $table->string('payment_schedule', 511);
+            $table->string('referral_program', 255);
+            $table->text('tools');
 
             $table->string('manager_image', 1023);
             $table->string('manager_name', 511);
@@ -53,6 +53,12 @@ return new class extends Migration
             $table->string('linkedin', 1023);
             $table->string('forum_link', 1023);
             $table->text('editorial_opinion');
+
+            $table->integer('rating_support')->default(0);
+            $table->integer('rating_payments')->default(0);
+            $table->integer('rating_offers')->default(0);
+            $table->integer('rating_betting')->default(0);
+
             $table->timestamps();
             $table->softDeletes();
         });

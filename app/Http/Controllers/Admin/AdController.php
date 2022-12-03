@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreAdRequest;
-use App\Http\Requests\UpdateAdRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\AD\StoreAdRequest;
+use App\Http\Requests\AD\UpdateAdRequest;
 use App\Models\Ad;
 
 class AdController extends Controller
@@ -31,7 +32,7 @@ class AdController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAdRequest  $request
+     * @param  \App\Http\Requests\AD\StoreAdRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAdRequest $request)
@@ -64,7 +65,7 @@ class AdController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAdRequest  $request
+     * @param  \App\Http\Requests\AD\UpdateAdRequest  $request
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */

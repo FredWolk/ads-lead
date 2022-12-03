@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('seo', function (Blueprint $table) {
             $table->id();
+            $table->string('h1', 255);
+            $table->text('after_h1_text');
+            $table->text('pt_after_h1_text');
             $table->string('page', 255);
             $table->string('title', 511)->nullable();
             $table->string('description', 1023)->nullable();
@@ -37,6 +40,8 @@ return new class extends Migration
             $table->text('pt_meta_tags')->nullable()->nullable();
             $table->text('pt_og_tags')->nullable()->nullable();
             $table->boolean('status')->default(1);
+            $table->text('seo_text');
+            $table->text('pt_seo_text');
             $table->timestamps();
             $table->softDeletes();
         });
