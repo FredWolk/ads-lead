@@ -66,3 +66,18 @@ $('.btn--filter').on('click', function(){
         $('.filter-aside').slideUp(300);
     }
 });
+
+filterbunneroffset = $(".filter-aside-banner.sticky").offset().top
+footeroffset = $(".footer").offset().top - $('.filter-aside-banner.sticky').height() + 40;
+
+$(document).scroll(function(){
+    s_top = $(document).scrollTop();
+    if(s_top > filterbunneroffset){
+        $('.filter-aside-banner.sticky').addClass('active');
+    }else if($('.filter-aside-banner.sticky').hasClass('active')){
+        $('.filter-aside-banner.sticky').removeClass('active');
+    }
+    if(s_top > footeroffset){
+        $('.filter-aside-banner.sticky').removeClass('active');
+    }
+});
