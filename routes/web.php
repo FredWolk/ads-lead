@@ -87,6 +87,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/{filters}/edit', [FiltersController::class, 'edit'])->name('filters.edit');
         Route::patch('/{filters}', [FiltersController::class, 'update'])->name('filters.update');
     });
+
     Route::group(['namespace' => 'seo', 'prefix' => 'article'], function () {
         Route::get('/', [AdminArticleController::class, 'index'])->name('article.index');
         Route::get('/create', [AdminArticleController::class, 'create'])->name('article.create');
@@ -94,7 +95,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/{article}', [AdminArticleController::class, 'show'])->name('article.show');
         Route::get('/{article}/edit', [AdminArticleController::class, 'edit'])->name('article.edit');
         Route::patch('/{article}', [AdminArticleController::class, 'update'])->name('article.update');
-        Route::delete('/{article}', [AdminArticleController::class, 'delete'])->name('article.destroy');
+        Route::delete('/{article}', [AdminArticleController::class, 'destroy'])->name('article.destroy');
     });
 });
 

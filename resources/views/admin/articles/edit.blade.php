@@ -1,26 +1,37 @@
-@php
-    use App\Models\Seo;
-@endphp
-
 @extends('admin.layouts.admin')
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/admin/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/select2.min.css') }}">
 @endsection
 
 @section('content')
+    <style>
+        .select2-container--default .select2-selection--single {
+            height: 38px;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+            color: black;
+            padding-left: 10px !important;
+        }
+
+        .select2-container--default .select2-dropdown .select2-search__field:focus, .select2-container--default .select2-search--inline .select2-search__field:focus {
+            border: none !important;
+        }
+    </style>
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавить SEO к странице</h1>
+                        <h1 class="m-0">Редактирование статьи - {{ $article->name }}</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('seo.index') }}">SEO</a></li>
-                            <li class="breadcrumb-item active">Добавить SEO</li>
+                            <li class="breadcrumb-item"><a href="{{ route('article.index') }}">Статьи</a></li>
+                            <li class="breadcrumb-item active">Добавить статью</li>
                         </ol>
                     </div>
                 </div>
@@ -32,35 +43,155 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form method="post" action="{{ route('seo.update', $seo->id) }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('article.update', $article->id) }}">
                         @csrf
                         @method('patch')
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="pageSelect">Страница</label>
-                                <select name="page" id="pageSelect" class="form-control">
-                                    <option {{ $seo->page === Seo::MAIN_PAGE ? 'selected' : '' }} value="{{ Seo::MAIN_PAGE }}">Главная</option>
-                                    <option {{ $seo->page === Seo::CPA_PAGE ? 'selected' : '' }} value="{{ Seo::CPA_PAGE }}">Партнерки</option>
-                                    <option {{ $seo->page === Seo::ADS_PAGE ? 'selected' : '' }} value="{{ Seo::ADS_PAGE }}">Рекламы</option>
-                                    <option {{ $seo->page === Seo::ARTICLES_PAGE ? 'selected' : '' }} value="{{ Seo::ARTICLES_PAGE }}">Статьи</option>
-                                    <option {{ $seo->page === Seo::VIDEOS_PAGE ? 'selected' : '' }} value="{{ Seo::VIDEOS_PAGE }}">Видео</option>
-                                    <option {{ $seo->page === Seo::EVENTS_PAGE ? 'selected' : '' }} value="{{ Seo::EVENTS_PAGE }}">События</option>
-                                    <option {{ $seo->page === Seo::FORUM_PAGE ? 'selected' : '' }} value="{{ Seo::FORUM_PAGE }}">Форум</option>
-                                </select>
-                            </div>
 
                             <div class="form-group">
-                                <label for="pageActive">Статус страницы</label>
-                                <select name="status" id="pageActive" class="form-control">
-                                    <option {{ $seo->status === 1 ? 'selected' : '' }} value="1">Активная</option>
-                                    <option {{ $seo->status === 0 ? 'selected' : '' }} value="0">Не активная</option>
+                                <label for="name">Название статьи</label>
+                                <input type="text" name="name" value="{{ $article->name }}" class="form-control"
+                                       id="name" placeholder="Название статьи">
+                            </div>
+                            @error('name')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="link">Ссылка на статью</label>
+                                <input type="text" name="link" value="{{ $article->link }}" class="form-control"
+                                       id="link" placeholder="Название статьи">
+                            </div>
+                            @error('link')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="pt_name">Название статьи на португальском</label>
+                                <input type="text" name="pt_name" value="{{ $article->pt_name }}" class="form-control"
+                                       id="pt_name" placeholder="Название статьи">
+                            </div>
+                            @error('pt_name')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                                <img width="150" src="{{ asset('storage/'.$article->image) }}" alt="">
+                            <div class="form-group">
+                                <label for="image">Изображение статьи</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ $article->image }}" name="image" type="file"
+                                               class="custom-file-input" id="image">
+                                        <label class="custom-file-label" for="image">Выберите изображение статьи</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="views">Просмотры</label>
+                                <input type="number" name="views" value="{{ $article->views }}" class="form-control"
+                                       id="views" placeholder="На пример: 41">
+                            </div>
+                            @error('views')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label>Выберите автора</label>
+                                <select name="author_id" class="form-control select2">
+                                    <option value="1">Автор 1</option>
+                                    <option value="2">Автор 2</option>
+                                    <option value="3">Автор 3</option>
                                 </select>
                             </div>
+                            @error('author_id')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="select1">Теги</label>
+                                <select name="tags[]" multiple="multiple" class="form-control select1" id="select1">
+                                    @if(!empty($article->tags))
+                                        @foreach($article->tags as $i)
+                                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            @error('tags')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="select2">Контент</label>
+                                <select name="contents[]" multiple="multiple" class="form-control select1" id="select2">
+                                    @if(!empty($article->contents))
+                                        @foreach($article->contents as $i)
+                                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            @error('contents')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="select3">Контент на португальском</label>
+                                <select name="pt_contents[]" multiple="multiple" class="form-control select1"
+                                        id="select3">
+                                    @if(!empty($article->pt_contents))
+                                        @foreach($article->pt_contents as $i)
+                                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            @error('pt_contents')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="select4">Для кого</label>
+                                <select name="for_whom[]" multiple="multiple" class="form-control select1" id="select4">
+                                    @if(!empty($article->for_whom))
+                                        @foreach($article->for_whom as $i)
+                                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            @error('for_whom')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="select5">Для кого на португальском</label>
+                                <select name="pt_for_whom[]" multiple="multiple" class="form-control select1"
+                                        id="select5">
+                                    @if(!empty($article->pt_for_whom))
+                                        @foreach($article->pt_for_whom as $i)
+                                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            @error('pt_for_whom')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="summernote">Контент статьи</label>
+                                <textarea name="main_text" id="summernote">{{ $article->main_text }}</textarea>
+                            </div>
+                            @error('main_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="summernote2">Контент португальской статьи</label>
+                                <textarea name="pt_main_text" id="summernote2">{{ $article->pt_main_text }}</textarea>
+                            </div>
+                            @error('pt_main_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             <div class="row">
-                                <div class="col-sm-6" data-lang="">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="title">TITLE</label>
-                                        <input name="title" value="{{ $seo->title }}" type="text" class="form-control" id="title"
+                                        <input value="{{ $article->title }}" name="title" type="text"
+                                               class="form-control" id="title"
                                                placeholder="Заголовок страницы">
                                     </div>
                                     @error('title')
@@ -69,7 +200,8 @@
 
                                     <div class="form-group">
                                         <label for="description">DESCRIPTION</label>
-                                        <input value="{{ $seo->description }}" name="description" type="text" class="form-control" id="description"
+                                        <input value="{{ $article->description }}" name="description" type="text"
+                                               class="form-control" id="description"
                                                placeholder="Описание страницы">
                                     </div>
                                     @error('description')
@@ -78,7 +210,8 @@
 
                                     <div class="form-group">
                                         <label for="keywords">KEYWORDS</label>
-                                        <input value="{{ $seo->keywords }}" name="keywords" type="text" class="form-control" id="keywords"
+                                        <input value="{{ $article->og_url }}" name="keywords" type="text"
+                                               class="form-control" id="keywords"
                                                placeholder="Введите ключевые слова через ';'">
                                     </div>
                                     @error('keywords')
@@ -87,7 +220,8 @@
 
                                     <div class="form-group">
                                         <label for="og_title">OG_TITLE</label>
-                                        <input value="{{ $seo->og_title }}" name="og_title" type="text" class="form-control" id="og_title"
+                                        <input value="{{ $article->og_url }}" name="og_title" type="text"
+                                               class="form-control" id="og_title"
                                                placeholder="Заголовок страницы">
                                     </div>
                                     @error('og_title')
@@ -96,7 +230,8 @@
 
                                     <div class="form-group">
                                         <label for="og_description">OG_DESCRIPTION</label>
-                                        <input value="{{ $seo->og_description }}" name="og_description" type="text" class="form-control" id="og_description"
+                                        <input value="{{ $article->og_url }}" name="og_description" type="text"
+                                               class="form-control" id="og_description"
                                                placeholder="Описание страницы">
                                     </div>
                                     @error('og_description')
@@ -105,7 +240,8 @@
 
                                     <div class="form-group">
                                         <label for="og_url">OG_URL</label>
-                                        <input value="{{ $seo->og_url }}" name="og_url" type="text" class="form-control" id="og_url"
+                                        <input value="{{ $article->og_url }}" name="og_url" type="text"
+                                               class="form-control" id="og_url"
                                                placeholder="Ссылка на страницу">
                                     </div>
                                     @error('og_url')
@@ -114,7 +250,8 @@
 
                                     <div class="form-group">
                                         <label for="og_image">OG_IMAGE</label>
-                                        <input value="{{ $seo->og_image }}" name="og_image" type="text" class="form-control" id="og_image"
+                                        <input value="{{ $article->og_image }}" name="og_image" type="text"
+                                               class="form-control" id="og_image"
                                                placeholder="Сылка на изображение">
                                     </div>
                                     @error('og_image')
@@ -123,7 +260,8 @@
 
                                     <div class="form-group">
                                         <label for="og_type">OG_TYPE</label>
-                                        <input value="{{ $seo->og_type }}" name="og_type" type="text" class="form-control" id="og_type"
+                                        <input value="{{ $article->og_type }}" name="og_type" type="text"
+                                               class="form-control" id="og_type"
                                                placeholder="Тип страницы">
                                     </div>
                                     @error('og_type')
@@ -131,12 +269,15 @@
                                     @enderror
 
                                     <div id="meta_block" class="form-group gap__flex"></div>
-                                    <input value="{{ !empty($seo->meta_tags) ? $seo->meta_tags : '[]' }}" type="hidden" id="meta_tags" name="meta_tags">
+                                    <input value="{{ $article->meta_tags }}" type="hidden" id="meta_tags"
+                                           name="meta_tags">
                                     <div class="form-group">
                                         <label for="meta_name">META_TAGS</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="meta_name" placeholder="Name">
-                                            <input type="text" class="form-control" id="meta_content" placeholder="Content">
+                                            <input type="text" class="form-control col-2" id="meta_name"
+                                                   placeholder="Name">
+                                            <input type="text" class="form-control" id="meta_content"
+                                                   placeholder="Content">
                                             <button data-lang="" data-type="meta" type="button" id="add_meta"
                                                     class="startFunc btn btn-warning">Добавить
                                             </button>
@@ -146,12 +287,14 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                     <div id="og_block" class="form-group gap__flex"></div>
-                                    <input value="{{ !empty($seo->og_tags) ? $seo->og_tags : '[]' }}" id="og_tags" type="hidden" name="og_tags">
+                                    <input value="{{ $article->og_tags }}" type="hidden" name="og_tags">
                                     <div class="form-group">
                                         <label for="og_name">OG_TAGS</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="og_name" placeholder="Name">
-                                            <input type="text" class="form-control" id="og_content" placeholder="Content">
+                                            <input type="text" class="form-control col-2" id="og_name"
+                                                   placeholder="Name">
+                                            <input type="text" class="form-control" id="og_content"
+                                                   placeholder="Content">
                                             <button data-lang="" data-type="og" type="button" id="add_og"
                                                     class="startFunc btn btn-warning">Добавить
                                             </button>
@@ -164,7 +307,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="pt_title">PT TITLE</label>
-                                        <input value="{{ $seo->pt_title }}" name="pt_title" type="text" class="form-control" id="pt_title"
+                                        <input value="{{ $article->pt_title }}" name="pt_title" type="text"
+                                               class="form-control" id="pt_title"
                                                placeholder="Заголовок страницы">
                                     </div>
                                     @error('pt_title')
@@ -173,7 +317,8 @@
 
                                     <div class="form-group">
                                         <label for="pt_description">PT DESCRIPTION</label>
-                                        <input value="{{ $seo->pt_description }}" name="pt_description" type="text" class="form-control" id="pt_description"
+                                        <input value="{{ $article->pt_description }}" name="pt_description" type="text"
+                                               class="form-control" id="pt_description"
                                                placeholder="Описание страницы">
                                     </div>
                                     @error('pt_description')
@@ -182,7 +327,8 @@
 
                                     <div class="form-group">
                                         <label for="pt_keywords">PT KEYWORDS</label>
-                                        <input value="{{ $seo->pt_keywords }}" name="pt_keywords" type="text" class="form-control" id="pt_keywords"
+                                        <input value="{{ $article->pt_keywords }}" name="pt_keywords" type="text"
+                                               class="form-control" id="pt_keywords"
                                                placeholder="Введите ключевые слова через ';'">
                                     </div>
                                     @error('pt_keywords')
@@ -191,7 +337,8 @@
 
                                     <div class="form-group">
                                         <label for="pt_og_title">PT OG_TITLE</label>
-                                        <input value="{{ $seo->pt_og_title }}" name="pt_og_title" type="text" class="form-control" id="pt_og_title"
+                                        <input value="{{ $article->pt_og_title }}" name="pt_og_title" type="text"
+                                               class="form-control" id="pt_og_title"
                                                placeholder="Заголовок страницы">
                                     </div>
                                     @error('pt_og_title')
@@ -200,7 +347,8 @@
 
                                     <div class="form-group">
                                         <label for="pt_og_description">PT OG_DESCRIPTION</label>
-                                        <input value="{{ $seo->pt_og_description }}" name="pt_og_description" type="text" class="form-control" id="pt_og_description"
+                                        <input value="{{ $article->pt_og_description }}" name="pt_og_description"
+                                               type="text" class="form-control" id="pt_og_description"
                                                placeholder="Описание страницы">
                                     </div>
                                     @error('pt_og_description')
@@ -209,7 +357,8 @@
 
                                     <div class="form-group">
                                         <label for="pt_og_url">PT OG_URL</label>
-                                        <input value="{{ $seo->pt_og_url }}" name="pt_og_url" type="text" class="form-control" id="pt_og_url"
+                                        <input value="{{ $article->pt_og_url }}" name="pt_og_url" type="text"
+                                               class="form-control" id="pt_og_url"
                                                placeholder="Ссылка на страницу">
                                     </div>
                                     @error('pt_og_url')
@@ -218,7 +367,8 @@
 
                                     <div class="form-group">
                                         <label for="pt_og_image">PT OG_IMAGE</label>
-                                        <input value="{{ $seo->pt_og_image }}" name="pt_og_image" type="text" class="form-control" id="pt_og_image"
+                                        <input value="{{ $article->pt_og_image }}" name="pt_og_image" type="text"
+                                               class="form-control" id="pt_og_image"
                                                placeholder="Сылка на изображение">
                                     </div>
                                     @error('pt_og_image')
@@ -227,7 +377,8 @@
 
                                     <div class="form-group">
                                         <label for="pt_og_type">PT OG_TYPE</label>
-                                        <input value="{{ $seo->pt_og_type }}" name="pt_og_type" type="text" class="form-control" id="pt_og_type"
+                                        <input value="{{ $article->pt_og_type }}" name="pt_og_type" type="text"
+                                               class="form-control" id="pt_og_type"
                                                placeholder="Тип страницы">
                                     </div>
                                     @error('pt_og_type')
@@ -236,12 +387,15 @@
 
                                     <div id="pt_meta_block" class="form-group pt_gap__flex"></div>
 
-                                    <input value="{{ !empty($seo->pt_meta_tags) ? $seo->pt_meta_tags : '[]' }}" type="hidden" id="pt_meta_tags" name="pt_meta_tags">
+                                    <input value="{{ $article->pt_meta_tags }}" type="hidden" id="pt_meta_tags"
+                                           name="pt_meta_tags">
                                     <div class="form-group">
                                         <label for="pt_meta_name">PT META_TAGS</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="pt_meta_name" placeholder="Name">
-                                            <input type="text" class="form-control" id="pt_meta_content" placeholder="Content">
+                                            <input type="text" class="form-control col-2" id="pt_meta_name"
+                                                   placeholder="Name">
+                                            <input type="text" class="form-control" id="pt_meta_content"
+                                                   placeholder="Content">
                                             <button data-type="meta" type="button" id="pt_add_meta"
                                                     class="pt_startFunc btn btn-warning">Добавить
                                             </button>
@@ -253,12 +407,14 @@
 
                                     <div id="pt_og_block" class="form-group pt_gap__flex"></div>
 
-                                    <input value="{{ !empty($seo->pt_og_tags) ? $seo->pt_og_tags : '[]' }}" id="pt_og_tags" type="hidden" name="pt_og_tags">
+                                    <input value="{{ $article->pt_og_tags }}" type="hidden" name="pt_og_tags">
                                     <div class="form-group">
                                         <label for="pt_og_name">PT OG_TAGS</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="pt_og_name" placeholder="Name">
-                                            <input type="text" class="form-control" id="pt_og_content" placeholder="Content">
+                                            <input type="text" class="form-control col-2" id="pt_og_name"
+                                                   placeholder="Name">
+                                            <input type="text" class="form-control" id="pt_og_content"
+                                                   placeholder="Content">
                                             <button data-type="og" type="button" id="pt_add_og"
                                                     class="pt_startFunc btn btn-warning">Добавить
                                             </button>
@@ -281,131 +437,41 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
+
     <script>
-        var meta = JSON.parse($('#meta_tags').val()),
-            og = JSON.parse($('#og_tags').val());
-
-        function render(type, content) {
-            var block = $('#' + type + '_block');
-            block.text('');
-            content.map((e, key) => {
-                block.append(`
-                    <div data-id="${key}" data-type="${type}" class="alert alert-secondary">
-                        Название: ${e.name}; Контент: ${e.content};
-                    </div>
-                `)
+        $(function () {
+            $('#summernote').summernote();
+            $('#summernote2').summernote();
+            $('.select2').select2()
+            $('#select1').select2({
+                tags: true,
             })
-        }
-        render('og', og);
-        render('meta', meta);
-
-        function remove(type, id) {
-            if (type === 'og') {
-                og.splice(id, 1)
-                render(type, og)
-            } else {
-                meta.splice(id, 1)
-                render(type, meta)
-            }
-        }
-
-        $('.gap__flex').on('click', '.alert', function () {
-            let type = $(this).attr('data-type'),
-                id = $(this).attr('data-id');
-            remove(type, id);
-        })
-
-        $('.startFunc').on('click', function () {
-            let obj = {},
-                type = $(this).attr('data-type'),
-                lang = $(this).attr('data-lang'),
-                name = $('#' + lang + type + '_name'),
-                content = $('#' + lang + type + '_content');
-
-            obj.name = name.val();
-            obj.content = content.val();
-
-            if (type === 'og') {
-                og.push(obj)
-                $('#' + type + '_tags').val(JSON.stringify(og))
-                render(type, og)
-            } else {
-                meta.push(obj)
-                $('#' + type + '_tags').val(JSON.stringify(meta))
-                render(type, meta)
-            }
-            name.val('');
-            content.val('');
+            $('#select2').select2({
+                tags: true,
+            })
+            $('#select3').select2({
+                tags: true,
+            })
+            $('#select4').select2({
+                tags: true,
+            })
+            $('#select5').select2({
+                tags: true,
+            })
+            bsCustomFileInput.init();
         });
 
-        var pt_meta = JSON.parse($('#pt_meta_tags').val()),
-            pt_og = JSON.parse($('#pt_og_tags').val())
-
-        function pt_render(type, content) {
-            var block = $('#pt_' + type + '_block');
-            block.text('');
-            content.map((e, key) => {
-                block.append(`
-                    <div data-id="${key}" data-type="${type}" class="alert alert-secondary">
-                        Название: ${e.name}; Контент: ${e.content};
-                    </div>
-                `)
-            })
-        }
-
-        pt_render('og', pt_og);
-        pt_render('meta', pt_meta);
-
-        function pt_remove(type, id) {
-            if (type === 'og') {
-                pt_og.splice(id, 1)
-                pt_render(type, pt_og)
-            } else {
-                pt_meta.splice(id, 1)
-                pt_render(type, pt_meta)
-            }
-        }
-
-
-        $('.pt_gap__flex').on('click', '.alert', function () {
-            let type = $(this).attr('data-type'),
-                id = $(this).attr('data-id');
-            pt_remove(type, id);
-        })
-
-        $('.pt_startFunc').on('click', function () {
-            let obj = {},
-                type = $(this).attr('data-type'),
-                name = $('#pt_' + type + '_name'),
-                content = $('#pt_' + type + '_content');
-
-            obj.name = name.val();
-            obj.content = content.val();
-
-            if (type === 'og') {
-                pt_og.push(obj)
-                $('#pt_' + type + '_tags').val(JSON.stringify(pt_og))
-                pt_render(type, pt_og)
-            } else {
-                pt_meta.push(obj)
-                $('#pt_' + type + '_tags').val(JSON.stringify(pt_meta))
-                pt_render(type, pt_meta)
-            }
-            name.val('');
-            content.val('');
-        });
-
-        $('#title').on('input', function (){
-            $('#og_title').val($(this).val())
-        })
-        $('#description').on('input', function (){
-            $('#og_description').val($(this).val())
-        })
-        $('#pt_title').on('input', function (){
-            $('#pt_og_title').val($(this).val())
-        })
-        $('#pt_description').on('input', function (){
-            $('#pt_og_description').val($(this).val())
+        $('#name').on('input', function () {
+            var j = createLink($(this).val());
+            j = j.replace(/ /g, '-');
+            j = j.replace(/,-/g, '-');
+            j = j.replace(/\\/g, '-');
+            j = j.replace(/\//g, '-');
+            $('#link').val(j.toLowerCase());
         })
     </script>
+
 @endsection

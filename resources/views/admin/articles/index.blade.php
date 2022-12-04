@@ -39,8 +39,8 @@
                                     <th style="width: 1%">
                                         #
                                     </th>
-                                    <th style="width: 20%">
-                                        Название страницы
+                                    <th style="width: 50%">
+                                        Название статьи
                                     </th>
 
                                     <th class="text-right" style="width: 40%">
@@ -50,37 +50,42 @@
                                 </thead>
                                 <tbody>
                                 @foreach($article as $k => $i)
-                                <tr>
-                                    <td>
-                                        {{ $k + 1 }}
-                                    </td>
-                                    <td>
-                                        <a>
-                                            {{ $i['name'] }}
-                                        </a>
-                                        <br>
-                                        <small>
-                                            Создано {{ date('d.m.Y', strtotime($i['created_at'])) }}
-                                        </small>
-                                    </td>
-                                    <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="{{ route('article.show', $i['id']) }}">
-                                            <i class="fas fa-folder">
-                                            </i>
-                                            Просмотр
-                                        </a>
-                                        <a class="btn btn-info btn-sm" href="{{ route('article.edit', $i['id']) }}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Редактировать
-                                        </a>
-                                        <a class="btn btn-info btn-sm" href="{{ route('article.edit', $i['id']) }}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Удалить
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            {{ $k + 1 }}
+                                        </td>
+                                        <td>
+                                            <a>
+                                                <b>{{ $i['name'] }}</b>
+                                            </a>
+                                            <br>
+                                            <small>
+                                                Создано {{ date('d.m.Y', strtotime($i['created_at'])) }}
+                                            </small>
+                                        </td>
+                                        <td class="project-actions text-right">
+                                            <a class="btn btn-primary btn-sm"
+                                               href="{{ route('article.show', $i['id']) }}">
+                                                <i class="fas fa-folder">
+                                                </i>
+                                                Просмотр
+                                            </a>
+                                            <a class="btn btn-info btn-sm" href="{{ route('article.edit', $i['id']) }}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Редактировать
+                                            </a>
+                                            <button form="delete_{{$k}}" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Удалить
+                                            </button>
+                                            <form id="delete_{{$k}}" method="post" action="{{route('article.destroy', $i['id']) }}">
+                                                @method('delete')
+                                                @csrf
+                                            </form>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>

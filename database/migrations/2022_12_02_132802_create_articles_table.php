@@ -21,11 +21,11 @@ return new class extends Migration
             $table->string('image', 1023);
             $table->integer('views')->default(0);
             $table->integer('author_id');
-            $table->text('tags');
-            $table->text('contents');
-            $table->text('pt_contents');
-            $table->text('for_whom');
-            $table->text('pt_for_whom');
+            $table->json('tags')->nullable();
+            $table->json('contents')->nullable();
+            $table->json('pt_contents')->nullable();
+            $table->json('for_whom')->nullable();
+            $table->json('pt_for_whom')->nullable();
             $table->text('main_text');
             $table->text('pt_main_text');
 
