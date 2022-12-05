@@ -13,15 +13,25 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('seo', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('h1', 255);
-            $table->text('after_h1_text');
-            $table->text('pt_after_h1_text');
-            $table->string('page', 255);
+            $table->string('name', 511);
+            $table->string('link', 511);
+            $table->string('pt_name', 511);
+            $table->string('image', 1023);
+            $table->integer('views')->default(0);
+            $table->integer('author_id');
+            $table->json('tags')->nullable();
+            $table->json('contents')->nullable();
+            $table->json('pt_contents')->nullable();
+            $table->json('for_whom')->nullable();
+            $table->json('pt_for_whom')->nullable();
+            $table->text('main_text');
+            $table->text('pt_main_text');
+
             $table->string('title', 511)->nullable();
             $table->string('description', 1023)->nullable();
-            $table->string('keywords', 2047)->nullable();
+            $table->text('keywords')->nullable();
             $table->string('og_title', 511)->nullable();
             $table->string('og_description', 511)->nullable();
             $table->string('og_url', 511)->nullable();
@@ -31,7 +41,7 @@ return new class extends Migration
             $table->text('og_tags')->nullable()->nullable();
             $table->string('pt_title', 511)->nullable();
             $table->string('pt_description', 1023)->nullable();
-            $table->string('pt_keywords', 2047)->nullable();
+            $table->text('pt_keywords')->nullable();
             $table->string('pt_og_title', 511)->nullable();
             $table->string('pt_og_description', 511)->nullable();
             $table->string('pt_og_url', 511)->nullable();
@@ -39,9 +49,7 @@ return new class extends Migration
             $table->string('pt_og_type', 511)->nullable();
             $table->text('pt_meta_tags')->nullable()->nullable();
             $table->text('pt_og_tags')->nullable()->nullable();
-            $table->boolean('status')->default(1);
-            $table->text('seo_text');
-            $table->text('pt_seo_text');
+
             $table->timestamps();
             $table->softDeletes();
         });
@@ -54,6 +62,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seo');
+        Schema::dropIfExists('articles');
     }
 };

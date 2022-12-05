@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\IndexController;
@@ -85,6 +86,16 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
     Route::group(['namespace' => 'filters', 'prefix' => 'filters'], function () {
         Route::get('/{filters}/edit', [FiltersController::class, 'edit'])->name('filters.edit');
         Route::patch('/{filters}', [FiltersController::class, 'update'])->name('filters.update');
+    });
+
+    Route::group(['namespace' => 'seo', 'prefix' => 'article'], function () {
+        Route::get('/', [AdminArticleController::class, 'index'])->name('article.index');
+        Route::get('/create', [AdminArticleController::class, 'create'])->name('article.create');
+        Route::post('/store', [AdminArticleController::class, 'store'])->name('article.store');
+        Route::get('/{article}', [AdminArticleController::class, 'show'])->name('article.show');
+        Route::get('/{article}/edit', [AdminArticleController::class, 'edit'])->name('article.edit');
+        Route::patch('/{article}', [AdminArticleController::class, 'update'])->name('article.update');
+        Route::delete('/{article}', [AdminArticleController::class, 'destroy'])->name('article.destroy');
     });
 });
 
