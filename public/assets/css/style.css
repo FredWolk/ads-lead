@@ -1042,6 +1042,10 @@ img
 .main_articles_top_link-wrapp-arrows svg path{
     animation-name: arrowsblink-red;
 }
+.allvideopage
+.main_articles_top_link-wrapp-arrows svg path{
+    animation-name: arrowsblink-red;
+}
 @keyframes arrowsblink-red{
     0%{
         fill: #272C31;
@@ -1509,7 +1513,6 @@ img
 /*--CPA--*/
 .cpapage .container{
     display: flex;
-    align-items: start;
     gap: 20px;
     justify-content: space-between;
     padding-bottom: 96px;
@@ -1791,6 +1794,26 @@ img
 .cpa-catalog-page .cpapage_info-wrapper{
     gap: 50px;
 }
+.btn--grey-with-icons.mobile{
+    display: none;
+}
+.cpapage_main-to-hide{
+    max-width: 100%;
+    width: 100%;
+}
+.cpapage_main-to-show_filter__tags.visible{
+    overflow: auto;
+    display: flex;
+    gap: 10px 3px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    width: 100%;
+    align-items: start;
+}
+.cpapage_main-to-show_filter__tags.visible li{
+    user-select: none;
+    cursor: pointer;
+}
 /*--CPA--*/
 
 /*--FILTER-ASIDE--*/
@@ -1924,3 +1947,14 @@ form{
     max-width: inherit;
 }
 /*--FILTER-ASIDE--*/
+
+/*--ALL-VIDEO--*/
+.allvideopage_top{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 33px;
+}
+/*--ALL-VIDEO--*/
