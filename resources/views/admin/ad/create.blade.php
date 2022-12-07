@@ -25,13 +25,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавить статью</h1>
+                        <h1 class="m-0">Добавить партнерку</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('article.index') }}">Статьи</a></li>
-                            <li class="breadcrumb-item active">Добавить статью</li>
+                            <li class="breadcrumb-item"><a href="{{ route('ad.index') }}">Партнерки</a></li>
+                            <li class="breadcrumb-item active">Добавить партнерку</li>
                         </ol>
                     </div>
                 </div>
@@ -43,12 +43,12 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('article.store') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('ad.store') }}">
                         @csrf
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="name">Название статьи</label>
+                                <label for="name">Название партнерки</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name"
                                        placeholder="Название статьи">
                             </div>
@@ -56,7 +56,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="link">Ссылка на статью</label>
+                                <label for="link">Ссылка на партнерку</label>
                                 <input type="text" name="link" value="{{ old('link') }}" class="form-control" id="link"
                                        placeholder="Название статьи">
                             </div>
@@ -64,7 +64,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="pt_name">Название статьи на португальском</label>
+                                <label for="pt_name">Название партнерки на португальском</label>
                                 <input type="text" name="pt_name" value="{{ old('pt_name') }}" class="form-control"
                                        id="pt_name" placeholder="Название статьи">
                             </div>
@@ -72,18 +72,62 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="image">Изображение статьи</label>
+                                <label for="image">Изображение партнерки</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input value="{{ old('image') }}" name="image" type="file"
                                                class="custom-file-input" id="image">
-                                        <label class="custom-file-label" for="image">Выберите изображение статьи</label>
+                                        <label class="custom-file-label" for="image">Выберите изображение
+                                            партнерки</label>
                                     </div>
                                 </div>
                             </div>
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+                            <div class="form-group">
+                                <label for="image">Логотип партнерки</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ old('image') }}" name="image" type="file"
+                                               class="custom-file-input" id="image">
+                                        <label class="custom-file-label" for="image">Выберите логотип партнерки</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="prev_text">Превью текст партнерки</label>
+                                <textarea name="prev_text" class="form-control"
+                                          id="views"
+                                          placeholder="Превью текст партнерки">{{ old('prev_text') }}</textarea>
+                            </div>
+                            @error('prev_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="pt_prev_text">Превью текст партнерки на португальском</label>
+                                <textarea name="pt_prev_text" class="form-control"
+                                          id="pt_prev_text"
+                                          placeholder="Превью текст партнерки на португальском">{{ old('pt_prev_text') }}</textarea>
+                            </div>
+                            @error('pt_prev_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="url">Веб сайт партнерки</label>
+                                <input type="url" name="url" value="{{ old('url') }}" class="form-control"
+                                       id="url" placeholder="https://google.com">
+                            </div>
+                            @error('url')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="form-group">
                                 <label for="views">Просмотры</label>
                                 <input type="number" name="views" value="{{ old('views') }}" class="form-control"
@@ -92,98 +136,142 @@
                             @error('views')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
                             <div class="form-group">
-                                <label>Выберите автора</label>
-                                <select name="author_id" class="form-control select2">
-                                    @foreach($authors as $i)
-                                        <option value="{{ $i['id'] }}">{{ $i['name'] }}</option>
-                                    @endforeach
+                                <label for="select1">Вертикали</label>
+                                <select name="verticales_id[]" multiple="multiple" class="form-control select1" id="select1">
+                                        @foreach(json_decode($filters['vertical']) as $i)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endforeach
                                 </select>
                             </div>
-                            @error('author_id')
+                            @error('verticales_id')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
                             <div class="form-group">
-                                <label for="select1">Теги</label>
-                                <select name="tags[]" multiple="multiple" class="form-control select1" id="select1">
-                                    @if(!empty(old('tags')))
-                                        @foreach(old('tags') as $i)
+                                <label for="select2">Страны</label>
+                                <select name="countries_id[]" multiple="multiple" class="form-control select1" id="select2">
+                                    @if(!empty(old('countries_id')))
+                                        @foreach(old('countries_id') as $i)
                                             <option value="{{ $i }}" selected>{{ $i }}</option>
                                         @endforeach
                                     @endif
                                 </select>
                             </div>
-                            @error('tags')
+                            @error('countries_id')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
                             <div class="form-group">
-                                <label for="select2">Контент</label>
-                                <select name="contents[]" multiple="multiple" class="form-control select1" id="select2">
-                                    @if(!empty(old('contents')))
-                                        @foreach(old('contents') as $i)
-                                            <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            @error('contents')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group">
-                                <label for="select3">Контент на португальском</label>
-                                <select name="pt_contents[]" multiple="multiple" class="form-control select1"
+                                <label for="select3">Модели оплаты</label>
+                                <select name="payment_models_id[]" multiple="multiple" class="form-control select1"
                                         id="select3">
-                                    @if(!empty(old('pt_contents')))
-                                        @foreach(old('pt_contents') as $i)
+                                    @if(!empty(old('payment_models_id')))
+                                        @foreach(old('payment_models_id') as $i)
                                             <option value="{{ $i }}" selected>{{ $i }}</option>
                                         @endforeach
                                     @endif
                                 </select>
                             </div>
-                            @error('pt_contents')
+                            @error('payment_models_id')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
                             <div class="form-group">
-                                <label for="select4">Для кого</label>
-                                <select name="for_whom[]" multiple="multiple" class="form-control select1" id="select4">
-                                    @if(!empty(old('for_whom')))
-                                        @foreach(old('for_whom') as $i)
+                                <label for="select4">Периодичность выплат</label>
+                                <select name="payment_schedule_id[]" multiple="multiple" class="form-control select1" id="select4">
+                                    @if(!empty(old('payment_schedule_id')))
+                                        @foreach(old('payment_schedule_id') as $i)
                                             <option value="{{ $i }}" selected>{{ $i }}</option>
                                         @endforeach
                                     @endif
                                 </select>
                             </div>
-                            @error('for_whom')
+                            @error('payment_schedule_id')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
                             <div class="form-group">
-                                <label for="select5">Для кого на португальском</label>
-                                <select name="pt_for_whom[]" multiple="multiple" class="form-control select1"
+                                <label for="select5">Платежные системы</label>
+                                <select name="payment_systems_id[]" multiple="multiple" class="form-control select1"
                                         id="select5">
-                                    @if(!empty(old('pt_for_whom')))
-                                        @foreach(old('pt_for_whom') as $i)
+                                    @if(!empty(old('payment_systems_id')))
+                                        @foreach(old('payment_systems_id') as $i)
                                             <option value="{{ $i }}" selected>{{ $i }}</option>
                                         @endforeach
                                     @endif
                                 </select>
                             </div>
-                            @error('pt_for_whom')
+                            @error('payment_systems_id')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
+
                             <div class="form-group">
-                                <label for="summernote">Контент статьи</label>
-                                <textarea name="main_text" id="summernote">{{ old('main_text') }}</textarea>
+                                <label for="summernote">Текст перед статьей</label>
+                                <textarea class="summernote" name="before_main_text"
+                                          id="summernote">{{ old('before_main_text') }}</textarea>
                             </div>
                             @error('main_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="summernote2">Контент португальской статьи</label>
-                                <textarea name="pt_main_text" id="summernote2">{{ old('pt_main_text') }}</textarea>
+                                <label for="summernote1">Текст перед статьей на португальском</label>
+                                <textarea class="summernote" name="pt_before_main_text"
+                                          id="summernote1">{{ old('pt_before_main_text') }}</textarea>
                             </div>
                             @error('pt_main_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
+                            <div class="form-group">
+                                <label for="summernote2">Контент статьи</label>
+                                <textarea class="summernote" name="main_text" id="summernote2">{{ old('main_text') }}</textarea>
+                            </div>
+                            @error('main_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="summernote3">Контент португальской статьи</label>
+                                <textarea class="summernote" name="pt_main_text"
+                                          id="summernote3">{{ old('pt_main_text') }}</textarea>
+                            </div>
+                            @error('pt_main_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="date_of_creation">Дата создания</label>
+                                <input value="{{ old('date_of_creation') }}" name="date_of_creation" type="text" class="form-control"
+                                       id="date_of_creation"
+                                       placeholder="2022">
+                            </div>
+                            @error('date_of_creation')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="traffic_volume_per_month">Трафик в месяц</label>
+                                <input value="{{ old('traffic_volume_per_month') }}" name="traffic_volume_per_month" type="text" class="form-control" id="traffic_volume_per_month" placeholder="2022">
+                            </div>
+                            @error('traffic_volume_per_month')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="formats">Трафик в месяц</label>
+                                <input value="{{ old('formats') }}" name="formats" type="text" class="form-control"
+                                       id="formats"
+                                       placeholder="2022">
+                            </div>
+                            @error('formats')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+
+
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -440,24 +528,9 @@
 
     <script>
         $(function () {
-            $('#summernote').summernote();
-            $('#summernote2').summernote();
+            $('.summernote').summernote();
             $('.select2').select2()
-            $('#select1').select2({
-                tags: true,
-            })
-            $('#select2').select2({
-                tags: true,
-            })
-            $('#select3').select2({
-                tags: true,
-            })
-            $('#select4').select2({
-                tags: true,
-            })
-            $('#select5').select2({
-                tags: true,
-            })
+            $('#select1, #select2, #select3, #select4, #select5').select2()
             bsCustomFileInput.init();
         });
 

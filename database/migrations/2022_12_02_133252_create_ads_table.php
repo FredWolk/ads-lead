@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->string('name', 511);
+            $table->string('link', 511);
             $table->string('pt_name', 511);
-            $table->string('image', 1023);
-            $table->string('logo', 1023);
+            $table->text('image');
+            $table->text('logo');
             $table->text('prev_text');
             $table->text('pt_prev_text');
-            $table->string('url', 1023);
+            $table->string('url', 511);
             $table->integer('views')->default(0);
-            $table->integer('author_id');
             $table->string('verticales_id', 255);
             $table->string('countries_id', 255);
             $table->string('payment_models_id', 255);
@@ -44,16 +44,37 @@ return new class extends Migration
             $table->string('referral_program', 255);
             $table->text('tools');
 
-            $table->string('facebook', 1023);
-            $table->string('instagram', 1023);
-            $table->string('linkedin', 1023);
-            $table->string('forum_link', 1023);
+            $table->string('facebook', 511);
+            $table->string('instagram', 511);
+            $table->string('linkedin', 511);
+            $table->string('forum_link', 511);
             $table->text('editorial_opinion');
 
             $table->integer('rating_support')->default(0);
             $table->integer('rating_payments')->default(0);
             $table->integer('rating_offers')->default(0);
             $table->integer('rating_betting')->default(0);
+
+            $table->string('title', 511)->nullable();
+            $table->string('description', 1023)->nullable();
+            $table->text('keywords')->nullable();
+            $table->string('og_title', 511)->nullable();
+            $table->string('og_description', 511)->nullable();
+            $table->string('og_url', 511)->nullable();
+            $table->string('og_image', 511)->nullable();
+            $table->string('og_type', 511)->nullable();
+            $table->text('meta_tags')->nullable()->nullable();
+            $table->text('og_tags')->nullable()->nullable();
+            $table->string('pt_title', 511)->nullable();
+            $table->string('pt_description', 1023)->nullable();
+            $table->text('pt_keywords')->nullable();
+            $table->string('pt_og_title', 511)->nullable();
+            $table->string('pt_og_description', 511)->nullable();
+            $table->string('pt_og_url', 511)->nullable();
+            $table->string('pt_og_image', 511)->nullable();
+            $table->string('pt_og_type', 511)->nullable();
+            $table->text('pt_meta_tags')->nullable()->nullable();
+            $table->text('pt_og_tags')->nullable()->nullable();
 
             $table->timestamps();
             $table->softDeletes();

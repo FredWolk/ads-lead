@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AdController;
+use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\CpaController;
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Main\Event\EventPageController;
+use App\Http\Controllers\Main\Event\EventsController;
+use App\Http\Controllers\Main\Forum\ForumController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\IndexController;
@@ -68,7 +74,26 @@ use Illuminate\Support\Facades\Route;
         Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
         Route::get('/{video}', [VideoController::class, '__invoke'])->name('video.page');
     });
+
+    Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
+        Route::get('/', [EventsController::class, '__invoke'])->name('events');
+        Route::get('/{event}', [EventPageController::class, '__invoke'])->name('event.page');
+    });
+
+    Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
+        Route::get('/', [ForumController::class, '__invoke'])->name('forum');
+    });
+
+
 //});
+
+/* ЛИЧНЫЙ КАБИНЕТ */
+Route::group(['namespace' => 'user', 'prefix' => 'user'], function (){
+
+});
+/* ЛИЧНЫЙ КАБИНЕТ */
+
+
 
 /* ДАЛЬШЕ ИДЕТ МРАК АДМИНКИ */
 
@@ -88,7 +113,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::patch('/{filters}', [FiltersController::class, 'update'])->name('filters.update');
     });
 
-    Route::group(['namespace' => 'seo', 'prefix' => 'article'], function () {
+    Route::group(['namespace' => 'article', 'prefix' => 'article'], function () {
         Route::get('/', [AdminArticleController::class, 'index'])->name('article.index');
         Route::get('/create', [AdminArticleController::class, 'create'])->name('article.create');
         Route::post('/store', [AdminArticleController::class, 'store'])->name('article.store');
@@ -96,6 +121,26 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/{article}/edit', [AdminArticleController::class, 'edit'])->name('article.edit');
         Route::patch('/{article}', [AdminArticleController::class, 'update'])->name('article.update');
         Route::delete('/{article}', [AdminArticleController::class, 'destroy'])->name('article.destroy');
+    });
+
+    Route::group(['namespace' => 'author', 'prefix' => 'author'], function () {
+        Route::get('/', [AuthorController::class, 'index'])->name('author.index');
+        Route::get('/create', [AuthorController::class, 'create'])->name('author.create');
+        Route::post('/store', [AuthorController::class, 'store'])->name('author.store');
+        Route::get('/{author}', [AuthorController::class, 'show'])->name('author.show');
+        Route::get('/{author}/edit', [AuthorController::class, 'edit'])->name('author.edit');
+        Route::patch('/{author}', [AuthorController::class, 'update'])->name('author.update');
+        Route::delete('/{author}', [AuthorController::class, 'destroy'])->name('author.destroy');
+    });
+
+    Route::group(['namespace' => 'author', 'prefix' => 'cpa'], function () {
+        Route::get('/', [CpaController::class, 'index'])->name('cpa.index');
+        Route::get('/create', [CpaController::class, 'create'])->name('cpa.create');
+        Route::post('/store', [CpaController::class, 'store'])->name('cpa.store');
+        Route::get('/{cpa}', [CpaController::class, 'show'])->name('cpa.show');
+        Route::get('/{cpa}/edit', [CpaController::class, 'edit'])->name('cpa.edit');
+        Route::patch('/{cpa}', [CpaController::class, 'update'])->name('cpa.update');
+        Route::delete('/{cpa}', [CpaController::class, 'destroy'])->name('cpa.destroy');
     });
 });
 

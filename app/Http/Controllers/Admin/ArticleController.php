@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Articles\StoreRequest;
 use App\Http\Requests\Articles\UpdateRequest;
 use App\Models\Article;
+use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -27,7 +28,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('admin.articles.create');
+        $authors = Author::all();
+        return view('admin.articles.create', compact('authors'));
     }
 
     /**
@@ -38,7 +40,7 @@ class ArticleController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = Storage::disk('public')->put('/Admin/images', $data['image']);
+        $data['image'] = Storage::disk('public')->put('/admin/images/articles', $data['image']);
         $article = Article::firstOrCreate($data);
         if ($article) {
             return redirect()->route('article.show', $article->id);
