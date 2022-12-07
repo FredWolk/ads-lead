@@ -136,6 +136,9 @@
     .filter-aside--btn-show{
         display: flex;
     }
+    .allvideopage_top{
+        flex-direction: column;
+    }
 }
 @media (max-width: 600px) {
     .container{
@@ -484,5 +487,27 @@
     }
     .cpapage_main-to-show_filter__tags{
         width: 330px;
+    }
+    .ad-net-page .link--blue-sphere,
+    .ad-net-page .btn--grey-with-icons.promocode{
+        display: none;
+    }
+    .btn--grey-with-icons.mobile{
+        display: flex;
+    }
+    .allvideopage .article--card-top{
+        top: 10px;
+        left: 10px;
+    }
+    .allvideopage .main_articles_top_link-wrapp{
+        display: block;
+        width: 100%;
+    }
+    .allvideopage .main_articles_top_link-wrapp-arrows{
+        display: none;
+    }
+    .allvideopage .btn--red{
+        max-width: 100%;
+        width: 100%;
     }
 }

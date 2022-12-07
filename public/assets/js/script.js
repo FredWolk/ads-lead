@@ -47,6 +47,7 @@ $('.filter-aside--btn').on('click', function(){
         $(this).next().slideUp(300);
     }
 });
+
 $('.filter-aside_list-item_wrapper').on('click', function(e){
     if(!$('.filter-aside_list-item_wrap_list-item').is(e.target) && $('.filter-aside_list-item_wrap_list-item').has(e.target).length === 0){
         $(this).toggleClass('active');
