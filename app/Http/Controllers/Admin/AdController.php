@@ -18,7 +18,7 @@ class AdController extends Controller
     public function index()
     {
         $ad = Ad::all();
-        return view('admin.ad.index', compact('ad'));
+        return view('admin.cpa.index', compact('ad'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AdController extends Controller
     public function create()
     {
         $filters = Filters::first();
-        return view('admin.ad.create', compact('filters'));
+        return view('admin.cpa.create', compact('filters'));
     }
 
     /**
@@ -38,10 +38,10 @@ class AdController extends Controller
     public function store(StoreAdRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = Storage::disk('public')->put('/admin/images/ad', $data['image']);
+        $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
         $ad = Ad::firstOrCreate($data);
         if ($ad) {
-            return redirect()->route('ad.show', $ad->id);
+            return redirect()->route('cpa.show', $ad->id);
         }
     }
 
@@ -52,7 +52,7 @@ class AdController extends Controller
      */
     public function show(Ad $ad)
     {
-        return view('admin.ad.show', compact('ad'));
+        return view('admin.cpa.show', compact('ad'));
     }
 
     /**
@@ -62,7 +62,7 @@ class AdController extends Controller
      */
     public function edit(Ad $ad)
     {
-        return view('admin.ad.edit', compact('ad'));
+        return view('admin.cpa.edit', compact('ad'));
     }
 
     /**
@@ -75,7 +75,7 @@ class AdController extends Controller
     {
         $data = $request->validated();
         if ($ad->update($data))
-            return redirect()->route('ad.show', $ad->id);
+            return redirect()->route('cpa.show', $ad->id);
     }
 
     /**
@@ -86,6 +86,6 @@ class AdController extends Controller
     public function destroy(Ad $ad)
     {
         if ($ad->delete())
-            return redirect()->route('ad.index');
+            return redirect()->route('cpa.index');
     }
 }

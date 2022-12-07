@@ -1,5 +1,5 @@
 /*!
- * 
+ *
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -61,7 +61,7 @@ var __webpack_exports__ = {};
       },
       video: {
         video: 'Video',
-        videoLink: 'Collegamento ad un Video',
+        videoLink: 'Collegamento cpa un Video',
         insert: 'Inserisci Video',
         url: 'URL del Video',
         providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion o Youku)'

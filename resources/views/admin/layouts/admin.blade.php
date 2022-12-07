@@ -107,7 +107,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('ad.index') }}" class="nav-link">
+                        <a href="{{ route('cpa.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-handshake"></i>
                             <p>
                                 Партнерки
