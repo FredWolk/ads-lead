@@ -30,7 +30,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('ad.index') }}">Партнерки</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('cpa.index') }}">Партнерки</a></li>
                             <li class="breadcrumb-item active">Добавить партнерку</li>
                         </ol>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('ad.store') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('cpa.store') }}">
                         @csrf
                         <div class="card-body">
 
@@ -71,6 +71,7 @@
                             @error('pt_name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
                             <div class="form-group">
                                 <label for="image">Изображение партнерки</label>
                                 <div class="input-group">
@@ -138,77 +139,6 @@
                             @enderror
 
                             <div class="form-group">
-                                <label for="select1">Вертикали</label>
-                                <select name="verticales_id[]" multiple="multiple" class="form-control select1" id="select1">
-                                        @foreach(json_decode($filters['vertical']) as $i)
-                                            <option value="{{ $i }}">{{ $i }}</option>
-                                        @endforeach
-                                </select>
-                            </div>
-                            @error('verticales_id')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="select2">Страны</label>
-                                <select name="countries_id[]" multiple="multiple" class="form-control select1" id="select2">
-                                    @if(!empty(old('countries_id')))
-                                        @foreach(old('countries_id') as $i)
-                                            <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            @error('countries_id')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="select3">Модели оплаты</label>
-                                <select name="payment_models_id[]" multiple="multiple" class="form-control select1"
-                                        id="select3">
-                                    @if(!empty(old('payment_models_id')))
-                                        @foreach(old('payment_models_id') as $i)
-                                            <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            @error('payment_models_id')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="select4">Периодичность выплат</label>
-                                <select name="payment_schedule_id[]" multiple="multiple" class="form-control select1" id="select4">
-                                    @if(!empty(old('payment_schedule_id')))
-                                        @foreach(old('payment_schedule_id') as $i)
-                                            <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            @error('payment_schedule_id')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="select5">Платежные системы</label>
-                                <select name="payment_systems_id[]" multiple="multiple" class="form-control select1"
-                                        id="select5">
-                                    @if(!empty(old('payment_systems_id')))
-                                        @foreach(old('payment_systems_id') as $i)
-                                            <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            @error('payment_systems_id')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-
-                            <div class="form-group">
                                 <label for="summernote">Текст перед статьей</label>
                                 <textarea class="summernote" name="before_main_text"
                                           id="summernote">{{ old('before_main_text') }}</textarea>
@@ -227,7 +157,8 @@
 
                             <div class="form-group">
                                 <label for="summernote2">Контент статьи</label>
-                                <textarea class="summernote" name="main_text" id="summernote2">{{ old('main_text') }}</textarea>
+                                <textarea class="summernote" name="main_text"
+                                          id="summernote2">{{ old('main_text') }}</textarea>
                             </div>
                             @error('main_text')
                             <div class="text-danger">{{ $message }}</div>
@@ -241,37 +172,276 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <div class="form-group">
-                                <label for="date_of_creation">Дата создания</label>
-                                <input value="{{ old('date_of_creation') }}" name="date_of_creation" type="text" class="form-control"
-                                       id="date_of_creation"
-                                       placeholder="2022">
+                            {{--  ФИЛЬТРЫ  --}}
+                            <div class="card card-success p-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Фильтры</h3>
+                                </div>
+                                <div class="form-group">
+                                    <label for="select1">Вертикали</label>
+                                    <select name="verticales_id[]" multiple="multiple" class="form-control select1"
+                                            id="select1">
+                                        @foreach(json_decode($filters['vertical']) as $i)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('verticales_id')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="select2">Страны</label>
+                                    <select name="countries_id[]" multiple="multiple" class="form-control select1"
+                                            id="select2">
+                                        @if(!empty(old('countries_id')))
+                                            @foreach(old('countries_id') as $i)
+                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @error('countries_id')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="select3">Модели оплаты</label>
+                                    <select name="payment_models_id[]" multiple="multiple" class="form-control select1"
+                                            id="select3">
+                                        @if(!empty(old('payment_models_id')))
+                                            @foreach(old('payment_models_id') as $i)
+                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @error('payment_models_id')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="select4">Периодичность выплат</label>
+                                    <select name="payment_schedule_id[]" multiple="multiple"
+                                            class="form-control select1" id="select4">
+                                        @if(!empty(old('payment_schedule_id')))
+                                            @foreach(old('payment_schedule_id') as $i)
+                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @error('payment_schedule_id')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="select5">Платежные системы</label>
+                                    <select name="payment_systems_id[]" multiple="multiple" class="form-control select1"
+                                            id="select5">
+                                        @if(!empty(old('payment_systems_id')))
+                                            @foreach(old('payment_systems_id') as $i)
+                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @error('payment_systems_id')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('date_of_creation')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            {{--  Доп. информация о партнерке   --}}
 
-                            <div class="form-group">
-                                <label for="traffic_volume_per_month">Трафик в месяц</label>
-                                <input value="{{ old('traffic_volume_per_month') }}" name="traffic_volume_per_month" type="text" class="form-control" id="traffic_volume_per_month" placeholder="2022">
+                            <div class="card card-success p-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Доп. информация о партнерке</h3>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date_of_creation">Дата создания</label>
+                                    <input value="{{ old('date_of_creation') }}" name="date_of_creation" type="text"
+                                           class="form-control"
+                                           id="date_of_creation"
+                                           placeholder="2022">
+                                </div>
+                                @error('date_of_creation')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="geography_of_offers">География офферов</label>
+                                    <input value="{{ old('geography_of_offers') }}" name="geography_of_offers"
+                                           type="text"
+                                           class="form-control" id="geography_of_offers"
+                                           placeholder="География офферов">
+                                </div>
+                                @error('geography_of_offers')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="themes_of_offers">Вертикали</label>
+                                    <input value="{{ old('themes_of_offers') }}" name="themes_of_offers" type="text"
+                                           class="form-control"
+                                           id="themes_of_offers"
+                                           placeholder="Вертикали">
+                                </div>
+                                @error('themes_of_offers')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="inhaus_offers">Инхаус офферы</label>
+                                    <input value="{{ old('inhaus_offers') }}" name="inhaus_offers" type="text"
+                                           class="form-control"
+                                           id="inhaus_offers"
+                                           placeholder="Инхаус офферы">
+                                </div>
+                                @error('inhaus_offers')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="minimum_withdrawal_amount">Минималка на вывод</label>
+                                    <input value="{{ old('minimum_withdrawal_amount') }}"
+                                           name="minimum_withdrawal_amount"
+                                           type="text" class="form-control"
+                                           id="minimum_withdrawal_amount"
+                                           placeholder="Минималка на вывод">
+                                </div>
+                                @error('minimum_withdrawal_amount')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="payment_methods">Платежные системы</label>
+                                    <input value="{{ old('payment_methods') }}" name="payment_methods" type="text"
+                                           class="form-control"
+                                           id="payment_methods"
+                                           placeholder="Платежные системы">
+                                </div>
+                                @error('payment_methods')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="payment_schedule">Периодичность выплат</label>
+                                    <input value="{{ old('payment_schedule') }}" name="payment_schedule" type="text"
+                                           class="form-control"
+                                           id="payment_schedule"
+                                           placeholder="Периодичность выплат">
+                                </div>
+                                @error('payment_schedule')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+
+                                <div class="form-group">
+                                    <label for="referral_program">Реферальная программа</label>
+                                    <input value="{{ old('referral_program') }}" name="referral_program" type="text"
+                                           class="form-control"
+                                           id="referral_program"
+                                           placeholder="Реферальная программа">
+                                </div>
+                                @error('referral_program')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="tools">Инструменты</label>
+                                    <input value="{{ old('tools') }}" name="tools" type="text" class="form-control"
+                                           id="tools"
+                                           placeholder="Инструменты">
+                                </div>
+                                @error('tools')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('traffic_volume_per_month')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
 
-                            <div class="form-group">
-                                <label for="formats">Трафик в месяц</label>
-                                <input value="{{ old('formats') }}" name="formats" type="text" class="form-control"
-                                       id="formats"
-                                       placeholder="2022">
+                            {{-- Информация о менеджере --}}
+                            <div class="card card-success p-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Информация о менеджере</h3>
+                                </div>
+                                <div class="form-group">
+                                    <label for="manager_image">Фото менеджера</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input value="{{ old('manager_image') }}" name="manager_image" type="file"
+                                                   class="custom-file-input" id="manager_image">
+                                            <label class="custom-file-label" for="manager_image">Выберите фото
+                                                менеджера</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('manager_image')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="manager_name">Имя менеджера</label>
+                                    <input value="{{ old('manager_name') }}" name="manager_name" type="text"
+                                           class="form-control"
+                                           id="manager_name"
+                                           placeholder="Albert Flores">
+                                </div>
+                                @error('manager_name')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="manager_position">Должность менеджера</label>
+                                    <input value="{{ old('manager_position') }}" name="manager_position" type="text"
+                                           class="form-control"
+                                           id="manager_position"
+                                           placeholder="Manager">
+                                </div>
+                                @error('manager_position')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('formats')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
 
+                            <div class="card card-success p-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Соц. сети и отзыв редакции</h3>
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="facebook">Фейсбук</label>
+                                    <input type="url" name="facebook" value="{{ old('facebook') }}" class="form-control"
+                                           id="facebook" placeholder="https://facebook.com">
+                                </div>
+                                @error('facebook')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
 
+                                <div class="form-group">
+                                    <label for="instagram">Инстаграм</label>
+                                    <input type="url" name="instagram" value="{{ old('instagram') }}" class="form-control"
+                                           id="instagram" placeholder="https://instagram.com">
+                                </div>
+                                @error('instagram')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
 
+                                <div class="form-group">
+                                    <label for="linkedin">Инстаграм</label>
+                                    <input type="url" name="linkedin" value="{{ old('linkedin') }}" class="form-control"
+                                           id="linkedin" placeholder="https://linkedin.com">
+                                </div>
+                                @error('linkedin')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="forum_link">Ссылка на форум</label>
+                                    <input type="url" name="forum_link" value="{{ old('forum_link') }}" class="form-control"
+                                           id="forum_link" placeholder="https://forum_link.com">
+                                </div>
+                                @error('forum_link')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                            </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">

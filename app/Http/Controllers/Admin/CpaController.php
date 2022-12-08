@@ -63,7 +63,7 @@ class CpaController extends Controller
      */
     public function edit(Cpa $cpa)
     {
-        return view('admin.ad.edit', compact('cpa'));
+        return view('admin.cpa.edit', compact('cpa'));
     }
 
     /**
@@ -76,7 +76,7 @@ class CpaController extends Controller
     {
         $data = $request->validated();
         if ($cpa->update($data))
-            return redirect()->route('ad.show', $cpa->id);
+            return redirect()->route('cpa.show', $cpa->id);
     }
 
     /**
@@ -87,6 +87,6 @@ class CpaController extends Controller
     public function destroy(Cpa $cpa)
     {
         if ($cpa->delete())
-            return redirect()->route('ad.index');
+            return redirect()->route('cpa.index');
     }
 }

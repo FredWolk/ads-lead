@@ -43,17 +43,17 @@ use Illuminate\Support\Facades\Route;
     });
 
     /**
-     * ad -> страница всех реклам -> resources/views/ad/networks
-     * ad.catalog -> страница всех реклам одной категории (тут это называется вертикаль) -> resources/views/ad/catalog
-     * ad.page -> страница конкретной рекламы -> resources/views/ad/page
+     * cpa -> страница всех реклам -> resources/views/cpa/networks
+     * cpa.catalog -> страница всех реклам одной категории (тут это называется вертикаль) -> resources/views/cpa/catalog
+     * cpa.page -> страница конкретной рекламы -> resources/views/cpa/page
      */
-    Route::group(['namespace' => 'ad', 'prefix' => 'ad-networks'], function () {
-        Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
+    Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
+        Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('cpa');
         Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name(
-            'ad.catalog'
+            'cpa.catalog'
         );
         Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name(
-            'ad.page'
+            'cpa.page'
         );
     });
 
