@@ -115,7 +115,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('article.index') }}" class="nav-link">
+                        <a href="{{ route('ad.index') }}" class="nav-link">
                             <i class="nav-icon fab fa-buysellads"></i>
                             <p>
                                 Рекламы

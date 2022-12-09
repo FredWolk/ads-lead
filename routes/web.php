@@ -47,13 +47,13 @@ use Illuminate\Support\Facades\Route;
      * cpa.catalog -> страница всех реклам одной категории (тут это называется вертикаль) -> resources/views/cpa/catalog
      * cpa.page -> страница конкретной рекламы -> resources/views/cpa/page
      */
-    Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
-        Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('cpa');
+    Route::group(['namespace' => 'cpa', 'prefix' => 'ad-networks'], function () {
+        Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
         Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name(
-            'cpa.catalog'
+            'ad.catalog'
         );
         Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name(
-            'cpa.page'
+            'ad.page'
         );
     });
 
@@ -141,6 +141,16 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/{cpa}/edit', [CpaController::class, 'edit'])->name('cpa.edit');
         Route::patch('/{cpa}', [CpaController::class, 'update'])->name('cpa.update');
         Route::delete('/{cpa}', [CpaController::class, 'destroy'])->name('cpa.destroy');
+    });
+
+    Route::group(['namespace' => 'author', 'prefix' => 'ad'], function () {
+        Route::get('/', [AdController::class, 'index'])->name('ad.index');
+        Route::get('/create', [AdController::class, 'create'])->name('ad.create');
+        Route::post('/store', [AdController::class, 'store'])->name('ad.store');
+        Route::get('/{ad}', [AdController::class, 'show'])->name('ad.show');
+        Route::get('/{ad}/edit', [AdController::class, 'edit'])->name('ad.edit');
+        Route::patch('/{ad}', [AdController::class, 'update'])->name('ad.update');
+        Route::delete('/{ad}', [AdController::class, 'destroy'])->name('ad.destroy');
     });
 });
 
