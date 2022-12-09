@@ -118,6 +118,9 @@
         width: 74px;
         height: 1px;
     }
+    .signup_wrapper{
+        width: 80%;
+    }
 }
 @media (max-width: 1020px) {
     .container{
@@ -208,6 +211,18 @@
         flex-direction: column;
     }
     .eventspage .filter-aside{
+        display: block;
+    }
+    .signup_wrapper{
+        top: 50px;
+        width: 100%;
+        padding-bottom: 40px;
+    }
+    .signup_wrapper_main,
+    .signup_wrapper_main-tnx{
+        padding: 40px 20px 40px 15px;
+    }
+    .btn--close-mobile{
         display: block;
     }
 }
@@ -790,5 +805,20 @@
     }
     .videopage_main--image .conference--evetn{
         display: flex;
+    }
+    .popup_main{
+        padding: 30px 25px;
+    }
+    .signup_wrapper_main-title{
+        font-weight: 800;
+        font-size: 38px;
+        line-height: 120%;
+        margin-bottom: 15px;  
+    }
+    .tooltip-body{
+        left: -400%;
+    }
+    .promocode--btn-wrapper{
+        display: none;
     }
 }
