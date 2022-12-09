@@ -22,7 +22,7 @@
                 <section class="content">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Партнерки</h3>
+                            <h3 class="card-title">Рекламы</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -40,16 +40,16 @@
                                         #
                                     </th>
                                     <th style="width: 50%">
-                                        Название партнерки
+                                        Название рекламы
                                     </th>
 
                                     <th class="text-right" style="width: 40%">
-                                        <a href="{{ route('cpa.create') }}" class="btn btn-dark btn-sm">Добавить</a>
+                                        <a href="{{ route('ad.create') }}" class="btn btn-dark btn-sm">Добавить</a>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($cpa as $k => $i)
+                                @foreach($ad as $k => $i)
                                     <tr>
                                         <td>
                                             {{ $k + 1 }}
@@ -65,12 +65,12 @@
                                         </td>
                                         <td class="project-actions text-right">
                                             <a class="btn btn-primary btn-sm"
-                                               href="{{ route('cpa.show', $i['id']) }}">
+                                               href="{{ route('ad.show', $i['id']) }}">
                                                 <i class="fas fa-folder">
                                                 </i>
                                                 Просмотр
                                             </a>
-                                            <a class="btn btn-info btn-sm" href="{{ route('cpa.edit', $i['id']) }}">
+                                            <a class="btn btn-info btn-sm" href="{{ route('ad.edit', $i['id']) }}">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Редактировать
@@ -80,7 +80,7 @@
                                                 </i>
                                                 Удалить
                                             </button>
-                                            <form id="delete_{{$k}}" method="post" action="{{route('cpa.destroy', $i['id']) }}">
+                                            <form id="delete_{{$k}}" method="post" action="{{route('ad.destroy', $i['id']) }}">
                                                 @method('delete')
                                                 @csrf
                                             </form>

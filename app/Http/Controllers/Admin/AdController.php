@@ -3,89 +3,59 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AD\StoreAdRequest;
-use App\Http\Requests\AD\UpdateAdRequest;
+use App\Http\Requests\Ad\StoreAdRequest;
+use App\Http\Requests\Ad\UpdateAdRequest;
 use App\Models\Ad;
 use App\Models\Filters;
 use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     */
     public function index()
     {
         $ad = Ad::all();
-        return view('admin.cpa.index', compact('ad'));
+        return view('admin.ad.index', compact('ad'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $filters = Filters::first();
-        return view('admin.cpa.create', compact('filters'));
+        return view('admin.ad.create', compact('filters'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\AD\StoreAdRequest  $request
-     */
     public function store(StoreAdRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
+        if (!empty($data['image']))
+            $data['image'] = Storage::disk('public')->put('/admin/images/ad', $data['image']);
+
+        if (!empty($data['logo']))
+            $data['logo'] = Storage::disk('public')->put('/admin/images/ad', $data['logo']);
+        if (!empty($data['manager_image']))
+            $data['manager_image'] = Storage::disk('public')->put('/admin/images/ad', $data['manager_image']);
         $ad = Ad::firstOrCreate($data);
         if ($ad) {
-            return redirect()->route('cpa.show', $ad->id);
+            return redirect()->route('ad.show', $ad->id);
         }
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ad  $ad
-     */
     public function show(Ad $ad)
     {
-        return view('admin.cpa.show', compact('ad'));
+        return view('admin.ad.show', compact('ad'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ad  $ad
-     */
     public function edit(Ad $ad)
     {
-        return view('admin.cpa.edit', compact('ad'));
+        $filters = Filters::first();
+        return view('admin.ad.edit', compact('ad', 'filters'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\AD\UpdateAdRequest  $request
-     * @param  \App\Models\Ad  $ad
-     */
     public function update(UpdateAdRequest $request, Ad $ad)
     {
         $data = $request->validated();
         if ($ad->update($data))
-            return redirect()->route('cpa.show', $ad->id);
+            return redirect()->route('ad.show', $ad->id);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Ad  $ad
-     */
     public function destroy(Ad $ad)
     {
         if ($ad->delete())
-            return redirect()->route('cpa.index');
+            return redirect()->route('ad.index');
     }
 }

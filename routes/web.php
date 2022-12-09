@@ -138,6 +138,16 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::patch('/{cpa}', [CpaController::class, 'update'])->name('cpa.update');
         Route::delete('/{cpa}', [CpaController::class, 'destroy'])->name('cpa.destroy');
     });
+
+    Route::group(['namespace' => 'author', 'prefix' => 'ad'], function () {
+        Route::get('/', [AdController::class, 'index'])->name('ad.index');
+        Route::get('/create', [AdController::class, 'create'])->name('ad.create');
+        Route::post('/store', [AdController::class, 'store'])->name('ad.store');
+        Route::get('/{ad}', [AdController::class, 'show'])->name('ad.show');
+        Route::get('/{ad}/edit', [AdController::class, 'edit'])->name('ad.edit');
+        Route::patch('/{ad}', [AdController::class, 'update'])->name('ad.update');
+        Route::delete('/{ad}', [AdController::class, 'destroy'])->name('ad.destroy');
+    });
 });
 
 //});

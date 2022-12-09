@@ -15,24 +15,24 @@ return new class extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 511);
-            $table->string('link', 511);
-            $table->string('pt_name', 511);
+            $table->string('name', 255);
+            $table->string('link', 255);
+            $table->string('pt_name', 255);
             $table->text('image');
             $table->text('logo');
             $table->text('prev_text');
             $table->text('pt_prev_text');
             $table->string('url', 511);
             $table->integer('views')->default(0);
-            $table->string('verticales_id', 255);
-            $table->string('countries_id', 255);
-            $table->string('payment_models_id', 255);
-            $table->string('payment_schedule_id', 255);
-            $table->string('payment_systems_id', 255);
+            $table->string('advertising_formats', 255);
+            $table->string('countries', 255);
+            $table->string('payment_systems', 255);
+            $table->string('minimum_top_up_amount', 255);
             $table->text('before_main_text');
             $table->text('pt_before_main_text');
             $table->text('main_text');
             $table->text('pt_main_text');
+            $table->string('promocode');
 
             $table->string('date_of_creation', 255);
             $table->string('traffic_volume_per_month', 511);
@@ -51,9 +51,9 @@ return new class extends Migration
             $table->text('editorial_opinion');
 
             $table->integer('rating_support')->default(0);
-            $table->integer('rating_payments')->default(0);
-            $table->integer('rating_offers')->default(0);
-            $table->integer('rating_betting')->default(0);
+            $table->integer('rating_traffic_quality')->default(0);
+            $table->integer('rating_number_of_geos')->default(0);
+            $table->integer('rating_price_per_click')->default(0);
 
             $table->string('title', 511)->nullable();
             $table->string('description', 1023)->nullable();
