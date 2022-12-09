@@ -87,16 +87,16 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="image">Логотип партнерки</label>
+                                <label for="logo">Логотип партнерки</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input value="{{ old('image') }}" name="image" type="file"
-                                               class="custom-file-input" id="image">
-                                        <label class="custom-file-label" for="image">Выберите логотип партнерки</label>
+                                        <input value="{{ old('logo') }}" name="logo" type="file"
+                                               class="custom-file-input" id="logo">
+                                        <label class="custom-file-label" for="logo">Выберите логотип партнерки</label>
                                     </div>
                                 </div>
                             </div>
-                            @error('image')
+                            @error('logo')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
@@ -194,9 +194,9 @@
                                     <label for="select2">Страны</label>
                                     <select name="countries_id[]" multiple="multiple" class="form-control select1"
                                             id="select2">
-                                        @if(!empty(old('countries_id')))
-                                            @foreach(old('countries_id') as $i)
-                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @if(!empty($filters['countries']))
+                                            @foreach(json_decode($filters['countries']) as $i)
+                                                <option value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -209,9 +209,9 @@
                                     <label for="select3">Модели оплаты</label>
                                     <select name="payment_models_id[]" multiple="multiple" class="form-control select1"
                                             id="select3">
-                                        @if(!empty(old('payment_models_id')))
-                                            @foreach(old('payment_models_id') as $i)
-                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @if(!empty($filters['payment_models']))
+                                            @foreach(json_decode($filters['payment_models']) as $i)
+                                                <option value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -224,9 +224,9 @@
                                     <label for="select4">Периодичность выплат</label>
                                     <select name="payment_schedule_id[]" multiple="multiple"
                                             class="form-control select1" id="select4">
-                                        @if(!empty(old('payment_schedule_id')))
-                                            @foreach(old('payment_schedule_id') as $i)
-                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @if(!empty($filters['payment_schedule']))
+                                            @foreach(json_decode($filters['payment_schedule']) as $i)
+                                                <option value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -239,9 +239,9 @@
                                     <label for="select5">Платежные системы</label>
                                     <select name="payment_systems_id[]" multiple="multiple" class="form-control select1"
                                             id="select5">
-                                        @if(!empty(old('payment_systems_id')))
-                                            @foreach(old('payment_systems_id') as $i)
-                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @if(!empty($filters['payment_systems']))
+                                            @foreach(json_decode($filters['payment_systems']) as $i)
+                                                <option value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -416,7 +416,8 @@
 
                                 <div class="form-group">
                                     <label for="instagram">Инстаграм</label>
-                                    <input type="url" name="instagram" value="{{ old('instagram') }}" class="form-control"
+                                    <input type="url" name="instagram" value="{{ old('instagram') }}"
+                                           class="form-control"
                                            id="instagram" placeholder="https://instagram.com">
                                 </div>
                                 @error('instagram')
@@ -434,14 +435,67 @@
 
                                 <div class="form-group">
                                     <label for="forum_link">Ссылка на форум</label>
-                                    <input type="url" name="forum_link" value="{{ old('forum_link') }}" class="form-control"
+                                    <input type="url" name="forum_link" value="{{ old('forum_link') }}"
+                                           class="form-control"
                                            id="forum_link" placeholder="https://forum_link.com">
                                 </div>
                                 @error('forum_link')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
+                                <div class="form-group">
+                                    <label for="editorial_opinion">Отзыв редакции</label>
+                                    <textarea name="editorial_opinion" class="form-control"
+                                              id="editorial_opinion"
+                                              placeholder="Отзыв редакции">{{ old('editorial_opinion') }}</textarea>
+                                </div>
+                                @error('editorial_opinion')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
+                            <div class="card card-success p-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Рейтинги</h3>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rating_support">Поддержки</label>
+                                    <input type="number" max="5" name="rating_support" value="{{ old('rating_support') }}" class="form-control"
+                                           id="rating_support" placeholder="На пример: 4">
+                                </div>
+                                @error('rating_support')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="rating_payments">Оплат</label>
+                                    <input type="number" max="5" name="rating_payments" value="{{ old('rating_payments') }}" class="form-control"
+                                           id="rating_payments" placeholder="На пример: 5">
+                                </div>
+                                @error('rating_payments')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="rating_offers">Офферов</label>
+                                    <input type="number" max="5" name="rating_offers" value="{{ old('rating_offers') }}" class="form-control"
+                                           id="rating_offers" placeholder="На пример: 3">
+                                </div>
+                                @error('rating_offers')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="rating_betting">Ставок</label>
+                                    <input type="number" max="5" name="rating_betting" value="{{ old('rating_betting') }}" class="form-control"
+                                           id="rating_betting" placeholder="На пример: 5">
+                                </div>
+                                @error('rating_betting')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                            </div>
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">

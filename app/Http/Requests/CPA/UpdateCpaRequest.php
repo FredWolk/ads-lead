@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\CPA;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,7 +13,7 @@ class UpdateCpaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,66 @@ class UpdateCpaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'link' => 'required|string',
+            'pt_name' => 'string|nullable',
+            'image' => 'file|nullable',
+            'logo' => 'file|nullable',
+            'prev_text' => 'string|nullable',
+            'pt_prev_text' => 'string|nullable',
+            'url' => 'url|nullable',
+            'views' => 'integer|nullable',
+            'author_id' => 'integer|nullable',
+            'verticales_id' => 'array|nullable',
+            'countries_id' => 'array|nullable',
+            'payment_models_id' => 'array|nullable',
+            'payment_schedule_id' => 'array|nullable',
+            'payment_systems_id' => 'array|nullable',
+            'before_main_text' => 'string|nullable',
+            'pt_before_main_text' => 'string|nullable',
+            'main_text' => 'string|nullable',
+            'pt_main_text' => 'string|nullable',
+            'date_of_creation' => 'string|nullable',
+            'geography_of_offers' => 'string|nullable',
+            'themes_of_offers' => 'string|nullable',
+            'inhaus_offers' => 'string|nullable',
+            'minimum_withdrawal_amount' => 'string|nullable',
+            'payment_methods' => 'string|nullable',
+            'payment_schedule' => 'string|nullable',
+            'referral_program' => 'string|nullable',
+            'tools' => 'string|nullable',
+            'manager_image' => 'file|nullable',
+            'manager_name' => 'string|nullable',
+            'manager_position' => 'string|nullable',
+            'facebook' => 'url|nullable',
+            'instagram' => 'url|nullable',
+            'linkedin' => 'url|nullable',
+            'forum_link' => 'url|nullable',
+            'editorial_opinion' => 'string|nullable',
+            'rating_support' => 'integer|nullable',
+            'rating_payments' => 'integer|nullable',
+            'rating_offers' => 'integer|nullable',
+            'rating_betting' => 'integer|nullable',
+            'title' => 'nullable|string',
+            'description' => 'nullable|string',
+            'keywords' => 'nullable|string',
+            'meta_tags' => 'nullable|string',
+            'og_title' => 'nullable|string',
+            'og_description' => 'nullable|string',
+            'og_url' => 'nullable|string',
+            'og_image' => 'nullable|string',
+            'og_type' => 'nullable|string',
+            'og_tags' => 'nullable|string',
+            'pt_title' => 'nullable|string',
+            'pt_description' => 'nullable|string',
+            'pt_keywords' => 'nullable|string',
+            'pt_meta_tags' => 'nullable|string',
+            'pt_og_title' => 'nullable|string',
+            'pt_og_description' => 'nullable|string',
+            'pt_og_url' => 'nullable|string',
+            'pt_og_image' => 'nullable|string',
+            'pt_og_type' => 'nullable|string',
+            'pt_og_tags' => 'nullable|string',
         ];
     }
 }

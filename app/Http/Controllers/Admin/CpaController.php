@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CPA\StoreCPARequest;
+use App\Http\Requests\CPA\StoreCpaRequest;
 use App\Http\Requests\CPA\UpdateCpaRequest;
-use App\Models\Ad;
 use App\Models\Cpa;
 use App\Models\Filters;
 use Illuminate\Support\Facades\Storage;
@@ -31,15 +30,16 @@ class CpaController extends Controller
         return view('admin.cpa.create', compact('filters'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\CPA\StoreCpaRequest  $request
-     */
     public function store(StoreCpaRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
+        if (!empty($data['image']))
+            $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
+
+        if (!empty($data['logo']))
+            $data['logo'] = Storage::disk('public')->put('/admin/images/cpa', $data['logo']);
+        if (!empty($data['manager_image']))
+            $data['manager_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['manager_image']);
         $cpa = Cpa::firstOrCreate($data);
         if ($cpa) {
             return redirect()->route('cpa.show', $cpa->id);
@@ -63,7 +63,8 @@ class CpaController extends Controller
      */
     public function edit(Cpa $cpa)
     {
-        return view('admin.cpa.edit', compact('cpa'));
+        $filters = Filters::first();
+        return view('admin.cpa.edit', compact('cpa', 'filters'));
     }
 
     /**
