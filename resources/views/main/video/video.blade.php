@@ -21,7 +21,7 @@
         <h1 class="title">Traffic Arbitrage from scratch in 2022. How to start and how much can a beginner earn?</h1>
         <div class="videopage_wrapper">
             <article class="videopage_main">
-                <iframe width="902px" height="512" src="https://www.youtube.com/embed/Y78MnxEN5Ms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="902px" height="512" src="https://www.youtube.com/embed/dvpzeZsKK_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <ul class="cpapage_info--item_main_top-list">
                     <li class="article--card_info_tags-list-item mobhide">
                         <a class="article--card_info_tags-list-item--link" href="{{ route('index') }}">#gambling</a>
@@ -46,11 +46,11 @@
                 <div class="filter-aside-banner to-show">
                     <img src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
                 </div>
-    
+
                 <div class="videopage--comments">
                     <h2 class="videopage--comments-title">comments</h2>
                     <p class="videopage--comments-text">
-                        Leave your comments on our YouTube channel — 
+                        Leave your comments on our YouTube channel —
                         <a href="{{ route('index') }}">affjournal</a>
                     </p>
                 </div>

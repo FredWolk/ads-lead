@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <label for="name">Название партнерки</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name"
-                                       placeholder="Название статьи">
+                                       placeholder="Название партнерки">
                             </div>
                             @error('name')
                             <div class="text-danger">{{ $message }}</div>
@@ -58,7 +58,7 @@
                             <div class="form-group">
                                 <label for="link">Ссылка на партнерку</label>
                                 <input type="text" name="link" value="{{ old('link') }}" class="form-control" id="link"
-                                       placeholder="Название статьи">
+                                       placeholder="Название партнерки">
                             </div>
                             @error('link')
                             <div class="text-danger">{{ $message }}</div>
@@ -66,7 +66,7 @@
                             <div class="form-group">
                                 <label for="pt_name">Название партнерки на португальском</label>
                                 <input type="text" name="pt_name" value="{{ old('pt_name') }}" class="form-control"
-                                       id="pt_name" placeholder="Название статьи">
+                                       id="pt_name" placeholder="Название партнерки">
                             </div>
                             @error('pt_name')
                             <div class="text-danger">{{ $message }}</div>

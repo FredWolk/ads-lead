@@ -9,6 +9,13 @@ use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Main\Event\EventPageController;
 use App\Http\Controllers\Main\Event\EventsController;
 use App\Http\Controllers\Main\Forum\ForumController;
+use App\Http\Controllers\User\Correspondence\UserCorrespondenceController;
+use App\Http\Controllers\User\Correspondence\UserCorrespondencePageController;
+use App\Http\Controllers\User\UserAlertController;
+use App\Http\Controllers\User\UserFavoriteController;
+use App\Http\Controllers\User\UserIndexController;
+use App\Http\Controllers\User\UserSecurityController;
+use App\Http\Controllers\User\UserSubscriptionController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\IndexController;
@@ -31,22 +38,12 @@ use Illuminate\Support\Facades\Route;
 //Route::domain('ads-lead.loc')->group(function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('index');
 
-    /**
-     * cpa -> страница всех партнерок -> resources/views/cpa/networks
-     * cpa.catalog -> страница всех партнерок одной категории (тут это называется вертикаль) -> resources/views/cpa/catalog
-     * cpa.page -> страница конкретной партнерки -> resources/views/cpa/page
-     */
     Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
         Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
         Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
         Route::get('/{catalog}/{page}', [PageController::class, '__invoke'])->name('cpa.page');
     });
 
-    /**
-     * cpa -> страница всех реклам -> resources/views/cpa/networks
-     * cpa.catalog -> страница всех реклам одной категории (тут это называется вертикаль) -> resources/views/cpa/catalog
-     * cpa.page -> страница конкретной рекламы -> resources/views/cpa/page
-     */
     Route::group(['namespace' => 'cpa', 'prefix' => 'ad-networks'], function () {
         Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
         Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name(
@@ -57,19 +54,11 @@ use Illuminate\Support\Facades\Route;
         );
     });
 
-    /**
-     * articles -> страница всех статей -> resources/views/articles/articles
-     * article -> страница статьи -> resources/views/articles/article
-     */
     Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
         Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
         Route::get('/{article}', [ArticleController::class, '__invoke'])->name('article');
     });
 
-    /**
-     * video -> страница видосов -> resources/views/video/all-video
-     * video.page -> страница одного видоса -> resources/views/video/video
-     */
     Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
         Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
         Route::get('/{video}', [VideoController::class, '__invoke'])->name('video.page');
@@ -89,10 +78,15 @@ use Illuminate\Support\Facades\Route;
 
 /* ЛИЧНЫЙ КАБИНЕТ */
 Route::group(['namespace' => 'user', 'prefix' => 'user'], function (){
-
+    Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
+    Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
+    Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
+    Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
+    Route::get('/security', [UserSecurityController::class, '__invoke'])->name('user.security');
+    Route::get('/correspondence', [UserCorrespondenceController::class, '__invoke'])->name('user.correspondence');
+    Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name('user.correspondence.page');
 });
 /* ЛИЧНЫЙ КАБИНЕТ */
-
 
 
 /* ДАЛЬШЕ ИДЕТ МРАК АДМИНКИ */

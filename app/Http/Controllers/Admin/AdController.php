@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Ad\StoreAdRequest;
+use App\Http\Requests\AD\StoreAdRequest;
 use App\Http\Requests\Ad\UpdateAdRequest;
 use App\Models\Ad;
 use App\Models\Filters;
@@ -30,8 +30,7 @@ class AdController extends Controller
 
         if (!empty($data['logo']))
             $data['logo'] = Storage::disk('public')->put('/admin/images/ad', $data['logo']);
-        if (!empty($data['manager_image']))
-            $data['manager_image'] = Storage::disk('public')->put('/admin/images/ad', $data['manager_image']);
+
         $ad = Ad::firstOrCreate($data);
         if ($ad) {
             return redirect()->route('ad.show', $ad->id);

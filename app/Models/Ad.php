@@ -12,4 +12,11 @@ class Ad extends Model
     use SoftDeletes;
 
     protected $guarded = false;
+
+    protected $casts = [
+        'advertising_formats' => 'array',
+        'countries' => 'array',
+        'payment_systems' => 'array',
+        'minimum_top_up_amount' => 'array'
+    ];
 }

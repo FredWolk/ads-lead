@@ -60,7 +60,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Контент</td>
+                                <td>Содержание</td>
                                 <td>
                                     @if(!empty($article->contents))
                                         @foreach($article->contents as $i)

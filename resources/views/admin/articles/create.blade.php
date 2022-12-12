@@ -117,7 +117,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="select2">Контент</label>
+                                <label for="select2">Содержание</label>
                                 <select name="contents[]" multiple="multiple" class="form-control select1" id="select2">
                                     @if(!empty(old('contents')))
                                         @foreach(old('contents') as $i)
