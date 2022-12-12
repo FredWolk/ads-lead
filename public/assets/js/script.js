@@ -68,17 +68,97 @@ $('.btn--filter').on('click', function(){
     }
 });
 
-filterbunneroffset = $(".filter-aside-banner.sticky").offset().top
-footeroffset = $(".footer").offset().top - $('.filter-aside-banner.sticky').height() + 40;
-
+if($('.filter-aside-banner.sticky').length > 0){
+    filterbunneroffset = $(".filter-aside-banner.sticky").offset().top
+    footeroffset = $(".footer").offset().top - $('.filter-aside-banner.sticky').height() + 40;
+}
 $(document).scroll(function(){
-    s_top = $(document).scrollTop();
-    if(s_top > filterbunneroffset){
-        $('.filter-aside-banner.sticky').addClass('active');
-    }else if($('.filter-aside-banner.sticky').hasClass('active')){
-        $('.filter-aside-banner.sticky').removeClass('active');
-    }
-    if(s_top > footeroffset){
-        $('.filter-aside-banner.sticky').removeClass('active');
+    if($('.filter-aside-banner.sticky').length > 0){
+        s_top = $(document).scrollTop();
+        if(s_top > filterbunneroffset){
+            $('.filter-aside-banner.sticky').addClass('active');
+        }else if($('.filter-aside-banner.sticky').hasClass('active')){
+            $('.filter-aside-banner.sticky').removeClass('active');
+        }
+        if(s_top > footeroffset){
+            $('.filter-aside-banner.sticky').removeClass('active');
+        }
     }
 });
+
+$('body').on('change', '.popup_main-input-view-password', function(){
+	if ($(this).is(':checked')){
+        $(this).parent().addClass('active');
+		$(this).parent().prev().attr('type', 'text');
+	} else {
+		$(this).parent().prev().attr('type', 'password');
+        $(this).parent().removeClass('active');
+	}
+}); 
+
+$('.login--btn').on('click', function(){
+    $('.main').addClass('active');
+    $('.banner').addClass('active');
+    $('.footer').addClass('active');
+    $('.popup_wrappper').show(200);
+});
+$('body').on('click', function(e){
+    if(!$('.popup_wrappper').is(e.target) && $('.popup_wrappper').has(e.target).length === 0 && !$('.login--btn').is(e.target) && $('.login--btn').has(e.target).length === 0 && !$('.signup_wrapper').is(e.target) && $('.signup_wrapper').has(e.target).length === 0){
+        $('.main').removeClass('active');
+        $('.banner').removeClass('active');
+        $('.footer').removeClass('active');
+        $('.signup_wrapper').removeClass('active');
+        $('.login--btn').removeClass('disabled');
+        $('.popup_wrappper').hide(200);
+    }
+});
+$('.sign-up--btn').on('click', function(){
+    $('.popup_wrappper').hide(200);
+    $('.signup_wrapper').addClass('active');
+    $('.login--btn').addClass('disabled');
+});
+$('.btn--close-mobile').on('click', function(){
+    $('.signup_wrapper').removeClass('active');
+    $('.main').removeClass('active');
+    $('.banner').removeClass('active');
+    $('.footer').removeClass('active');
+    $('.login--btn').removeClass('disabled');
+});
+$('.custom-radio').on('change', function(){
+    if(!$(this).parent().parent().parent().parent().prev().hasClass('checked')){
+        $(this).parent().parent().parent().parent().prev().addClass('checked');
+    }
+    $(this).parent().parent().parent().parent().prev().find('span').text($(this).val());
+});
+$('.custom-select--btn').on('click', function(){
+    $(this).toggleClass('active');
+    if($(this).hasClass('active')){
+        $(this).next().slideDown(300);
+    }else{
+        $(this).next().slideUp(300);
+    }
+});
+$('.readmore--btn').on('click', function(){
+    $(this).toggleClass('active');
+    $(this).prev().toggleClass('active');
+    if($(this).hasClass('active')){
+        $(this).find('span').text('close');
+    }else{
+        $(this).find('span').text('read more');
+    }
+});
+
+$('.promocode--btn').on('click', function(){
+    $(this).toggleClass('active');
+});
+$('.promocode--body_top--btn').on('click', function(){
+    copyToClipboard( $(this).prev().text() );
+});
+function copyToClipboard(str) {
+    var area = document.createElement('textarea');
+    document.body.appendChild(area);  
+    area.value = str;
+    area.select();
+    document.execCommand("copy");
+    document.body.removeChild(area);  
+}
