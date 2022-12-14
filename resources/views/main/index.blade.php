@@ -3,7 +3,7 @@
 @section('content')
 <section class="main_articles">
     <div class="container">
-        <h1 class="mainpage-title"><span>Affjournal</span> — is your guide to traffic arbitrage</h1>
+        <h1 class="mainpage-title"><span>Affjournal</span> — {{ __('messages.index') }}</h1>
         <div class="main_articles_top">
             <h2 class="title">Last articles</h2>
             <div class="main_articles_top_link-wrapp">

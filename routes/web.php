@@ -3,8 +3,11 @@
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\CpaController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
+use App\Http\Controllers\Admin\EventsController as EventsControllerAlias;
+
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Main\Event\EventPageController;
 use App\Http\Controllers\Main\Event\EventsController;
@@ -20,6 +23,7 @@ use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Main\Video\{AllVideoController, VideoController};
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,44 +41,31 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 //Route::domain('ads-lead.loc')->group(function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('index');
-
     Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
         Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
         Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
         Route::get('/{catalog}/{page}', [PageController::class, '__invoke'])->name('cpa.page');
     });
-
-    /**
-     * cpa -> страница всех реклам -> resources/views/cpa/networks
-     * cpa.catalog -> страница всех реклам одной категории (тут это называется вертикаль) -> resources/views/cpa/catalog
-     * cpa.page -> страница конкретной рекламы -> resources/views/cpa/page
-     */
     Route::group(['namespace' => 'cpa', 'prefix' => 'ad-networks'], function () {
         Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
         Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name('ad.catalog');
         Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name('ad.page');
     });
-
     Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
         Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
         Route::get('/{article}', [ArticleController::class, '__invoke'])->name('article');
     });
-
     Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
         Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
         Route::get('/{video}', [VideoController::class, '__invoke'])->name('video.page');
     });
-
     Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
         Route::get('/', [EventsController::class, '__invoke'])->name('events');
         Route::get('/{event}', [EventPageController::class, '__invoke'])->name('event.page');
     });
-
     Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
         Route::get('/', [ForumController::class, '__invoke'])->name('forum');
     });
-
-
 //});
 
 /* ЛИЧНЫЙ КАБИНЕТ */
@@ -107,7 +98,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/{filters}/edit', [FiltersController::class, 'edit'])->name('filters.edit');
         Route::patch('/{filters}', [FiltersController::class, 'update'])->name('filters.update');
     });
-
     Route::group(['namespace' => 'article', 'prefix' => 'article'], function () {
         Route::get('/', [AdminArticleController::class, 'index'])->name('article.index');
         Route::get('/create', [AdminArticleController::class, 'create'])->name('article.create');
@@ -117,7 +107,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::patch('/{article}', [AdminArticleController::class, 'update'])->name('article.update');
         Route::delete('/{article}', [AdminArticleController::class, 'destroy'])->name('article.destroy');
     });
-
     Route::group(['namespace' => 'author', 'prefix' => 'author'], function () {
         Route::get('/', [AuthorController::class, 'index'])->name('author.index');
         Route::get('/create', [AuthorController::class, 'create'])->name('author.create');
@@ -127,8 +116,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::patch('/{author}', [AuthorController::class, 'update'])->name('author.update');
         Route::delete('/{author}', [AuthorController::class, 'destroy'])->name('author.destroy');
     });
-
-    Route::group(['namespace' => 'author', 'prefix' => 'cpa'], function () {
+    Route::group(['namespace' => 'cpa', 'prefix' => 'cpa'], function () {
         Route::get('/', [CpaController::class, 'index'])->name('cpa.index');
         Route::get('/create', [CpaController::class, 'create'])->name('cpa.create');
         Route::post('/store', [CpaController::class, 'store'])->name('cpa.store');
@@ -137,8 +125,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::patch('/{cpa}', [CpaController::class, 'update'])->name('cpa.update');
         Route::delete('/{cpa}', [CpaController::class, 'destroy'])->name('cpa.destroy');
     });
-
-    Route::group(['namespace' => 'author', 'prefix' => 'ad'], function () {
+    Route::group(['namespace' => 'ad', 'prefix' => 'ad'], function () {
         Route::get('/', [AdController::class, 'index'])->name('ad.index');
         Route::get('/create', [AdController::class, 'create'])->name('ad.create');
         Route::post('/store', [AdController::class, 'store'])->name('ad.store');
@@ -146,6 +133,15 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/{ad}/edit', [AdController::class, 'edit'])->name('ad.edit');
         Route::patch('/{ad}', [AdController::class, 'update'])->name('ad.update');
         Route::delete('/{ad}', [AdController::class, 'destroy'])->name('ad.destroy');
+    });
+    Route::group(['namespace' => 'event', 'prefix' => 'event'], function () {
+        Route::get('/', [EventController::class, 'index'])->name('event.index');
+        Route::get('/create', [EventController::class, 'create'])->name('event.create');
+        Route::post('/store', [EventController::class, 'store'])->name('event.store');
+        Route::get('/{event}', [EventController::class, 'show'])->name('event.show');
+        Route::get('/{event}/edit', [EventController::class, 'edit'])->name('event.edit');
+        Route::patch('/{event}', [EventController::class, 'update'])->name('event.update');
+        Route::delete('/{event}', [EventController::class, 'destroy'])->name('event.destroy');
     });
 });
 
