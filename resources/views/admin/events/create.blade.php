@@ -25,13 +25,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавить рекламу</h1>
+                        <h1 class="m-0">Добавить событие</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('ad.index') }}">Рекламы</a></li>
-                            <li class="breadcrumb-item active">Добавить рекламу</li>
+                            <li class="breadcrumb-item"><a href="{{ route('event.index') }}">События</a></li>
+                            <li class="breadcrumb-item active">Добавить собитые</li>
                         </ol>
                     </div>
                 </div>
@@ -43,397 +43,226 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('ad.store') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('event.store') }}">
                         @csrf
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="name">Название рекламы</label>
+                                <label for="name">Название собития</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name"
-                                       placeholder="Название рекламы">
+                                       placeholder="Название собития">
                             </div>
                             @error('name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="link">Ссылка на рекламу</label>
+                                <label for="link">Ссылка на событие</label>
                                 <input type="text" name="link" value="{{ old('link') }}" class="form-control" id="link">
                             </div>
                             @error('link')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="pt_name">Название рекламы на португальском</label>
+                                <label for="pt_name">Название собития на португальском</label>
                                 <input type="text" name="pt_name" value="{{ old('pt_name') }}" class="form-control"
-                                       id="pt_name" placeholder="Название рекламы">
+                                       id="pt_name" placeholder="Название собития">
                             </div>
                             @error('pt_name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
                             <div class="form-group">
-                                <label for="image">Изображение рекламы</label>
+                                <label for="type">Тип события</label>
+                                <select name="type" id="type" class="form-control">
+                                    <option {{old('type') === 'meetup' ? 'selected' : '' }} value="meetup">Meetup
+                                    </option>
+                                    <option {{old('type') === 'preparty' ? 'selected' : '' }} value="preparty">
+                                        Preparty
+                                    </option>
+                                    <option {{old('type') === 'afterparty' ? 'selected' : '' }} value="afterparty">
+                                        Afterparty
+                                    </option>
+                                    <option {{old('type') === 'conference' ? 'selected' : '' }} value="conference">
+                                        Conference
+                                    </option>
+                                </select>
+                            </div>
+                            @error('pt_name')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="location">Место проведения</label>
+                                <input type="text" name="location" value="{{ old('location') }}" class="form-control"
+                                       id="location"
+                                       placeholder="USA | HOLLYWOOD | FLORIDA">
+                            </div>
+                            @error('location')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="pt_location">Место проведения на португальском</label>
+                                <input type="text" name="pt_location" value="{{ old('pt_location') }}"
+                                       class="form-control"
+                                       id="pt_location"
+                                       placeholder="USA | HOLLYWOOD | FLORIDA">
+                            </div>
+                            @error('pt_location')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="organizer">Организатор</label>
+                                <input type="text" name="organizer" value="{{ old('organizer') }}" class="form-control"
+                                       id="organizer"
+                                       placeholder="ABC Club">
+                            </div>
+                            @error('organizer')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="date">Дата проведения</label>
+                                <input type="text" name="date" value="{{ old('date') }}" class="form-control"
+                                       id="date"
+                                       placeholder="1-3 NOVEMBER 2022">
+                            </div>
+                            @error('date')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="pt_date">Дата проведения на португальском</label>
+                                <input type="text" name="pt_date" value="{{ old('pt_date') }}" class="form-control"
+                                       id="pt_date"
+                                       placeholder="1-3 NOVEMBER 2022">
+                            </div>
+                            @error('pt_date')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="image">Изображение собития</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input value="{{ old('image') }}" name="image" type="file"
                                                class="custom-file-input" id="image">
                                         <label class="custom-file-label" for="image">Выберите изображение
-                                            рекламы</label>
+                                            собития</label>
                                     </div>
                                 </div>
                             </div>
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
                             <div class="form-group">
-                                <label for="logo">Логотип рекламы</label>
+                                <label for="pt_image">Изображение собития на португальском</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input value="{{ old('logo') }}" name="logo" type="file"
-                                               class="custom-file-input" id="logo">
-                                        <label class="custom-file-label" for="logo">Выберите логотип рекламы</label>
+                                        <input value="{{ old('pt_image') }}" name="pt_image" type="file"
+                                               class="custom-file-input" id="pt_image">
+                                        <label class="custom-file-label" for="pt_image">Выберите изображение
+                                            собития</label>
                                     </div>
                                 </div>
                             </div>
-                            @error('logo')
+                            @error('pt_image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
                             <div class="form-group">
-                                <label for="prev_text">Превью текст рекламы</label>
-                                <textarea name="prev_text" class="form-control"
-                                          id="views"
-                                          placeholder="Превью текст рекламы">{{ old('prev_text') }}</textarea>
+                                <label for="summernote2">Контент события</label>
+                                <textarea class="summernote" name="content"
+                                          id="summernote2">{{ old('content') }}</textarea>
                             </div>
-                            @error('prev_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="pt_prev_text">Превью текст рекламы на португальском</label>
-                                <textarea name="pt_prev_text" class="form-control"
-                                          id="pt_prev_text"
-                                          placeholder="Превью текст рекламы на португальском">{{ old('pt_prev_text') }}</textarea>
-                            </div>
-                            @error('pt_prev_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="url">Веб сайт рекламы</label>
-                                <input type="url" name="url" value="{{ old('url') }}" class="form-control"
-                                       id="url" placeholder="https://google.com">
-                            </div>
-                            @error('url')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="views">Просмотры</label>
-                                <input type="number" name="views" value="{{ old('views') }}" class="form-control"
-                                       id="views" placeholder="На пример: 41">
-                            </div>
-                            @error('views')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="summernote">Текст перед статьей</label>
-                                <textarea class="summernote" name="before_main_text"
-                                          id="summernote">{{ old('before_main_text') }}</textarea>
-                            </div>
-                            @error('main_text')
+                            @error('content')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="summernote1">Текст перед статьей на португальском</label>
-                                <textarea class="summernote" name="pt_before_main_text"
-                                          id="summernote1">{{ old('pt_before_main_text') }}</textarea>
+                                <label for="summernote2">Контент события на португальском
+                                </label>
+                                <textarea class="summernote" name="pt_content"
+                                          id="summernote2">{{ old('pt_content') }}</textarea>
                             </div>
-                            @error('pt_main_text')
+                            @error('pt_content')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <div class="form-group">
-                                <label for="summernote2">Контент статьи</label>
-                                <textarea class="summernote" name="main_text"
-                                          id="summernote2">{{ old('main_text') }}</textarea>
-                            </div>
-                            @error('main_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group">
-                                <label for="summernote3">Контент португальской статьи</label>
-                                <textarea class="summernote" name="pt_main_text"
-                                          id="summernote3">{{ old('pt_main_text') }}</textarea>
-                            </div>
-                            @error('pt_main_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            {{--  ФИЛЬТРЫ  --}}
-                            <div class="card card-success p-3">
-                                <div class="card-header">
-                                    <h3 class="card-title">Фильтры</h3>
-                                </div>
-                                <div class="form-group">
-                                    <label for="select1">Формат рекламы</label>
-                                    <select name="advertising_formats[]" multiple="multiple" class="form-control select1"
-                                            id="select1">
-                                        @foreach(json_decode($filters['advertising_formats']) as $i)
-                                            <option value="{{ $i }}">{{ $i }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @error('verticales_id')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="select2">Страны</label>
-                                    <select name="countries[]" multiple="multiple" class="form-control select1"
-                                            id="select2">
-                                        @if(!empty($filters['countries']))
-                                            @foreach(json_decode($filters['countries']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                @error('countries_id')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="select3">Модели оплаты</label>
-                                    <select name="payment_systems[]" multiple="multiple" class="form-control select1"
-                                            id="select3">
-                                        @if(!empty($filters['payment_systems']))
-                                            @foreach(json_decode($filters['payment_systems']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                @error('payment_models_id')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="select4">Минимальная сумма пополнения</label>
-                                    <select name="minimum_top_up_amount[]" multiple="multiple"
-                                            class="form-control select1" id="select4">
-                                        @if(!empty($filters['minimum_top_up_amount']))
-                                            @foreach(json_decode($filters['minimum_top_up_amount']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                @error('payment_schedule_id')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
                             {{--  Доп. информация о рекламе   --}}
 
                             <div class="card card-success p-3">
                                 <div class="card-header">
-                                    <h3 class="card-title">Доп. информация о рекламе</h3>
+                                    <h3 class="card-title">Доп. информация о событии</h3>
                                 </div>
                                 <div class="form-group">
-                                    <label for="date_of_creation">Дата создания</label>
-                                    <input value="{{ old('date_of_creation') }}" name="date_of_creation" type="text"
+                                    <label for="form_date">Дата события</label>
+                                    <input value="{{ old('form_date') }}" name="form_date" type="text"
                                            class="form-control"
-                                           id="date_of_creation"
-                                           placeholder="2022">
+                                           id="form_date"
+                                           placeholder="Lago Events - 6 HaMea VeEsrim St., Rishon LeTsiyon, Israel">
                                 </div>
-                                @error('date_of_creation')
+                                @error('form_date')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                                 <div class="form-group">
-                                    <label for="traffic_volume_per_month">Количество трафика</label>
-                                    <input value="{{ old('traffic_volume_per_month') }}" name="traffic_volume_per_month"
-                                           type="text"
-                                           class="form-control" id="traffic_volume_per_month"
-                                           placeholder="Количество трафика">
-                                </div>
-                                @error('traffic_volume_per_month')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="formats">Рекламные форматы</label>
-                                    <input value="{{ old('formats') }}" name="formats" type="text"
+                                    <label for="pt_form_date">Дата события на португальском</label>
+                                    <input value="{{ old('pt_form_date') }}" name="pt_form_date" type="text"
                                            class="form-control"
-                                           id="formats"
-                                           placeholder="Форматы">
+                                           id="pt_form_date"
+                                           placeholder="Lago Events - 6 HaMea VeEsrim St., Rishon LeTsiyon, Israel">
                                 </div>
-                                @error('formats')
+                                @error('pt_form_date')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                                 <div class="form-group">
-                                    <label for="forbidden_subjects">Запрещеные вертикали</label>
-                                    <input value="{{ old('forbidden_subjects') }}" name="forbidden_subjects" type="text"
+                                    <label for="form_location">Место проведения</label>
+                                    <input value="{{ old('form_location') }}" name="form_location" type="text"
                                            class="form-control"
-                                           id="forbidden_subjects"
-                                           placeholder="Запрещеные вертикали">
+                                           id="form_location"
+                                           placeholder="Lago Events - 6 HaMea VeEsrim St., Rishon LeTsiyon, Israel">
                                 </div>
-                                @error('forbidden_subjects')
+                                @error('form_location')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                                 <div class="form-group">
-                                    <label for="average_click_price">Минимальная цена за клик</label>
-                                    <input value="{{ old('average_click_price') }}"
-                                           name="average_click_price"
-                                           type="text" class="form-control"
-                                           id="average_click_price"
-                                           placeholder="Минимальная цена за клик">
-                                </div>
-                                @error('average_click_price')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="top_up_methods">Платежные системы</label>
-                                    <input value="{{ old('top_up_methods') }}" name="top_up_methods" type="text"
+                                    <label for="pt_form_location">Место проведения на португальском</label>
+                                    <input value="{{ old('pt_form_location') }}" name="pt_form_location" type="text"
                                            class="form-control"
-                                           id="top_up_methods"
-                                           placeholder="Платежные системы">
+                                           id="pt_form_location"
+                                           placeholder="Lago Events - 6 HaMea VeEsrim St., Rishon LeTsiyon, Israel">
                                 </div>
-                                @error('top_up_methods')
+                                @error('pt_form_location')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                                 <div class="form-group">
-                                    <label for="minimum_deposit">Минималка на пополнение</label>
-                                    <input value="{{ old('minimum_deposit') }}" name="minimum_deposit" type="text"
+                                    <label for="form_social">Социальные сети</label>
+                                    <input value="{{ old('form_social') }}" name="form_social" type="text"
                                            class="form-control"
-                                           id="minimum_deposit"
-                                           placeholder="Минималка на пополнение">
+                                           id="form_social"
+                                           placeholder="instagram$$https://instagramm.com">
                                 </div>
-                                @error('minimum_deposit')
+                                @error('form_social')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
-
                                 <div class="form-group">
-                                    <label for="referral_program">Реферальная программа</label>
-                                    <input value="{{ old('referral_program') }}" name="referral_program" type="text"
+                                    <label for="form_site">Веб-сайт</label>
+                                    <input value="{{ old('form_site') }}" name="form_site" type="text"
                                            class="form-control"
-                                           id="referral_program"
-                                           placeholder="Реферальная программа">
+                                           id="form_site"
+                                           placeholder="https://google.com">
                                 </div>
-                                @error('referral_program')
+                                @error('form_site')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
-
                                 <div class="form-group">
-                                    <label for="tools">Инструменты</label>
-                                    <input value="{{ old('tools') }}" name="tools" type="text" class="form-control"
-                                           id="tools"
-                                           placeholder="Инструменты">
-                                </div>
-                                @error('tools')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="card card-success p-3">
-                                <div class="card-header">
-                                    <h3 class="card-title">Соц. сети и отзыв редакции</h3>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="facebook">Фейсбук</label>
-                                    <input type="url" name="facebook" value="{{ old('facebook') }}" class="form-control"
-                                           id="facebook" placeholder="https://facebook.com">
-                                </div>
-                                @error('facebook')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="instagram">Инстаграм</label>
-                                    <input type="url" name="instagram" value="{{ old('instagram') }}"
+                                    <label for="filtration_date">Дата для фильтрации</label>
+                                    <input value="{{ old('filtration_date') }}" name="filtration_date" type="date"
                                            class="form-control"
-                                           id="instagram" placeholder="https://instagram.com">
+                                           id="filtration_date"
+                                           placeholder="22.10.2022">
                                 </div>
-                                @error('instagram')
+                                @error('filtration_date')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
-                                <div class="form-group">
-                                    <label for="linkedin">Инстаграм</label>
-                                    <input type="url" name="linkedin" value="{{ old('linkedin') }}" class="form-control"
-                                           id="linkedin" placeholder="https://linkedin.com">
-                                </div>
-                                @error('linkedin')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="forum_link">Ссылка на форум</label>
-                                    <input type="url" name="forum_link" value="{{ old('forum_link') }}"
-                                           class="form-control"
-                                           id="forum_link" placeholder="https://forum_link.com">
-                                </div>
-                                @error('forum_link')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="editorial_opinion">Отзыв редакции</label>
-                                    <textarea name="editorial_opinion" class="form-control"
-                                              id="editorial_opinion"
-                                              placeholder="Отзыв редакции">{{ old('editorial_opinion') }}</textarea>
-                                </div>
-                                @error('editorial_opinion')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="card card-success p-3">
-                                <div class="card-header">
-                                    <h3 class="card-title">Рейтинги</h3>
-                                </div>
-                                <div class="form-group">
-                                    <label for="rating_support">Поддержки</label>
-                                    <input type="number" max="5" name="rating_support" value="{{ old('rating_support') }}" class="form-control"
-                                           id="rating_support" placeholder="На пример: 4">
-                                </div>
-                                @error('rating_support')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="rating_traffic_quality">Траффика</label>
-                                    <input type="number" max="5" name="rating_traffic_quality" value="{{ old('rating_traffic_quality') }}" class="form-control"
-                                           id="rating_traffic_quality" placeholder="На пример: 5">
-                                </div>
-                                @error('rating_traffic_quality')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="rating_number_of_geos">ГЕО</label>
-                                    <input type="number" max="5" name="rating_number_of_geos" value="{{ old('rating_number_of_geos') }}" class="form-control"
-                                           id="rating_number_of_geos" placeholder="На пример: 3">
-                                </div>
-                                @error('rating_number_of_geos')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
-
-                                <div class="form-group">
-                                    <label for="rating_price_per_click">Цены за клик</label>
-                                    <input type="number" max="5" name="rating_price_per_click" value="{{ old('rating_price_per_click') }}" class="form-control"
-                                           id="rating_price_per_click" placeholder="На пример: 5">
-                                </div>
-                                @error('rating_price_per_click')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
 
                             </div>
 

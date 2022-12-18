@@ -32,12 +32,15 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Events\StoreEventsRequest  $request
+     * @param \App\Http\Requests\Events\StoreEventsRequest $request
      */
     public function store(StoreEventsRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = Storage::disk('public')->put('/admin/images/events', $data['image']);
+        if (!empty($data['image']))
+            $data['image'] = Storage::disk('public')->put('/admin/images/events', $data['image']);
+        if (!empty($data['pt_image']))
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/events', $data['pt_image']);
         $event = Events::firstOrCreate($data);
         if ($event) {
             return redirect()->route('event.show', $event->id);
@@ -47,44 +50,44 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Events  $events
+     * @param \App\Models\Events $event
      */
-    public function show(Events $events)
+    public function show(Events $event)
     {
-        return view('admin.events.show', compact('events'));
+        return view('admin.events.show', compact('event'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Events  $events
+     * @param \App\Models\Events $event
      */
-    public function edit(Events $events)
+    public function edit(Events $event)
     {
-        return view('admin.events.edit', compact('events'));
+        return view('admin.events.edit', compact('event'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Events\UpdateEventsRequest  $request
-     * @param  \App\Models\Events  $events
+     * @param \App\Http\Requests\Events\UpdateEventsRequest $request
+     * @param \App\Models\Events $event
      */
-    public function update(UpdateEventsRequest $request, Events $events)
+    public function update(UpdateEventsRequest $request, Events $event)
     {
         $data = $request->validated();
-        if ($events->update($data))
-            return redirect()->route('event.show', $events->id);
+        if ($event->update($data))
+            return redirect()->route('event.show', $event->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Events  $events
+     * @param \App\Models\Events $event
      */
-    public function destroy(Events $events)
+    public function destroy(Events $event)
     {
-        if ($events->delete())
+        if ($event->delete())
             return redirect()->route('event.index');
     }
 }

@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Рекламы</h1>
+                        <h1 class="m-0">События</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item active">Рекламы</li>
+                            <li class="breadcrumb-item active">События</li>
                         </ol>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                 <section class="content">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Рекламы</h3>
+                            <h3 class="card-title">События</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -40,16 +40,16 @@
                                         #
                                     </th>
                                     <th style="width: 50%">
-                                        Название рекламы
+                                        Название события
                                     </th>
 
                                     <th class="text-right" style="width: 40%">
-                                        <a href="{{ route('ad.create') }}" class="btn btn-dark btn-sm">Добавить</a>
+                                        <a href="{{ route('event.create') }}" class="btn btn-dark btn-sm">Добавить</a>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($ad as $k => $i)
+                                @foreach($events as $k => $i)
                                     <tr>
                                         <td>
                                             {{ $k + 1 }}
@@ -65,12 +65,12 @@
                                         </td>
                                         <td class="project-actions text-right">
                                             <a class="btn btn-primary btn-sm"
-                                               href="{{ route('ad.show', $i['id']) }}">
+                                               href="{{ route('event.show', $i['id']) }}">
                                                 <i class="fas fa-folder">
                                                 </i>
                                                 Просмотр
                                             </a>
-                                            <a class="btn btn-info btn-sm" href="{{ route('ad.edit', $i['id']) }}">
+                                            <a class="btn btn-info btn-sm" href="{{ route('event.edit', $i->id) }}">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Редактировать
@@ -80,7 +80,8 @@
                                                 </i>
                                                 Удалить
                                             </button>
-                                            <form id="delete_{{$k}}" method="post" action="{{route('ad.destroy', $i['id']) }}">
+                                            <form id="delete_{{$k}}" method="post"
+                                                  action="{{route('event.destroy', $i['id']) }}">
                                                 @method('delete')
                                                 @csrf
                                             </form>
