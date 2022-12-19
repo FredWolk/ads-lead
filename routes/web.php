@@ -11,7 +11,10 @@ use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\Event\EventPageController;
 use App\Http\Controllers\Main\Event\EventsController;
+use App\Http\Controllers\Main\Forum\ForumBoardController;
 use App\Http\Controllers\Main\Forum\ForumController;
+use App\Http\Controllers\Main\Forum\ForumThreadsController;
+use App\Http\Controllers\Main\Forum\ForumUserController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Main\Video\{AllVideoController, VideoController};
 use App\Http\Controllers\User\Correspondence\UserCorrespondenceController;
@@ -62,6 +65,9 @@ Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
 });
 Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
     Route::get('/', [ForumController::class, '__invoke'])->name('forum');
+    Route::get('/threads', [ForumThreadsController::class, '__invoke'])->name('forum.threads');
+    Route::get('/board', [ForumBoardController::class, '__invoke'])->name('forum.board');
+    Route::get('/user', [ForumUserController::class, '__invoke'])->name('forum.user');
 });
 //});
 
