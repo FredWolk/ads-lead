@@ -256,7 +256,7 @@
                     <div class="custom-select_wrapper">
                         <button type="button" class="custom-select--btn">
                             <span>Choose a vertical</span>
-                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.69554 0.87868L0.574219 3L7.99884 10.4246L15.4235 3L13.3021 0.878681L7.99884 5.93933L2.69554 0.87868Z" fill="#272C31"/></svg>                                
+                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.69554 0.87868L0.574219 3L7.99884 10.4246L15.4235 3L13.3021 0.878681L7.99884 5.93933L2.69554 0.87868Z" fill="#272C31"/></svg>
                         </button>
 
                         <div class="custom-select_list-wrapper">
@@ -320,7 +320,7 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="Profession">Profession 
+                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="Profession">Profession
                         <div class="tooltip-wrapper">
                             <div class="tooltip-wrapper-icon"><svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.0298 4.55972C2.0298 4.33287 2.06394 4.13194 2.13222 3.95694C2.2067 3.78194 2.29671 3.62639 2.40223 3.49028C2.51397 3.35417 2.63191 3.22778 2.75605 3.11111C2.8802 2.99444 2.99503 2.88426 3.10056 2.78056C3.21229 2.67037 3.3023 2.55694 3.37058 2.44028C3.44507 2.32361 3.48231 2.19398 3.48231 2.05139C3.48231 1.81806 3.3892 1.63009 3.20298 1.4875C3.02297 1.34491 2.78088 1.27361 2.47672 1.27361C2.18498 1.27361 1.92427 1.33843 1.6946 1.46806C1.46493 1.5912 1.27561 1.7662 1.12663 1.99306L0 1.30278C0.248293 0.907407 0.5928 0.593055 1.03352 0.359722C1.47424 0.119907 2.00807 0 2.63501 0C3.10056 0 3.51024 0.0712961 3.86406 0.213888C4.21788 0.35 4.4941 0.550926 4.69274 0.816666C4.89758 1.08241 5 1.40972 5 1.79861C5 2.05139 4.96276 2.275 4.88827 2.46944C4.81378 2.66389 4.71757 2.83241 4.59963 2.975C4.48169 3.11759 4.35444 3.25046 4.21788 3.37361C4.08752 3.49676 3.96338 3.61667 3.84544 3.73333C3.7275 3.85 3.62818 3.97315 3.54749 4.10278C3.473 4.23241 3.43575 4.38472 3.43575 4.55972H2.0298ZM2.73743 7C2.47672 7 2.26257 6.9125 2.09497 6.7375C1.92737 6.5625 1.84358 6.35509 1.84358 6.11528C1.84358 5.86898 1.92737 5.66481 2.09497 5.50278C2.26257 5.33426 2.47672 5.25 2.73743 5.25C3.00435 5.25 3.2185 5.33426 3.37989 5.50278C3.54749 5.66481 3.63128 5.86898 3.63128 6.11528C3.63128 6.35509 3.54749 6.5625 3.37989 6.7375C3.2185 6.9125 3.00435 7 2.73743 7Z" fill="white"/></svg></div>
 
@@ -332,7 +332,7 @@
                     <div class="custom-select_wrapper">
                         <button type="button" class="custom-select--btn">
                             <span>Choose a profession</span>
-                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.69554 0.87868L0.574219 3L7.99884 10.4246L15.4235 3L13.3021 0.878681L7.99884 5.93933L2.69554 0.87868Z" fill="#272C31"/></svg>                                
+                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.69554 0.87868L0.574219 3L7.99884 10.4246L15.4235 3L13.3021 0.878681L7.99884 5.93933L2.69554 0.87868Z" fill="#272C31"/></svg>
                         </button>
 
                         <div class="custom-select_list-wrapper">

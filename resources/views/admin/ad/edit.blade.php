@@ -43,7 +43,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('ad.update') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('ad.update', $ad->id) }}">
                         @csrf
                         <div class="card-body">
 
