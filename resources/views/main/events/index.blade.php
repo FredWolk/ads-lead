@@ -91,7 +91,95 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.9971 3.09753H11.0031V11.003H3.09761V12.997H11.0031V20.9025H12.9971V12.997H20.9026V11.003H12.9971V3.09753Z" fill="#181A1C"/></svg>                            
                         </button>
                         <div class="filter-aside_list-item_wrapper">
-                            select time
+                            <form action="" method="POST">
+                                <div class="main-events_right_top_month_arrows">
+                                    <button type="button" class="arrow--btn left">
+                                        <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
+                                        <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                                    </button>
+                                    <p class="events-filter-aside-time">2023</p>
+                                    <button type="button" class="arrow--btn">
+                                        <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
+                                        <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                                    </button>
+                                </div>
+                                <div class="events-filter-aside-month-checkbox-wrapper">
+                                    <div class="custom-checkbox-month-labels">
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="January">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">January</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="February">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">February</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="March">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">March</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="April">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">April</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="May">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">May</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="June">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">June</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="July">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">July</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="August">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">August</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="September">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">September</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="October">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">October</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="November">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">November</span>
+                                            </div>
+                                        </label>
+                                        <label class="custom-checkbox-month-label">
+                                            <input class="input-hide" type="checkbox" name="month" value="December">
+                                            <div class="custom-checkbox-month-label-wrap">
+                                                <span class="custom-checkbox-month-label-text">December</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </li>
                 </ul>
