@@ -1,17 +1,19 @@
 <?php
 
 use App\Http\Controllers\Admin\AdController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\CpaController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
-use App\Http\Controllers\Admin\EventsController as EventsControllerAlias;
-
-use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
+use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\Event\EventPageController;
 use App\Http\Controllers\Main\Event\EventsController;
 use App\Http\Controllers\Main\Forum\ForumController;
+use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Main\Video\{AllVideoController, VideoController};
 use App\Http\Controllers\User\Correspondence\UserCorrespondenceController;
 use App\Http\Controllers\User\Correspondence\UserCorrespondencePageController;
 use App\Http\Controllers\User\UserAlertController;
@@ -19,11 +21,6 @@ use App\Http\Controllers\User\UserFavoriteController;
 use App\Http\Controllers\User\UserIndexController;
 use App\Http\Controllers\User\UserSecurityController;
 use App\Http\Controllers\User\UserSubscriptionController;
-use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
-use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
-use App\Http\Controllers\Main\IndexController;
-use App\Http\Controllers\Main\Video\{AllVideoController, VideoController};
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,36 +37,36 @@ use Illuminate\Support\Facades\Route;
 
 // Auth::routes();
 //Route::domain('ads-lead.loc')->group(function () {
-    Route::get('/', [IndexController::class, '__invoke'])->name('index');
-    Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
-        Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
-        Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
-        Route::get('/{catalog}/{page}', [PageController::class, '__invoke'])->name('cpa.page');
-    });
-    Route::group(['namespace' => 'cpa', 'prefix' => 'ad-networks'], function () {
-        Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
-        Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name('ad.catalog');
-        Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name('ad.page');
-    });
-    Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
-        Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
-        Route::get('/{article}', [ArticleController::class, '__invoke'])->name('article');
-    });
-    Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
-        Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
-        Route::get('/{video}', [VideoController::class, '__invoke'])->name('video.page');
-    });
-    Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
-        Route::get('/', [EventsController::class, '__invoke'])->name('events');
-        Route::get('/{event}', [EventPageController::class, '__invoke'])->name('event.page');
-    });
-    Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
-        Route::get('/', [ForumController::class, '__invoke'])->name('forum');
-    });
+Route::get('/', [IndexController::class, '__invoke'])->name('index');
+Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
+    Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
+    Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
+    Route::get('/{catalog}/{page}', [PageController::class, '__invoke'])->name('cpa.page');
+});
+Route::group(['namespace' => 'cpa', 'prefix' => 'ad-networks'], function () {
+    Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
+    Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name('ad.catalog');
+    Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name('ad.page');
+});
+Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
+    Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
+    Route::get('/{article}', [ArticleController::class, '__invoke'])->name('article');
+});
+Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
+    Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
+    Route::get('/{video}', [VideoController::class, '__invoke'])->name('video.page');
+});
+Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
+    Route::get('/', [EventsController::class, '__invoke'])->name('events');
+    Route::get('/{event}', [EventPageController::class, '__invoke'])->name('event.page');
+});
+Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
+    Route::get('/', [ForumController::class, '__invoke'])->name('forum');
+});
 //});
 
 /* ЛИЧНЫЙ КАБИНЕТ */
-Route::group(['namespace' => 'user', 'prefix' => 'user'], function (){
+Route::group(['namespace' => 'user', 'prefix' => 'user'], function () {
     Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
     Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
     Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
@@ -84,7 +81,7 @@ Route::group(['namespace' => 'user', 'prefix' => 'user'], function (){
 /* ДАЛЬШЕ ИДЕТ МРАК АДМИНКИ */
 
 //Route::domain('admin.ads-lead.loc')->group(function () {
-Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
+Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function () {
     Route::get('/', [\App\Http\Controllers\Admin\IndexController::class, '__invoke'])->name('admin');
     Route::group(['namespace' => 'seo', 'prefix' => 'seo'], function () {
         Route::get('/', [SeoController::class, 'index'])->name('seo.index');
@@ -142,6 +139,15 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin'], function (){
         Route::get('/{event}/edit', [EventController::class, 'edit'])->name('event.edit');
         Route::patch('/{event}', [EventController::class, 'update'])->name('event.update');
         Route::delete('/{event}', [EventController::class, 'destroy'])->name('event.destroy');
+    });
+    Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\VideoController::class, 'index'])->name('video.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\VideoController::class, 'create'])->name('video.create');
+        Route::post('/store', [\App\Http\Controllers\Admin\VideoController::class, 'store'])->name('video.store');
+        Route::get('/{video}', [\App\Http\Controllers\Admin\VideoController::class, 'show'])->name('video.show');
+        Route::get('/{video}/edit', [\App\Http\Controllers\Admin\VideoController::class, 'edit'])->name('video.edit');
+        Route::patch('/{video}', [\App\Http\Controllers\Admin\VideoController::class, 'update'])->name('video.update');
+        Route::delete('/{video}', [\App\Http\Controllers\Admin\VideoController::class, 'destroy'])->name('video.destroy');
     });
 });
 

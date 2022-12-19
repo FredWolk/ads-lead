@@ -32,7 +32,7 @@ class AuthorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Author\StoreAuthorRequest  $request
+     * @param \App\Http\Requests\Author\StoreAuthorRequest $request
      */
     public function store(StoreAuthorRequest $request)
     {
@@ -47,7 +47,7 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Author  $author
+     * @param \App\Models\Author $author
      */
     public function show(Author $author)
     {
@@ -57,7 +57,7 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Author  $author
+     * @param \App\Models\Author $author
      */
     public function edit(Author $author)
     {
@@ -67,8 +67,8 @@ class AuthorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Author\UpdateAuthorRequest  $request
-     * @param  \App\Models\Author  $author
+     * @param \App\Http\Requests\Author\UpdateAuthorRequest $request
+     * @param \App\Models\Author $author
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
@@ -80,10 +80,11 @@ class AuthorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Author  $author
+     * @param \App\Models\Author $author
      */
     public function destroy(Author $author)
     {
+        Storage::disk('public')->delete($author->photo);
         if ($author->delete())
             return redirect()->route('author.index');
     }

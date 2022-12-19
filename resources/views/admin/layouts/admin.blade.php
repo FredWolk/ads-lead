@@ -130,6 +130,22 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('video.index') }}" class="nav-link">
+                            <i class="nav-icon fab fa-youtube"></i>
+                            <p>
+                                Видео
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('video.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-window-maximize"></i>
+                            <p>
+                                Баннеры
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
