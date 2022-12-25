@@ -30,7 +30,7 @@
                             <a class="header_nav--link" href="{{ route('video') }}">Video</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('index') }}">Forum</a>
+                            <a class="header_nav--link" href="{{ route('forum') }}">Forum</a>
                         </li>
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
@@ -89,19 +89,19 @@
             <nav class="burger_nav">
                 <ul class="burger_nav_list">
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('index') }}">Articles</a>
+                        <a class="burger_nav--link" href="{{ route('articles') }}">Articles</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('index') }}">Video</a>
+                        <a class="burger_nav--link" href="{{ route('video') }}">Video</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('index') }}">Forum</a>
+                        <a class="burger_nav--link" href="{{ route('forum') }}">Forum</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('index') }}">CPA-networks</a>
+                        <a class="burger_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('index') }}">Ad-networks</a>
+                        <a class="burger_nav--link" href="{{ route('ad') }}">Ad-networks</a>
                     </li>
                     <li class="burger_nav_list_item">
                         <a class="burger_nav--link" href="{{ route('index') }}">Services</a>
@@ -137,13 +137,13 @@
                 <nav class="footer_nav">
                     <ul class="footer_nav_list">
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('index') }}">Forum</a>
+                            <a class="footer_nav--link" href="{{ route('forum') }}">Forum</a>
                         </li>
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('index') }}">CPA-networks</a>
+                            <a class="footer_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
                         </li>
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('index') }}">Ad-networks</a>
+                            <a class="footer_nav--link" href="{{ route('ad') }}">Ad-networks</a>
                         </li>
                         <li class="footer_nav_list_item">
                             <a class="footer_nav--link" href="{{ route('index') }}">Services</a>

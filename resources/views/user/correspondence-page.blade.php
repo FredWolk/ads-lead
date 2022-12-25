@@ -11,7 +11,36 @@
                     </div>
                     <div class="header--notif-body--item-icon-online"></div> {{-- CCOM для отсутствия в онлайне - класс grey --}}
                 </div>
-                <p class="user-main-corpage_top_left-name">Jerome Bell</p>
+                <div class="user-main-corpage_top_left-name-wrapper">
+                    <a href="{{ route('index') }}" class="user-main-corpage_top_left-name">Bessie Cooper</a>
+
+                    <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
+                        <div class="forum-user-preview_card_main">
+                            <div class="forum-user-preview_card_main_info">
+                                <div class="forum-user-preview_card_main_info-avatar">
+                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                </div>
+                                <div class="forum-user-preview_card_main_info_right">
+                                    <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
+                                    <div class="forum-user-preview_card_main_info_right-items">
+                                        <p class="forum-user-preview_card_main_info_right-items-item">
+                                            Registration: <span>21 Oct. 2022</span>
+                                        </p>
+                                        <p class="forum-user-preview_card_main_info_right-items-item">
+                                            Last activity: <span>Today at 12:15 p.m.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="user_card-main-example-btn" style="background: #F9A826;">Elf 80 lvl</button>
+                        </div>
+                        <div class="forum-user-preview_card_bott">
+                            <p class="forum-user-preview_card_bott-text">Messages: <span>9 476</span></p>
+                            <p class="forum-user-preview_card_bott-text">Reactions: <span>9 476</span></p>
+                            <p class="forum-user-preview_card_bott-text">Trophies: <span>9 476</span></p>
+                        </div>
+                    </div>
+                </div>
                 <button style="background: #F9A826;" {{-- CCOM цвет можешь выводить сюда, на главной value цветов внутри чекбоксов --}}
                 type="button" class="user_card-main-example-btn">Elf 80 lvl</button>
             </div>
@@ -54,7 +83,20 @@
                 <p class="user-main-corpage_top_right_top-date">8/15/17</p>
                 <div class="user-main-corpage_top_right_top_right">
                     <button class="user-main-corpage_top_right_top_right--btn" type="button">
-                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 15.5C10.875 15.5 10.3438 15.2812 9.90625 14.8438C9.46875 14.4062 9.25 13.875 9.25 13.25C9.25 13.1625 9.25625 13.0717 9.26875 12.9777C9.28125 12.8842 9.3 12.8 9.325 12.725L4.0375 9.65C3.825 9.8375 3.5875 9.98425 3.325 10.0903C3.0625 10.1967 2.7875 10.25 2.5 10.25C1.875 10.25 1.34375 10.0312 0.90625 9.59375C0.46875 9.15625 0.25 8.625 0.25 8C0.25 7.375 0.46875 6.84375 0.90625 6.40625C1.34375 5.96875 1.875 5.75 2.5 5.75C2.7875 5.75 3.0625 5.803 3.325 5.909C3.5875 6.0155 3.825 6.1625 4.0375 6.35L9.325 3.275C9.3 3.2 9.28125 3.11575 9.26875 3.02225C9.25625 2.92825 9.25 2.8375 9.25 2.75C9.25 2.125 9.46875 1.59375 9.90625 1.15625C10.3438 0.71875 10.875 0.5 11.5 0.5C12.125 0.5 12.6562 0.71875 13.0938 1.15625C13.5312 1.59375 13.75 2.125 13.75 2.75C13.75 3.375 13.5312 3.90625 13.0938 4.34375C12.6562 4.78125 12.125 5 11.5 5C11.2125 5 10.9375 4.94675 10.675 4.84025C10.4125 4.73425 10.175 4.5875 9.9625 4.4L4.675 7.475C4.7 7.55 4.71875 7.63425 4.73125 7.72775C4.74375 7.82175 4.75 7.9125 4.75 8C4.75 8.0875 4.74375 8.178 4.73125 8.2715C4.71875 8.3655 4.7 8.45 4.675 8.525L9.9625 11.6C10.175 11.4125 10.4125 11.2655 10.675 11.159C10.9375 11.053 11.2125 11 11.5 11C12.125 11 12.6562 11.2188 13.0938 11.6562C13.5312 12.0938 13.75 12.625 13.75 13.25C13.75 13.875 13.5312 14.4062 13.0938 14.8438C12.6562 15.2812 12.125 15.5 11.5 15.5Z" fill="#014EFF"/></svg>                            
+                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 15.5C10.875 15.5 10.3438 15.2812 9.90625 14.8438C9.46875 14.4062 9.25 13.875 9.25 13.25C9.25 13.1625 9.25625 13.0717 9.26875 12.9777C9.28125 12.8842 9.3 12.8 9.325 12.725L4.0375 9.65C3.825 9.8375 3.5875 9.98425 3.325 10.0903C3.0625 10.1967 2.7875 10.25 2.5 10.25C1.875 10.25 1.34375 10.0312 0.90625 9.59375C0.46875 9.15625 0.25 8.625 0.25 8C0.25 7.375 0.46875 6.84375 0.90625 6.40625C1.34375 5.96875 1.875 5.75 2.5 5.75C2.7875 5.75 3.0625 5.803 3.325 5.909C3.5875 6.0155 3.825 6.1625 4.0375 6.35L9.325 3.275C9.3 3.2 9.28125 3.11575 9.26875 3.02225C9.25625 2.92825 9.25 2.8375 9.25 2.75C9.25 2.125 9.46875 1.59375 9.90625 1.15625C10.3438 0.71875 10.875 0.5 11.5 0.5C12.125 0.5 12.6562 0.71875 13.0938 1.15625C13.5312 1.59375 13.75 2.125 13.75 2.75C13.75 3.375 13.5312 3.90625 13.0938 4.34375C12.6562 4.78125 12.125 5 11.5 5C11.2125 5 10.9375 4.94675 10.675 4.84025C10.4125 4.73425 10.175 4.5875 9.9625 4.4L4.675 7.475C4.7 7.55 4.71875 7.63425 4.73125 7.72775C4.74375 7.82175 4.75 7.9125 4.75 8C4.75 8.0875 4.74375 8.178 4.73125 8.2715C4.71875 8.3655 4.7 8.45 4.675 8.525L9.9625 11.6C10.175 11.4125 10.4125 11.2655 10.675 11.159C10.9375 11.053 11.2125 11 11.5 11C12.125 11 12.6562 11.2188 13.0938 11.6562C13.5312 12.0938 13.75 12.625 13.75 13.25C13.75 13.875 13.5312 14.4062 13.0938 14.8438C12.6562 15.2812 12.125 15.5 11.5 15.5Z" fill="#014EFF"/></svg>       
+                        
+                        <div class="user-main-corpage_top_right_top_right--btn-body">
+                            <div class="user-main-corpage_top_right_top_right--btn-body_top">
+                                <p class="user-main-corpage_top_right_top_right--btn-body_top-text">Share</p>
+                            </div>
+                            <div class="user-main-corpage_top_right_top_right--btn-body_bot">
+                                <a href="{{ route('index') }}" class="user-main-corpage_top_right_top_right--btn-body_bot--link">Instagram</a>
+                                <a href="{{ route('index') }}" class="user-main-corpage_top_right_top_right--btn-body_bot--link">Telegram</a>
+                                <a href="{{ route('index') }}" class="user-main-corpage_top_right_top_right--btn-body_bot--link">Facebook</a>
+                                <a href="{{ route('index') }}" class="user-main-corpage_top_right_top_right--btn-body_bot--link">YouTube</a>
+                                <a href="{{ route('index') }}" class="user-main-corpage_top_right_top_right--btn-body_bot--link">LinledIn</a>
+                            </div>
+                        </div>
                     </button>
                     <p class="user-main-corpage_top_right_top_right-text">#1</p>
                 </div>
@@ -86,7 +128,36 @@
                     <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                 </div>
             </div>
-            <p class="user-main-corpage_top_left-name">Bessie Cooper</p>
+            <div class="user-main-corpage_top_left-name-wrapper">
+                <a href="{{ route('index') }}" class="user-main-corpage_top_left-name">Bessie Cooper</a>
+
+                <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
+                    <div class="forum-user-preview_card_main">
+                        <div class="forum-user-preview_card_main_info">
+                            <div class="forum-user-preview_card_main_info-avatar">
+                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                            </div>
+                            <div class="forum-user-preview_card_main_info_right">
+                                <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
+                                <div class="forum-user-preview_card_main_info_right-items">
+                                    <p class="forum-user-preview_card_main_info_right-items-item">
+                                        Registration: <span>21 Oct. 2022</span>
+                                    </p>
+                                    <p class="forum-user-preview_card_main_info_right-items-item">
+                                        Last activity: <span>Today at 12:15 p.m.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="user_card-main-example-btn" style="background: #F9A826;">Elf 80 lvl</button>
+                    </div>
+                    <div class="forum-user-preview_card_bott">
+                        <p class="forum-user-preview_card_bott-text">Messages: <span>9 476</span></p>
+                        <p class="forum-user-preview_card_bott-text">Reactions: <span>9 476</span></p>
+                        <p class="forum-user-preview_card_bott-text">Trophies: <span>9 476</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <form action="" method="POST" class="user-main-corpage_bot_right">
             <div class="user-main-corpage_bot_right-pagin">

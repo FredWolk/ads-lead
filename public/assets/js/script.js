@@ -236,3 +236,27 @@ $('.popup--delete-wrapper-back').on('click', function(e){
         $('.popup--delete-wrapper-back').fadeOut(300);
     }
 });
+
+$('.forum_main_card_top--tab-btn').on('click', function(){
+    $('.forum_main_card_top--tab-btn').removeClass('active');
+    $(this).addClass('active');
+    var id = $(this).attr('id');
+    $('.forum_main_card_tabs--tab').removeClass('active');
+    $('.forum_main_card_tabs--tab').each(function(){
+        if($(this).attr('id') == id){
+            $(this).addClass('active');
+        }
+    });
+});
+
+$('.forum_treads_list--item_left_info_bottom-tracking').on('click', function(){
+    $(this).toggleClass('active');
+});
+
+$('.forumpage-board_top-pagin-wrapp-right-more--btn').on('click', function(){
+    $(this).toggleClass('active');
+});
+
+$('.user-main-corpage_top_right_top_right--btn').on('click', function(){
+    $(this).toggleClass('active');
+});
