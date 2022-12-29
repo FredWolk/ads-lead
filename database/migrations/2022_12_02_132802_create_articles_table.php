@@ -26,8 +26,8 @@ return new class extends Migration
             $table->json('pt_contents')->nullable();
             $table->json('for_whom')->nullable();
             $table->json('pt_for_whom')->nullable();
-            $table->text('main_text');
-            $table->text('pt_main_text');
+            $table->longText('main_text');
+            $table->longText('pt_main_text');
 
             $table->string('title', 511)->nullable();
             $table->string('description', 1023)->nullable();

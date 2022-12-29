@@ -21,4 +21,9 @@ class Article extends Model
         'for_whom' => 'array',
         'pt_for_whom' => 'array',
     ];
+
+    public function author()
+    {
+        return $this->hasOne(Author::class, 'id', 'author_id');
+    }
 }
