@@ -8,3 +8,6 @@
     align-items: center;
     gap: 5px;
 }
+.note-editor{
+    max-height: 500px;
+}
