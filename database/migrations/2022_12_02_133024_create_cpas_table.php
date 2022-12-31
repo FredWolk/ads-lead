@@ -19,21 +19,27 @@ return new class extends Migration
             $table->string('link', 511);
             $table->string('pt_name', 511)->nullable();
             $table->text('image')->nullable();
+            $table->text('pt_image')->nullable();
             $table->text('logo')->nullable();
             $table->text('prev_text')->nullable();
             $table->text('pt_prev_text')->nullable();
+
             $table->string('url', 511)->nullable();
             $table->integer('views')->default(0)->nullable();
-            $table->integer('author_id')->default(0)->nullable();
+
+            $table->string('main_verticales_id')->nullable();
+
             $table->string('verticales_id', 255)->nullable();
             $table->string('countries_id', 255)->nullable();
             $table->string('payment_models_id', 255)->nullable();
             $table->string('payment_schedule_id', 255)->nullable();
             $table->string('payment_systems_id', 255)->nullable();
+
             $table->text('before_main_text')->nullable();
             $table->text('pt_before_main_text')->nullable();
+
             $table->text('main_text')->nullable();
-            $table->text('pt_main_text')->nullable()->nullable();
+            $table->text('pt_main_text')->nullable();
 
             $table->string('date_of_creation', 255)->nullable();
             $table->string('geography_of_offers', 511)->nullable();
@@ -68,8 +74,9 @@ return new class extends Migration
             $table->string('og_url', 511)->nullable();
             $table->string('og_image', 511)->nullable();
             $table->string('og_type', 511)->nullable();
-            $table->text('meta_tags')->nullable()->nullable();
-            $table->text('og_tags')->nullable()->nullable();
+            $table->text('meta_tags')->nullable();
+            $table->text('og_tags')->nullable();
+
             $table->string('pt_title', 511)->nullable();
             $table->string('pt_description', 1023)->nullable();
             $table->text('pt_keywords')->nullable();
@@ -78,8 +85,8 @@ return new class extends Migration
             $table->string('pt_og_url', 511)->nullable();
             $table->string('pt_og_image', 511)->nullable();
             $table->string('pt_og_type', 511)->nullable();
-            $table->text('pt_meta_tags')->nullable()->nullable();
-            $table->text('pt_og_tags')->nullable()->nullable();
+            $table->text('pt_meta_tags')->nullable();
+            $table->text('pt_og_tags')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

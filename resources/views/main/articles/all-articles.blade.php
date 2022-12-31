@@ -49,18 +49,6 @@
         </ul>
         <div class="pagination">
             {{ $articles->links() }}
-            <button type="button" class="pagination_button left">
-                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-            </button>
-            <ul class="pagination_list">
-                <li class="pagination--item active">1</li>
-                <li class="pagination--item">2</li>
-                <li class="pagination--item">3</li>
-                <li class="pagination--item">4</li>
-            </ul>
-            <button type="button" class="pagination_button right">
-                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-            </button>
         </div>
         <aside class="articles_seo-text">
             <h3 class="articles_seo-text--title">seo text</h3>

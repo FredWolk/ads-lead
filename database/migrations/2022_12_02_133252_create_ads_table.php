@@ -19,11 +19,14 @@ return new class extends Migration
             $table->string('link', 255);
             $table->string('pt_name', 255)->nullable();
             $table->text('image')->nullable();
+            $table->text('pt_image')->nullable();
             $table->text('logo')->nullable();
             $table->text('prev_text')->nullable();
             $table->text('pt_prev_text')->nullable();
             $table->string('url', 511)->nullable();
             $table->integer('views')->default(0)->nullable();
+
+            $table->string('main_advertising_formats')->nullable();
             $table->string('advertising_formats', 255)->nullable();
             $table->string('countries', 255)->nullable();
             $table->string('payment_systems', 255)->nullable();
@@ -32,7 +35,10 @@ return new class extends Migration
             $table->text('pt_before_main_text')->nullable();
             $table->text('main_text')->nullable();
             $table->text('pt_main_text')->nullable();
-            $table->string('promocode')->nullable()->nullable();
+
+            $table->string('promocode')->nullable();
+            $table->text('promocode_desc')->nullable();
+            $table->text('pt_promocode_desc')->nullable();
 
             $table->string('date_of_creation', 255)->nullable();
             $table->string('traffic_volume_per_month', 511)->nullable();
@@ -42,13 +48,13 @@ return new class extends Migration
             $table->string('top_up_methods', 511)->nullable();
             $table->string('minimum_deposit', 511)->nullable();
             $table->string('referral_program', 255)->nullable();
-            $table->text('tools')->nullable()->nullable();
+            $table->text('tools')->nullable();
 
             $table->string('facebook', 511)->nullable();
             $table->string('instagram', 511)->nullable();
             $table->string('linkedin', 511)->nullable();
             $table->string('forum_link', 511)->nullable();
-            $table->text('editorial_opinion')->nullable()->nullable();
+            $table->text('editorial_opinion')->nullable();
 
             $table->integer('rating_support')->nullable();
             $table->integer('rating_traffic_quality')->nullable();
@@ -63,8 +69,8 @@ return new class extends Migration
             $table->string('og_url', 511)->nullable();
             $table->string('og_image', 511)->nullable();
             $table->string('og_type', 511)->nullable();
-            $table->text('meta_tags')->nullable()->nullable();
-            $table->text('og_tags')->nullable()->nullable();
+            $table->text('meta_tags')->nullable();
+            $table->text('og_tags')->nullable();
             $table->string('pt_title', 511)->nullable();
             $table->string('pt_description', 1023)->nullable();
             $table->text('pt_keywords')->nullable();
@@ -73,8 +79,8 @@ return new class extends Migration
             $table->string('pt_og_url', 511)->nullable();
             $table->string('pt_og_image', 511)->nullable();
             $table->string('pt_og_type', 511)->nullable();
-            $table->text('pt_meta_tags')->nullable()->nullable();
-            $table->text('pt_og_tags')->nullable()->nullable();
+            $table->text('pt_meta_tags')->nullable();
+            $table->text('pt_og_tags')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

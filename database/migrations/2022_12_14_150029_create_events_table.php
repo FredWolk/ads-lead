@@ -46,8 +46,8 @@ return new class extends Migration {
             $table->string('og_url', 511)->nullable();
             $table->string('og_image', 511)->nullable();
             $table->string('og_type', 511)->nullable();
-            $table->text('meta_tags')->nullable()->nullable();
-            $table->text('og_tags')->nullable()->nullable();
+            $table->text('meta_tags')->nullable();
+            $table->text('og_tags')->nullable();
             $table->string('pt_title', 511)->nullable();
             $table->string('pt_description', 1023)->nullable();
             $table->text('pt_keywords')->nullable();
@@ -56,8 +56,8 @@ return new class extends Migration {
             $table->string('pt_og_url', 511)->nullable();
             $table->string('pt_og_image', 511)->nullable();
             $table->string('pt_og_type', 511)->nullable();
-            $table->text('pt_meta_tags')->nullable()->nullable();
-            $table->text('pt_og_tags')->nullable()->nullable();
+            $table->text('pt_meta_tags')->nullable();
+            $table->text('pt_og_tags')->nullable();
 
             $table->softDeletes();
 

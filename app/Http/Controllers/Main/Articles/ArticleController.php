@@ -16,9 +16,10 @@ class ArticleController extends Controller
         $article = Article::where('link', $link)->with('author')->first();
         if (empty($article))
             return redirect()->route('articles');
+        $moreArticle = Article::where('id', '!=', $article->id)->take(6)->get();
         $cookie = $service->View($article);
         $article->toArray();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
-        return response()->view('main.articles.article', compact('article', 'locale'))->withCookie($cookie);
+        return response()->view('main.articles.article', compact('article', 'locale', 'moreArticle'))->withCookie($cookie);
     }
 }
