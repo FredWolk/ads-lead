@@ -3,6 +3,10 @@
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\Banners\BannerAsideController;
+use App\Http\Controllers\Admin\Banners\BannerButtonController;
+use App\Http\Controllers\Admin\Banners\BannerForumAsideController;
+use App\Http\Controllers\Admin\Banners\BannerTopController;
 use App\Http\Controllers\Admin\CpaController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FiltersController;
@@ -30,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 
 $url = explode('/', url()->current());
-if(isset($url[3]) && $url[3] == 'pt'){
+if (isset($url[3]) && $url[3] == 'pt') {
     App::setLocale('pt');
 } else {
     App::setLocale('en');
@@ -90,4 +94,8 @@ Route::domain('admin.ads-lead.loc')->group(function () {
     Route::resource('ad', AdController::class);
     Route::resource('event', EventController::class);
     Route::resource('video', \App\Http\Controllers\Admin\VideoController::class);
+    Route::resource('button', BannerButtonController::class);
+    Route::resource('top', BannerTopController::class);
+    Route::resource('aside', BannerAsideController::class);
+    Route::resource('forum', BannerForumAsideController::class);
 });

@@ -27,13 +27,13 @@ return new class extends Migration
             $table->string('url', 511)->nullable();
             $table->integer('views')->default(0)->nullable();
 
-            $table->string('main_verticales_id')->nullable();
+            $table->string('main_verticales')->nullable();
 
-            $table->string('verticales_id', 255)->nullable();
-            $table->string('countries_id', 255)->nullable();
-            $table->string('payment_models_id', 255)->nullable();
-            $table->string('payment_schedule_id', 255)->nullable();
-            $table->string('payment_systems_id', 255)->nullable();
+            $table->string('verticales', 255)->nullable();
+            $table->string('countries', 255)->nullable();
+            $table->string('payment_models', 255)->nullable();
+            $table->string('payment_schedule_f', 255)->nullable();
+            $table->string('payment_systems', 255)->nullable();
 
             $table->text('before_main_text')->nullable();
             $table->text('pt_before_main_text')->nullable();
@@ -42,12 +42,12 @@ return new class extends Migration
             $table->text('pt_main_text')->nullable();
 
             $table->string('date_of_creation', 255)->nullable();
-            $table->string('geography_of_offers', 511)->nullable();
-            $table->string('themes_of_offers', 511)->nullable();
+            $table->text('geography_of_offers')->nullable();
+            $table->text('themes_of_offers')->nullable();
             $table->string('inhaus_offers', 255)->nullable();
             $table->string('minimum_withdrawal_amount', 255)->nullable();
-            $table->string('payment_methods', 511)->nullable();
-            $table->string('payment_schedule', 511)->nullable();
+            $table->text('payment_methods')->nullable();
+            $table->text('payment_schedule')->nullable();
             $table->string('referral_program', 255)->nullable();
             $table->text('tools')->nullable();
 

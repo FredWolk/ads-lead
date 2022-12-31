@@ -139,12 +139,39 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('video.index') }}" class="nav-link">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-window-maximize"></i>
                             <p>
                                 Баннеры
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="{{ route('button.index') }}" class="nav-link">
+                                    <i class="fas fa-window-minimize nav-icon"></i>
+                                    <p>Кнопка</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('top.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-window-maximize"></i>
+                                    <p>Большой</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('aside.index') }}" class="nav-link">
+                                    <i class="fas fa-window-restore nav-icon"></i>
+                                    <p>Маленький</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('forum.index') }}" class="nav-link">
+                                    <i class="fab fa-wpforms nav-icon"></i>
+                                    <p>Форум</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
