@@ -3198,12 +3198,14 @@ form{
     height: 100%;
     z-index: 50;
     top: 54px;
+    display: none;
     padding-bottom: 20px;
     transform: scaleX(0);
     transition-duration: 0.2s;
 }
 .signup_wrapper.active{
     transform: scaleX(1);
+    display: block;
 }
 .signup_wrapper_main{
     width: 100%;
