@@ -79,6 +79,15 @@
                                             </i>
                                             Редактировать
                                         </a>
+                                        <button form="delete_{{$k}}" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Удалить
+                                        </button>
+                                        <form id="delete_{{$k}}" method="post" action="{{route('button.destroy', $i['id']) }}">
+                                            @method('delete')
+                                            @csrf
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

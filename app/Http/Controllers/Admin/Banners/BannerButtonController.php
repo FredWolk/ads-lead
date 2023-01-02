@@ -46,8 +46,9 @@ class BannerButtonController extends Controller
      *
      * @param  \App\Models\BannerButton  $bannerButton
      */
-    public function show(BannerButton $bannerButton)
+    public function show($id)
     {
+        dd($id);
         return view('admin.banners.button.show', compact('bannerButton'));
     }
 
