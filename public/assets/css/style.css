@@ -126,8 +126,9 @@ a, button{
 .header .container{
     padding: 7px 20px;
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: space-between;
+
 }
 .header-link{
     display: block;
@@ -3451,7 +3452,6 @@ form{
 }
 .header .container{
     position: relative;
-    align-items: center;
 }
 .header--notif-body{
     position: absolute;
