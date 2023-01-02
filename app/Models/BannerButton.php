@@ -11,5 +11,6 @@ class BannerButton extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $table = 'banner_buttons';
     protected $guarded = false;
 }

@@ -58,7 +58,7 @@
                                     </td>
                                     <td>
                                         <a>
-                                            {{ $i['name'] }}
+                                            {{ $i['text'] }}
                                         </a>
                                         <br>
                                         <small>

@@ -29,9 +29,10 @@ use App\Http\Controllers\User\UserIndexController;
 use App\Http\Controllers\User\UserSecurityController;
 use App\Http\Controllers\User\UserSubscriptionController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-// Auth::routes();
+ Auth::routes();
 
 $url = explode('/', url()->current());
 if (isset($url[3]) && $url[3] == 'pt') {
@@ -71,7 +72,7 @@ Route::domain('ads-lead.loc')->prefix(App::getLocale() == 'en' ? '' : App::getLo
     });
 });
 
-Route::domain('user.ads-lead.loc')->group(function () {
+Route::group(['prefix' => 'user', 'middleware' => 'auth'] , function () {
     Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
     Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
     Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
@@ -81,7 +82,7 @@ Route::domain('user.ads-lead.loc')->group(function () {
     Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name('user.correspondence.page');
 });
 
-Route::domain('admin.ads-lead.loc')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'] , function () {
     Route::get('/', [\App\Http\Controllers\Admin\IndexController::class, '__invoke'])->name('admin');
     Route::group(['namespace' => 'filters', 'prefix' => 'filters'], function () {
         Route::get('/{filters}/edit', [FiltersController::class, 'edit'])->name('filters.edit');

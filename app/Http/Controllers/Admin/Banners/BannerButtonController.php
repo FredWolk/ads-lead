@@ -48,7 +48,7 @@ class BannerButtonController extends Controller
      */
     public function show(BannerButton $bannerButton)
     {
-        //
+        return view('admin.banners.button.show', compact('bannerButton'));
     }
 
     /**
@@ -58,7 +58,8 @@ class BannerButtonController extends Controller
      */
     public function edit(BannerButton $bannerButton)
     {
-        //
+        dd($bannerButton);
+        return view('admin.banners.button.edit', compact('bannerButton'));
     }
 
     /**
@@ -79,6 +80,6 @@ class BannerButtonController extends Controller
      */
     public function destroy(BannerButton $bannerButton)
     {
-        //
+
     }
 }

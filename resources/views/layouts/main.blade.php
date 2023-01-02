@@ -64,9 +64,15 @@
                         <input class="header--search-input" placeholder="Search..." type="text">
                     </div>
 
-                    <button type="button" class="btn-rectangle btn--exit login--btn">
-                        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z" fill="#272C31"/></svg>
-                    </button>
+                    @auth()
+                        <a href="{{ route('user.index') }}" class="header-user-icon">
+                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        </a>
+                    @else
+                        <button type="button" class="btn-rectangle btn--exit login--btn">
+                            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z" fill="#272C31"/></svg>
+                        </button>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -176,11 +182,12 @@
     <section class="popup_main">
         <div class="popup_container">
             <p class="popup_main-title">Log in</p>
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <div class="popup_main-inputs">
                     <div class="popup_main-inputs-item">
-                        <label class="popup_main-inputs-label" for="login">Login</label>
-                        <input placeholder="Enter your login" required class="input-style" type="text" name="login" id="login">
+                        <label class="popup_main-inputs-label" for="login">Email</label>
+                        <input placeholder="Enter your email" required class="input-style" type="text" name="email" id="login">
                     </div>
                     <div class="popup_main-inputs-item">
                         <label class="popup_main-inputs-label" for="password">Password</label>
@@ -215,15 +222,16 @@
 <div class="signup_wrapper">
     <div class="signup_wrapper_main">
         <p class="signup_wrapper_main-title">sign up <br> in affjourmal</p>
-        <form style="max-width: 300px" method="POST" action="">
+        <form style="max-width: 300px" method="post" action="{{ route('register') }}">
+            @csrf
             <div class="popup_main-inputs">
                 <div class="popup_main-inputs-item">
                     <label class="popup_main-inputs-label" for="Name">Name</label>
-                    <input placeholder="Enter your name" required class="input-style" type="text" name="Name" id="Name">
+                    <input placeholder="Enter your name" required class="input-style" type="text" name="name" id="Name">
                 </div>
                 <div class="popup_main-inputs-item">
                     <label class="popup_main-inputs-label" for="E-mail">E-mail</label>
-                    <input placeholder="Enter your e-mail" required class="input-style" type="email" name="E-mail" id="E-mail">
+                    <input placeholder="Enter your e-mail" required class="input-style" type="email" name="email" id="E-mail">
                 </div>
                 <div class="popup_main-inputs-item">
                     <label class="popup_main-inputs-label" for="password">Password</label>
@@ -241,7 +249,7 @@
                 <div class="popup_main-inputs-item">
                     <label class="popup_main-inputs-label" for="rp-password">Repeat your password</label>
                     <div class="popup_main-input-password-wrapper">
-                        <input placeholder="Enter your password" required class="input-style input-password" type="password" name="rp-password" id="rp-password">
+                        <input placeholder="Enter your password" required class="input-style input-password" type="password" name="password_confirmation" id="rp-password">
 
                         <label class="popup_main-input-view-password-label">
                             <input class="popup_main-input-view-password input-hide" type="checkbox" name="viewpasswors">
@@ -252,7 +260,7 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="Vertical">Vertical</label>
+                    <label class="popup_main-inputs-label" for="vertical">Vertical</label>
                     <div class="custom-select_wrapper">
                         <button type="button" class="custom-select--btn">
                             <span>Choose a vertical</span>
@@ -263,55 +271,55 @@
                             <ul class="custom-select_list">
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Betting">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Betting">
                                         <span class="custom-select_list-item-label-text">Betting</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Nutra">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Nutra">
                                         <span class="custom-select_list-item-label-text">Nutra</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Sweepstakes">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Sweepstakes">
                                         <span class="custom-select_list-item-label-text">Sweepstakes</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Ppc">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Ppc">
                                         <span class="custom-select_list-item-label-text">Ppc</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Whitehat">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Whitehat">
                                         <span class="custom-select_list-item-label-text">Whitehat</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Cpi">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Cpi">
                                         <span class="custom-select_list-item-label-text">Cpi</span>
                                     </label>
                                 </li>
                                  <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Wap-Click">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Wap-Click">
                                         <span class="custom-select_list-item-label-text">Wap-Click</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Mobile content">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Mobile content">
                                         <span class="custom-select_list-item-label-text">Mobile content</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Vertical" value="Gambling">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Gambling">
                                         <span class="custom-select_list-item-label-text">Gambling</span>
                                     </label>
                                 </li>
@@ -320,7 +328,7 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="Profession">Profession
+                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="profession">Profession
                         <div class="tooltip-wrapper">
                             <div class="tooltip-wrapper-icon"><svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.0298 4.55972C2.0298 4.33287 2.06394 4.13194 2.13222 3.95694C2.2067 3.78194 2.29671 3.62639 2.40223 3.49028C2.51397 3.35417 2.63191 3.22778 2.75605 3.11111C2.8802 2.99444 2.99503 2.88426 3.10056 2.78056C3.21229 2.67037 3.3023 2.55694 3.37058 2.44028C3.44507 2.32361 3.48231 2.19398 3.48231 2.05139C3.48231 1.81806 3.3892 1.63009 3.20298 1.4875C3.02297 1.34491 2.78088 1.27361 2.47672 1.27361C2.18498 1.27361 1.92427 1.33843 1.6946 1.46806C1.46493 1.5912 1.27561 1.7662 1.12663 1.99306L0 1.30278C0.248293 0.907407 0.5928 0.593055 1.03352 0.359722C1.47424 0.119907 2.00807 0 2.63501 0C3.10056 0 3.51024 0.0712961 3.86406 0.213888C4.21788 0.35 4.4941 0.550926 4.69274 0.816666C4.89758 1.08241 5 1.40972 5 1.79861C5 2.05139 4.96276 2.275 4.88827 2.46944C4.81378 2.66389 4.71757 2.83241 4.59963 2.975C4.48169 3.11759 4.35444 3.25046 4.21788 3.37361C4.08752 3.49676 3.96338 3.61667 3.84544 3.73333C3.7275 3.85 3.62818 3.97315 3.54749 4.10278C3.473 4.23241 3.43575 4.38472 3.43575 4.55972H2.0298ZM2.73743 7C2.47672 7 2.26257 6.9125 2.09497 6.7375C1.92737 6.5625 1.84358 6.35509 1.84358 6.11528C1.84358 5.86898 1.92737 5.66481 2.09497 5.50278C2.26257 5.33426 2.47672 5.25 2.73743 5.25C3.00435 5.25 3.2185 5.33426 3.37989 5.50278C3.54749 5.66481 3.63128 5.86898 3.63128 6.11528C3.63128 6.35509 3.54749 6.5625 3.37989 6.7375C3.2185 6.9125 3.00435 7 2.73743 7Z" fill="white"/></svg></div>
 
@@ -339,19 +347,19 @@
                             <ul class="custom-select_list">
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Profession" value="Betting">
+                                        <input type="radio" class="custom-radio input-hide" name="profession" value="Betting">
                                         <span class="custom-select_list-item-label-text">Betting</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Profession" value="Nutra">
+                                        <input type="radio" class="custom-radio input-hide" name="profession" value="Nutra">
                                         <span class="custom-select_list-item-label-text">Nutra</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="Profession" value="Sweepstakes">
+                                        <input type="radio" class="custom-radio input-hide" name="profession" value="Sweepstakes">
                                         <span class="custom-select_list-item-label-text">Sweepstakes</span>
                                     </label>
                                 </li>
