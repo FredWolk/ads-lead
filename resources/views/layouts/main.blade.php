@@ -21,7 +21,7 @@
 <body>
 <div class="wrapper">
     <header class="header">
-        <div class="container">
+        <div class="container align-items-center">
             <a class="header-link" href="{{ route('index') }}">
                 <img src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
             </a>
