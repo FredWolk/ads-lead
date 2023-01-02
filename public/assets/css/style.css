@@ -3451,6 +3451,7 @@ form{
 }
 .header .container{
     position: relative;
+    align-items: center;
 }
 .header--notif-body{
     position: absolute;
@@ -4757,7 +4758,7 @@ form{
     font-weight: 700;
     font-size: 14px;
     line-height: 120%;
-    color: var(--blue);    
+    color: var(--blue);
     display: flex;
     align-items: center;
     text-align: center;
@@ -4784,7 +4785,7 @@ form{
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
-    color: #FFFFFF; 
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     text-align: center;
@@ -4853,7 +4854,7 @@ form{
     font-size: 13px;
     line-height: 120%;
     text-align: right;
-    color: var(--blue);    
+    color: var(--blue);
 }
 .forum_main_card_list--item_right-name:hover{
     text-decoration: underline;
@@ -4933,7 +4934,7 @@ form{
     font-weight: 700;
     font-size: 16px;
     line-height: 160%;
-    color: #181A1C;    
+    color: #181A1C;
 }
 .forum-user-preview_card_main_info_right-items{
     display: flex;
@@ -4951,7 +4952,7 @@ form{
 .forum-user-preview_card_main_info_right-items-item span{
     color: rgba(39, 44, 49, 1);
 }
-.forum_main_card_list--item_right-name:hover + 
+.forum_main_card_list--item_right-name:hover +
 .forum_main_card_list--item_right-user-preview{
     opacity: 1;
 }
@@ -4980,8 +4981,8 @@ form{
     font-size: 28px;
     line-height: 120%;
     text-transform: uppercase;
-    color: #FFFFFF;  
-    width: 330px;  
+    color: #FFFFFF;
+    width: 330px;
 }
 .forum_main_links-group-item_main-group{
     border: 1px solid #FFFFFF;
@@ -5000,7 +5001,7 @@ form{
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
-    color: #FFFFFF;    
+    color: #FFFFFF;
 }
 .forum_main_links-group-item_main-text span{
     margin-top: -1px;
@@ -5038,9 +5039,9 @@ form{
     font-weight: 600;
     font-size: 14px;
     line-height: 160%;
-    color: #FFFFFF;  
+    color: #FFFFFF;
     white-space: nowrap;
-    overflow: hidden;  
+    overflow: hidden;
     width: 100%;
 }
 .forum_main_links-group-item_main-last-info-text{
@@ -5060,7 +5061,7 @@ form{
     transition-timing-function: cubic-bezier(.5, -1, .5, 2);
     transition-duration: 0.3s;
 }
-.forum_main_links-group-item--link:hover + 
+.forum_main_links-group-item--link:hover +
 .forum_main_links-group-item_main svg{
     transform: rotateZ(45deg);
 }
@@ -5078,7 +5079,7 @@ form{
     font-size: 28px;
     line-height: 120%;
     text-transform: uppercase;
-    color: #181A1C;    
+    color: #181A1C;
 }
 .forum_main_cards_list{
     width: 100%;
@@ -5125,7 +5126,7 @@ form{
     font-weight: 500;
     font-size: 20px;
     line-height: 120%;
-    color: #181A1C;    
+    color: #181A1C;
 }
 .forum_main_cards_list--item_left_main_top-link:hover{
     color: var(--blue);
@@ -5230,7 +5231,7 @@ form{
     font-size: 30px;
     line-height: 120%;
     text-transform: uppercase;
-    color: #FFFFFF;   
+    color: #FFFFFF;
 }
 .forum_aside_stats_list{
     width: 100%;
@@ -5252,7 +5253,7 @@ form{
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
-    color: #FFFFFF;    
+    color: #FFFFFF;
 }
 .forum_aside_stats--item-value{
     font-weight: 600;
@@ -5260,7 +5261,7 @@ form{
     line-height: 120%;
     text-align: right;
     text-transform: uppercase;
-    color: #FFFFFF;    
+    color: #FFFFFF;
 }
 .forum_aside_stats--item-user-wrapper{
     position: relative;
@@ -5272,7 +5273,7 @@ form{
 .forum-user-preview_card.black{
     border: 1px solid #181A1C;
 }
-.forum-user-preview_card.black 
+.forum-user-preview_card.black
 .forum-user-preview_card_bott{
     background: #181A1C;
 }
@@ -5373,7 +5374,7 @@ form{
 .forum_treads_list--item_left_info_bottom-name:hover{
     color: var(--blue);
 }
-.forum_treads_list--item_left_info_bottom-name:hover + 
+.forum_treads_list--item_left_info_bottom-name:hover +
 .forum_main_card_list--item_right-user-preview{
     opacity: 1;
 }
@@ -5387,7 +5388,7 @@ form{
     font-weight: 400;
     font-size: 14px;
     line-height: 160%;
-    color: #272C31;    
+    color: #272C31;
     margin-left: -5px;
 }
 .forum_treads_list--item_left_info_bottom-tracking{
@@ -5450,7 +5451,7 @@ form{
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
-    color: #181A1C;    
+    color: #181A1C;
 }
 .forum_treads_list--item_mid-text span{
     font-weight: 600;
@@ -5488,7 +5489,7 @@ form{
     font-size: 14px;
     line-height: 120%;
     text-align: right;
-    color: var(--blue);    
+    color: var(--blue);
 }
 .forum_treads_list--item_right_info-name{
     font-family: 'Montserrat';
@@ -5511,7 +5512,7 @@ form{
     font-size: 30px;
     line-height: 120%;
     text-transform: uppercase;
-    color: var(--blue);    
+    color: var(--blue);
 }
 .forumpage-board_top{
     width: 100%;
@@ -5553,7 +5554,7 @@ form{
     height: 100%;
     object-fit: cover;
 }
-.forumpage-board_top_left_first-name:hover + 
+.forumpage-board_top_left_first-name:hover +
 .forum_main_card_list--item_right-user-preview{
     opacity: 1;
 }
@@ -5562,8 +5563,8 @@ form{
     font-weight: 500;
     font-size: 14px;
     line-height: 160%;
-    color: var(--blue);   
-    white-space: nowrap; 
+    color: var(--blue);
+    white-space: nowrap;
 }
 .forumpage-board_top_left_first
 .forum_main_card_list--item_right-user-preview{
@@ -5626,7 +5627,7 @@ form{
     font-weight: 500;
     font-size: 12px;
     line-height: 160%;
-    color: #FFFFFF;    
+    color: #FFFFFF;
 }
 .forumpage-board_top-pagin-wrapp-right-more--body-bot{
     width: 100%;
@@ -5658,7 +5659,7 @@ form{
     display: flex;
     align-items: center;
 }
-.user-main-corpage_top_left-name:hover + 
+.user-main-corpage_top_left-name:hover +
 .forum_main_card_list--item_right-user-preview{
     opacity: 1;
 }
@@ -5697,7 +5698,7 @@ form{
     font-weight: 500;
     font-size: 12px;
     line-height: 160%;
-    color: #FFFFFF;    
+    color: #FFFFFF;
 }
 .user-main-corpage_top_right_top_right--btn-body_bot{
     width: 100%;
@@ -5711,7 +5712,7 @@ form{
     font-weight: 600;
     font-size: 12px;
     line-height: 160%;
-    color: #272C31;    
+    color: #272C31;
 }
 .user-main-corpage_top_right_top_right--btn-body_bot--link:hover{
     color: var(--blue);
@@ -5784,7 +5785,7 @@ form{
     font-weight: 400;
     font-size: 18px;
     line-height: 160%;
-    color: #272C31;    
+    color: #272C31;
 }
 .forum_userpage-main_info_group_item-text span{
     color: var(--blue);
@@ -5797,7 +5798,7 @@ form{
     font-size: 16px;
     line-height: 160%;
     text-transform: uppercase;
-    color: #181A1C;    
+    color: #181A1C;
 }
 .forum_userpage-main_info_troph +
 .user-main_trophies_list{
