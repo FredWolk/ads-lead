@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 511);
             $table->string('link', 511);
+            $table->enum('type', ['article', 'base'])->default('base');
             $table->string('pt_name', 511)->nullable();
             $table->string('image', 1023)->nullable();
             $table->string('pt_image', 1023)->nullable();

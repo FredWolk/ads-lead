@@ -40,7 +40,7 @@ if (isset($url[3]) && $url[3] == 'pt') {
 } else {
     App::setLocale('en');
 }
-Route::domain('ads-lead.loc')->prefix(App::getLocale() == 'en' ? '' : App::getLocale())->group(function () {
+Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()],function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('index');
     Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
         Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
@@ -70,16 +70,15 @@ Route::domain('ads-lead.loc')->prefix(App::getLocale() == 'en' ? '' : App::getLo
         Route::get('/board', [ForumBoardController::class, '__invoke'])->name('forum.board');
         Route::get('/user', [ForumUserController::class, '__invoke'])->name('forum.user');
     });
-});
-
-Route::group(['prefix' => 'user', 'middleware' => 'auth'] , function () {
-    Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
-    Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
-    Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
-    Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
-    Route::get('/security', [UserSecurityController::class, '__invoke'])->name('user.security');
-    Route::get('/correspondence', [UserCorrespondenceController::class, '__invoke'])->name('user.correspondence');
-    Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name('user.correspondence.page');
+    Route::group(['prefix' => 'user', 'middleware' => 'auth'] , function () {
+        Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
+        Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
+        Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
+        Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
+        Route::get('/security', [UserSecurityController::class, '__invoke'])->name('user.security');
+        Route::get('/correspondence', [UserCorrespondenceController::class, '__invoke'])->name('user.correspondence');
+        Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name('user.correspondence.page');
+    });
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'] , function () {

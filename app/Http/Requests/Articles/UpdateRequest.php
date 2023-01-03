@@ -26,8 +26,12 @@ class UpdateRequest extends FormRequest
         return [
             'name'                      => 'required|string',
             'link'                      => 'required|string',
-            'pt_name'                   => 'required|string',
-            'image'                     => 'file',
+            'pt_name'                   => 'string',
+            'type'                      => 'required|string',
+            'image'                     => 'image',
+            'pt_image'                  => 'image',
+            'prev_text'                 => 'nullable|string',
+            'pt_prev_text'              => 'nullable|string',
             'views'                     => 'nullable|integer',
             'author_id'                 => 'required|integer',
             'tags'                      => 'array|nullable',
@@ -39,6 +43,7 @@ class UpdateRequest extends FormRequest
             'pt_main_text'              => 'required|string',
             'title'                     => 'nullable|string',
             'description'               => 'nullable|string',
+
             'keywords'                  => 'nullable|string',
             'meta_tags'                 => 'nullable|string',
             'og_title'                  => 'nullable|string',

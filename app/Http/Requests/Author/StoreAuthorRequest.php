@@ -25,7 +25,7 @@ class StoreAuthorRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'photo' => 'required|file'
+            'photo' => 'required|image'
         ];
     }
 }

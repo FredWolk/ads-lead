@@ -26,8 +26,12 @@ class StoreRequest extends FormRequest
         return [
             'name'                      => 'required|string',
             'link'                      => 'required|string',
-            'pt_name'                   => 'required|string',
-            'image'                     => 'required|file',
+            'pt_name'                   => 'string',
+            'type'                      => 'required|string',
+            'image'                     => 'required|image',
+            'pt_image'                  => 'required|image',
+            'prev_text'                 => 'nullable|string',
+            'pt_prev_text'              => 'nullable|string',
             'views'                     => 'nullable|integer',
             'author_id'                 => 'required|integer',
             'tags'                      => 'array|nullable',
@@ -39,6 +43,7 @@ class StoreRequest extends FormRequest
             'pt_main_text'              => 'required|string',
             'title'                     => 'nullable|string',
             'description'               => 'nullable|string',
+
             'keywords'                  => 'nullable|string',
             'meta_tags'                 => 'nullable|string',
             'og_title'                  => 'nullable|string',
