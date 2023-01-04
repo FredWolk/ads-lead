@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AD\StoreAdRequest;
-use App\Http\Requests\Ad\UpdateAdRequest;
+use App\Http\Requests\AD\UpdateAdRequest;
 use App\Models\Ad;
 use App\Models\Filters;
 use Illuminate\Support\Facades\Storage;
