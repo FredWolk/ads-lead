@@ -101,7 +101,7 @@
                                 <label for="pt_image">Изображение статьи на португальском</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input value="{{ old('pt_image') }}" name="pt_image" type="file"
+                                        <input value="{{ $article->pt_image }}" name="pt_image" type="file"
                                                class="custom-file-input" id="pt_image">
                                         <label class="custom-file-label" for="pt_image">Выберите изображение статьи</label>
                                     </div>
@@ -112,14 +112,14 @@
                             @enderror
                             <div class="form-group">
                                 <label for="prev_text">Описание статьи</label>
-                                <textarea class="form-control" rows="3" id="prev_text" name="prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('prev_text') }}</textarea>
+                                <textarea class="form-control" rows="3" id="prev_text" name="prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ $article->prev_text }}</textarea>
                             </div>
                             @error('prev_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label for="pt_prev_text">Описание статьи на португальском</label>
-                                <textarea class="form-control" rows="3" id="pt_prev_text" name="pt_prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('pt_prev_text') }}</textarea>
+                                <textarea class="form-control" rows="3" id="pt_prev_text" name="pt_prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ $article->pt_prev_text }}</textarea>
                             </div>
                             @error('pt_prev_text')
                             <div class="text-danger">{{ $message }}</div>
