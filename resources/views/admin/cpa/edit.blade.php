@@ -246,12 +246,11 @@
                                 @enderror
                                 <div class="form-group">
                                     <label for="select1">Вертикали</label>
-                                    @php($verticales = json_decode($cpa->verticales, 1))
                                     <select name="verticales[]" multiple="multiple" class="form-control select1"
                                             id="select1">
                                         @foreach(json_decode($filters['vertical']) as $i)
                                             <option
-                                                {{ is_array($verticales) && in_array($i, $verticales) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                {{ is_array($cpa->verticales) && in_array($i, $cpa->verticales) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -261,13 +260,12 @@
 
                                 <div class="form-group">
                                     <label for="select2">Страны</label>
-                                    @php($country = json_decode($cpa->countries, 1))
                                     <select name="countries[]" multiple="multiple" class="form-control select1"
                                             id="select2">
                                         @if(!empty($filters['countries']))
                                             @foreach(json_decode($filters['countries']) as $i)
                                                 <option
-                                                    {{ is_array($country) && in_array($i,$country) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                    {{ is_array($cpa->countries) && in_array($i,$cpa->countries) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -278,13 +276,12 @@
 
                                 <div class="form-group">
                                     <label for="select3">Модели оплаты</label>
-                                    @php($payment_models = json_decode($cpa->payment_models, 1))
                                     <select name="payment_models[]" multiple="multiple" class="form-control select1"
                                             id="select3">
                                         @if(!empty($filters['payment_models']))
                                             @foreach(json_decode($filters['payment_models']) as $i)
                                                 <option
-                                                    {{is_array($payment_models) && in_array($i, $payment_models) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                    {{is_array($cpa->payment_models) && in_array($i, $cpa->payment_models) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -295,13 +292,12 @@
 
                                 <div class="form-group">
                                     <label for="select4">Периодичность выплат</label>
-                                    @php($payment_schedule_f = json_decode($cpa->payment_schedule_f, 1))
                                     <select name="payment_schedule_f[]" multiple="multiple"
                                             class="form-control select1" id="select4">
                                         @if(!empty($filters['payment_schedule']))
                                             @foreach(json_decode($filters['payment_schedule']) as $i)
                                                 <option
-                                                    {{is_array($payment_schedule_f) && in_array($i, $payment_schedule_f) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                    {{is_array($cpa->payment_schedule_f) && in_array($i, $cpa->payment_schedule_f) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -312,13 +308,12 @@
 
                                 <div class="form-group">
                                     <label for="select5">Платежные системы</label>
-                                    @php($payment_systems = json_decode($cpa->payment_systems, 1))
                                     <select name="payment_systems[]" multiple="multiple" class="form-control select1"
                                             id="select5">
                                         @if(!empty($filters['payment_systems']))
                                             @foreach(json_decode($filters['payment_systems']) as $i)
                                                 <option
-                                                    {{is_array($payment_systems) && in_array($i, $payment_systems) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                    {{is_array($cpa->payment_systems) && in_array($i, $cpa->payment_systems) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
