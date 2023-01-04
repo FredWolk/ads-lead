@@ -80,21 +80,24 @@ class CpaController extends Controller
     public function update(UpdateCpaRequest $request, Cpa $cpa)
     {
         $data = $request->validated();
-dd($data);
-        if (!empty($data['image']))
+        if (!empty($data['image'])){
             Storage::disk('public')->delete($cpa->image);
             $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
-        if (!empty($data['pt_image']))
+        }
+
+        if (!empty($data['pt_image'])){
             Storage::disk('public')->delete($cpa->pt_image);
             $data['pt_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['pt_image']);
-
-        if (!empty($data['logo']))
+        }
+        if (!empty($data['logo'])){
             Storage::disk('public')->delete($cpa->logo);
             $data['logo'] = Storage::disk('public')->put('/admin/images/cpa', $data['logo']);
-        if (!empty($data['manager_image']))
+        }
+
+        if (!empty($data['manager_image'])){
             Storage::disk('public')->delete($cpa->manager_image);
             $data['manager_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['manager_image']);
-
+        }
         if ($cpa->update($data))
             return redirect()->route('cpa.show', $cpa->id);
     }
