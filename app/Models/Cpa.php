@@ -14,11 +14,11 @@ class Cpa extends Model
     protected $guarded = false;
 
     protected $casts = [
-        'verticales_id' => 'array',
-        'countries_id' => 'array',
-        'payment_models_id' => 'array',
-        'payment_schedule_id' => 'array',
-        'payment_systems_id' => 'array',
+        'verticales' => 'array',
+        'countries' => 'array',
+        'payment_models' => 'array',
+        'payment_schedule_f' => 'array',
+        'payment_systems' => 'array',
     ];
 
 }
