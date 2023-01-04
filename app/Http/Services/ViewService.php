@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Cookie;
 
 class ViewService
 {
-    public function View($data)
+    public function View($data, $name)
     {
-        $views = Cookie::get('views');
+        $views = Cookie::get($name);
         if (empty($views)){
             $views[] = $data->id;
             $data->update([
@@ -23,6 +23,6 @@ class ViewService
                 ]);
             }
         }
-        return Cookie::forever('views', json_encode($views));
+        return Cookie::forever($name, json_encode($views));
     }
 }

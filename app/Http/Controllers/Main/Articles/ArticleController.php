@@ -17,7 +17,7 @@ class ArticleController extends Controller
         if (empty($article))
             return redirect()->route('articles');
         $moreArticle = Article::where('id', '!=', $article->id)->take(6)->get();
-        $cookie = $service->View($article);
+        $cookie = $service->View($article, 'article_views');
         $article->toArray();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return response()->view('main.articles.article', compact('article', 'locale', 'moreArticle'))->withCookie($cookie);
