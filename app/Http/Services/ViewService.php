@@ -23,6 +23,6 @@ class ViewService
                 ]);
             }
         }
-        return Cookie::forever('views', json_encode($views));
+        return Cookie::forever('views', json_encode($views), '/', 'affjournal.com');
     }
 }
