@@ -27,21 +27,29 @@ class UpdateAdRequest extends FormRequest
             'name' => 'required|string',
             'link' => 'required|string',
             'pt_name' => 'nullable|string',
-            'image' => 'nullable|file',
-            'logo' => 'nullable|file',
+            'image' => 'nullable|image',
+            'pt_image' => 'nullable|image',
+            'logo' => 'nullable|image',
             'prev_text' => 'nullable|string',
             'pt_prev_text' => 'nullable|string',
             'url' => 'nullable|string',
             'views' => 'nullable|integer',
+
+            'main_advertising_formats' => 'nullable|string',
             'advertising_formats' => 'nullable|array',
             'countries' => 'nullable|array',
             'payment_systems' => 'nullable|array',
             'minimum_top_up_amount' => 'nullable|array',
+
             'before_main_text' => 'nullable|string',
             'pt_before_main_text' => 'nullable|string',
             'main_text' => 'nullable|string',
             'pt_main_text' => 'nullable|string',
+
             'promocode' => 'nullable|string',
+            'promocode_desc' => 'nullable|string',
+            'pt_promocode_desc' => 'nullable|string',
+
             'date_of_creation' => 'nullable|string',
             'traffic_volume_per_month' => 'nullable|string',
             'formats' => 'nullable|string',
@@ -51,15 +59,18 @@ class UpdateAdRequest extends FormRequest
             'minimum_deposit' => 'nullable|string',
             'referral_program' => 'nullable|string',
             'tools' => 'nullable|string',
+
             'facebook' => 'nullable|string',
             'instagram' => 'nullable|string',
             'linkedin' => 'nullable|string',
             'forum_link' => 'nullable|string',
             'editorial_opinion' => 'nullable|string',
+
             'rating_support' => 'nullable|integer',
             'rating_traffic_quality' => 'nullable|integer',
             'rating_number_of_geos' => 'nullable|integer',
             'rating_price_per_click' => 'nullable|integer',
+
             'title' => 'nullable|string',
             'description' => 'nullable|string',
             'keywords' => 'nullable|string',
@@ -70,6 +81,7 @@ class UpdateAdRequest extends FormRequest
             'og_type' => 'nullable|string',
             'meta_tags' => 'nullable|string',
             'og_tags' => 'nullable|string',
+
             'pt_title' => 'nullable|string',
             'pt_description' => 'nullable|string',
             'pt_keywords' => 'nullable|string',

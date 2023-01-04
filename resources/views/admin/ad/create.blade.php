@@ -85,6 +85,21 @@
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
+                            <div class="form-group">
+                                <label for="pt_image">Изображение рекламы на португальском</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ old('pt_image') }}" name="pt_image" type="file"
+                                               class="custom-file-input" id="pt_image">
+                                        <label class="custom-file-label" for="pt_image">Выберите изображение
+                                            рекламы</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('pt_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             <div class="form-group">
                                 <label for="logo">Логотип рекламы</label>
                                 <div class="input-group">
