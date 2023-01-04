@@ -201,7 +201,8 @@
                                     <select name="main_verticales" class="form-control select2"
                                             id="select2">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option {{ $i == $cpa->main_verticales ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                            <option
+                                                {{ $i == $cpa->main_verticales ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -213,7 +214,8 @@
                                     <select name="verticales[]" multiple="multiple" class="form-control select1"
                                             id="select1">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option {{ is_array($cpa->verticales) && in_array($i, $cpa->verticales) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                            <option
+                                                {{ is_array($cpa->verticales) && in_array($i, $cpa->verticales) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -223,12 +225,13 @@
 
                                 <div class="form-group">
                                     <label for="select2">Страны</label>
-                                    @dump(json_decode($cpa->countries, 1))
+                                    @php($country = json_decode($cpa->countries, 1))
                                     <select name="countries[]" multiple="multiple" class="form-control select1"
                                             id="select2">
                                         @if(!empty($filters['countries']))
                                             @foreach(json_decode($filters['countries']) as $i)
-                                                <option {{ is_array($cpa->countries) && in_array($i,$cpa->countries) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{ is_array($country) && in_array($i,$country) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -243,7 +246,8 @@
                                             id="select3">
                                         @if(!empty($filters['payment_models']))
                                             @foreach(json_decode($filters['payment_models']) as $i)
-                                                <option {{is_array($cpa->payment_models) && in_array($i, $cpa->payment_models) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{is_array($cpa->payment_models) && in_array($i, $cpa->payment_models) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -258,7 +262,8 @@
                                             class="form-control select1" id="select4">
                                         @if(!empty($filters['payment_schedule']))
                                             @foreach(json_decode($filters['payment_schedule']) as $i)
-                                                <option {{is_array($cpa->payment_schedule_f) && in_array($i, $cpa->payment_schedule_f) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{is_array($cpa->payment_schedule_f) && in_array($i, $cpa->payment_schedule_f) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -273,7 +278,8 @@
                                             id="select5">
                                         @if(!empty($filters['payment_systems']))
                                             @foreach(json_decode($filters['payment_systems']) as $i)
-                                                <option {{is_array($cpa->payment_systems) && in_array($i, $cpa->payment_systems) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{is_array($cpa->payment_systems) && in_array($i, $cpa->payment_systems) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -494,7 +500,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="rating_support">Поддержки</label>
-                                    <input type="number" max="5" name="rating_support" value="{{ $cpa->rating_support }}" class="form-control"
+                                    <input type="number" max="5" name="rating_support"
+                                           value="{{ $cpa->rating_support }}" class="form-control"
                                            id="rating_support" placeholder="На пример: 4">
                                 </div>
                                 @error('rating_support')
@@ -503,7 +510,8 @@
 
                                 <div class="form-group">
                                     <label for="rating_payments">Оплат</label>
-                                    <input type="number" max="5" name="rating_payments" value="{{ $cpa->rating_payments }}" class="form-control"
+                                    <input type="number" max="5" name="rating_payments"
+                                           value="{{ $cpa->rating_payments }}" class="form-control"
                                            id="rating_payments" placeholder="На пример: 5">
                                 </div>
                                 @error('rating_payments')
@@ -512,7 +520,8 @@
 
                                 <div class="form-group">
                                     <label for="rating_offers">Офферов</label>
-                                    <input type="number" max="5" name="rating_offers" value="{{ $cpa->rating_offers }}" class="form-control"
+                                    <input type="number" max="5" name="rating_offers" value="{{ $cpa->rating_offers }}"
+                                           class="form-control"
                                            id="rating_offers" placeholder="На пример: 3">
                                 </div>
                                 @error('rating_offers')
@@ -521,7 +530,8 @@
 
                                 <div class="form-group">
                                     <label for="rating_betting">Ставок</label>
-                                    <input type="number" max="5" name="rating_betting" value="{{ $cpa->rating_betting }}" class="form-control"
+                                    <input type="number" max="5" name="rating_betting"
+                                           value="{{ $cpa->rating_betting }}" class="form-control"
                                            id="rating_betting" placeholder="На пример: 5">
                                 </div>
                                 @error('rating_betting')
