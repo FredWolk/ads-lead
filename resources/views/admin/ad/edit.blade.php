@@ -103,6 +103,7 @@
                             @enderror
 
                             <div class="form-group">
+                                <img src="{{ asset('storage/' . $ad->logo) }}" size="250" alt="">
                                 <label for="logo">Логотип рекламы</label>
                                 <div class="input-group">
                                     <div class="custom-file">
