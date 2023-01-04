@@ -64,7 +64,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="type">Select</label>
+                                <label for="type">Тип статьи</label>
                                 <select name="type" id="type" class="form-control">
                                     <option value="article">Статья</option>
                                     <option value="base">База знаний</option>
