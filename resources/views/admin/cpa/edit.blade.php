@@ -201,7 +201,7 @@
                                     <select name="main_verticales" class="form-control select2"
                                             id="select2">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option {{ $i == $cpa->mamain_verticales ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                            <option {{ $i == $cpa->main_verticales ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
