@@ -27,13 +27,13 @@ class AdController extends Controller
     {
         $data = $request->validated();
         if (!empty($data['image']))
-            $data['image'] = Storage::disk('public')->put('/admin/images/ad', $data['image']);
+            $data['image'] = Storage::disk('public')->put('/admin/images/netw', $data['image']);
 
         if (!empty($data['pt_image']))
-            $data['pt_image'] = Storage::disk('public')->put('/admin/images/ad', $data['pt_image']);
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/netw', $data['pt_image']);
 
         if (!empty($data['logo']))
-            $data['logo'] = Storage::disk('public')->put('/admin/images/ad', $data['logo']);
+            $data['logo'] = Storage::disk('public')->put('/admin/images/netw', $data['logo']);
 
         $ad = Ad::firstOrCreate($data);
         if ($ad) {
@@ -57,16 +57,19 @@ class AdController extends Controller
         $data = $request->validated();
 
         if (!empty($data['image'])) {
-            Storage::disk('public')->delete($ad->image);
-            $data['image'] = Storage::disk('public')->put('/admin/images/ad', $data['image']);
+            if (!empty($ad->image))
+                Storage::disk('public')->delete($ad->image);
+            $data['image'] = Storage::disk('public')->put('/admin/images/netw', $data['image']);
         }
         if (!empty($data['pt_image'])) {
-            Storage::disk('public')->delete($ad->pt_image);
-            $data['pt_image'] = Storage::disk('public')->put('/admin/images/ad', $data['pt_image']);
+            if (!empty($ad->pt_image))
+                Storage::disk('public')->delete($ad->pt_image);
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/netw', $data['pt_image']);
         }
         if (!empty($data['logo'])) {
-            Storage::disk('public')->delete($ad->logo);
-            $data['logo'] = Storage::disk('public')->put('/admin/images/ad', $data['logo']);
+            if (!empty($ad->logo))
+                Storage::disk('public')->delete($ad->logo);
+            $data['logo'] = Storage::disk('public')->put('/admin/images/netw', $data['logo']);
         }
         if ($ad->update($data))
             return redirect()->route('ad.show', $ad->id);
