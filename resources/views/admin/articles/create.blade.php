@@ -123,7 +123,7 @@
                             @enderror
                             <div class="form-group">
                                 <label for="views">Просмотры</label>
-                                <input type="number" name="views" value="{{ old('views') }}" class="form-control"
+                                <input type="number" min="0" name="views" value="{{ old('views') }}" class="form-control"
                                        id="views" placeholder="На пример: 41">
                             </div>
                             @error('views')
