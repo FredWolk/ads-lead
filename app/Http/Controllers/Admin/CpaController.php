@@ -80,7 +80,7 @@ class CpaController extends Controller
     public function update(UpdateCpaRequest $request, Cpa $cpa)
     {
         $data = $request->validated();
-
+dd($data);
         if (!empty($data['image']))
             Storage::disk('public')->delete($cpa->image);
             $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
