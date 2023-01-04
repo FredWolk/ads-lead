@@ -197,7 +197,7 @@
                                     <select name="main_verticales" class="form-control select2"
                                             id="select2">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option value="{{ $i }}">{{ $i }}</option>
+                                            <option {{ old('main_verticales') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -209,7 +209,7 @@
                                     <select name="verticales[]" multiple="multiple" class="form-control select1"
                                             id="select1">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option value="{{ $i }}">{{ $i }}</option>
+                                            <option {{ !empty(old('verticales')) && in_array($i, old('verticales')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -223,7 +223,7 @@
                                             id="select2">
                                         @if(!empty($filters['countries']))
                                             @foreach(json_decode($filters['countries']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ !empty(old('countries')) && in_array($i, old('countries')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -238,7 +238,7 @@
                                             id="select3">
                                         @if(!empty($filters['payment_models']))
                                             @foreach(json_decode($filters['payment_models']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ !empty(old('payment_models')) && in_array($i, old('payment_models')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -253,7 +253,7 @@
                                             class="form-control select1" id="select4">
                                         @if(!empty($filters['payment_schedule']))
                                             @foreach(json_decode($filters['payment_schedule']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ !empty(old('payment_schedule_f')) && in_array($i, old('payment_schedule_f')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -268,7 +268,7 @@
                                             id="select5">
                                         @if(!empty($filters['payment_systems']))
                                             @foreach(json_decode($filters['payment_systems']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ !empty(old('payment_systems')) && in_array($i, old('payment_systems')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>

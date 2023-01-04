@@ -85,6 +85,22 @@
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
+                            <div class="form-group">
+                                <label for="pt_image">Изображение рекламы на португальском</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ $ad->pt_image }}" name="pt_image" type="file"
+                                               class="custom-file-input" id="pt_image">
+                                        <label class="custom-file-label" for="pt_image">Выберите изображение
+                                            рекламы</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('pt_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="form-group">
                                 <label for="logo">Логотип рекламы</label>
                                 <div class="input-group">
@@ -177,15 +193,27 @@
                                     <h3 class="card-title">Фильтры</h3>
                                 </div>
                                 <div class="form-group">
+                                    <label for="select1">Основной формат рекламы</label>
+                                    <select name="main_advertising_formats" class="form-control select1"
+                                            id="select1">
+                                        @foreach(json_decode($filters['advertising_formats']) as $i)
+                                            <option {{ $ad->main_advertising_formats == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('main_advertising_formats')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="form-group">
                                     <label for="select1">Формат рекламы</label>
                                     <select name="advertising_formats[]" multiple="multiple" class="form-control select1"
                                             id="select1">
                                         @foreach(json_decode($filters['advertising_formats']) as $i)
-                                            <option value="{{ $i }}">{{ $i }}</option>
+                                            <option {{ !empty($ad->advertising_formats) && in_array($i, $ad->advertising_formats) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @error('verticales_id')
+                                @error('advertising_formats')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
@@ -195,12 +223,12 @@
                                             id="select2">
                                         @if(!empty($filters['countries']))
                                             @foreach(json_decode($filters['countries']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ !empty($ad->countries) && in_array($i, $ad->countries) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                 </div>
-                                @error('countries_id')
+                                @error('countries')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
@@ -210,12 +238,12 @@
                                             id="select3">
                                         @if(!empty($filters['payment_systems']))
                                             @foreach(json_decode($filters['payment_systems']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ !empty($ad->payment_systems) && in_array($i, $ad->payment_systems) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_models_id')
+                                @error('payment_systems')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
@@ -225,15 +253,53 @@
                                             class="form-control select1" id="select4">
                                         @if(!empty($filters['minimum_top_up_amount']))
                                             @foreach(json_decode($filters['minimum_top_up_amount']) as $i)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ !empty($ad->minimum_top_up_amount) && in_array($i, $ad->minimum_top_up_amount) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_schedule_id')
+                                @error('minimum_top_up_amount')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="card card-success p-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Промокод</h3>
+                                </div>
+                                <div class="form-group">
+                                    <label for="promocode">Промокод</label>
+                                    <input value="{{ old('promocode') }}" name="promocode" type="text"
+                                           class="form-control"
+                                           id="promocode"
+                                           placeholder="PIVKO2023">
+                                </div>
+                                @error('promocode')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="promocode_desc">Описание промокода</label>
+                                    <textarea name="promocode_desc" class="form-control"
+                                              id="promocode_desc"
+                                              placeholder="Описание промокода">{{ old('promocode_desc') }}</textarea>
+                                </div>
+                                @error('promocode_desc')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="pt_promocode_desc">Описание промокода на португальском</label>
+                                    <textarea name="pt_promocode_desc" class="form-control"
+                                              id="pt_promocode_desc"
+                                              placeholder="Описание промокода на португальском">{{ old('pt_promocode_desc') }}</textarea>
+                                </div>
+                                @error('pt_promocode_desc')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+
                             {{--  Доп. информация о рекламе   --}}
 
                             <div class="card card-success p-3">
