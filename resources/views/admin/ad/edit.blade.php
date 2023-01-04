@@ -45,6 +45,7 @@
                     </div>
                     <form enctype="multipart/form-data" method="post" action="{{ route('ad.update', $ad->id) }}">
                         @csrf
+                        @method('patch')
                         <div class="card-body">
 
                             <div class="form-group">
