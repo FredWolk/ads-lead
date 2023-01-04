@@ -65,6 +65,16 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
+                                <label for="type">Тип статьи</label>
+                                <select name="type" id="type" class="form-control">
+                                    <option value="article">Статья</option>
+                                    <option value="base">База знаний</option>
+                                </select>
+                            </div>
+                            @error('type')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
                                 <label for="pt_name">Название статьи на португальском</label>
                                 <input type="text" name="pt_name" value="{{ $article->pt_name }}" class="form-control"
                                        id="pt_name" placeholder="Название статьи">
@@ -87,6 +97,33 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
+                                <label for="pt_image">Изображение статьи на португальском</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ old('pt_image') }}" name="pt_image" type="file"
+                                               class="custom-file-input" id="pt_image">
+                                        <label class="custom-file-label" for="pt_image">Выберите изображение статьи</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('pt_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="prev_text">Описание статьи</label>
+                                <textarea class="form-control" rows="3" id="prev_text" name="prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('prev_text') }}</textarea>
+                            </div>
+                            @error('prev_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="pt_prev_text">Описание статьи на португальском</label>
+                                <textarea class="form-control" rows="3" id="pt_prev_text" name="pt_prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('pt_prev_text') }}</textarea>
+                            </div>
+                            @error('pt_prev_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
                                 <label for="views">Просмотры</label>
                                 <input type="number" name="views" value="{{ $article->views }}" class="form-control"
                                        id="views" placeholder="На пример: 41">
@@ -97,9 +134,9 @@
                             <div class="form-group">
                                 <label>Выберите автора</label>
                                 <select name="author_id" class="form-control select2">
-                                    <option value="1">Автор 1</option>
-                                    <option value="2">Автор 2</option>
-                                    <option value="3">Автор 3</option>
+                                    @foreach($authors as $i)
+                                        <option value="{{ $i['id'] }}">{{ $i['name'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             @error('author_id')

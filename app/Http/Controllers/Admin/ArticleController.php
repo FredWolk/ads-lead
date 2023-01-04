@@ -67,7 +67,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('admin.articles.edit', compact('article'));
+        $authors = Author::all();
+        return view('admin.articles.edit', compact('article', 'authors'));
     }
 
     /**
