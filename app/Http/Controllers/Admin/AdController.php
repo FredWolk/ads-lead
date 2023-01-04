@@ -16,6 +16,7 @@ class AdController extends Controller
         $ad = Ad::all();
         return view('admin.ad.index', compact('ad'));
     }
+
     public function create()
     {
         $filters = Filters::first();
@@ -28,6 +29,9 @@ class AdController extends Controller
         if (!empty($data['image']))
             $data['image'] = Storage::disk('public')->put('/admin/images/ad', $data['image']);
 
+        if (!empty($data['pt_image']))
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/ad', $data['pt_image']);
+
         if (!empty($data['logo']))
             $data['logo'] = Storage::disk('public')->put('/admin/images/ad', $data['logo']);
 
@@ -36,10 +40,12 @@ class AdController extends Controller
             return redirect()->route('ad.show', $ad->id);
         }
     }
+
     public function show(Ad $ad)
     {
         return view('admin.ad.show', compact('ad'));
     }
+
     public function edit(Ad $ad)
     {
         $filters = Filters::first();
@@ -49,11 +55,36 @@ class AdController extends Controller
     public function update(UpdateAdRequest $request, Ad $ad)
     {
         $data = $request->validated();
+
+        if (!empty($data['image'])) {
+            Storage::disk('public')->delete($ad->image);
+            $data['image'] = Storage::disk('public')->put('/admin/images/ad', $data['image']);
+        }
+        if (!empty($data['pt_image'])) {
+            Storage::disk('public')->delete($ad->pt_image);
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/ad', $data['pt_image']);
+        }
+        if (!empty($data['logo'])) {
+            Storage::disk('public')->delete($ad->logo);
+            $data['logo'] = Storage::disk('public')->put('/admin/images/ad', $data['logo']);
+        }
         if ($ad->update($data))
             return redirect()->route('ad.show', $ad->id);
     }
+
     public function destroy(Ad $ad)
     {
+
+        if (!empty($ad->image)) {
+            Storage::disk('public')->delete($ad->image);
+        }
+        if (!empty($ad->pt_image)) {
+            Storage::disk('public')->delete($ad->pt_image);
+        }
+        if (!empty($ad->logo)) {
+            Storage::disk('public')->delete($ad->logo);
+        }
+
         if ($ad->delete())
             return redirect()->route('ad.index');
     }

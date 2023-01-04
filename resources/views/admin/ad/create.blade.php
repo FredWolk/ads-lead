@@ -145,7 +145,7 @@
 
                             <div class="form-group">
                                 <label for="views">Просмотры</label>
-                                <input type="number" name="views" value="{{ old('views') }}" class="form-control"
+                                <input type="number" name="views" value="{{ !empty(old('views')) ? old('views') : 0 }}" class="form-control"
                                        id="views" placeholder="На пример: 41">
                             </div>
                             @error('views')
@@ -153,7 +153,7 @@
                             @enderror
 
                             <div class="form-group">
-                                <label for="summernote">Текст перед статьей</label>
+                                <label for="summernote">Текст перед рекламой</label>
                                 <textarea class="summernote" name="before_main_text"
                                           id="summernote">{{ old('before_main_text') }}</textarea>
                             </div>
@@ -161,7 +161,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="summernote1">Текст перед статьей на португальском</label>
+                                <label for="summernote1">Текст перед рекламой на португальском</label>
                                 <textarea class="summernote" name="pt_before_main_text"
                                           id="summernote1">{{ old('pt_before_main_text') }}</textarea>
                             </div>
@@ -170,7 +170,7 @@
                             @enderror
 
                             <div class="form-group">
-                                <label for="summernote2">Контент статьи</label>
+                                <label for="summernote2">Контент рекламы</label>
                                 <textarea class="summernote" name="main_text"
                                           id="summernote2">{{ old('main_text') }}</textarea>
                             </div>
@@ -178,7 +178,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="summernote3">Контент португальской статьи</label>
+                                <label for="summernote3">Контент португальской рекламы</label>
                                 <textarea class="summernote" name="pt_main_text"
                                           id="summernote3">{{ old('pt_main_text') }}</textarea>
                             </div>

@@ -72,7 +72,11 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
+
         $data = $request->validated();
+        Storage::disk('public')->delete($author->photo);
+        $data['photo'] = Storage::disk('public')->put('/admin/images/authors', $data['photo']);
+
         if ($author->update($data))
             return redirect()->route('author.show', $author->id);
     }

@@ -53,7 +53,7 @@ class StoreCpaRequest extends FormRequest
             'payment_schedule' => 'string|nullable',
             'referral_program' => 'string|nullable',
             'tools' => 'string|nullable',
-            'manager_image' => 'file|nullable',
+            'manager_image' => 'image|nullable',
             'manager_name' => 'string|nullable',
             'manager_position' => 'string|nullable',
             'facebook' => 'url|nullable',
