@@ -64,6 +64,16 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
+                                <label for="type">Select</label>
+                                <select name="type" id="type" class="form-control">
+                                    <option value="article">Статья</option>
+                                    <option value="base">База знаний</option>
+                                </select>
+                            </div>
+                            @error('type')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
                                 <label for="pt_name">Название статьи на португальском</label>
                                 <input type="text" name="pt_name" value="{{ old('pt_name') }}" class="form-control"
                                        id="pt_name" placeholder="Название статьи">
