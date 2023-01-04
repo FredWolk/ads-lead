@@ -46,7 +46,7 @@
             <div class="videopage_wrapper">
                 <article class="videopage_main">
                     <div class="videopage_main--image">
-                        <img src="{{asset('storage/' . $article['image'])}}" alt="banner">
+                        <img src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
                     </div>
                     <div class="videopage_main-underimage">
                         <div class="videopage_main-underimage_autor to-hide">
