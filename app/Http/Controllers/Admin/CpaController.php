@@ -35,12 +35,16 @@ class CpaController extends Controller
         $data = $request->validated();
         if (!empty($data['image']))
             $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
+        if (!empty($data['pt_image']))
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['pt_image']);
 
         if (!empty($data['logo']))
             $data['logo'] = Storage::disk('public')->put('/admin/images/cpa', $data['logo']);
         if (!empty($data['manager_image']))
             $data['manager_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['manager_image']);
+
         $cpa = Cpa::firstOrCreate($data);
+
         if ($cpa) {
             return redirect()->route('cpa.show', $cpa->id);
         }
@@ -76,6 +80,21 @@ class CpaController extends Controller
     public function update(UpdateCpaRequest $request, Cpa $cpa)
     {
         $data = $request->validated();
+
+        if (!empty($data['image']))
+            Storage::disk('public')->delete($cpa->image);
+            $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
+        if (!empty($data['pt_image']))
+            Storage::disk('public')->delete($cpa->pt_image);
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['pt_image']);
+
+        if (!empty($data['logo']))
+            Storage::disk('public')->delete($cpa->logo);
+            $data['logo'] = Storage::disk('public')->put('/admin/images/cpa', $data['logo']);
+        if (!empty($data['manager_image']))
+            Storage::disk('public')->delete($cpa->manager_image);
+            $data['manager_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['manager_image']);
+
         if ($cpa->update($data))
             return redirect()->route('cpa.show', $cpa->id);
     }
@@ -87,6 +106,15 @@ class CpaController extends Controller
      */
     public function destroy(Cpa $cpa)
     {
+        if (!empty($cpa->image))
+            Storage::disk('public')->delete($cpa->image);
+        if (!empty($cpa->pt_image))
+            Storage::disk('public')->delete($cpa->pt_image);
+        if (!empty($cpa->logo))
+            Storage::disk('public')->delete($cpa->logo);
+        if (!empty($cpa->manager_image))
+            Storage::disk('public')->delete($cpa->manager_image);
+
         if ($cpa->delete())
             return redirect()->route('cpa.index');
     }

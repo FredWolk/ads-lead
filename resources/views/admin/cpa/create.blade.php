@@ -87,6 +87,21 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
+                                <label for="pt_image">Изображение партнерки на португальском</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ old('pt_image') }}" name="pt_image" type="file"
+                                               class="custom-file-input" id="pt_image">
+                                        <label class="custom-file-label" for="pt_image">Выберите изображение
+                                            партнерки</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('pt_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="logo">Логотип партнерки</label>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -178,21 +193,33 @@
                                     <h3 class="card-title">Фильтры</h3>
                                 </div>
                                 <div class="form-group">
+                                    <label for="select2">Главная вертикаль</label>
+                                    <select name="main_verticales" class="form-control select2"
+                                            id="select2">
+                                        @foreach(json_decode($filters['vertical']) as $i)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('main_verticales')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="form-group">
                                     <label for="select1">Вертикали</label>
-                                    <select name="verticales_id[]" multiple="multiple" class="form-control select1"
+                                    <select name="verticales[]" multiple="multiple" class="form-control select1"
                                             id="select1">
                                         @foreach(json_decode($filters['vertical']) as $i)
                                             <option value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @error('verticales_id')
+                                @error('verticales')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select2">Страны</label>
-                                    <select name="countries_id[]" multiple="multiple" class="form-control select1"
+                                    <select name="countries[]" multiple="multiple" class="form-control select1"
                                             id="select2">
                                         @if(!empty($filters['countries']))
                                             @foreach(json_decode($filters['countries']) as $i)
@@ -201,13 +228,13 @@
                                         @endif
                                     </select>
                                 </div>
-                                @error('countries_id')
+                                @error('countries')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select3">Модели оплаты</label>
-                                    <select name="payment_models_id[]" multiple="multiple" class="form-control select1"
+                                    <select name="payment_models[]" multiple="multiple" class="form-control select1"
                                             id="select3">
                                         @if(!empty($filters['payment_models']))
                                             @foreach(json_decode($filters['payment_models']) as $i)
@@ -216,13 +243,13 @@
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_models_id')
+                                @error('payment_models')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select4">Периодичность выплат</label>
-                                    <select name="payment_schedule_id[]" multiple="multiple"
+                                    <select name="payment_schedule_f[]" multiple="multiple"
                                             class="form-control select1" id="select4">
                                         @if(!empty($filters['payment_schedule']))
                                             @foreach(json_decode($filters['payment_schedule']) as $i)
@@ -231,13 +258,13 @@
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_schedule_id')
+                                @error('payment_schedule_f')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select5">Платежные системы</label>
-                                    <select name="payment_systems_id[]" multiple="multiple" class="form-control select1"
+                                    <select name="payment_systems[]" multiple="multiple" class="form-control select1"
                                             id="select5">
                                         @if(!empty($filters['payment_systems']))
                                             @foreach(json_decode($filters['payment_systems']) as $i)
@@ -246,7 +273,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_systems_id')
+                                @error('payment_systems')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
