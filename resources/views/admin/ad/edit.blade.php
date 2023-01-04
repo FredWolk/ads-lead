@@ -270,7 +270,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="promocode">Промокод</label>
-                                    <input value="{{ old('promocode') }}" name="promocode" type="text"
+                                    <input value="{{ $ad->promocode }}" name="promocode" type="text"
                                            class="form-control"
                                            id="promocode"
                                            placeholder="PIVKO2023">
@@ -283,7 +283,7 @@
                                     <label for="promocode_desc">Описание промокода</label>
                                     <textarea name="promocode_desc" class="form-control"
                                               id="promocode_desc"
-                                              placeholder="Описание промокода">{{ old('promocode_desc') }}</textarea>
+                                              placeholder="Описание промокода">{{ $ad->promocode_desc }}</textarea>
                                 </div>
                                 @error('promocode_desc')
                                 <div class="text-danger">{{ $message }}</div>
@@ -293,7 +293,7 @@
                                     <label for="pt_promocode_desc">Описание промокода на португальском</label>
                                     <textarea name="pt_promocode_desc" class="form-control"
                                               id="pt_promocode_desc"
-                                              placeholder="Описание промокода на португальском">{{ old('pt_promocode_desc') }}</textarea>
+                                              placeholder="Описание промокода на португальском">{{ $ad->pt_promocode_desc }}</textarea>
                                 </div>
                                 @error('pt_promocode_desc')
                                 <div class="text-danger">{{ $message }}</div>
