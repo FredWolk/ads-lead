@@ -96,6 +96,7 @@
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+                            <img width="150" src="{{ asset('storage/'. $article->pt_image) }}" alt="">
                             <div class="form-group">
                                 <label for="pt_image">Изображение статьи на португальском</label>
                                 <div class="input-group">
