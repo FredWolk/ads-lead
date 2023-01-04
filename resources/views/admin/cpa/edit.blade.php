@@ -213,7 +213,7 @@
                                     <select name="verticales[]" multiple="multiple" class="form-control select1"
                                             id="select1">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option {{ in_array($i, $cpa->verticales) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                            <option {{ is_array($cpa->verticales) && in_array($i, $cpa->verticales) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
