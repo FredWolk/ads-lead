@@ -76,6 +76,17 @@ class EventController extends Controller
     public function update(UpdateEventsRequest $request, Events $event)
     {
         $data = $request->validated();
+        if (!empty($data['image'])) {
+            if (!empty($event->image))
+                Storage::disk('public')->delete($event->image);
+            $data['image'] = Storage::disk('public')->put('/admin/images/events', $data['image']);
+        }
+        if (!empty($data['pt_image'])) {
+            if (!empty($event->pt_image))
+                Storage::disk('public')->delete($event->pt_image);
+            $data['pt_image'] = Storage::disk('public')->put('/admin/images/events', $data['pt_image']);
+        }
+
         if ($event->update($data))
             return redirect()->route('event.show', $event->id);
     }
@@ -87,6 +98,11 @@ class EventController extends Controller
      */
     public function destroy(Events $event)
     {
+        if (!empty($event->image))
+            Storage::disk('public')->delete($event->image);
+        if (!empty($event->pt_image))
+            Storage::disk('public')->delete($event->pt_image);
+
         if ($event->delete())
             return redirect()->route('event.index');
     }
