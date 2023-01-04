@@ -95,7 +95,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
-                                <label for="pt_image">Изображение статьи</label>
+                                <label for="pt_image">Изображение статьи на португальском</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input value="{{ old('pt_image') }}" name="pt_image" type="file"
