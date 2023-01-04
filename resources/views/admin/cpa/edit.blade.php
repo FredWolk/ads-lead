@@ -88,6 +88,22 @@
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
+                            <img width="150" src="{{ asset('storage/'.$cpa->pt_image) }}" alt="">
+                            <div class="form-group">
+                                <label for="pt_image">Изображение партнерки на португальском</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ $cpa->pt_image }}" name="pt_image" type="file"
+                                               class="custom-file-input" id="pt_image">
+                                        <label class="custom-file-label" for="pt_image">Выберите изображение
+                                            партнерки</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('pt_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             <img width="150" src="{{ asset('storage/'.$cpa->logo) }}" alt="">
                             <div class="form-group">
                                 <label for="logo">Логотип партнерки</label>
@@ -181,75 +197,87 @@
                                     <h3 class="card-title">Фильтры</h3>
                                 </div>
                                 <div class="form-group">
-                                    <label for="select1">Вертикали</label>
-                                    <select name="verticales_id[]" multiple="multiple" class="form-control select1"
-                                            id="select1">
+                                    <label for="select2">Главная вертикаль</label>
+                                    <select name="main_verticales" class="form-control select2"
+                                            id="select2">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option {{ in_array($i, $cpa->verticales_id) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                            <option value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @error('verticales_id')
+                                @error('main_verticales')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="form-group">
+                                    <label for="select1">Вертикали</label>
+                                    <select name="verticales[]" multiple="multiple" class="form-control select1"
+                                            id="select1">
+                                        @foreach(json_decode($filters['vertical']) as $i)
+                                            <option {{ in_array($i, $cpa->verticales) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('verticales')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select2">Страны</label>
-                                    <select name="countries_id[]" multiple="multiple" class="form-control select1"
+                                    <select name="countries[]" multiple="multiple" class="form-control select1"
                                             id="select2">
                                         @if(!empty($filters['countries']))
                                             @foreach(json_decode($filters['countries']) as $i)
-                                                <option {{ is_array($cpa->countries_id) && in_array($i,$cpa->countries_id) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option {{ is_array($cpa->countries) && in_array($i,$cpa->countries) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                 </div>
-                                @error('countries_id')
+                                @error('countries')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select3">Модели оплаты</label>
-                                    <select name="payment_models_id[]" multiple="multiple" class="form-control select1"
+                                    <select name="payment_models[]" multiple="multiple" class="form-control select1"
                                             id="select3">
                                         @if(!empty($filters['payment_models']))
                                             @foreach(json_decode($filters['payment_models']) as $i)
-                                                <option {{is_array($cpa->payment_models_id) && in_array($i, $cpa->payment_models_id) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option {{is_array($cpa->payment_models) && in_array($i, $cpa->payment_models) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_models_id')
+                                @error('payment_models')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select4">Периодичность выплат</label>
-                                    <select name="payment_schedule_id[]" multiple="multiple"
+                                    <select name="payment_schedule_f[]" multiple="multiple"
                                             class="form-control select1" id="select4">
                                         @if(!empty($filters['payment_schedule']))
                                             @foreach(json_decode($filters['payment_schedule']) as $i)
-                                                <option {{is_array($cpa->payment_schedule_id) && in_array($i, $cpa->payment_schedule_id) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option {{is_array($cpa->payment_schedule_f) && in_array($i, $cpa->payment_schedule_f) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_schedule_id')
+                                @error('payment_schedule_f')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
                                 <div class="form-group">
                                     <label for="select5">Платежные системы</label>
-                                    <select name="payment_systems_id[]" multiple="multiple" class="form-control select1"
+                                    <select name="payment_systems[]" multiple="multiple" class="form-control select1"
                                             id="select5">
                                         @if(!empty($filters['payment_systems']))
                                             @foreach(json_decode($filters['payment_systems']) as $i)
-                                                <option {{is_array($cpa->payment_systems_id) && in_array($i, $cpa->payment_systems_id) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                <option {{is_array($cpa->payment_systems) && in_array($i, $cpa->payment_systems) ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                 </div>
-                                @error('payment_systems_id')
+                                @error('payment_systems')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
