@@ -47,6 +47,40 @@
                         @csrf
                         <div class="card-body">
 
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <label for="is_main">На главной</label>
+                                    <select name="is_main" class="form-control" id="is_main">
+                                            <option {{ old('is_main') == true ? 'selected' : '' }} value="1">Да</option>
+                                            <option {{ old('is_main') == false ? 'selected' : '' }} value="0">Нет</option>
+                                    </select>
+                                </div>
+                                @error('is_main')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="form-group col-4">
+                                    <label for="is_top">Топ-5</label>
+                                    <select name="is_top" class="form-control" id="is_top">
+                                            <option {{ old('is_top') == true ? 'selected' : '' }} value="1">Да</option>
+                                            <option {{ old('is_top') == false ? 'selected' : '' }} value="0">Нет</option>
+                                    </select>
+                                </div>
+                                @error('is_top')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                <div class="form-group col-4">
+                                    <label for="is_recomendated">Рекомендован</label>
+                                    <select name="is_recomendated" class="form-control" id="is_recomendated">
+                                            <option {{ old('is_recomendated') == true ? 'selected' : '' }} value="1">Да</option>
+                                            <option {{ old('is_recomendated') == false ? 'selected' : '' }} value="0">Нет</option>
+                                    </select>
+                                </div>
+                                @error('is_recomendated')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+
                             <div class="form-group">
                                 <label for="name">Название партнерки</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name"

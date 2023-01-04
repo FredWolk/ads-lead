@@ -81,11 +81,13 @@ class ArticleController extends Controller
     {
         $data = $request->validated();
         if (!empty($data['image'])) {
-            Storage::disk('public')->delete($article->image);
+            if (!empty($article->image))
+                Storage::disk('public')->delete($article->image);
             $data['image'] = Storage::disk('public')->put('/admin/images/article', $data['image']);
         }
         if (!empty($data['pt_image'])) {
-            Storage::disk('public')->delete($article->pt_image);
+            if (!empty($article->pt_image))
+                Storage::disk('public')->delete($article->pt_image);
             $data['pt_image'] = Storage::disk('public')->put('/admin/images/article', $data['pt_image']);
         }
         if ($article->update($data))

@@ -76,11 +76,13 @@ class VideoController extends Controller
     {
         $data = $request->validated();
         if (!empty($data['image'])) {
-            Storage::disk('public')->delete($video->image);
+            if (!empty($video->image))
+                Storage::disk('public')->delete($video->image);
             $data['image'] = Storage::disk('public')->put('/admin/images/video', $data['image']);
         }
         if (!empty($data['pt_image'])) {
-            Storage::disk('public')->delete($video->pt_image);
+            if (!empty($video->pt_image))
+                Storage::disk('public')->delete($video->pt_image);
             $data['pt_image'] = Storage::disk('public')->put('/admin/images/video', $data['pt_image']);
         }
 

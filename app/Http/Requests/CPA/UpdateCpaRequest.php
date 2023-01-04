@@ -24,6 +24,9 @@ class UpdateCpaRequest extends FormRequest
     public function rules()
     {
         return [
+            'is_top' => 'required|boolean',
+            'is_main' => 'required|boolean',
+            'is_recomendated' => 'required|boolean',
             'name' => 'required|string',
             'link' => 'required|string',
             'pt_name' => 'string|nullable',

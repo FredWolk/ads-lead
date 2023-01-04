@@ -53,7 +53,7 @@ class CpaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cpa  $cpa
+     * @param \App\Models\Cpa $cpa
      */
     public function show(Cpa $cpa)
     {
@@ -63,7 +63,7 @@ class CpaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cpa  $cpa
+     * @param \App\Models\Cpa $cpa
      */
     public function edit(Cpa $cpa)
     {
@@ -74,28 +74,32 @@ class CpaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\CPA\UpdateCpaRequest  $request
-     * @param  \App\Models\Cpa  $cpa
+     * @param \App\Http\Requests\CPA\UpdateCpaRequest $request
+     * @param \App\Models\Cpa $cpa
      */
     public function update(UpdateCpaRequest $request, Cpa $cpa)
     {
         $data = $request->validated();
-        if (!empty($data['image'])){
-            Storage::disk('public')->delete($cpa->image);
+        if (!empty($data['image'])) {
+            if (!empty($cpa->image))
+                Storage::disk('public')->delete($cpa->image);
             $data['image'] = Storage::disk('public')->put('/admin/images/cpa', $data['image']);
         }
 
-        if (!empty($data['pt_image'])){
-            Storage::disk('public')->delete($cpa->pt_image);
+        if (!empty($data['pt_image'])) {
+            if (!empty($cpa->pt_image))
+                Storage::disk('public')->delete($cpa->pt_image);
             $data['pt_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['pt_image']);
         }
-        if (!empty($data['logo'])){
-            Storage::disk('public')->delete($cpa->logo);
+        if (!empty($data['logo'])) {
+            if (!empty($cpa->logo))
+                Storage::disk('public')->delete($cpa->logo);
             $data['logo'] = Storage::disk('public')->put('/admin/images/cpa', $data['logo']);
         }
 
-        if (!empty($data['manager_image'])){
-            Storage::disk('public')->delete($cpa->manager_image);
+        if (!empty($data['manager_image'])) {
+            if (!empty($cpa->manager_image))
+                Storage::disk('public')->delete($cpa->manager_image);
             $data['manager_image'] = Storage::disk('public')->put('/admin/images/cpa', $data['manager_image']);
         }
         if ($cpa->update($data))
@@ -105,7 +109,7 @@ class CpaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cpa  $cpa
+     * @param \App\Models\Cpa $cpa
      */
     public function destroy(Cpa $cpa)
     {
