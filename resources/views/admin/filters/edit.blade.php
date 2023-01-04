@@ -99,8 +99,8 @@
                             <div class="form-group">
                                 <label for="select6">Advertising formats</label>
                                 <select name="advertising_formats[]" multiple="multiple" class="form-control select6" id="select6">
-                                    @if(!empty($filters->payment_systems))
-                                    @foreach(json_decode($filters->payment_systems, 1) as $i)
+                                    @if(!empty($filters->advertising_formats))
+                                    @foreach(json_decode($filters->advertising_formats, 1) as $i)
                                     <option value="{{ $i }}" selected>{{ $i }}</option>
                                     @endforeach
                                     @endif
