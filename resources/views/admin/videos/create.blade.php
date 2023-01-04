@@ -403,7 +403,16 @@
                     $(this).val(link.searchParams.get('v'));
                 }, 1)
             });
-            $('.summernote').summernote();
+            $('.summernote').summernote({
+                height: 300,
+                maxHeight: 500,
+                toolbar: [
+                    ['insert', ['picture','link','video','table','hr']],
+                    ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
+                    ['paragraph', ['style','ol','ul','paragraph','height']],
+                    ['misc', ['fullscreen','codeview','undo','redo','help']],
+                ]
+            });
             $('#select1').select2({
                 tags: true,
             })
