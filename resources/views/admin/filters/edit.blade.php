@@ -23,13 +23,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавить SEO к странице</h1>
+                        <h1 class="m-0">Добавить фильтры</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('seo.index') }}">SEO</a></li>
-                            <li class="breadcrumb-item active">Добавить SEO</li>
+                            <li class="breadcrumb-item active">Добавить фильтры</li>
                         </ol>
                     </div>
                 </div>
