@@ -223,7 +223,7 @@
 
                                 <div class="form-group">
                                     <label for="select2">Страны</label>
-                                    @dump($cpa->countries)
+                                    @dump(json_decode($cpa->countries, 1))
                                     <select name="countries[]" multiple="multiple" class="form-control select1"
                                             id="select2">
                                         @if(!empty($filters['countries']))
