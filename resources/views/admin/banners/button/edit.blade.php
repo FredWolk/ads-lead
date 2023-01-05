@@ -32,13 +32,13 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form method="post" action="{{ route('button.store') }}">
+                    <form method="post" action="{{ route('button.update', $button->id) }}">
                         @csrf
-                        @dump($bannerButton)
+                        @method('patch')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="text">Текст кнопки</label>
-                                <input name="text" type="text" class="form-control" value="{{ $bannerButton['text'] }}" id="text"
+                                <input name="text" type="text" class="form-control" value="{{ $button->text }}" id="text"
                                        placeholder="Дарим бабло">
                             </div>
                             @error('text')
@@ -47,7 +47,7 @@
 
                             <div class="form-group">
                                 <label for="link">Ссылка</label>
-                                <input name="link" type="url" class="form-control" value="{{ old('link') }}" id="link"
+                                <input name="link" type="url" class="form-control" value="{{ $button->link }}" id="link"
                                        placeholder="https://google.com">
                             </div>
                             @error('link')
@@ -57,8 +57,8 @@
                             <div class="form-group">
                                 <label for="status">Статус страницы</label>
                                 <select name="status" id="status" class="form-control">
-                                    <option {{ old('status') == 1 ? 'selected' : '' }} value="1">Активен</option>
-                                    <option {{ old('status') == 0 ? 'selected' : '' }} value="0">Не активен</option>
+                                    <option {{ $button->status == 1 ? 'selected' : '' }} value="1">Активен</option>
+                                    <option {{ $button->status == 0 ? 'selected' : '' }} value="0">Не активен</option>
                                 </select>
                             </div>
                             @error('status')

@@ -44,43 +44,44 @@ class BannerButtonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BannerButton  $bannerButton
+     * @param  \App\Models\BannerButton  $button
      */
-    public function show($id)
+    public function show(BannerButton $button)
     {
-        dd($id);
-        return view('admin.banners.button.show', compact('bannerButton'));
+        return view('admin.banners.button.show', compact('button'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BannerButton  $bannerButton
+     * @param  \App\Models\BannerButton  $button
      */
-    public function edit(BannerButton $bannerButton)
+    public function edit(BannerButton $button)
     {
-        dd($bannerButton);
-        return view('admin.banners.button.edit', compact('bannerButton'));
+        return view('admin.banners.button.edit', compact('button'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\Banners\Button\UpdateBannerButtonRequest  $request
-     * @param  \App\Models\BannerButton  $bannerButton
+     * @param  \App\Models\BannerButton  $button
      */
-    public function update(UpdateBannerButtonRequest $request, BannerButton $bannerButton)
+    public function update(UpdateBannerButtonRequest $request, BannerButton $button)
     {
-        //
+        $data = $request->validated();
+        if ($button->update($data))
+            return view('admin.banners.button.show', compact('button'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BannerButton  $bannerButton
+     * @param  \App\Models\BannerButton  $button
      */
-    public function destroy(BannerButton $bannerButton)
+    public function destroy(BannerButton $button)
     {
-
+        if ($button->delete())
+            return redirect()->route('button.index');
     }
 }
