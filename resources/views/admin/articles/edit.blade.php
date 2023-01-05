@@ -212,14 +212,14 @@
                             @enderror
                             <div class="form-group">
                                 <label for="summernote">Контент статьи</label>
-                                <textarea name="main_text" id="summernote">{{ $article->main_text }}</textarea>
+                                <textarea name="main_text" class="summernote" id="summernote">{{ $article->main_text }}</textarea>
                             </div>
                             @error('main_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label for="summernote2">Контент португальской статьи</label>
-                                <textarea name="pt_main_text" id="summernote2">{{ $article->pt_main_text }}</textarea>
+                                <textarea name="pt_main_text" class="summernote" id="summernote2">{{ $article->pt_main_text }}</textarea>
                             </div>
                             @error('pt_main_text')
                             <div class="text-danger">{{ $message }}</div>
@@ -481,17 +481,7 @@
 
     <script>
         $(function () {
-            $('#summernote').summernote({
-                height: 300,
-                maxHeight: 500,
-                toolbar: [
-                    ['insert', ['picture','link','video','table','hr']],
-                    ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
-                    ['paragraph', ['style','ol','ul','paragraph','height']],
-                    ['misc', ['fullscreen','codeview','undo','redo','help']],
-                ]
-            });
-            $('#summernote2').summernote({
+            $('.summernote').summernote({
                 height: 300,
                 maxHeight: 500,
                 toolbar: [
