@@ -53,7 +53,7 @@
                     </ul>
                 </nav>
                 <div class="header_buttons">
-                    <a class="btn--blue header_buttons-blue-btn" href="{{ $banner_button->link }}">
+                    <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
                         <span>{{ $banner_button->text }}</span>
                         <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </a>
