@@ -13,7 +13,7 @@ class UpdateBannerForumAsideRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateBannerForumAsideRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => 'required|string',
+            'file' => 'file',
+            'link' => 'required|URL',
+            'status' => 'boolean',
         ];
     }
 }

@@ -19,7 +19,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('aside.index') }}">Баннеры</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('forum.index') }}">Баннеры</a></li>
                             <li class="breadcrumb-item active">Добавить боковой баннер</li>
                         </ol>
                     </div>
@@ -32,7 +32,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('aside.store') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('forum.store') }}">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">

@@ -38,7 +38,7 @@ class BannerTopController extends Controller
         if (!empty($data['file']))
             $data['file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['file']);
         if (!empty($data['mobile_file']))
-            $data['mobile_file'] = Storage::disk('public')->put('/admin/banner_top', $data['mobile_file']);
+            $data['mobile_file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['mobile_file']);
 
         $banner= BannerTop::firstOrCreate($data);
 
@@ -80,12 +80,12 @@ class BannerTopController extends Controller
         if (!empty($data['file'])) {
             if (!empty($top->file))
                 Storage::disk('public')->delete($top->file);
-            $data['file'] = Storage::disk('public')->put('/admin/banner_top', $data['file']);
+            $data['file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['file']);
         }
         if (!empty($data['mobile_file'])) {
             if (!empty($top->mobile_file))
                 Storage::disk('public')->delete($top->mobile_file);
-            $data['mobile_file'] = Storage::disk('public')->put('/admin/banner_top', $data['mobile_file']);
+            $data['mobile_file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['mobile_file']);
         }
 
         if ($top->update($data)){

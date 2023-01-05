@@ -78,7 +78,7 @@ class BannerAsideController extends Controller
         if (!empty($data['file'])) {
             if (!empty($aside->file))
                 Storage::disk('public')->delete($aside->file);
-            $data['file'] = Storage::disk('public')->put('/admin/banner_aside', $data['file']);
+            $data['file'] = Storage::disk('public')->put('/admin/files/banner_aside', $data['file']);
         }
 
         if ($aside->update($data)){

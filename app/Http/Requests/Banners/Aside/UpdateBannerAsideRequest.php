@@ -25,6 +25,7 @@ class UpdateBannerAsideRequest extends FormRequest
     {
         return [
             'type' => 'required|string',
+            'show' => 'required|string',
             'file' => 'file',
             'link' => 'required|URL',
             'status' => 'boolean',

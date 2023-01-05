@@ -25,6 +25,7 @@ class StoreBannerAsideRequest extends FormRequest
     {
         return [
             'type' => 'required|string',
+            'show' => 'required|string',
             'file' => 'required|file',
             'link' => 'required|URL',
             'status' => 'boolean',

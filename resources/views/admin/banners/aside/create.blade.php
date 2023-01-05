@@ -71,6 +71,18 @@
                             @enderror
 
                             <div class="form-group">
+                                <label for="show">Отображение</label>
+                                <select name="show" id="show" class="form-control">
+                                    <option {{ old('show') == 'all' ? 'selected' : '' }} value="all">Общий</option>
+                                    <option {{ old('show') == 'cpa' ? 'selected' : '' }} value="cpa">ПП</option>
+                                    <option {{ old('show') == 'ad' ? 'selected' : '' }} value="ad">Сетки</option>
+                                </select>
+                            </div>
+                            @error('show')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="status">Статус</label>
                                 <select name="status" id="status" class="form-control">
                                     <option {{ old('status') == 1 ? 'selected' : '' }} value="1">Активен</option>
