@@ -411,7 +411,9 @@
                     ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
                     ['paragraph', ['style','ol','ul','paragraph','height']],
                     ['misc', ['fullscreen','codeview','undo','redo','help']],
-                ]
+                ],
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
             });
             $('#select1').select2({
                 tags: true,
