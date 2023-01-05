@@ -98,7 +98,7 @@
                             @enderror
 
                             <div class="form-group">
-                                <label for="status">Статус страницы</label>
+                                <label for="status">Статус</label>
                                 <select name="status" id="status" class="form-control">
                                     <option {{ $top->status == 1 ? 'selected' : '' }} value="1">Активен</option>
                                     <option {{ $top->status == 0 ? 'selected' : '' }} value="0">Не активен</option>

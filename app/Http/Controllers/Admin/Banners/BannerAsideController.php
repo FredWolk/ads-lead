@@ -11,22 +11,19 @@ class BannerAsideController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $banners = BannerAside::all();
+        return view('admin.banners.aside.index', compact('banners'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('admin.banners.aside.create');
     }
 
     /**
