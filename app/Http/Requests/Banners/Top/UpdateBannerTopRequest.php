@@ -13,7 +13,7 @@ class UpdateBannerTopRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateBannerTopRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => 'required|string',
+            'file' => 'file',
+            'mobile_file' => 'file',
+            'link' => 'required|URL',
+            'status' => 'boolean',
         ];
     }
 }

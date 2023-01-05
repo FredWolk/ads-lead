@@ -13,7 +13,7 @@ class StoreBannerTopRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class StoreBannerTopRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => 'required|string',
+            'file' => 'required|file',
+            'mobile_file' => 'required|file',
+            'link' => 'required|URL',
+            'status' => 'boolean',
+
         ];
     }
 }
