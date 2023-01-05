@@ -76,6 +76,18 @@ class BannerTopController extends Controller
     public function update(UpdateBannerTopRequest $request, BannerTop $top)
     {
         $data = $request->validated();
+
+        if (!empty($data['file'])) {
+            if (!empty($top->file))
+                Storage::disk('public')->delete($top->file);
+            $data['file'] = Storage::disk('public')->put('/admin/banner_top', $data['file']);
+        }
+        if (!empty($data['mobile_file'])) {
+            if (!empty($top->mobile_file))
+                Storage::disk('public')->delete($top->mobile_file);
+            $data['mobile_file'] = Storage::disk('public')->put('/admin/banner_top', $data['mobile_file']);
+        }
+
         if ($top->update($data)){
             return redirect()->route('top.show', $top->id);
         }
