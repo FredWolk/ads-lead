@@ -522,7 +522,7 @@
 
     <script>
         $(function () {
-            $('.summernote')..summernote({
+            $('.summernote').summernote({
                 height: 300,
                 maxHeight: 500,
                 toolbar: [
