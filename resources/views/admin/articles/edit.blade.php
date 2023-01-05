@@ -490,7 +490,7 @@
                     ['paragraph', ['style','ol','ul','paragraph','height']],
                     ['misc', ['fullscreen','codeview','undo','redo','help']],
                 ],
-                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto']
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Monserat']
             });
             $('.select2').select2()
             $('#select1').select2({
