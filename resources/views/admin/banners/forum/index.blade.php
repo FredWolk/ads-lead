@@ -1,27 +1,17 @@
 @extends('admin.layouts.admin')
-@php(
-  $pageName = [
-    'main' => 'Главная',
-    'cpa' => 'Партнерки',
-    'ads' => 'Реклама',
-    'articles' => 'Статьи',
-    'videos' => 'Видео',
-    'events' => 'События',
-    'forum' => 'Форум',
-  ]
-)
+
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">SEO</h1>
+                        <h1 class="m-0">Боковой баннер</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item active">SEO</li>
+                            <li class="breadcrumb-item active">Боковой баннер</li>
                         </ol>
                     </div>
                 </div>
@@ -50,25 +40,25 @@
                                         #
                                     </th>
                                     <th style="width: 20%">
-                                        Название страницы
+                                        Баннер
                                     </th>
                                     <th style="width: 8%" class="text-center">
                                         Видимость
                                     </th>
                                     <th class="text-right" style="width: 40%">
-                                        <a href="{{ route('seo.create') }}" class="btn btn-dark btn-sm">Добавить</a>
+                                        <a href="{{ route('aside.create') }}" class="btn btn-dark btn-sm">Добавить</a>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($seo as $k => $i)
+                                @foreach($banners as $k => $i)
                                 <tr>
                                     <td>
                                         {{ $k + 1 }}
                                     </td>
                                     <td>
                                         <a>
-                                            {{ $pageName[$i['page']] }}
+                                            {{ $i->link }}
                                         </a>
                                         <br>
                                         <small>
@@ -79,16 +69,26 @@
                                         <span class="badge badge-{{ $i['status'] === 1 ? 'success' : 'danger' }}">{{ $i['status'] === 1 ? 'Активна' : 'Не активна' }}</span>
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="{{ route('seo.show', $i['id']) }}">
+                                        <a class="btn btn-primary btn-sm" href="{{ route('aside.show', $i['id']) }}">
                                             <i class="fas fa-folder">
                                             </i>
                                             Просмотр
                                         </a>
-                                        <a class="btn btn-info btn-sm" href="{{ route('seo.edit', $i['id']) }}">
+                                        <a class="btn btn-info btn-sm" href="{{ route('aside.edit', $i['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Редактировать
                                         </a>
+                                        <button form="delete_{{$k}}" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Удалить
+                                        </button>
+                                        <form id="delete_{{$k}}" method="post"
+                                              action="{{route('aside.destroy', $i['id']) }}">
+                                            @method('delete')
+                                            @csrf
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
