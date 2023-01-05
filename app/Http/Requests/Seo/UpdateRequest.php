@@ -25,6 +25,14 @@ class UpdateRequest extends FormRequest
     {
         return [
             'page'                   => 'string',
+
+            'h1'                     => 'nullable|string',
+            'pt_h1'                  => 'nullable|string',
+            'after_h1_text'          => 'nullable|string',
+            'pt_after_h1_text'       => 'nullable|string',
+            'seo_text'               => 'nullable|string',
+            'pt_seo_text'            => 'nullable|string',
+
             'title'                  => 'nullable|string',
             'description'            => 'nullable|string',
             'keywords'               => 'nullable|string',

@@ -56,6 +56,52 @@
                                     <option {{ $seo->status === 0 ? 'selected' : '' }} value="0">Не активная</option>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label for="h1">H1 (не на главной)</label>
+                                <input name="h1" type="text" value="{{ $seo->h1 }}" class="form-control" id="h1"
+                                       placeholder="Заголовок страницы">
+                            </div>
+                            @error('h1')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="pt_h1">H1 на португальском (не на главной)</label>
+                                <input name="pt_h1" value="{{ $seo->pt_h1 }}" type="text" class="form-control" id="pt_h1"
+                                       placeholder="Заголовок страницы">
+                            </div>
+                            @error('pt_h1')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="after_h1_text">Текст после заголовка</label>
+                                <textarea class="form-control" rows="3" id="after_h1_text" name="after_h1_text" placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.">{{ $seo->after_h1_text }}</textarea>
+                            </div>
+                            @error('after_h1_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="pt_after_h1_text">Текст после заголовка на португальском</label>
+                                <textarea class="form-control" rows="3" id="pt_after_h1_text" name="pt_after_h1_text" placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.">{{ $seo->pt_after_h1_text }}</textarea>
+                            </div>
+                            @error('pt_after_h1_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="seo_text">Сео текст</label>
+                                <textarea class="form-control summernote" rows="3" id="seo_text" name="seo_text" placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.">{{ $seo->seo_text }}</textarea>
+                            </div>
+                            @error('seo_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="pt_seo_text">Сео текст на португальском</label>
+                                <textarea class="form-control summernote" rows="3" id="pt_seo_text" name="pt_seo_text" placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.">{{ $seo->pt_seo_text }}</textarea>
+                            </div>
+                            @error('pt_seo_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="row">
                                 <div class="col-sm-6" data-lang="">
                                     <div class="form-group">
