@@ -1,4 +1,11 @@
-<!doctype html>
+<?php
+
+use App\Models\BannerTop;
+
+$banner = BannerTop::where('status', 1)->inRandomOrder()->first();
+
+?>
+    <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -160,11 +167,17 @@
     </section>
 
     <section class="banner">
-        <picture>
-            <source srcset="{{asset('assets/images/banner.jpg')}}"
-                    media="(min-width: 600px)">
-            <img src="{{asset('assets/images/banner-mobile.png')}}" alt="banner">
-        </picture>
+        <a href="{{ $banner->link }}" target="_blank">
+            <picture>
+                <source srcset="{{asset('storage/'. $banner->file)}}"
+                        media="(min-width: 600px)">
+                @if($banner->type == 'image')
+                    <img src="{{ asset('storage/'. $banner->mobile_file }}" alt="banner">
+                @else
+                    <video autoplay src="{{ asset('storage/'. $banner->mobile_file }}"></video>
+                @endif
+            </picture>
+        </a>
     </section>
     <main class="main">
         @yield('content')
