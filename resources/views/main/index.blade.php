@@ -81,8 +81,7 @@
                                     @endif
                                 </ul>
                                 <h3 class="article--card_info-title">{{ $a["{$locale}name"] }}</h3>
-                                <p class="article--card_info-author">by <a href="{{ route('index') }}">{{ $a['author']['name'] }}</a>
-                                </p>
+                                <p class="article--card_info-author">by {{ $a['author']['name'] }}</p>
 
                                 <div class="article--card_info-views">
                                     <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
@@ -97,48 +96,43 @@
                         </li>
                     @endif
                 @endforeach
-
             </ul>
 
             <div class="main_articles--mobile">
                 <div class="swiper">
                     <ul class="swiper-wrapper">
-                        @for ($i=0; $i<6; $i++)
-                            <li class="article--card swiper-slide">
-                                <a class="article--card-link" href="{{ route('index') }}"></a>
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
-                                <div class="article--card_info">
-                                    <ul class="article--card_info_tags-list">
-                                        <li class="article--card_info_tags-list-item mobhide">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#facebook</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item mobhide">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#affiliatemarketing</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item mobhide">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#gambling</a>
-                                        </li>
-                                    </ul>
-                                    <h3 class="article--card_info-title">What are BINs and what should I do with this
-                                        information</h3>
-                                    <p class="article--card_info-author">by <a href="{{ route('index') }}">Wade
-                                            Warren</a></p>
+                        @foreach ($article as $k => $a)
+                            @if($k !== 0)
+                                <li class="article--card swiper-slide">
+                                    <a class="article--card-link" href="{{ route('index') }}"></a>
+                                    <img src="{{asset('storage/'.$a["{$locale}image"])}}" alt="banner">
+                                    <div class="article--card_info">
+                                        <ul class="article--card_info_tags-list">
+                                            @if(!empty($a['tags']))
+                                                @foreach($a['tags'] as $tag)
+                                                    <li class="article--card_info_tags-list-item mobhide">
+                                                        <a class="article--card_info_tags-list-item--link"
+                                                           href="{{ route('index') }}">#{{ $tag }}</a>
+                                                    </li>
+                                                @endforeach
+                                            @endif
+                                        </ul>
+                                        <h3 class="article--card_info-title">{{ $a["{$locale}name"] }}</h3>
+                                        <p class="article--card_info-author">by {{ $a['author']['name'] }}</p>
 
-                                    <div class="article--card_info-views">
-                                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z"
-                                                fill="#181A1C"/>
-                                        </svg>
-                                        <span>1 947</span>
+                                        <div class="article--card_info-views">
+                                            <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z"
+                                                    fill="#181A1C"/>
+                                            </svg>
+                                            <span>{{ $a['views'] }}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        @endfor
+                                </li>
+                            @endif
+                        @endforeach
                     </ul>
                     <div class="main_articles_top_link-wrapp-arrows">
                         @for ($i=0; $i<10; $i++)
@@ -152,7 +146,7 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <a class="btn--grey" href="{{ route('index') }}">Show all</a>
+                <a class="btn--grey" href="{{ route('articles') }}">Show all</a>
             </div>
         </div>
     </section>
@@ -163,27 +157,23 @@
                 <div class="main-cpa_review">
                     <p class="main-cpa-subt">review</p>
                     <ul class="main_articles_info">
-                        @for ($i=0; $i<4; $i++)
+                        @foreach($cpa as $i)
                             <li class="article--card">
-                                <a class="article--card-link" href="{{ route('index') }}"></a>
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                                <a class="article--card-link"
+                                   href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
+                                <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                 <div class="article--card_info">
                                     <ul class="article--card_info_tags-list">
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#facebook</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#affiliatemarketing</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#gambling</a>
-                                        </li>
+                                        @if(!empty($i['verticales']))
+                                            @foreach($i['verticales'] as $v)
+                                                <li class="article--card_info_tags-list-item">
+                                                    <a class="article--card_info_tags-list-item--link"
+                                                       href="{{ route('cpa.catalog', $v) }}">#{{ $v }}</a>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
-                                    <h3 class="article--card_info-title">What are BINs and what should I do with this
-                                        information</h3>
+                                    <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
 
                                     <div class="article--card_info-views">
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
@@ -192,37 +182,32 @@
                                                 d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z"
                                                 fill="#181A1C"/>
                                         </svg>
-                                        <span>1 947</span>
+                                        <span>{{ $i['views'] }}</span>
                                     </div>
                                 </div>
                             </li>
-                        @endfor
+                        @endforeach
                     </ul>
 
                     <div class="main_articles--mobile">
                         <div class="swiper">
                             <ul class="swiper-wrapper">
-                                @for ($i=0; $i<6; $i++)
+                                @foreach ($cpa as $i)
                                     <li class="article--card swiper-slide">
-                                        <a class="article--card-link" href="{{ route('index') }}"></a>
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                                        <a class="article--card-link" href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
+                                        <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                         <div class="article--card_info">
                                             <ul class="article--card_info_tags-list">
-                                                <li class="article--card_info_tags-list-item">
-                                                    <a class="article--card_info_tags-list-item--link"
-                                                       href="{{ route('index') }}">#facebook</a>
-                                                </li>
-                                                <li class="article--card_info_tags-list-item">
-                                                    <a class="article--card_info_tags-list-item--link"
-                                                       href="{{ route('index') }}">#affiee</a>
-                                                </li>
-                                                <li class="article--card_info_tags-list-item">
-                                                    <a class="article--card_info_tags-list-item--link"
-                                                       href="{{ route('index') }}">#gambling</a>
-                                                </li>
+                                                @if(!empty($i['verticales']))
+                                                    @foreach($i['verticales'] as $v)
+                                                        <li class="article--card_info_tags-list-item">
+                                                            <a class="article--card_info_tags-list-item--link"
+                                                               href="{{ route('cpa.catalog', $v) }}">#{{ $v }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                @endif
                                             </ul>
-                                            <h3 class="article--card_info-title">What are BINs and what should I do with
-                                                this information</h3>
+                                            <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
 
                                             <div class="article--card_info-views">
                                                 <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
@@ -231,11 +216,11 @@
                                                         d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z"
                                                         fill="#181A1C"/>
                                                 </svg>
-                                                <span>1 947</span>
+                                                <span>{{ $i['views'] }}</span>
                                             </div>
                                         </div>
                                     </li>
-                                @endfor
+                                @endforeach
                             </ul>
                             <div class="main_articles_top_link-wrapp-arrows">
                                 @for ($i=0; $i<10; $i++)
@@ -254,35 +239,31 @@
                 <aside class="main-cpa_aside">
                     <div class="main-cpa-subt_wrapp">
                         <p class="main-cpa-subt">TOp-5</p>
-                        <a class="link--blue" href="{{ route('index') }}">
+                        <a class="link--blue" href="{{ route('cpa') }}">
                             <span>Show all</span>
                             <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                         </a>
                     </div>
                     <ul class="main-cpa_aside_list">
-                        @for ($i=0; $i<5; $i++)
+                        @foreach ($top_cpa as $i)
                             <li class="main-cpa_aside_list-item">
                                 <div class="main-cpa_aside_list-item_top">
                                     <div class="main-cpa_aside_list-item_top-logo">
-                                        <img src="{{asset('assets/images/logo.png')}}" alt="logo">
+                                        <img src="{{asset('storage/'. $i['logo'])}}" alt="{{ $i["{$locale}name"] }}">
                                     </div>
                                     <ul class="article--card_info_tags-list">
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#facebook</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#nutra</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#gambling</a>
-                                        </li>
+                                        @if(!empty($i['verticales']))
+                                            @foreach($i['verticales'] as $v)
+                                                <li class="article--card_info_tags-list-item">
+                                                    <a class="article--card_info_tags-list-item--link"
+                                                       href="{{ route('cpa.catalog', $v) }}">#{{ $v }}</a>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                                 <div class="main-cpa_aside_list-item_links">
-                                    <a class="link--black-rotateble-arrows" href="{{ route('index') }}">
+                                    <a class="link--black-rotateble-arrows" href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
                                         <span>read more</span>
                                         <div class="link--black-rotateble-arrows-group">
                                             @for ($a=0; $a<3; $a++)
@@ -295,13 +276,13 @@
                                             @endfor
                                         </div>
                                     </a>
-                                    <a class="link--blue-sphere" href="{{ route('index') }}">
-                                        <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
-                                        <span>site name</span>
+                                    <a class="link--blue-sphere" href="{{ $i['url'] }}">
+                                        <img src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
+                                        <span>{{ $i["{$locale}name"] }}</span>
                                     </a>
                                 </div>
                             </li>
-                        @endfor
+                        @endforeach
                     </ul>
                 </aside>
             </div>
@@ -312,7 +293,7 @@
             <div class="main_articles_top">
                 <div class="main-video-top-left">
                     <h2 class="title">Video</h2>
-                    <a class="link--blue" href="{{ route('index') }}">
+                    <a class="link--blue" href="{{ route('video') }}">
                         <span>Show all</span>
                         <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                     </a>
@@ -328,7 +309,7 @@
                             </svg>
                         @endfor
                     </div>
-                    <a class="btn--red" href="{{ route('index') }}">
+                    <a class="btn--red" target="_blank" href="https://youtube.com">
                         <span>our youtube</span>
                         <img src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                     </a>
@@ -337,27 +318,28 @@
 
             <div class="swiper">
                 <ul class="swiper-wrapper">
-                    @for ($i=0; $i<6; $i++)
+                    @foreach ($video as $k => $v)
                         <li class="article--card swiper-slide">
                             <a class="article--card-link" href="{{ route('index') }}"></a>
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                            <img src="{{asset('storage/'. $v["{$locale}image"])}}" alt="banner">
                             <div class="article--card_info">
-                                <p class="article--card_info-date">01/21/2022</p>
-                                <h3 class="article--card_info-title">Traffic Arbitrage from scratch in 2022. How to
-                                    start and how much can a beginner earn?</h3>
+                                <p class="article--card_info-date">{{ date('d/m/Y', strtotime($v['created_at'])) }}</p>
+                                <h3 class="article--card_info-title">{{ $v["{$locale}name"] }}</h3>
                             </div>
 
-                            <div class="article--card-top main-video--card-top">
-                                <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M7.74588 0.83398C7.34828 0.388673 6.65161 0.388674 6.25401 0.833981L5.594 1.57319C5.37062 1.82337 5.03669 1.94491 4.70476 1.89685L3.724 1.75483C3.13319 1.66928 2.59951 2.11709 2.58117 2.71378L2.55072 3.7043C2.54041 4.03954 2.36274 4.34729 2.07756 4.52383L1.23497 5.04545C0.72739 5.35969 0.606415 6.04577 0.975915 6.51466L1.58928 7.29301C1.79688 7.55644 1.85858 7.9064 1.75361 8.22494L1.44344 9.16613C1.25659 9.73312 1.60493 10.3365 2.18937 10.4581L3.15955 10.6601C3.48791 10.7285 3.76013 10.9569 3.88447 11.2684L4.25186 12.1888C4.47318 12.7432 5.12783 12.9815 5.65376 12.699L6.52679 12.2301C6.82227 12.0714 7.17763 12.0714 7.4731 12.2301L8.34614 12.699C8.87206 12.9815 9.52672 12.7432 9.74804 12.1888L10.1154 11.2684C10.2398 10.9569 10.512 10.7285 10.8403 10.6601L11.8105 10.4581C12.395 10.3365 12.7433 9.73312 12.5565 9.16614L12.2463 8.22494C12.1413 7.9064 12.203 7.55644 12.4106 7.293L13.024 6.51466C13.3935 6.04577 13.2725 5.35969 12.7649 5.04545L11.9223 4.52383C11.6372 4.34729 11.4595 4.03954 11.4492 3.7043L11.4187 2.71378C11.4004 2.11709 10.8667 1.66928 10.2759 1.75483L9.29514 1.89685C8.9632 1.94491 8.62928 1.82337 8.4059 1.57319L7.74588 0.83398ZM6.12527 4.01082L6.42217 7.58175H7.63388L7.93882 4.01082H6.12527ZM6.37403 9.45147C6.54522 9.61731 6.76456 9.70023 7.03204 9.70023C7.29953 9.70023 7.51619 9.61731 7.68203 9.45147C7.85322 9.28563 7.93882 9.08769 7.93882 8.85765C7.93882 8.62227 7.85322 8.427 7.68203 8.27186C7.51619 8.11137 7.29953 8.03112 7.03204 8.03112C6.76456 8.03112 6.54522 8.11137 6.37403 8.27186C6.20284 8.427 6.11724 8.62227 6.11724 8.85765C6.11724 9.08769 6.20284 9.28563 6.37403 9.45147Z"
-                                          fill="white"/>
-                                </svg>
-                                <p>NEW</p>
-                            </div>
+                            @if($k === 0)
+                                <div class="article--card-top main-video--card-top">
+                                    <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M7.74588 0.83398C7.34828 0.388673 6.65161 0.388674 6.25401 0.833981L5.594 1.57319C5.37062 1.82337 5.03669 1.94491 4.70476 1.89685L3.724 1.75483C3.13319 1.66928 2.59951 2.11709 2.58117 2.71378L2.55072 3.7043C2.54041 4.03954 2.36274 4.34729 2.07756 4.52383L1.23497 5.04545C0.72739 5.35969 0.606415 6.04577 0.975915 6.51466L1.58928 7.29301C1.79688 7.55644 1.85858 7.9064 1.75361 8.22494L1.44344 9.16613C1.25659 9.73312 1.60493 10.3365 2.18937 10.4581L3.15955 10.6601C3.48791 10.7285 3.76013 10.9569 3.88447 11.2684L4.25186 12.1888C4.47318 12.7432 5.12783 12.9815 5.65376 12.699L6.52679 12.2301C6.82227 12.0714 7.17763 12.0714 7.4731 12.2301L8.34614 12.699C8.87206 12.9815 9.52672 12.7432 9.74804 12.1888L10.1154 11.2684C10.2398 10.9569 10.512 10.7285 10.8403 10.6601L11.8105 10.4581C12.395 10.3365 12.7433 9.73312 12.5565 9.16614L12.2463 8.22494C12.1413 7.9064 12.203 7.55644 12.4106 7.293L13.024 6.51466C13.3935 6.04577 13.2725 5.35969 12.7649 5.04545L11.9223 4.52383C11.6372 4.34729 11.4595 4.03954 11.4492 3.7043L11.4187 2.71378C11.4004 2.11709 10.8667 1.66928 10.2759 1.75483L9.29514 1.89685C8.9632 1.94491 8.62928 1.82337 8.4059 1.57319L7.74588 0.83398ZM6.12527 4.01082L6.42217 7.58175H7.63388L7.93882 4.01082H6.12527ZM6.37403 9.45147C6.54522 9.61731 6.76456 9.70023 7.03204 9.70023C7.29953 9.70023 7.51619 9.61731 7.68203 9.45147C7.85322 9.28563 7.93882 9.08769 7.93882 8.85765C7.93882 8.62227 7.85322 8.427 7.68203 8.27186C7.51619 8.11137 7.29953 8.03112 7.03204 8.03112C6.76456 8.03112 6.54522 8.11137 6.37403 8.27186C6.20284 8.427 6.11724 8.62227 6.11724 8.85765C6.11724 9.08769 6.20284 9.28563 6.37403 9.45147Z"
+                                              fill="white"/>
+                                    </svg>
+                                    <p>NEW</p>
+                                </div>
+                            @endif
                         </li>
-                    @endfor
+                    @endforeach
                 </ul>
 
                 <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
@@ -402,27 +384,23 @@
                 <div class="main-cpa_review">
                     <p class="main-cpa-subt">review</p>
                     <ul class="main_articles_info">
-                        @for ($i=0; $i<4; $i++)
+                        @foreach($ads as $i)
                             <li class="article--card">
-                                <a class="article--card-link" href="{{ route('index') }}"></a>
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                                <a class="article--card-link"
+                                   href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
+                                <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                 <div class="article--card_info">
                                     <ul class="article--card_info_tags-list">
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#facebook</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#affiliatemarketing</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#gambling</a>
-                                        </li>
+                                        @if(!empty($i['advertising_formats']))
+                                            @foreach($i['advertising_formats'] as $v)
+                                                <li class="article--card_info_tags-list-item">
+                                                    <a class="article--card_info_tags-list-item--link"
+                                                       href="{{ route('ad.catalog', $v) }}">#{{ $v }}</a>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
-                                    <h3 class="article--card_info-title">What are BINs and what should I do with this
-                                        information</h3>
+                                    <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
 
                                     <div class="article--card_info-views">
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
@@ -431,37 +409,32 @@
                                                 d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z"
                                                 fill="#181A1C"/>
                                         </svg>
-                                        <span>1 947</span>
+                                        <span>{{ $i['views'] }}</span>
                                     </div>
                                 </div>
                             </li>
-                        @endfor
+                        @endforeach
                     </ul>
 
                     <div class="main_articles--mobile">
                         <div class="swiper">
                             <ul class="swiper-wrapper">
-                                @for ($i=0; $i<6; $i++)
+                                @foreach ($ads as $i)
                                     <li class="article--card swiper-slide">
-                                        <a class="article--card-link" href="{{ route('index') }}"></a>
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                                        <a class="article--card-link" href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
+                                        <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                         <div class="article--card_info">
                                             <ul class="article--card_info_tags-list">
-                                                <li class="article--card_info_tags-list-item">
-                                                    <a class="article--card_info_tags-list-item--link"
-                                                       href="{{ route('index') }}">#facebook</a>
-                                                </li>
-                                                <li class="article--card_info_tags-list-item">
-                                                    <a class="article--card_info_tags-list-item--link"
-                                                       href="{{ route('index') }}">#affiee</a>
-                                                </li>
-                                                <li class="article--card_info_tags-list-item">
-                                                    <a class="article--card_info_tags-list-item--link"
-                                                       href="{{ route('index') }}">#gambling</a>
-                                                </li>
+                                                @if(!empty($i['advertising_formats']))
+                                                    @foreach($i['advertising_formats'] as $v)
+                                                        <li class="article--card_info_tags-list-item">
+                                                            <a class="article--card_info_tags-list-item--link"
+                                                               href="{{ route('ad.catalog', $v) }}">#{{ $v }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                @endif
                                             </ul>
-                                            <h3 class="article--card_info-title">What are BINs and what should I do with
-                                                this information</h3>
+                                            <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
 
                                             <div class="article--card_info-views">
                                                 <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
@@ -470,11 +443,11 @@
                                                         d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z"
                                                         fill="#181A1C"/>
                                                 </svg>
-                                                <span>1 947</span>
+                                                <span>{{ $i['views'] }}</span>
                                             </div>
                                         </div>
                                     </li>
-                                @endfor
+                                @endforeach
                             </ul>
                             <div class="main_articles_top_link-wrapp-arrows">
                                 @for ($i=0; $i<10; $i++)
@@ -493,35 +466,31 @@
                 <aside class="main-cpa_aside">
                     <div class="main-cpa-subt_wrapp">
                         <p class="main-cpa-subt">TOp-5</p>
-                        <a class="link--blue" href="{{ route('index') }}">
+                        <a class="link--blue" href="{{ route('ad') }}">
                             <span>Show all</span>
                             <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                         </a>
                     </div>
                     <ul class="main-cpa_aside_list">
-                        @for ($i=0; $i<5; $i++)
+                        @foreach ($top_ads as $i)
                             <li class="main-cpa_aside_list-item">
                                 <div class="main-cpa_aside_list-item_top">
                                     <div class="main-cpa_aside_list-item_top-logo">
-                                        <img src="{{asset('assets/images/logo.png')}}" alt="logo">
+                                        <img src="{{asset('storage/'. $i['logo'])}}" alt="{{ $i["{$locale}name"] }}">
                                     </div>
                                     <ul class="article--card_info_tags-list">
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#facebook</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#nutra</a>
-                                        </li>
-                                        <li class="article--card_info_tags-list-item">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#gambling</a>
-                                        </li>
+                                        @if(!empty($i['advertising_formats']))
+                                            @foreach($i['advertising_formats'] as $v)
+                                                <li class="article--card_info_tags-list-item">
+                                                    <a class="article--card_info_tags-list-item--link"
+                                                       href="{{ route('ad.catalog', $v) }}">#{{ $v }}</a>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                                 <div class="main-cpa_aside_list-item_links">
-                                    <a class="link--black-rotateble-arrows" href="{{ route('index') }}">
+                                    <a class="link--black-rotateble-arrows" href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                                         <span>read more</span>
                                         <div class="link--black-rotateble-arrows-group">
                                             @for ($a=0; $a<3; $a++)
@@ -534,13 +503,13 @@
                                             @endfor
                                         </div>
                                     </a>
-                                    <a class="link--blue-sphere" href="{{ route('index') }}">
-                                        <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
-                                        <span>site name</span>
+                                    <a class="link--blue-sphere" href="{{ $i['url'] }}">
+                                        <img src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
+                                        <span>{{ $i["{$locale}name"] }}</span>
                                     </a>
                                 </div>
                             </li>
-                        @endfor
+                        @endforeach
                     </ul>
                 </aside>
             </div>

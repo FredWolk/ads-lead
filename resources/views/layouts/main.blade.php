@@ -1,10 +1,7 @@
-<?php
-
-use App\Models\BannerTop;
-
-$banner = BannerTop::where('status', 1)->inRandomOrder()->first();
-
-?>
+@php
+    $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
+    $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
+@endphp
     <!doctype html>
 <html lang="en">
 <head>
@@ -56,8 +53,8 @@ $banner = BannerTop::where('status', 1)->inRandomOrder()->first();
                     </ul>
                 </nav>
                 <div class="header_buttons">
-                    <a class="btn--blue header_buttons-blue-btn" href="{{ route('index') }}">
-                        <span>Sweepstakes offers</span>
+                    <a class="btn--blue header_buttons-blue-btn" href="{{ $banner_button->link }}">
+                        <span>{{ $banner_button->text }}</span>
                         <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </a>
 
@@ -168,15 +165,15 @@ $banner = BannerTop::where('status', 1)->inRandomOrder()->first();
 
     <section class="banner">
         <a href="{{ $banner->link }}" target="_blank">
-            <picture>
-                <source srcset="{{asset('storage/'. $banner->file)}}"
-                        media="(min-width: 600px)">
-                @if($banner->type == 'image')
-                    <img src="{{ asset('storage/'. $banner->mobile_file }}" alt="banner">
-                @else
-                    <video autoplay src="{{ asset('storage/'. $banner->mobile_file }}"></video>
-                @endif
-            </picture>
+            @if($banner->type == 'image')
+                <picture>
+                    <source srcset="{{asset('storage/'. $banner->file)}}"
+                            media="(min-width: 600px)">
+                    <img width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}" alt="banner">
+                </picture>
+            @else
+                <video id="video" width="100%" autoplay loop muted></video>
+            @endif
         </a>
     </section>
     <main class="main">
@@ -509,5 +506,6 @@ $banner = BannerTop::where('status', 1)->inRandomOrder()->first();
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
+
 </body>
 </html>
