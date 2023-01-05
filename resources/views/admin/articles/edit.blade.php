@@ -490,6 +490,7 @@
                     ['paragraph', ['style','ol','ul','paragraph','height']],
                     ['misc', ['fullscreen','codeview','undo','redo','help']],
                 ],
+                fontNames: ['Arial', 'Times New Roman']
             });
             $('.select2').select2()
             $('#select1').select2({
