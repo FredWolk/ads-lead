@@ -6,10 +6,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Редактирование баннера - {{ $top->id }}</h1>
-                        <a class="text-success" href="{{ route('top.edit', $top->id) }}"><i class="fas fa-pen"></i></a>
+                        <h1 class="m-0 mr-3">Редактирование баннера - {{ $aside->id }}</h1>
+                        <a class="text-success" href="{{ route('aside.edit', $aside->id) }}"><i class="fas fa-pen"></i></a>
                         <button form="delete" class="btn text-danger"><i class="fas fa-trash"></i></button>
-                        <form id="delete" method="post" action="{{ route('top.destroy', $top->id) }}">
+                        <form id="delete" method="post" action="{{ route('aside.destroy', $aside->id) }}">
                             @csrf
                             @method('delete')
                         </form>
@@ -17,7 +17,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('top.index') }}">Баннер</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('aside.index') }}">Баннер</a></li>
                             <li class="breadcrumb-item active">Редактирование</li>
                         </ol>
                     </div>
@@ -38,21 +38,21 @@
                             <tbody>
                             <tr>
                                 <td>Тип</td>
-                                <td>{{ $top->type }}</td>
+                                <td>{{ $aside->type }}</td>
                             </tr>
                             <tr>
                                 <td>Файл</td>
                                 <td>
-                                @if($top->type == 'image')
-                                        <img width="400" src="{{ asset('storage/'.$top->file) }}" alt="">
+                                @if($aside->type == 'image')
+                                        <img width="400" src="{{ asset('storage/'.$aside->file) }}" alt="">
                                 @else
-                                        <video width="500" autoplay controls="controls" src="{{ asset('storage/'. $top->file) }}"></video>
+                                        <video width="500" controls="controls" src="{{ asset('storage/'. $aside->file) }}"></video>
                                 @endif
                                 </td>
                             </tr>
                             <tr>
                                 <td>Статус</td>
-                                <td>{{ $top->status ? 'Активен' : 'Не активен' }}</td>
+                                <td>{{ $aside->status ? 'Активен' : 'Не активен' }}</td>
                             </tr>
                             </tbody>
                         </table>

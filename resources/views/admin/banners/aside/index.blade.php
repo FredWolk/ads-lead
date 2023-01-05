@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Большой баннер</h1>
+                        <h1 class="m-0">Боковой баннер</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item active">Большой баннер</li>
+                            <li class="breadcrumb-item active">Боковой баннер</li>
                         </ol>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                         Видимость
                                     </th>
                                     <th class="text-right" style="width: 40%">
-                                        <a href="{{ route('top.create') }}" class="btn btn-dark btn-sm">Добавить</a>
+                                        <a href="{{ route('aside.create') }}" class="btn btn-dark btn-sm">Добавить</a>
                                     </th>
                                 </tr>
                                 </thead>
@@ -69,12 +69,12 @@
                                         <span class="badge badge-{{ $i['status'] === 1 ? 'success' : 'danger' }}">{{ $i['status'] === 1 ? 'Активна' : 'Не активна' }}</span>
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="{{ route('top.show', $i['id']) }}">
+                                        <a class="btn btn-primary btn-sm" href="{{ route('aside.show', $i['id']) }}">
                                             <i class="fas fa-folder">
                                             </i>
                                             Просмотр
                                         </a>
-                                        <a class="btn btn-info btn-sm" href="{{ route('top.edit', $i['id']) }}">
+                                        <a class="btn btn-info btn-sm" href="{{ route('aside.edit', $i['id']) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Редактировать
@@ -85,7 +85,7 @@
                                             Удалить
                                         </button>
                                         <form id="delete_{{$k}}" method="post"
-                                              action="{{route('top.destroy', $i['id']) }}">
+                                              action="{{route('aside.destroy', $i['id']) }}">
                                             @method('delete')
                                             @csrf
                                         </form>

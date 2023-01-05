@@ -14,13 +14,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавить большой баннер</h1>
+                        <h1 class="m-0">Добавить боковой баннер</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('top.index') }}">Баннеры</a></li>
-                            <li class="breadcrumb-item active">Добавить большой баннер</li>
+                            <li class="breadcrumb-item"><a href="{{ route('aside.index') }}">Баннеры</a></li>
+                            <li class="breadcrumb-item active">Добавить боковой баннер</li>
                         </ol>
                     </div>
                 </div>
@@ -32,14 +32,14 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('top.store') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('aside.store') }}">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="type">Тип баннера</label>
                                 <select name="type" id="type" class="form-control">
                                     <option {{ old('type') == 'image' ? 'selected' : '' }} value="image">Изображение\GIF</option>
-                                    <option {{ old('type') == 'video' ? 'selected' : '' }} value="video">Виедо</option>
+                                    <option {{ old('type') == 'video' ? 'selected' : '' }} value="video">Видео</option>
                                 </select>
                             </div>
                             @error('type')
@@ -58,20 +58,6 @@
                                 </div>
                             </div>
                             @error('file')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group">
-                                <label for="mobile_file">Мобильное изображение баннера</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input value="{{ old('mobile_file') }}" name="mobile_file" type="file"
-                                               class="custom-file-input" id="mobile_file">
-                                        <label class="custom-file-label" for="mobile_file">Выберите мобильное изображение
-                                            баннера</label>
-                                    </div>
-                                </div>
-                            </div>
-                            @error('mobile_file')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
