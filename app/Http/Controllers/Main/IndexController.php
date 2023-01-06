@@ -60,7 +60,7 @@ class IndexController extends Controller
             $locale = App::getLocale() == 'en' ? '' : 'pt_';
             $events = Events::all()
                 ->where('filtration_date', '>=', date('Y-m-01', strtotime($date)))
-                ->where('filtration_date', '<=', date('Y-m-01', strtotime($date . '+1 month')))
+                ->where('filtration_date', '<=', date('Y-m-t', strtotime($date . '+1 month')))
                 ->toArray();
             foreach ($events as $i) {
                 $arr[$i['filtration_date']] = $i;
