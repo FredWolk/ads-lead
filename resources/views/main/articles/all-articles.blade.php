@@ -25,8 +25,13 @@
 
     <section class="articlespage">
         <div class="container">
-            <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
-            <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
+            @empty($seo)
+                <h1 class="title">Article</h1>
+            @else
+                <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
+                <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
+            @endempty
+
             <ul class="main_articles_info">
                 @foreach($articles as $article)
                     <li class="article--card">
@@ -63,23 +68,25 @@
             <div class="pagination">
                 {{ $articles->links() }}
             </div>
-            <aside class="articles_seo-text">
-                <h3 class="articles_seo-text--title">seo text</h3>
-                <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
-                <button type="button" class="link--black-rotateble-arrows readmore--btn">
-                    <span>read more</span>
-                    <div class="link--black-rotateble-arrows-group">
-                        @for ($a=0; $a<3; $a++)
-                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"
-                                      fill="#272C31"/>
-                            </svg>
-                        @endfor
-                    </div>
-                </button>
-            </aside>
+            @if(!empty($seo))
+                <aside class="articles_seo-text">
+                    <h3 class="articles_seo-text--title">seo text</h3>
+                    <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
+                    <button type="button" class="link--black-rotateble-arrows readmore--btn">
+                        <span>read more</span>
+                        <div class="link--black-rotateble-arrows-group">
+                            @for ($a=0; $a<3; $a++)
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"
+                                          fill="#272C31"/>
+                                </svg>
+                            @endfor
+                        </div>
+                    </button>
+                </aside>
+            @endif
         </div>
     </section>
 
