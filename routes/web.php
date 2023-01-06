@@ -99,3 +99,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'] , function () {
     Route::resource('aside', BannerAsideController::class);
     Route::resource('forum', BannerForumAsideController::class);
 });
+
+Route::group(['prefix' => 'filters'], function (){
+   Route::get('index-calendar', [IndexController::class, 'indexFilter'])->name('index.calendar');
+});

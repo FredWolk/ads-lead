@@ -194,7 +194,8 @@
                             <ul class="swiper-wrapper">
                                 @foreach ($cpa as $i)
                                     <li class="article--card swiper-slide">
-                                        <a class="article--card-link" href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
+                                        <a class="article--card-link"
+                                           href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
                                         <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                         <div class="article--card_info">
                                             <ul class="article--card_info_tags-list">
@@ -263,7 +264,8 @@
                                     </ul>
                                 </div>
                                 <div class="main-cpa_aside_list-item_links">
-                                    <a class="link--black-rotateble-arrows" href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
+                                    <a class="link--black-rotateble-arrows"
+                                       href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
                                         <span>read more</span>
                                         <div class="link--black-rotateble-arrows-group">
                                             @for ($a=0; $a<3; $a++)
@@ -421,7 +423,8 @@
                             <ul class="swiper-wrapper">
                                 @foreach ($ads as $i)
                                     <li class="article--card swiper-slide">
-                                        <a class="article--card-link" href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
+                                        <a class="article--card-link"
+                                           href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
                                         <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                         <div class="article--card_info">
                                             <ul class="article--card_info_tags-list">
@@ -490,7 +493,8 @@
                                     </ul>
                                 </div>
                                 <div class="main-cpa_aside_list-item_links">
-                                    <a class="link--black-rotateble-arrows" href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
+                                    <a class="link--black-rotateble-arrows"
+                                       href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                                         <span>read more</span>
                                         <div class="link--black-rotateble-arrows-group">
                                             @for ($a=0; $a<3; $a++)
@@ -587,27 +591,50 @@
                         <a class="btn--grey" href="{{ route('events') }}">Show all</a>
                     </div>
                 </div>
-
+                @php
+                    $month = [
+                            '01' => 'January',
+                            '02' => 'February',
+                            '03' => 'March',
+                            '04' => 'April',
+                            '05' => 'May',
+                            '06' => 'June',
+                            '07' => 'July',
+                            '08' => 'August',
+                            '09' => 'September',
+                            '10' => 'October',
+                            '11' => 'November',
+                            '12' => 'December'
+                        ]
+                @endphp
                 <div class="main-events_right">
                     <div class="main-events_right_top">
                         <h3 class="main-cpa-subt">Calendar</h3>
 
                         <div class="main-events_right_top_month">
                             <div class="main-events_right_top_month_arrows">
-                                <button type="button" class="arrow--btn left">
+                                <button type="button" data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'-1 month')) : date('Y-m-01', strtotime('-1 month')) }}" class="arrow--btn left dateChange">
                                     <img class="arrow--btn-black"
                                          src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
                                     <img class="arrow--btn-blue"
                                          src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                                 </button>
-                                <button type="button" class="arrow--btn">
+                                <button type="button" data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'+1 month')) : date('Y-m-01', strtotime('+1 month')) }}" class="arrow--btn dateChange">
                                     <img class="arrow--btn-black"
                                          src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
                                     <img class="arrow--btn-blue"
                                          src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                                 </button>
                             </div>
-                            <p class="main-events_right_top_month-text">december 2022</p>
+                            <p class="main-events_right_top_month-text">
+                                {{
+                                    !empty($_GET['date'])
+                                    ?
+                                    "{$month[date('m', strtotime($_GET['date']))]} ". date('Y', strtotime($_GET['date']))
+                                    :
+                                    "{$month[date('m')]} ". date('Y')
+                                }}
+                            </p>
                         </div>
                     </div>
                     <div class="calendar">
@@ -621,7 +648,8 @@
                                         <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
                                         <div class="popup_event-wrap">
                                             <div class="popup_event">
-                                                <img class="popup_event-image" src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
+                                                <img class="popup_event-image"
+                                                     src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
                                                 <div class="popup_event-info">
                                                     <p class="popup_event-date">{{ $i["{$locale}date"] }}</p>
                                                     <p class="popup_event-name">{{ $i["{$locale}name"] }}</p>
@@ -637,4 +665,21 @@
             </div>
         </div>
     </section>
+    @section('scripts')
+        <script>
+            $('.main-events_right').on('click', '.dateChange', function () {
+                let date = $(this).attr('data-date');
+                $.ajax({
+                    url: '{{ route('index.calendar') }}',
+                    type: 'GET',
+                    data: {date},
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                }).done((rsp) => {
+                    $('.main-events_right').html(rsp);
+                });
+            })
+        </script>
+    @endsection
 @endsection

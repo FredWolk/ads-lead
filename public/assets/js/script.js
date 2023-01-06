@@ -3,7 +3,7 @@ $('.header--search-btn').on('click', function () {
     $('.header--search-input').toggleClass('active');
 });
 
-$('.init').on('click', function (){
+$('.main-events_right').on('click', '.init', function () {
     $(this).children('.popup_event-wrap').fadeToggle(300);
 })
 
@@ -151,32 +151,32 @@ function copyToClipboard(str) {
 }
 
 
-$('.header--notif-btn').on('click', function(){
+$('.header--notif-btn').on('click', function () {
     $(this).toggleClass('active');
     $('.header--notif-body').toggleClass('active');
 });
 
-$(document).click( function(e){
-    if (!$( ".header--notif-body").is(e.target) && $( ".header--notif-body").has(e.target).length === 0 && !$( ".header--notif-btn").is(e.target) && $( ".header--notif-btn").has(e.target).length === 0) {
+$(document).click(function (e) {
+    if (!$(".header--notif-body").is(e.target) && $(".header--notif-body").has(e.target).length === 0 && !$(".header--notif-btn").is(e.target) && $(".header--notif-btn").has(e.target).length === 0) {
         $('.header--notif-btn, .header--notif-body').removeClass('active');
     }
 });
 
-$('.user-main-email-edit--btn').on('click', function(){
+$('.user-main-email-edit--btn').on('click', function () {
     $(this).next().toggleClass('active');
 });
 
-$('.user_card--toltip--btn').on('click', function(){
+$('.user_card--toltip--btn').on('click', function () {
     $('.user_card-tooltip_body').removeClass('active');
     $(this).find('.user_card-tooltip_body').addClass('active');
 });
-$('body').on('click', function(e){
-    if (!$( ".user_card--toltip--btn").is(e.target) && $( ".user_card--toltip--btn").has(e.target).length === 0) {
+$('body').on('click', function (e) {
+    if (!$(".user_card--toltip--btn").is(e.target) && $(".user_card--toltip--btn").has(e.target).length === 0) {
         $('.user_card-tooltip_body').removeClass('active');
     }
 });
 
-$('.custom-radio-color').on('change', function(){
+$('.custom-radio-color').on('change', function () {
     color = $(this).val();
     $('.user_card-main-example-btn').css({
         'background': color,
@@ -188,23 +188,23 @@ $('.custom-radio-color').on('change', function(){
     $('.custom-radio-color-group').removeClass('active');
 });
 
-$('.custom-radio-color-group-button').on('click', function(){
+$('.custom-radio-color-group-button').on('click', function () {
     $('.custom-radio-color-group').addClass('active');
     $(this).removeClass('active');
 });
 
-$('.user-main_trophies--item').each(function(i){
-    if(i > 11){
+$('.user-main_trophies--item').each(function (i) {
+    if (i > 11) {
         $(this).addClass('disable');
     }
 });
 
-$('.user-main_trophies-show-all--btn').on('click', function(){
+$('.user-main_trophies-show-all--btn').on('click', function () {
     $('.user-main_trophies--item').removeClass('disable');
     $(this).hide();
 });
 
-$('.user_nav_first-last-show-all--btn').on('click', function(){
+$('.user_nav_first-last-show-all--btn').on('click', function () {
     $('.user_nav-menu--item').show(0);
     $('.user_nav-exit--btn').css({
         'display': 'flex',
@@ -212,55 +212,55 @@ $('.user_nav_first-last-show-all--btn').on('click', function(){
     $(this).hide();
 });
 
-$('.user-main__subscribers_list').each(function(a){
-    $(this).find('.user-main__subscribers_list-item').each(function(i){
-        if(i > 11){
+$('.user-main__subscribers_list').each(function (a) {
+    $(this).find('.user-main__subscribers_list-item').each(function (i) {
+        if (i > 11) {
             $(this).addClass('disable');
         }
     });
 });
 
-$('.user-main_subscribers-show-all--btn').on('click', function(){
+$('.user-main_subscribers-show-all--btn').on('click', function () {
     $(this).prev().find('.user-main__subscribers_list-item').css({
         'display': 'flex',
     });
     $(this).hide();
 });
 
-$('.user_correspondence-delete--btn').on('click', function(){
+$('.user_correspondence-delete--btn').on('click', function () {
     $('.popup--delete-wrapper-back').fadeIn(300);
 });
 
-$('.popup--delete--btn-close').on('click', function(){
+$('.popup--delete--btn-close').on('click', function () {
     $('.popup--delete-wrapper-back').fadeOut(300);
 });
 
-$('.popup--delete-wrapper-back').on('click', function(e){
-    if (!$( ".popup--delete").is(e.target) && $( ".popup--delete").has(e.target).length === 0) {
+$('.popup--delete-wrapper-back').on('click', function (e) {
+    if (!$(".popup--delete").is(e.target) && $(".popup--delete").has(e.target).length === 0) {
         $('.popup--delete-wrapper-back').fadeOut(300);
     }
 });
 
-$('.forum_main_card_top--tab-btn').on('click', function(){
+$('.forum_main_card_top--tab-btn').on('click', function () {
     $('.forum_main_card_top--tab-btn').removeClass('active');
     $(this).addClass('active');
     var id = $(this).attr('id');
     $('.forum_main_card_tabs--tab').removeClass('active');
-    $('.forum_main_card_tabs--tab').each(function(){
-        if($(this).attr('id') == id){
+    $('.forum_main_card_tabs--tab').each(function () {
+        if ($(this).attr('id') == id) {
             $(this).addClass('active');
         }
     });
 });
 
-$('.forum_treads_list--item_left_info_bottom-tracking').on('click', function(){
+$('.forum_treads_list--item_left_info_bottom-tracking').on('click', function () {
     $(this).toggleClass('active');
 });
 
-$('.forumpage-board_top-pagin-wrapp-right-more--btn').on('click', function(){
+$('.forumpage-board_top-pagin-wrapp-right-more--btn').on('click', function () {
     $(this).toggleClass('active');
 });
 
-$('.user-main-corpage_top_right_top_right--btn').on('click', function(){
+$('.user-main-corpage_top_right_top_right--btn').on('click', function () {
     $(this).toggleClass('active');
 });

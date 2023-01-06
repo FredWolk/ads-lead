@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     @endif
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Главная страница сайта</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -510,6 +511,6 @@
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
-
+@yield('scripts')
 </body>
 </html>

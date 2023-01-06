@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Cpa;
 use App\Models\Events;
 use App\Models\Video;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class IndexController extends Controller
@@ -50,5 +51,27 @@ class IndexController extends Controller
             'firstEvent',
             'mobileEvents',
         ));
+    }
+
+    public function indexFilter(Request $request)
+    {
+        if ($request->ajax()){
+            $date = $request->input('date');
+            if (!empty($date)){
+                $locale = App::getLocale() == 'en' ? '' : 'pt_';
+                $events = Events::all()
+                    ->where('filtration_date', '>=', date('Y-m-01', strtotime($date)))
+                    ->where('filtration_date', '<=', date('Y-m-01', strtotime($date . '+1 month')))
+                    ->toArray();
+                foreach ($events as $i){
+                    $arr[$i['filtration_date']] = $i;
+                }
+                for($i = date('Y-m-01', strtotime($date)); $i <= date('Y-m-01', strtotime($date . '+1 month')); $i = date('Y-m-d', strtotime($i . '+1 day'))) {
+                    $calendar[$i] = !empty($arr[$i]) ? $arr[$i] : null;
+                }
+                return view('main.filters.index-calendar', compact('locale','calendar'))->render();
+            }
+
+        }
     }
 }
