@@ -488,14 +488,14 @@
             </button>
         </form>
         <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a
-                href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></button></p>
+                href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>
     </div>
     <div class="signup_wrapper_main-tnx">
         <p class="signup_wrapper_main-title">Thanks for <br> registering!</p>
         <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave
             comments on our materials and communicate on our forum.</p>
         <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>
-            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></button></p>
+            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>
     </div>
 
     <button type="button" class="btn--close-mobile">
