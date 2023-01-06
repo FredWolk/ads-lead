@@ -584,7 +584,7 @@
                             <div class="swiper-pagination"></div>
                         </div>
 
-                        <a class="btn--grey" href="{{ route('index') }}">Show all</a>
+                        <a class="btn--grey" href="{{ route('events') }}">Show all</a>
                     </div>
                 </div>
 
