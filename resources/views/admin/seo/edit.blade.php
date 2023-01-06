@@ -125,7 +125,7 @@
                                     <div class="form-group">
                                         <label for="keywords">KEYWORDS</label>
                                         <input value="{{ $seo->keywords }}" name="keywords" type="text" class="form-control" id="keywords"
-                                               placeholder="Введите ключевые слова через ';'">
+                                               placeholder="Введите ключевые слова через ','">
                                     </div>
                                     @error('keywords')
                                     <div class="text-danger">{{ $message }}</div>
@@ -229,7 +229,7 @@
                                     <div class="form-group">
                                         <label for="pt_keywords">PT KEYWORDS</label>
                                         <input value="{{ $seo->pt_keywords }}" name="pt_keywords" type="text" class="form-control" id="pt_keywords"
-                                               placeholder="Введите ключевые слова через ';'">
+                                               placeholder="Введите ключевые слова через ','">
                                     </div>
                                     @error('pt_keywords')
                                     <div class="text-danger">{{ $message }}</div>

@@ -1,5 +1,12 @@
 @extends('layouts.main')
-
+@section('seo')
+    <title>{{ $seo["{$locale}title"] }}</title>
+    <meta name="description" content="{{ $seo["{$locale}description"] }}">
+    <meta name="keywords" content="{{ $seo["{$locale}keywords"] }}" />
+    <meta property="og:title" content="{{ $seo["{$locale}og_title"] }}" />
+    <meta property="og:description" content="{{ $seo["{$locale}og_description"] }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+@endsection
 @section('content')
 <section class="breadcrambs top">
     <div class="container">
@@ -8,7 +15,7 @@
                 <a href="{{ route('index') }}">Homepage</a>
             </li>
             <li class="breadcrambs_list-item">
-                <a href="{{ route('articles') }}">Articles</a>
+                <a href="{{ route('articles') }}">{{ $seo["{$locale}h1"] }}</a>
             </li>
         </ul>
     </div>
@@ -16,27 +23,26 @@
 
 <section class="articlespage">
     <div class="container">
-        <h1 class="title">Articles</h1>
-        <p class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>
+        <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
+        <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
         <ul class="main_articles_info">
             @foreach($articles as $article)
                 <li class="article--card">
                     <a class="article--card-link" href="{{ route('index') }}"></a>
                     <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
                     <div class="article--card_info">
-                        <p class="article--card_info-date">01/21/2022</p>
+                        <p class="article--card_info-date">{{ date('d/m/Y', strtotime($article['created_at'])) }}</p>
                         <ul class="article--card_info_tags-list">
-                            <li class="article--card_info_tags-list-item mobhide">
-                                <a class="article--card_info_tags-list-item--link" href="{{ route('index') }}">#facebook</a>
-                            </li>
-                            <li class="article--card_info_tags-list-item mobhide">
-                                <a class="article--card_info_tags-list-item--link" href="{{ route('index') }}">#affiliatemarketing</a>
-                            </li>
-                            <li class="article--card_info_tags-list-item mobhide">
-                                <a class="article--card_info_tags-list-item--link" href="{{ route('index') }}">#gambling</a>
-                            </li>
+                            @if(!empty($article['tags']))
+                                @foreach($article['tags'] as $tag)
+                                    <li class="article--card_info_tags-list-item mobhide">
+                                        <a class="article--card_info_tags-list-item--link"
+                                           href="{{ route('index') }}">#{{ $tag }}</a>
+                                    </li>
+                                @endforeach
+                            @endif
                         </ul>
-                        <h2 class="article--card_info-title">What are BINs and what should I do with this information</h2>
+                        <h2 class="article--card_info-title">{{ $article }}</h2>
                         <p class="article--card_info-author">by <a href="{{ route('index') }}">Wade Warren</a></p>
 
                         <div class="article--card_info-views">
@@ -52,16 +58,7 @@
         </div>
         <aside class="articles_seo-text">
             <h3 class="articles_seo-text--title">seo text</h3>
-            <p class="articles_seo-text--text">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                <br>
-                <br>
-                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-                <br>
-                <br>
-                Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-                <br>
-                Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit </p>
+            <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
                 <button type="button" class="link--black-rotateble-arrows readmore--btn">
                     <span>read more</span>
                     <div class="link--black-rotateble-arrows-group">

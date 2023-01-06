@@ -11,9 +11,10 @@
     @if(env('APP_ENV') !== 'local')
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     @endif
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Главная страница сайта</title>
+    @yield('seo')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
