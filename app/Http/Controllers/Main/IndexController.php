@@ -33,10 +33,10 @@ class IndexController extends Controller
         $mobileEvents = Events::all()
             ->where('filtration_date', '>=', date('Y-m-d'))
             ->take(6)->toArray();
-        foreach ($events as $i){
+        foreach ($events as $i) {
             $arr[$i['filtration_date']] = $i;
         }
-        for($i = $start; $i <= $finish; $i = date('Y-m-d', strtotime($i . '+1 day'))) {
+        for ($i = $start; $i <= $finish; $i = date('Y-m-d', strtotime($i . '+1 day'))) {
             $calendar[$i] = !empty($arr[$i]) ? $arr[$i] : null;
         }
         return view('main.index', compact(
@@ -55,23 +55,20 @@ class IndexController extends Controller
 
     public function indexFilter(Request $request)
     {
-        if ($request->ajax()){
-            $date = $request->input('date');
-            if (!empty($date)){
-                $locale = App::getLocale() == 'en' ? '' : 'pt_';
-                $events = Events::all()
-                    ->where('filtration_date', '>=', date('Y-m-01', strtotime($date)))
-                    ->where('filtration_date', '<=', date('Y-m-01', strtotime($date . '+1 month')))
-                    ->toArray();
-                foreach ($events as $i){
-                    $arr[$i['filtration_date']] = $i;
-                }
-                for($i = date('Y-m-01', strtotime($date)); $i <= date('Y-m-01', strtotime($date . '+1 month')); $i = date('Y-m-d', strtotime($i . '+1 day'))) {
-                    $calendar[$i] = !empty($arr[$i]) ? $arr[$i] : null;
-                }
-                return view('main.filters.index-calendar', compact('locale','calendar'))->render();
+        $date = $request->input('date');
+        if (!empty($date)) {
+            $locale = App::getLocale() == 'en' ? '' : 'pt_';
+            $events = Events::all()
+                ->where('filtration_date', '>=', date('Y-m-01', strtotime($date)))
+                ->where('filtration_date', '<=', date('Y-m-01', strtotime($date . '+1 month')))
+                ->toArray();
+            foreach ($events as $i) {
+                $arr[$i['filtration_date']] = $i;
             }
-
+            for ($i = date('Y-m-01', strtotime($date)); $i <= date('Y-m-01', strtotime($date . '+1 month')); $i = date('Y-m-d', strtotime($i . '+1 day'))) {
+                $calendar[$i] = !empty($arr[$i]) ? $arr[$i] : null;
+            }
+            return view('main.filters.index-calendar', compact('locale', 'calendar'))->render();
         }
     }
 }

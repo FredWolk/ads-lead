@@ -4,6 +4,7 @@ $('.header--search-btn').on('click', function () {
 });
 
 $('.main-events_right').on('click', '.init', function () {
+    console.log('ok');
     $(this).children('.popup_event-wrap').fadeToggle(300);
 })
 

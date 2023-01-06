@@ -43,8 +43,9 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('event.store') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('event.update') }}">
                         @csrf
+                        @method('patch')
                         <div class="card-body">
 
                             <div class="form-group">

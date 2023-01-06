@@ -101,5 +101,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'] , function () {
 });
 
 Route::group(['prefix' => 'filters'], function (){
-   Route::get('index-calendar', [IndexController::class, 'indexFilter'])->name('index.calendar');
+   Route::get('/index-calendar', [IndexController::class, 'indexFilter'])->name('index.calendar');
 });
