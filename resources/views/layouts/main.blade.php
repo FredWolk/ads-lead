@@ -53,10 +53,12 @@
                     </ul>
                 </nav>
                 <div class="header_buttons">
-                    <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
-                        <span>{{ $banner_button->text }}</span>
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                    </a>
+                    @if(!empty($banner_button))
+                        <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
+                            <span>{{ $banner_button->text }}</span>
+                            <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                        </a>
+                    @endif
 
                     <button type="button" class="btn-rectangle btn--burger">
                         <div class="burger--btn_wrapper">
@@ -163,19 +165,21 @@
         </div>
     </section>
 
-    <section class="banner">
-        <a href="{{ $banner->link }}" target="_blank">
-            @if($banner->type == 'image')
-                <picture>
-                    <source srcset="{{asset('storage/'. $banner->file)}}"
-                            media="(min-width: 600px)">
-                    <img width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}" alt="banner">
-                </picture>
-            @else
-                <video id="video" width="100%" autoplay loop muted></video>
-            @endif
-        </a>
-    </section>
+    @if(!empty($banner))
+        <section class="banner">
+            <a href="{{ $banner->link }}" target="_blank">
+                @if($banner->type == 'image')
+                    <picture>
+                        <source srcset="{{asset('storage/'. $banner->file)}}"
+                                media="(min-width: 600px)">
+                        <img width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}" alt="banner">
+                    </picture>
+                @else
+                    <video id="video" width="100%" autoplay loop muted></video>
+                @endif
+            </a>
+        </section>
+    @endif
     <main class="main">
         @yield('content')
     </main>

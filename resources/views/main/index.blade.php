@@ -522,7 +522,7 @@
                 <div class="main-events_left">
                     <div class="main-cpa-subt_wrapp">
                         <h3 class="main-cpa-subt">Coming Event</h3>
-                        <a class="link--blue" href="{{ route('index') }}">
+                        <a class="link--blue" href="{{ route('events') }}">
                             <span>Show all</span>
                             <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                         </a>
@@ -530,7 +530,7 @@
 
                     <li class="article--card hide">
                         <a class="article--card-link" href="{{ route('index') }}"></a>
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                        <img src="{{asset('storage/' . $firstEvent["{$locale}image"])}}" alt="banner">
                         <div class="article--card_info">
                             <div class="main-events__article--card_info_top">
                                 <div class="main-events__article--card_info_top-date">
@@ -540,11 +540,11 @@
                                             d="M12.3333 1.49984H11.6666V0.166504H10.3333V1.49984H3.66658V0.166504H2.33325V1.49984H1.66659C0.933252 1.49984 0.333252 2.09984 0.333252 2.83317V13.4998C0.333252 14.2332 0.933252 14.8332 1.66659 14.8332H12.3333C13.0666 14.8332 13.6666 14.2332 13.6666 13.4998V2.83317C13.6666 2.09984 13.0666 1.49984 12.3333 1.49984ZM12.3333 13.4998H1.66659V4.83317H12.3333V13.4998Z"
                                             fill="white"/>
                                     </svg>
-                                    <span>1-3 NOVEMBER 2022</span>
+                                    <span>{{ $firstEvent["{$locale}date"] }}</span>
                                 </div>
-                                <p class="main-events__article--card_info_top-text">USA | HOLLYWOOD |FLORIDA</p>
+                                <p class="main-events__article--card_info_top-text">{{ $firstEvent["{$locale}location"] }}</p>
                             </div>
-                            <h4 class="article--card_info-title">SBC Summit Latinoamérica</h4>
+                            <h4 class="article--card_info-title">{{ $firstEvent["{$locale}name"] }}</h4>
                         </div>
                     </li>
 
@@ -610,6 +610,29 @@
                             </div>
                             <p class="main-events_right_top_month-text">december 2022</p>
                         </div>
+                    </div>
+                    <div class="calendar">
+                        <ul class="calendar_list">
+                            @foreach($calendar as $k => $i)
+                                @if($i === null)
+                                    <li class="calendar_date ">{{ date('d', strtotime($k)) }}</li>
+                                @else
+                                    <li class="calendar_date init">
+                                        <p>{{ date('d', strtotime($k)) }}</p>
+                                        <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
+                                        <div class="popup_event-wrap">
+                                            <div class="popup_event">
+                                                <img class="popup_event-image" src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
+                                                <div class="popup_event-info">
+                                                    <p class="popup_event-date">{{ $i["{$locale}date"] }}</p>
+                                                    <p class="popup_event-name">{{ $i["{$locale}name"] }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>

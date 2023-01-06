@@ -3,6 +3,10 @@ $('.header--search-btn').on('click', function () {
     $('.header--search-input').toggleClass('active');
 });
 
+$('.init').on('click', function (){
+    $(this).children('.popup_event-wrap').fadeToggle(300);
+})
+
 $(document).click(function (e) {
     if (!$(".header--search-input-wrapper").is(e.target) && $(".header--search-input-wrapper").has(e.target).length === 0) {
         $('.header--search-btn, .header--search-input').removeClass('active');
