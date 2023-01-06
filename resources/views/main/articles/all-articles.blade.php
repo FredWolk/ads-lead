@@ -49,7 +49,7 @@
                                     @endforeach
                                 @endif
                             </ul>
-                            <h2 class="article--card_info-title">{{ $article }}</h2>
+                            <h2 class="article--card_info-title">{{ $article["{$locale}name"] }}</h2>
                             <p class="article--card_info-author">by <a href="{{ route('index') }}">Wade Warren</a></p>
 
                             <div class="article--card_info-views">
