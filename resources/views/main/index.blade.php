@@ -529,8 +529,8 @@
                     </div>
 
                     <li class="article--card hide">
-                        <a class="article--card-link" href="{{ route('index') }}"></a>
-                        <img src="{{asset('storage/' . $firstEvent["{$locale}image"])}}" alt="banner">
+                        <a class="article--card-link" href="{{ route('event.page', $firstEvent['link']) }}"></a>
+                        <img src="{{ asset('storage/' . $firstEvent["{$locale}image"]) }}" alt="banner">
                         <div class="article--card_info">
                             <div class="main-events__article--card_info_top">
                                 <div class="main-events__article--card_info_top-date">
@@ -551,14 +551,13 @@
                     <div class="main_articles--mobile">
                         <div class="swiper">
                             <ul class="swiper-wrapper">
-                                @for ($i=0; $i<6; $i++)
+                                @foreach ($mobileEvents as $i)
                                     <li class="article--card swiper-slide">
-                                        <a class="article--card-link" href="{{ route('index') }}"></a>
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                                        <a class="article--card-link" href="{{ route('event.page', $i['link']) }}"></a>
+                                        <img src="{{ asset('storage/' . $i["{$locale}image"]) }}" alt="banner">
                                         <div class="article--card_info">
-                                            <p class="main-events__article--card_info_top-text">USA | HOLLYWOOD
-                                                |FLORIDA</p>
-                                            <h4 class="article--card_info-title">SBC Summit Latinoamérica</h4>
+                                            <p class="main-events__article--card_info_top-text">{{ $i["{$locale}location"] }}</p>
+                                            <h4 class="article--card_info-title">{{ $i["{$locale}name"] }}</h4>
                                             <div class="main-events__article--card_info_top-date">
                                                 <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -566,11 +565,11 @@
                                                         d="M12.3333 1.49984H11.6666V0.166504H10.3333V1.49984H3.66658V0.166504H2.33325V1.49984H1.66659C0.933252 1.49984 0.333252 2.09984 0.333252 2.83317V13.4998C0.333252 14.2332 0.933252 14.8332 1.66659 14.8332H12.3333C13.0666 14.8332 13.6666 14.2332 13.6666 13.4998V2.83317C13.6666 2.09984 13.0666 1.49984 12.3333 1.49984ZM12.3333 13.4998H1.66659V4.83317H12.3333V13.4998Z"
                                                         fill="white"/>
                                                 </svg>
-                                                <span>1-3 NOVEMBER 2022</span>
+                                                <span>{{ $i["{$locale}date"] }}</span>
                                             </div>
                                         </div>
                                     </li>
-                                @endfor
+                                @endforeach
                             </ul>
                             <div class="main_articles_top_link-wrapp-arrows">
                                 @for ($i=0; $i<10; $i++)

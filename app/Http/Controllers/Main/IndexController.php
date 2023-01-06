@@ -29,6 +29,9 @@ class IndexController extends Controller
             ->where('filtration_date', '<=', $finish)
             ->toArray();
         $firstEvent = Events::where('filtration_date', '>=', date('Y-m-d'))->first()->toArray();
+        $mobileEvents = Events::all()
+            ->where('filtration_date', '>=', date('Y-m-d'))
+            ->take(6)->toArray();
         foreach ($events as $i){
             $arr[$i['filtration_date']] = $i;
         }
@@ -45,6 +48,7 @@ class IndexController extends Controller
             'video',
             'calendar',
             'firstEvent',
+            'mobileEvents',
         ));
     }
 }
