@@ -19,8 +19,7 @@ class VideoController extends Controller
         else
             $video->toArray();
         $banner = BannerAside::where('status', 1)->where('show', 'all')->first();
-        if (!empty($banner))
-            $banner->toArray();
-        return view('main.video.video', compact('locale', 'video', 'banner'));
+        $moreVideo = Video::all()->where('id', '!=', $video['id'])->take(6)->toArray();
+        return view('main.video.video', compact('locale', 'video', 'banner', 'moreVideo'));
     }
 }
