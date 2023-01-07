@@ -16,7 +16,7 @@ class ArticlesController extends Controller
         $seo = Seo::where('page', Seo::ARTICLES_PAGE)->first();
         if (!empty($seo))
             $seo->toArray();
-        $articles = Article::with('author')->paginate(9);
+        $articles = Article::with('author')->where('type', 'article')->paginate(9);
         return view('main.articles.all-articles', compact('articles', 'seo', 'locale'));
     }
 }
