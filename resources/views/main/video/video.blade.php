@@ -71,6 +71,7 @@
             </div>
         </div>
     </section>
+    @if(!empty($moreVideo))
     <aside class="main-video aside-other-wideos">
         <div class="container">
             <h3 class="aside-other-wideos-title">Related videos</h3>
@@ -117,6 +118,7 @@
             </div>
         </div>
     </aside>
+    @endif
     <section class="breadcrambs bot">
         <div class="container">
             <ul class="breadcrambs_list">
