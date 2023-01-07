@@ -210,11 +210,20 @@
                     @endif
 
                 </article>
-                <aside class="filter-aside">
-                    <div class="filter-aside-banner sticky">
-                        <img src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
-                    </div>
-                </aside>
+                @if(!empty($banner))
+                    <aside class="filter-aside">
+                        <div class="filter-aside-banner sticky">
+                            <a target="_blank" href="{{ $banner->link }}">
+                                @if($banner->type == 'image')
+                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                @else
+                                    <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
+                                @endif
+                            </a>
+                        </div>
+
+                    </aside>
+                @endif
             </div>
         </div>
     </section>

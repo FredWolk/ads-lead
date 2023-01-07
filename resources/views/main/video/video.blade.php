@@ -61,7 +61,7 @@
                                 @if($banner['type'] == 'image')
                                     <img src="{{asset('storage/'. $banner['file'])}}" alt="bunner">
                                 @else
-                                    <video autoplay loop src="{{ asset('storage/'. $banner['file']) }}"></video>
+                                    <video src="{{ asset('storage/'. $banner['file']) }}" autoplay loop muted></video>
                                 @endif
                             </a>
                         </div>
