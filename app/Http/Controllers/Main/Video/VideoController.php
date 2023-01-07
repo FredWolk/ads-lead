@@ -3,12 +3,24 @@
 namespace App\Http\Controllers\Main\Video;
 
 use App\Http\Controllers\Controller;
+use App\Models\BannerAside;
+use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class VideoController extends Controller
 {
-    public function __invoke()
+    public function __invoke($link)
     {
-        return view('main.video.video');
+        $locale = App::getLocale() == 'en' ? '' : 'pt_';
+        $video = Video::where('link', $link)->first();
+        if (empty($video))
+            return redirect()->route('video');
+        else
+            $video->toArray();
+        $banner = BannerAside::where('status', 1)->where('show', 'all')->first();
+        if (!empty($banner))
+            $banner->toArray();
+        return view('main.video.video', compact('locale', 'video', 'banner'));
     }
 }

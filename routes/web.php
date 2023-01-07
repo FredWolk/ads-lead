@@ -58,7 +58,7 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()],func
     });
     Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
         Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
-        Route::get('/{video}', [VideoController::class, '__invoke'])->name('video.page');
+        Route::get('/{link}', [VideoController::class, '__invoke'])->name('video.page');
     });
     Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
         Route::get('/', [EventsController::class, '__invoke'])->name('events');
