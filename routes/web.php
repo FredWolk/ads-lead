@@ -45,7 +45,7 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()],func
     Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
         Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
         Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
-        Route::get('/{catalog}/{page}', [PageController::class, '__invoke'])->name('cpa.page');
+        Route::get('/{catalog}/{link}', [PageController::class, '__invoke'])->name('cpa.page');
     });
     Route::group(['namespace' => 'ad', 'prefix' => 'ad-networks'], function () {
         Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
@@ -102,4 +102,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'] , function () {
 
 Route::group(['prefix' => 'filters'], function (){
    Route::get('/index-calendar', [IndexController::class, 'indexFilter'])->name('index.calendar');
+   Route::get('/cpa', [NetworksController::class, 'filter'])->name('cpa.filter');
 });
