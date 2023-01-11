@@ -348,8 +348,15 @@
                 data: $(this).serialize(),
                 type: 'GET'
             }).done(function (rsp) {
-                $('.cpa__filters').html(rsp);
-                console.log(rsp)
+                if (rsp !== '') {
+                    $('.cpa__filters').html(rsp);
+                } else {
+                    $('.cpa__filters').html(`
+                        <div class="cpapage_info-header">
+                            <h2 class="cpapage_info-title">Увы, мы ничего не нашли...</h2>
+                        </div>
+                        `)
+                }
             });
         });
         $('.filter__change').on('change', function () {

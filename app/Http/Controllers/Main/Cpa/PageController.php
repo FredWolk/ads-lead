@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\App;
 
 class PageController extends Controller
 {
-    public function __invoke($link, ViewService $service)
+    public function __invoke($catalog, $link, ViewService $service)
     {
-        $cpa = Cpa::where('link', $link)->with('author')->first();
-        if (empty($article))
-            return redirect()->route('articles');
-        $moreCpa = Cpa::where('id', '!=', $article->id)->take(6)->get();
-        $cookie = $service->View($article, 'cpa_views');
-        $article->toArray();
+        $cpa = Cpa::where('link', $link)->first();
+        if (empty($cpa))
+            return redirect()->route('cpa');
+        $moreCpa = Cpa::where('id', '!=', $cpa->id)->take(6)->get();
+        $cookie = $service->View($cpa, 'cpa_views');
+        $cpa->toArray();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return response()->view('main.cpa.page', compact('cpa', 'locale', 'moreCpa'))->withCookie($cookie);
     }

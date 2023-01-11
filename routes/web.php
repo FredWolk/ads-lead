@@ -103,4 +103,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'] , function () {
 Route::group(['prefix' => 'filters'], function (){
    Route::get('/index-calendar', [IndexController::class, 'indexFilter'])->name('index.calendar');
    Route::get('/cpa', [NetworksController::class, 'filter'])->name('cpa.filter');
+   Route::get('/cpa-catalog/{catalog}', [CatalogController::class, 'filter'])->name('cpa.catalog.filter');
 });

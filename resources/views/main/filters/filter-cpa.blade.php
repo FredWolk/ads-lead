@@ -1,4 +1,3 @@
-
 @foreach($cpa->groupBy('main_verticales')->toArray() as $k => $i)
     <div class="cpapage_info--block">
         <div class="cpapage_info-header">
@@ -50,7 +49,8 @@
                     </div>
                     <div class="cpapage_info--item-line"></div>
                     <div class="cpapage_info--item_buttons">
-                        <a class="btn--blue header_buttons-blue-btn" href="{{ route('cpa.page', [$v['main_verticales'], $v['link']]) }}">
+                        <a class="btn--blue header_buttons-blue-btn"
+                           href="{{ route('cpa.page', [$v['main_verticales'], $v['link']]) }}">
                             <span>Review</span>
                             <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                  alt="arrow">

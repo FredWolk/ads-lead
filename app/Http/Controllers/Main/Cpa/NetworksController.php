@@ -32,7 +32,17 @@ class NetworksController extends Controller
 
     public function filter(Request $request)
     {
-        $cpa = Cpa::paginate(2);
+
+        if (!empty($request->query())){
+            $cpa = Cpa::whereJsonContains('verticales', $request->query('vertical'))
+                ->orWhereJsonContains('countries', $request->query('countries'))
+                ->orWhereJsonContains('payment_models', $request->query('payment_models'))
+                ->orWhereJsonContains('payment_schedule_f', $request->query('payment_schedule'))
+                ->orWhereJsonContains('payment_systems', $request->query('payment_systems'))->get();
+        } else {
+            $cpa = Cpa::all();
+        }
+
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return view('main.filters.filter-cpa', compact('cpa', 'locale'))->render();
     }
