@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main\Cpa;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\ViewService;
+use App\Models\BannerAside;
 use App\Models\Cpa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -18,7 +19,8 @@ class PageController extends Controller
         $moreCpa = Cpa::where('id', '!=', $cpa->id)->take(6)->get();
         $cookie = $service->View($cpa, 'cpa_views');
         $cpa->toArray();
+        $banner = BannerAside::where('status', 1)->where('show', 'all')->first();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
-        return response()->view('main.cpa.page', compact('cpa', 'locale', 'moreCpa'))->withCookie($cookie);
+        return response()->view('main.cpa.page', compact('cpa', 'locale', 'moreCpa', 'banner'))->withCookie($cookie);
     }
 }
