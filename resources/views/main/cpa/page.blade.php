@@ -84,7 +84,7 @@
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['date_of_creation'] }}</p>
                                 </li>
                             @endif
-                            @if(!empty($cpa['geography_of_offers']))
+                            @if(!empty($cpa['inhaus_offers']))
                                 <li class="cpaartpage_card_top--item">
                                     <div class="cpaartpage_card_top--item_top">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -95,10 +95,10 @@
                                         </svg>
                                         <p class="cpaartpage_card_top--item_top-text">Inhaus offers:</p>
                                     </div>
-                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['geography_of_offers'] }}</p>
+                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['inhaus_offers'] }}</p>
                                 </li>
                             @endif
-                            @if(!empty($cpa['themes_of_offers']))
+                            @if(!empty($cpa['payment_schedule']))
                                 <li class="cpaartpage_card_top--item">
                                     <div class="cpaartpage_card_top--item_top">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -109,10 +109,10 @@
                                         </svg>
                                         <p class="cpaartpage_card_top--item_top-text">Payment schedule:</p>
                                     </div>
-                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['themes_of_offers'] }}</p>
+                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['payment_schedule'] }}</p>
                                 </li>
                             @endif
-                            @if(!empty($cpa['inhaus_offers']))
+                            @if(!empty($cpa['geography_of_offers']))
                                 <li class="cpaartpage_card_top--item">
                                     <div class="cpaartpage_card_top--item_top">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -123,7 +123,7 @@
                                         </svg>
                                         <p class="cpaartpage_card_top--item_top-text">Geography of offers:</p>
                                     </div>
-                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['inhaus_offers'] }}</p>
+                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['geography_of_offers'] }}</p>
                                 </li>
                             @endif
                             @if(!empty($cpa['minimum_withdrawal_amount']))
@@ -140,7 +140,7 @@
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['minimum_withdrawal_amount'] }}</p>
                                 </li>
                             @endif
-                            @if(!empty($cpa['payment_methods']))
+                            @if(!empty($cpa['referral_program']))
                                 <li class="cpaartpage_card_top--item">
                                     <div class="cpaartpage_card_top--item_top">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -151,10 +151,10 @@
                                         </svg>
                                         <p class="cpaartpage_card_top--item_top-text">Referral program:</p>
                                     </div>
-                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['payment_methods'] }}</p>
+                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['referral_program'] }}</p>
                                 </li>
                             @endif
-                            @if(!empty($cpa['payment_schedule']))
+                            @if(!empty($cpa['themes_of_offers']))
                                 <li class="cpaartpage_card_top--item">
                                     <div class="cpaartpage_card_top--item_top">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -165,10 +165,10 @@
                                         </svg>
                                         <p class="cpaartpage_card_top--item_top-text">Themes of offers:</p>
                                     </div>
-                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['payment_schedule'] }}</p>
+                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['themes_of_offers'] }}</p>
                                 </li>
                             @endif
-                            @if(!empty($cpa['referral_program']))
+                            @if(!empty($cpa['payment_methods']))
                                 <li class="cpaartpage_card_top--item">
                                     <div class="cpaartpage_card_top--item_top">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -179,7 +179,7 @@
                                         </svg>
                                         <p class="cpaartpage_card_top--item_top-text">Payment methods:</p>
                                     </div>
-                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['referral_program'] }}</p>
+                                    <p class="cpaartpage_card_top--item-text">{{ $cpa['payment_methods'] }}</p>
                                 </li>
                             @endif
                             @if(!empty($cpa['tools']))
