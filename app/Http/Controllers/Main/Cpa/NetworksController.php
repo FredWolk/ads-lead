@@ -18,7 +18,7 @@ class NetworksController extends Controller
         $filters = Filters::select('vertical', 'countries', 'payment_models', 'payment_schedule', 'payment_systems')->first()->toArray();
         $banner = BannerAside::where('show', 'cpa')->where('status', 1)->first();
         $recomended = Cpa::all()->where('is_recomendated', 1)->take(2);
-        $cpa = Cpa::paginate(5);
+        $cpa = Cpa::orderBy('main_verticales')->paginate(5);
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return view('main.cpa.networks', compact(
             'seo',
