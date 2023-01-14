@@ -130,6 +130,9 @@ $('.readmore--btn').on('click', function () {
     }
 });
 
+
+
+
 $('.ad__filters').on('click', '.promocode--btn', function () {
     $(this).toggleClass('active');
 });
