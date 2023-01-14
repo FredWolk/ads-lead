@@ -1895,7 +1895,6 @@ img
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 63px;
 }
 .cpapage_info--block{
     width: 100%;
@@ -1903,6 +1902,7 @@ img
     flex-direction: column;
     align-items: center;
     gap: 32px;
+    margin-bottom: 60px;
 }
 .cpapage_info-header{
     width: 100%;

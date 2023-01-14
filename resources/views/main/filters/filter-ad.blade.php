@@ -1,4 +1,4 @@
-@foreach($ad->groupBy('advertising_formats')->toArray() as $k => $i)
+@foreach($ad->groupBy('main_advertising_formats')->toArray() as $k => $i)
     <div class="cpapage_info--block">
         <div class="cpapage_info-header">
             <h2 class="cpapage_info-title">{{ $k }}</h2>
@@ -34,16 +34,6 @@
                                     @endforeach
                                 @endif
                             </ul>
-
-                            <div class="article--card-top">
-                                <svg width="12" height="15" viewBox="0 0 12 15" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M3.45249 14.5C0.584113 12.8834 -0.171071 11.3532 0.260689 9.26339C0.579434 7.72023 1.62315 6.46472 1.72322 4.92452C2.16906 5.73587 2.35536 6.32092 2.40517 7.16877C3.82318 5.43144 4.76022 3.02637 4.81571 0.5C4.81571 0.5 8.50908 2.67012 8.75143 5.9481C9.06938 5.27245 9.22944 4.19936 8.91149 3.50389C9.86532 4.1994 15.4482 10.3737 8.15528 14.5C9.52643 11.8302 8.50901 8.22787 6.12832 6.56412C6.28732 7.27951 6.00856 9.9477 4.95533 11.1201C5.24716 9.16111 4.67767 8.33276 4.67767 8.33276C4.67767 8.33276 4.4822 9.43005 3.72382 10.5385C3.03129 11.5507 2.55144 12.6251 3.45249 14.5Z"
-                                        fill="white"/>
-                                </svg>
-                                <p>TOP</p>
-                            </div>
                         </div>
                         <p class="cpapage_info--item_main-text">{{ $v["{$locale}prev_text"] }}</p>
                     </div>
@@ -55,7 +45,54 @@
                             <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                  alt="arrow">
                         </a>
-                        <a target="_blank" class="btn--grey-with-icons" href="{{ $v['url'] }}">
+                        <div class="promocode--btn-wrapper">
+                            <button type="button"
+                                    class="btn--grey-with-icons promocode promocode--btn"
+                                    style="
+                                        font-family: 'Jost';
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 14px;
+                                        line-height: 160%;
+                                        text-transform: uppercase;
+                                        ">
+                                promo code
+                                <svg class="svg1" width="13" height="13" viewBox="0 0 13 13"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M7.24637 0.33398C6.84877 -0.111327 6.1521 -0.111326 5.7545 0.333981L5.09449 1.07319C4.87111 1.32337 4.53718 1.44491 4.20524 1.39685L3.22449 1.25483C2.63367 1.16928 2.09999 1.61709 2.08165 2.21378L2.05121 3.2043C2.0409 3.53954 1.86322 3.84729 1.57805 4.02383L0.735463 4.54545C0.227879 4.85969 0.106904 5.54577 0.476403 6.01466L1.08977 6.79301C1.29736 7.05644 1.35907 7.4064 1.2541 7.72494L0.94393 8.66613C0.757082 9.23312 1.10542 9.83645 1.68986 9.95813L2.66004 10.1601C2.9884 10.2285 3.26062 10.4569 3.38496 10.7684L3.75235 11.6888C3.97366 12.2432 4.62832 12.4815 5.15424 12.199L6.02728 11.7301C6.32276 11.5714 6.67811 11.5714 6.97359 11.7301L7.84663 12.199C8.37255 12.4815 9.02721 12.2432 9.24852 11.6888L9.61591 10.7684C9.74025 10.4569 10.0125 10.2285 10.3408 10.1601L11.311 9.95813C11.8955 9.83645 12.2438 9.23312 12.0569 8.66614L11.7468 7.72494C11.6418 7.4064 11.7035 7.05644 11.9111 6.793L12.5245 6.01466C12.894 5.54577 12.773 4.85969 12.2654 4.54545L11.4228 4.02383C11.1376 3.84729 10.96 3.53954 10.9497 3.2043L10.9192 2.21378C10.9009 1.61709 10.3672 1.16928 9.77638 1.25483L8.79563 1.39685C8.46369 1.44491 8.12977 1.32337 7.90638 1.07319L7.24637 0.33398ZM5.62575 3.51082L5.92266 7.08175H7.13437L7.4393 3.51082H5.62575ZM5.87452 8.95147C6.04571 9.11731 6.26504 9.20023 6.53253 9.20023C6.80001 9.20023 7.01668 9.11731 7.18252 8.95147C7.35371 8.78563 7.4393 8.58769 7.4393 8.35765C7.4393 8.12227 7.35371 7.927 7.18252 7.77186C7.01668 7.61137 6.80001 7.53112 6.53253 7.53112C6.26504 7.53112 6.04571 7.61137 5.87452 7.77186C5.70332 7.927 5.61773 8.12227 5.61773 8.35765C5.61773 8.58769 5.70332 8.78563 5.87452 8.95147Z"
+                                          fill="#181A1C"/>
+                                </svg>
+
+                                <svg class="svg2" width="13" height="12" viewBox="0 0 13 12"
+                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.0417 1.5745L10.9255 0.458252L6.50004 4.88367L2.07462 0.458252L0.958374 1.5745L5.38379 5.99992L0.958374 10.4253L2.07462 11.5416L6.50004 7.11617L10.9255 11.5416L12.0417 10.4253L7.61629 5.99992L12.0417 1.5745Z"
+                                        fill="white"/>
+                                </svg>
+                            </button>
+                            <div class="promocode--body">
+                                <div class="promocode--body_top">
+                                    <p class="promocode--body_top-text">{{ $v['promocode'] }}</p>
+                                    <button type="button" class="promocode--body_top--btn">
+                                        <svg width="16" height="19" viewBox="0 0 16 19"
+                                             fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11.6667 0.791748H2.16671C1.29587 0.791748 0.583374 1.50425 0.583374 2.37508V13.4584H2.16671V2.37508H11.6667V0.791748ZM14.0417 3.95841H5.33337C4.46254 3.95841 3.75004 4.67091 3.75004 5.54175V16.6251C3.75004 17.4959 4.46254 18.2084 5.33337 18.2084H14.0417C14.9125 18.2084 15.625 17.4959 15.625 16.6251V5.54175C15.625 4.67091 14.9125 3.95841 14.0417 3.95841ZM14.0417 16.6251H5.33337V5.54175H14.0417V16.6251Z"
+                                                fill="white"/>
+                                        </svg>
+                                        <span>copy</span>
+                                    </button>
+                                </div>
+                                <p class="promocode--body-text">{{ $v["{$locale}promocode_desc"] }}</p>
+                            </div>
+                        </div>
+                        <a class="link--blue-sphere" target="_blank" href="{{ $v['url'] }}">
+                            <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                            <span>{{ substr(substr($v['url'], 8), 0, -1) }}</span>
+                        </a>
+
+                        <a class="btn--grey-with-icons mobile" href="{{ route('index') }}">
                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -68,6 +105,7 @@
                 </li>
             @endforeach
         </ul>
+
         <a style="max-width: 200px; width: 100%;" href="{{ route('ad') }}"
            class="btn--grey cpapage_info--block--link">Show all</a>
     </div>

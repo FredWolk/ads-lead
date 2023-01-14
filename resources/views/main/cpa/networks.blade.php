@@ -260,7 +260,7 @@
                                         @foreach (json_decode($i) as $v)
                                             <li class="filter-aside_list-item_wrap_list-item">
                                                 <label class="filter-aside_label">
-                                                    <input class="filter-aside--checkbox filter__change" type="checkbox"
+                                                    <input class="filter-aside--checkbox filter__change" type="radio"
                                                            name="{{ $k }}[]"
                                                            value="{{ $v }}">
                                                     <p class="filter-aside_label-text">#{{ $v }}</p>

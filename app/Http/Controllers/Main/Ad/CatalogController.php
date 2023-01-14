@@ -36,6 +36,6 @@ class CatalogController extends Controller
         }
 
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
-        return view('main.filters.filter-ad', compact('ad', 'locale'))->render();
+        return view('main.filters.filter-ad-catalog', compact('ad', 'locale'))->render();
     }
 }

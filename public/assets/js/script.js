@@ -130,10 +130,10 @@ $('.readmore--btn').on('click', function () {
     }
 });
 
-$('.promocode--btn').on('click', function () {
+$('.ad__filters').on('click', '.promocode--btn', function () {
     $(this).toggleClass('active');
 });
-$('.promocode--body_top--btn').on('click', function () {
+$('.ad__filters').on('click', '.promocode--body_top--btn', function () {
     copyToClipboard($(this).prev().text());
 });
 
