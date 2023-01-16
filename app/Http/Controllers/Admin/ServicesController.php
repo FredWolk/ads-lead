@@ -38,62 +38,62 @@ class ServicesController extends Controller
         if (!empty($data['logo']))
             $data['logo'] = Storage::disk('public')->put('/admin/images/services', $data['logo']);
 
-        $services = Services::firstOrCreate($data);
-        if ($services) {
-            return redirect()->route('services.show', $services->id);
+        $service = Services::firstOrCreate($data);
+        if ($service) {
+            return redirect()->route('services.show', $service->id);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Services  $services
+     * @param  \App\Models\Services  $service
      */
-    public function show(Services $services)
+    public function show(Services $service)
     {
-        return view('admin.services.show', compact('services'));
+        return view('admin.services.show', compact('service'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Services  $services
+     * @param  \App\Models\Services  $service
      */
-    public function edit(Services $services)
+    public function edit(Services $service)
     {
-        return view('admin.services.edit', compact('services'));
+        return view('admin.services.edit', compact('service'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\Services\UpdateServicesRequest  $request
-     * @param  \App\Models\Services  $services
+     * @param  \App\Models\Services  $service
      */
-    public function update(UpdateServicesRequest $request, Services $services)
+    public function update(UpdateServicesRequest $request, Services $service)
     {
         $data = $request->validated();
         if (!empty($data['logo'])) {
-            if (!empty($services->logo))
-                Storage::disk('public')->delete($services->logo);
+            if (!empty($service->logo))
+                Storage::disk('public')->delete($service->logo);
             $data['logo'] = Storage::disk('public')->put('/admin/images/services', $data['logo']);
         }
-        if ($services->update($data))
-            return redirect()->route('services.show', $services->id);
+        if ($service->update($data))
+            return redirect()->route('services.show', $service->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Services  $services
+     * @param  \App\Models\Services  $service
      */
-    public function destroy(Services $services)
+    public function destroy(Services $service)
     {
-        if (!empty($services->logo)) {
-            Storage::disk('public')->delete($services->logo);
+        if (!empty($service->logo)) {
+            Storage::disk('public')->delete($service->logo);
         }
 
-        if ($services->delete())
+        if ($service->delete())
             return redirect()->route('services.index');
     }
 }
