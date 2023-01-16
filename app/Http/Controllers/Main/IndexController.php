@@ -7,6 +7,7 @@ use App\Models\Ad;
 use App\Models\Article;
 use App\Models\Cpa;
 use App\Models\Events;
+use App\Models\Seo;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -22,6 +23,8 @@ class IndexController extends Controller
         $ads = Ad::all()->where('is_main', 1)->take(4)->toArray();
         $top_ads = Ad::all()->where('is_top', 1)->take(5)->toArray();
         $video = Video::all()->take(6)->toArray();
+
+        $seo = Seo::where('page', Seo::MAIN_PAGE)->first();
 
         $start = date('Y-m-01');
         $finish = date('Y-m-t');
@@ -43,6 +46,7 @@ class IndexController extends Controller
             'locale',
             'article',
             'cpa',
+            'seo',
             'top_cpa',
             'ads',
             'top_ads',
