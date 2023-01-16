@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CpaController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\Event\EventPageController;
@@ -92,6 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'] , function () {
     Route::resource('author', AuthorController::class);
     Route::resource('cpa', CpaController::class);
     Route::resource('ad', AdController::class);
+    Route::resource('services', ServicesController::class);
     Route::resource('event', EventController::class);
     Route::resource('video', \App\Http\Controllers\Admin\VideoController::class);
     Route::resource('button', BannerButtonController::class);
