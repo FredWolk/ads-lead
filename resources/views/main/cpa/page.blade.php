@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('style')
+    <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
+@endsection
 @section('content')
     <section class="breadcrambs top">
         <div class="container">
