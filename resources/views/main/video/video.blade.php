@@ -8,7 +8,7 @@
     <meta property="og:url" content="{{ url()->current() }}"/>
 @endsection
 @section('style')
-    <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fonts-style?v=1.css') }}">
 @endsection
 @section('content')
     <section class="breadcrambs top">
