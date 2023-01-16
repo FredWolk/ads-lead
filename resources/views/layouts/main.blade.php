@@ -215,7 +215,7 @@
                             <a class="footer_nav--link" href="{{ route('index') }}">Services</a>
                         </li>
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('index') }}">KNOWLEDGE BASE</a>
+                            <a class="footer_nav--link" href="{{ route('base') }}">KNOWLEDGE BASE</a>
                         </li>
                     </ul>
                 </nav>

@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ServicesController;
-use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController};
+use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController, KnowladgeBaseController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\Event\EventPageController;
 use App\Http\Controllers\Main\Event\EventsController;
@@ -58,6 +58,7 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()],func
     });
     Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
         Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
+        Route::get('/base', [KnowladgeBaseController::class, '__invoke'])->name('base');
         Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
     });
     Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
