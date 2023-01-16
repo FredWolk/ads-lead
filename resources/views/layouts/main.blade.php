@@ -50,7 +50,7 @@
                             <a class="header_nav--link" href="{{ route('ad') }}">Ad-networks</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('index') }}">Services</a>
+                            <a class="header_nav--link" href="{{ route('services') }}">Services</a>
                         </li>
                     </ul>
                 </nav>

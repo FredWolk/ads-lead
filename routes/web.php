@@ -53,6 +53,9 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()],func
         Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name('ad.catalog');
         Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name('ad.page');
     });
+    Route::group(['namespace' => 'ad', 'prefix' => 'services'], function () {
+        Route::get('/', [\App\Http\Controllers\Main\Services\NetworksController::class, '__invoke'])->name('services');
+    });
     Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
         Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
         Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
