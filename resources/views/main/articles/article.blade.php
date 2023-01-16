@@ -104,7 +104,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="videopage_main--text" style="margin-bottom: 43px">
+                    <div class="videopage_main--text main__article" style="margin-bottom: 43px">
                         {!! $article["{$locale}main_text"] !!}
                     </div>
                     <div class="videopage_main-underimage change">

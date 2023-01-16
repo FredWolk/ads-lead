@@ -15,7 +15,7 @@
 </section>
 <section class="videopage articlepage eventpage">
     <div class="container">
-        <div class="articlepage_top"> 
+        <div class="articlepage_top">
             <div class="eventpage_top">
                 <h1 class="title">SBC Summit Latinoamérica</h1>
                 <p class="conference--evetn">conference</p>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <h2 class="articlepage--text-subtitle">Which holidays and events help you earn now</h2>
-                <p class="videopage_main--text" style="margin-bottom: 20px">
+                <p class="videopage_main--text main__article" style="margin-bottom: 20px">
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                     <br>
                     <br>

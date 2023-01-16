@@ -1,4 +1,4 @@
-.videopage h1 {
+.main__article h1 {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 700;
@@ -8,7 +8,7 @@
     color: #014EFF;
 }
 
-.videopage h2 {
+.main__article h2 {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 700;
@@ -18,7 +18,7 @@
     color: #014EFF;
 }
 
-.videopage h3 {
+.main__article h3 {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 700;
@@ -28,7 +28,7 @@
     color: #014EFF;
 }
 
-.videopage a {
+.main__article a {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -38,7 +38,7 @@
     color: #014EFF;
 }
 
-.videopage p {
+.main__article p {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -46,7 +46,7 @@
     line-height: 160%;
     color: #272C31;
 }
-.videopage b {
+.main__article b {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -54,7 +54,7 @@
     line-height: 160%;
     color: #272C31;
 }
-.videopage i {
+.main__article i {
     font-family: 'Montserrat';
     font-style: italic;
     font-weight: 500;

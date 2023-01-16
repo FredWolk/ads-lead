@@ -265,7 +265,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="videopage_main--text"
+                    <div class="videopage_main--text main__article"
                          style="margin-bottom: 43px">{!! $cpa["{$locale}main_text"] !!}</div>
                     <div class="videopage_main-underimage change">
                         <div class="videopage_main-underimage_autor to-hide">

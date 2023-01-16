@@ -41,7 +41,7 @@
                             @endforeach
                         @endif
                     </ul>
-                    <div class="videopage_main--text">{!! $video["{$locale}content"] !!}</div>
+                    <div class="videopage_main--text main__article">{!! $video["{$locale}content"] !!}</div>
                     <div class="filter-aside-banner to-show">
                         <img src="{{asset('storage/'.$video["{$locale}image"])}}" alt="bunner">
                     </div>
