@@ -48,7 +48,7 @@
                                 <p>TOP</p>
                             </div>
                         </div>
-                        <ul class="cpapage_info-list">
+                        <ul class="cpapage_info-list ad__filters">
                             @foreach($recomended as $i)
                                 <li class="cpapage_info--item">
                                     <div class="cpapage_info--item_main">
