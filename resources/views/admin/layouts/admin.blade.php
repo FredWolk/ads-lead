@@ -140,7 +140,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('services.index') }}" class="nav-link">
-                            <i class="nav-icon fab fa-youtube"></i>
+                            <i class="nav-icon fas fa-taxi"></i>
                             <p>
                                 Сервисы
                             </p>

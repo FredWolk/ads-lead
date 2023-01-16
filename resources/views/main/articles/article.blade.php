@@ -7,6 +7,9 @@
     <meta property="og:description" content="{{ $article["{$locale}og_description"] }}" />
     <meta property="og:url" content="{{ url()->current() }}" />
 @endsection
+@section('style')
+    <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
+@endsection
 @section('content')
     <section class="breadcrambs top">
         <div class="container">

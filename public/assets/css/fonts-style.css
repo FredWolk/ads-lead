@@ -1,0 +1,64 @@
+.videopage h1 {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #014EFF;
+}
+
+.videopage h2 {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #014EFF;
+}
+
+.videopage h3 {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #014EFF;
+}
+
+.videopage a {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    text-decoration-line: underline;
+    color: #014EFF;
+}
+
+.videopage p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    color: #272C31;
+}
+.videopage b {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: #272C31;
+}
+.videopage i {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: #272C31;
+}

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
+    @yield('style')
 </head>
 <body>
 <div class="wrapper">
