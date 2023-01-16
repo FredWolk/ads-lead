@@ -43,7 +43,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form enctype="multipart/form-data" method="post" action="{{ route('services.update') }}">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('services.update', $service->id) }}">
                         @csrf
                         @method('patch')
                         <div class="card-body">
@@ -77,7 +77,7 @@
                             @error('pt_name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-
+                            <img width="150" src="{{ asset('storage/'.$service->logo) }}" alt="">
                             <div class="form-group">
                                 <label for="logo">Логотип рекламы</label>
                                 <div class="input-group">
