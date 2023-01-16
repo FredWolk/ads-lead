@@ -142,7 +142,7 @@
                         <div class="cpapage_info-header">
                             <h2 class="cpapage_info-title">All Services</h2>
                         </div>
-                        <ul class="cpapage_info-list">
+                        <ul class="cpapage_info-list ad__filters">
                             @foreach($services as $i)
                                 <li class="cpapage_info--item">
                                     <div class="cpapage_info--item_main">
