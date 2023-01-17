@@ -287,7 +287,7 @@
                                     </a>
                                     <a class="link--blue-sphere" href="{{ $i['url'] }}">
                                         <img src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
-                                        <span>{{ $i["{$locale}name"] }}</span>
+                                        <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
                                     </a>
                                 </div>
                             </li>
@@ -516,7 +516,7 @@
                                     </a>
                                     <a class="link--blue-sphere" href="{{ $i['url'] }}">
                                         <img src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
-                                        <span>{{ $i["{$locale}name"] }}</span>
+                                        <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
                                     </a>
                                 </div>
                             </li>
