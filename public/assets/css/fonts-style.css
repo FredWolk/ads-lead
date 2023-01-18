@@ -38,7 +38,12 @@
     color: #014EFF !important;
 }
 
-.main__article p, .main__article p * {
+.main__article p,
+.main__article p *,
+.main__article span,
+.main__article span *,
+.main__article li,
+.main__article li * {
     font-family: 'Montserrat' !important;
     font-style: normal !important;
     font-weight: 400 !important;
