@@ -18,7 +18,7 @@ class NetworksController extends Controller
         $filters = Filters::select('advertising_formats', 'countries', 'payment_systems', 'minimum_top_up_amount')->first()->toArray();
         $banner = BannerAside::where('show', 'ad')->where('status', 1)->first();
         $recomended = Ad::all()->where('is_recomendated', 1)->take(2);
-        $ad = Ad::paginate(5);
+        $ad = Ad::orderBy('main_advertising_formats')->paginate(5);
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return view('main.ad.networks', compact(
             'seo',

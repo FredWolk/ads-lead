@@ -1,6 +1,14 @@
-
 @extends('layouts.main')
-
+@if(!empty($seo))
+    @section('seo')
+        <title>{{ $seo["{$locale}title"] }}</title>
+        <meta name="description" content="{{ $seo["{$locale}description"] }}">
+        <meta name="keywords" content="{{ $seo["{$locale}keywords"] }}"/>
+        <meta property="og:title" content="{{ $seo["{$locale}og_title"] }}"/>
+        <meta property="og:description" content="{{ $seo["{$locale}og_description"] }}"/>
+        <meta property="og:url" content="{{ url()->current() }}"/>
+    @endsection
+@endif
 @section('content')
 <section class="breadcrambs top">
     <div class="container">
@@ -9,7 +17,7 @@
                 <a href="{{ route('index') }}">Homepage</a>
             </li>
             <li class="breadcrambs_list-item">
-                <a href="{{ route('events') }}">Events</a>
+                <a href="{{ route('events') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : 'Events' }}</a>
             </li>
         </ul>
     </div>
@@ -19,8 +27,12 @@
     <div class="container">
         <section class="cpapage_main">
             <div class="cpapage_main-to-hide" style="margin-block: 25px">
-                <h1 class="title">Events</h1>
-                <p style="margin-bottom: 20px" class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>
+                @empty($seo)
+                    <h1 class="title">Events</h1>
+                @else
+                    <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
+                    <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
+                @endempty
             </div>
             <div class="cpapage_info-wrapper">
                 <div class="cpapage_info--block">
@@ -63,13 +75,13 @@
                 <h3 class="articles_seo-text--title">seo text</h3>
                 <p class="articles_seo-text--text">
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                    <br>    
+                    <br>
                     <br>
                     Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
                     <br>
                     <br>
                     Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-                    <br>    
+                    <br>
                     Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit </p>
                 <button type="button" class="link--black-rotateble-arrows readmore--btn">
                     <span>read more</span>
@@ -88,7 +100,7 @@
                     <li class="filter-aside_list-item">
                         <button type="button" class="filter-aside--btn">
                             <p class="filter-aside--btn-text">Time period</p>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.9971 3.09753H11.0031V11.003H3.09761V12.997H11.0031V20.9025H12.9971V12.997H20.9026V11.003H12.9971V3.09753Z" fill="#181A1C"/></svg>                            
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.9971 3.09753H11.0031V11.003H3.09761V12.997H11.0031V20.9025H12.9971V12.997H20.9026V11.003H12.9971V3.09753Z" fill="#181A1C"/></svg>
                         </button>
                         <div class="filter-aside_list-item_wrapper">
                             <form action="" method="POST">

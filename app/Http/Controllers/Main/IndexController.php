@@ -17,7 +17,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
-        $article = Article::with('author')->take(4)->orderByDesc('id')->get()->toArray();
+        $article = Article::where('type', 'article')->with('author')->take(4)->orderByDesc('id')->get()->toArray();
         $cpa = Cpa::all()->where('is_main', 1)->take(4)->toArray();
         $top_cpa = Cpa::all()->where('is_top', 1)->take(5)->toArray();
         $ads = Ad::all()->where('is_main', 1)->take(4)->toArray();
