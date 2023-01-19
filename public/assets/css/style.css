@@ -295,6 +295,27 @@ a, button{
     position: relative;
     width: 40px;
 }
+.search__modal{
+    position: absolute;
+    width: 306px;
+    max-height: 600px;
+    background-color: white;
+    right: 0;
+    border: 1px solid black;
+    padding: 5px;
+}
+.search__item{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #6a9fb5;
+}
+.search__title{
+    font-size: 14px;
+    color: var(--blue );
+}
+.search__desc{
+    font-size: 10px;
+}
+
 .header--search-input{
     position: absolute;
     top: 0;

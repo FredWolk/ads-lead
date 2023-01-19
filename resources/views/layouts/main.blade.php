@@ -91,6 +91,12 @@
                             </svg>
                         </button>
                         <input class="header--search-input" placeholder="Search..." type="text">
+                        <div class="search__modal">
+                            <div class="search__item">
+                                <p class="search__title">Best Online earning schemes for starters in 2023</p>
+                                <p class="search__desc">The Internet is not only about memes with kittens or ads of crypto-courses from traders.  Millions of people set up profitable online businesses. Therefore most starters search for online money making ways</p>
+                            </div>
+                        </div>
                     </div>
 
                     @auth()
