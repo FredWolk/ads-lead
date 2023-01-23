@@ -92,16 +92,10 @@
                         </button>
                         <form id="search_form">
                             @csrf
+                            <input type="hidden" name="desc_locale" value="{{ App::getLocale() }}">
                             <input id="search" class="header--search-input" name="search_desc" placeholder="Search..." type="text">
                         </form>
-                        <div class="search__modal">
-                            <div class="search__item">
-                                <p class="search__title">Best Online earning schemes for starters in 2023</p>
-                                <p class="search__desc">The Internet is not only about memes with kittens or ads of
-                                    crypto-courses from traders. Millions of people set up profitable online businesses.
-                                    Therefore most starters search for online money making ways</p>
-                            </div>
-                        </div>
+                        <div style="overflow: auto; display: none" id="desctop__search" class="search__modal"></div>
                     </div>
 
                     @auth()
@@ -534,18 +528,46 @@
             url: '{{ route('index.search') }}',
             type: 'POST',
             dataType: 'JSON',
-            data: $(this).serialize(),
+            data: $(this).serialize()
         }).done(function (r) {
-            console.log(r)
+            if(r.article.length > 0 || r.cpa.length > 0){
+                $('#desctop__search').text('');
+                r.article.map((e) => {
+                    $('#desctop__search').append(`
+                    <a href="https://affjournal.com/articles/${e.link}" class="search__item">
+                        <p class="search__title">${e.{{$locale}}name}</p>
+                        <p class="search__desc">${e.{{$locale}}prev_text}</p>
+                    </a>
+                `)
+                })
+                r.cpa.map((e) => {
+                    $('#desctop__search').append(`
+                    <a href="https://affjournal.com/cpa-networks/${e.main_verticales}/${e.link}" class="search__item">
+                        <p class="search__title">${e.{{$locale}}name}</p>
+                        <p class="search__desc">${e.{{$locale}}prev_text}</p>
+                    </a>
+                `)
+                })
+            } else {
+                $('#desctop__search').text('Ничего не найдено');
+            }
+            $('#desctop__search').fadeIn(300);
         })
     })
     let timeout
     $('#search').on('input', function () {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            $('#search_form').submit();
-        }, 1000);
+        if($(this).val() == ''){
+            $('#desctop__search').fadeOut(300);
+        } else {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                $('#search_form').submit();
+            }, 1000);
+        }
     });
+    $('.btn--search').on('click', function (){
+        $('#desctop__search').fadeOut(300);
+    })
 </script>
 
 @yield('scripts')

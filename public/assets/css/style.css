@@ -77,12 +77,12 @@ input:active, input:hover, input:focus {
 /*-----constant-----*/
 
 /*------ GLOBAL -------*/
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 8px;
     background-color: rgba(26, 24, 47, 0.15);
     border-radius: 0px;
 }
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: var(--blue);
     border-radius: 0px;
 }
@@ -303,17 +303,21 @@ a, button{
     right: 0;
     border: 1px solid black;
     padding: 5px;
+    display: none;
+    overflow: auto;
 }
 .search__item{
+    display: block;
     padding-bottom: 5px;
     border-bottom: 1px solid #6a9fb5;
 }
 .search__title{
-    font-size: 14px;
+    font-size: 16px;
     color: var(--blue );
 }
 .search__desc{
-    font-size: 10px;
+    font-size: 12px;
+    color: black;
 }
 
 .header--search-input{
