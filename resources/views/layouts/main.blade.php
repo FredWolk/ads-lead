@@ -90,11 +90,13 @@
                                 </defs>
                             </svg>
                         </button>
-                        <input class="header--search-input" placeholder="Search..." type="text">
+                        <input id="search" class="header--search-input" placeholder="Search..." type="text">
                         <div class="search__modal">
                             <div class="search__item">
                                 <p class="search__title">Best Online earning schemes for starters in 2023</p>
-                                <p class="search__desc">The Internet is not only about memes with kittens or ads of crypto-courses from traders.  Millions of people set up profitable online businesses. Therefore most starters search for online money making ways</p>
+                                <p class="search__desc">The Internet is not only about memes with kittens or ads of
+                                    crypto-courses from traders. Millions of people set up profitable online businesses.
+                                    Therefore most starters search for online money making ways</p>
                             </div>
                         </div>
                     </div>
@@ -121,15 +123,17 @@
         <div class="container">
             <div class="burger-menu--top">
                 <div class="burger-menu--search">
-                    <input class="burger-menu--search-input" placeholder="Search..." type="text">
+                    <input id="burger__search" class="burger-menu--search-input" placeholder="Search..." type="text">
                     <button type="submit" class="btn-rectangle burger-menu--search--btn">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_57_1018)">
                                 <path d="M12.6874 12.6875L9.08984 9.08994" stroke="#272C31" stroke-width="1.5"
                                       stroke-linecap="round" stroke-linejoin="round"/>
                                 <path
                                     d="M5.6875 10.5C8.34537 10.5 10.5 8.34537 10.5 5.6875C10.5 3.02963 8.34537 0.875 5.6875 0.875C3.02963 0.875 0.875 3.02963 0.875 5.6875C0.875 8.34537 3.02963 10.5 5.6875 10.5Z"
-                                    stroke="#272C31" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    stroke="#272C31" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
                             </g>
                             <defs>
                                 <clipPath id="clip0_57_1018">
@@ -519,6 +523,13 @@
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
+
+<script>
+    $('#search').on('input', function () {
+        console.log($(this).val());
+    });
+</script>
+
 @yield('scripts')
 </body>
 </html>

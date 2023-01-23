@@ -75,4 +75,9 @@ class IndexController extends Controller
             return view('main.filters.index-calendar', compact('locale', 'calendar'))->render();
         }
     }
+
+    public function search(Request $request)
+    {
+        dd($request);
+    }
 }

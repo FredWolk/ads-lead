@@ -112,4 +112,5 @@ Route::group(['prefix' => 'filters'], function (){
    Route::get('/ad', [\App\Http\Controllers\Main\Ad\NetworksController::class, 'filter'])->name('ad.filter');
    Route::get('/cpa-catalog/{catalog}', [CatalogController::class, 'filter'])->name('cpa.catalog.filter');
    Route::get('/ad-catalog/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, 'filter'])->name('ad.catalog.filter');
+   Route::get('/search', [IndexController::class, 'search'])->name('index.search');
 });
