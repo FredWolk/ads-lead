@@ -78,6 +78,9 @@ class IndexController extends Controller
 
     public function search(Request $request)
     {
-        dd($request);
+        $search = $request->input('search_desc');
+        $locale = App::getLocale() == 'en' ? '' : 'pt_';
+        $article = Article::where("{$locale}name", 'LIKE', "%{$search}%")->orWhere("{$locale}prev_text", 'LIKE', "%{$search}%")->get();
+        dd($article);
     }
 }

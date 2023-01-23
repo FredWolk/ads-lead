@@ -90,7 +90,10 @@
                                 </defs>
                             </svg>
                         </button>
-                        <input id="search" class="header--search-input" placeholder="Search..." type="text">
+                        <form id="search_form">
+                            @csrf
+                            <input id="search" class="header--search-input" name="search_desc" placeholder="Search..." type="text">
+                        </form>
                         <div class="search__modal">
                             <div class="search__item">
                                 <p class="search__title">Best Online earning schemes for starters in 2023</p>
@@ -525,8 +528,23 @@
 <script src="{{asset('assets/js/script.js')}}"></script>
 
 <script>
+    $('#search_form').on('submit', function (e){
+        e.preventDefault();
+        $.ajax({
+            url: '{{ route('index.search') }}',
+            type: 'POST',
+            dataType: 'JSON',
+            data: $(this).serialize(),
+        }).done(function (r) {
+            console.log(r)
+        })
+    })
+    let timeout
     $('#search').on('input', function () {
-        console.log($(this).val());
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            $('#search_form').submit();
+        }, 1000);
     });
 </script>
 
