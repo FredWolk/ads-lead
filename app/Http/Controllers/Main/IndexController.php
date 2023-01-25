@@ -32,7 +32,10 @@ class IndexController extends Controller
             ->where('filtration_date', '>=', $start)
             ->where('filtration_date', '<=', $finish)
             ->toArray();
-        $firstEvent = Events::where('filtration_date', '>=', date('Y-m-d'))->first()->toArray();
+        $firstEvent = Events::where('filtration_date', '>=', date('Y-m-d'))->first();
+        if (!empty($firstEvent))
+            $firstEvent = $firstEvent->toArray();
+
         $mobileEvents = Events::all()
             ->where('filtration_date', '>=', date('Y-m-d'))
             ->take(6)->toArray();

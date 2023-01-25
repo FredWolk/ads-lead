@@ -37,7 +37,7 @@
             <div class="cpapage_info-wrapper">
                 <div class="cpapage_info--block">
                     <ul class="cpapage_info-list events">
-                        @for ($i=0; $i<4; $i++)
+                        @foreach ($events as $event)
                                 <li class="article--card">
                                     <a class="article--card-link" href="{{ route('index') }}"></a>
                                     <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
@@ -52,23 +52,12 @@
                                         <p class="eventcard-item-organizer">organizer <span>ABC Club</span></p>
                                     </div>
                                 </li>
-                            @endfor
+                            @endforeach
                     </ul>
                 </div>
 
                 <div class="pagination">
-                    <button type="button" class="pagination_button left">
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                    </button>
-                    <ul class="pagination_list">
-                        <li class="pagination--item active">1</li>
-                        <li class="pagination--item">2</li>
-                        <li class="pagination--item">3</li>
-                        <li class="pagination--item">4</li>
-                    </ul>
-                    <button type="button" class="pagination_button right">
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                    </button>
+                    {{ $events->links() }}
                 </div>
             </div>
             <aside class="articles_seo-text">
