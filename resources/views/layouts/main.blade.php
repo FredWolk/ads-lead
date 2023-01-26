@@ -96,7 +96,7 @@
                             <input id="search" class="header--search-input" name="search_desc" placeholder="Search..."
                                    type="text">
                         </form>
-                        <div style="overflow: auto; display: none" id="desctop__search" class="search__modal"></div>
+                        <div id="desctop__search" class="search__modal"></div>
                     </div>
 
                     @auth()
