@@ -540,20 +540,20 @@
             </div>
         </section>
     @endif
-    @if(!empty($firstEvent))
-        <section class="main-events">
-            <div class="container">
-                <h2 class="title">Events</h2>
-                <div class="main-events_wrapper">
-                    <div class="main-events_left">
-                        <div class="main-cpa-subt_wrapp">
-                            <h3 class="main-cpa-subt">Coming Event</h3>
-                            <a class="link--blue" href="{{ route('events') }}">
-                                <span>Show all</span>
-                                <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
-                            </a>
-                        </div>
 
+    <section class="main-events">
+        <div class="container">
+            <h2 class="title">Events</h2>
+            <div class="main-events_wrapper">
+                <div class="main-events_left">
+                    <div class="main-cpa-subt_wrapp">
+                        <h3 class="main-cpa-subt">Coming Event</h3>
+                        <a class="link--blue" href="{{ route('events') }}">
+                            <span>Show all</span>
+                            <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                        </a>
+                    </div>
+                    @if(!empty($firstEvent))
                         <li class="article--card hide">
                             <a class="article--card-link" href="{{ route('event.page', $firstEvent['link']) }}"></a>
                             <img src="{{ asset('storage/' . $firstEvent["{$locale}image"]) }}" alt="banner">
@@ -573,126 +573,126 @@
                                 <h4 class="article--card_info-title">{{ $firstEvent["{$locale}name"] }}</h4>
                             </div>
                         </li>
+                    @endif
 
-                        <div class="main_articles--mobile">
-                            <div class="swiper">
-                                <ul class="swiper-wrapper">
-                                    @foreach ($mobileEvents as $i)
-                                        <li class="article--card swiper-slide">
-                                            <a class="article--card-link"
-                                               href="{{ route('event.page', $i['link']) }}"></a>
-                                            <img src="{{ asset('storage/' . $i["{$locale}image"]) }}" alt="banner">
-                                            <div class="article--card_info">
-                                                <p class="main-events__article--card_info_top-text">{{ $i["{$locale}location"] }}</p>
-                                                <h4 class="article--card_info-title">{{ $i["{$locale}name"] }}</h4>
-                                                <div class="main-events__article--card_info_top-date">
-                                                    <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M12.3333 1.49984H11.6666V0.166504H10.3333V1.49984H3.66658V0.166504H2.33325V1.49984H1.66659C0.933252 1.49984 0.333252 2.09984 0.333252 2.83317V13.4998C0.333252 14.2332 0.933252 14.8332 1.66659 14.8332H12.3333C13.0666 14.8332 13.6666 14.2332 13.6666 13.4998V2.83317C13.6666 2.09984 13.0666 1.49984 12.3333 1.49984ZM12.3333 13.4998H1.66659V4.83317H12.3333V13.4998Z"
-                                                            fill="white"/>
-                                                    </svg>
-                                                    <span>{{ $i["{$locale}date"] }}</span>
-                                                </div>
+                    <div class="main_articles--mobile">
+                        <div class="swiper">
+                            <ul class="swiper-wrapper">
+                                @foreach ($mobileEvents as $i)
+                                    <li class="article--card swiper-slide">
+                                        <a class="article--card-link"
+                                           href="{{ route('event.page', $i['link']) }}"></a>
+                                        <img src="{{ asset('storage/' . $i["{$locale}image"]) }}" alt="banner">
+                                        <div class="article--card_info">
+                                            <p class="main-events__article--card_info_top-text">{{ $i["{$locale}location"] }}</p>
+                                            <h4 class="article--card_info-title">{{ $i["{$locale}name"] }}</h4>
+                                            <div class="main-events__article--card_info_top-date">
+                                                <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M12.3333 1.49984H11.6666V0.166504H10.3333V1.49984H3.66658V0.166504H2.33325V1.49984H1.66659C0.933252 1.49984 0.333252 2.09984 0.333252 2.83317V13.4998C0.333252 14.2332 0.933252 14.8332 1.66659 14.8332H12.3333C13.0666 14.8332 13.6666 14.2332 13.6666 13.4998V2.83317C13.6666 2.09984 13.0666 1.49984 12.3333 1.49984ZM12.3333 13.4998H1.66659V4.83317H12.3333V13.4998Z"
+                                                        fill="white"/>
+                                                </svg>
+                                                <span>{{ $i["{$locale}date"] }}</span>
                                             </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                <div class="main_articles_top_link-wrapp-arrows">
-                                    @for ($i=0; $i<10; $i++)
-                                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M10.2425 6L6.43923 2.1967L8.56055 0.0753784L15.9852 7.5L8.56055 14.9246L6.43923 12.8033L10.2425 9L1.13593 9L1.13593 6H10.2425Z"
-                                                  fill="#272C31"/>
-                                        </svg>
-                                    @endfor
-                                </div>
-                                <div class="swiper-pagination"></div>
-                            </div>
-
-                            <a class="btn--grey" href="{{ route('events') }}">Show all</a>
-                        </div>
-                    </div>
-                    @php
-                        $month = [
-                                '01' => 'January',
-                                '02' => 'February',
-                                '03' => 'March',
-                                '04' => 'April',
-                                '05' => 'May',
-                                '06' => 'June',
-                                '07' => 'July',
-                                '08' => 'August',
-                                '09' => 'September',
-                                '10' => 'October',
-                                '11' => 'November',
-                                '12' => 'December'
-                            ]
-                    @endphp
-                    <div class="main-events_right">
-                        <div class="main-events_right_top">
-                            <h3 class="main-cpa-subt">Calendar</h3>
-
-                            <div class="main-events_right_top_month">
-                                <div class="main-events_right_top_month_arrows">
-                                    <button type="button"
-                                            data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'-1 month')) : date('Y-m-01', strtotime('-1 month')) }}"
-                                            class="arrow--btn left dateChange">
-                                        <img class="arrow--btn-black"
-                                             src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                                        <img class="arrow--btn-blue"
-                                             src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
-                                    </button>
-                                    <button type="button"
-                                            data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'+1 month')) : date('Y-m-01', strtotime('+1 month')) }}"
-                                            class="arrow--btn dateChange">
-                                        <img class="arrow--btn-black"
-                                             src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                                        <img class="arrow--btn-blue"
-                                             src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
-                                    </button>
-                                </div>
-                                <p class="main-events_right_top_month-text">
-                                    {{
-                                        !empty($_GET['date'])
-                                        ?
-                                        "{$month[date('m', strtotime($_GET['date']))]} ". date('Y', strtotime($_GET['date']))
-                                        :
-                                        "{$month[date('m')]} ". date('Y')
-                                    }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="calendar">
-                            <ul class="calendar_list">
-                                @foreach($calendar as $k => $i)
-                                    @if($i === null)
-                                        <li class="calendar_date ">{{ date('d', strtotime($k)) }}</li>
-                                    @else
-                                        <li class="calendar_date init">
-                                            <p>{{ date('d', strtotime($k)) }}</p>
-                                            <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
-                                            <div class="popup_event-wrap">
-                                                <div class="popup_event">
-                                                    <img class="popup_event-image"
-                                                         src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
-                                                    <div class="popup_event-info">
-                                                        <p class="popup_event-date">{{ $i["{$locale}date"] }}</p>
-                                                        <p class="popup_event-name">{{ $i["{$locale}name"] }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    @endif
+                                        </div>
+                                    </li>
                                 @endforeach
                             </ul>
+                            <div class="main_articles_top_link-wrapp-arrows">
+                                @for ($i=0; $i<10; $i++)
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M10.2425 6L6.43923 2.1967L8.56055 0.0753784L15.9852 7.5L8.56055 14.9246L6.43923 12.8033L10.2425 9L1.13593 9L1.13593 6H10.2425Z"
+                                              fill="#272C31"/>
+                                    </svg>
+                                @endfor
+                            </div>
+                            <div class="swiper-pagination"></div>
                         </div>
+
+                        <a class="btn--grey" href="{{ route('events') }}">Show all</a>
+                    </div>
+                </div>
+                @php
+                    $month = [
+                            '01' => 'January',
+                            '02' => 'February',
+                            '03' => 'March',
+                            '04' => 'April',
+                            '05' => 'May',
+                            '06' => 'June',
+                            '07' => 'July',
+                            '08' => 'August',
+                            '09' => 'September',
+                            '10' => 'October',
+                            '11' => 'November',
+                            '12' => 'December'
+                        ]
+                @endphp
+                <div class="main-events_right">
+                    <div class="main-events_right_top">
+                        <h3 class="main-cpa-subt">Calendar</h3>
+
+                        <div class="main-events_right_top_month">
+                            <div class="main-events_right_top_month_arrows">
+                                <button type="button"
+                                        data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'-1 month')) : date('Y-m-01', strtotime('-1 month')) }}"
+                                        class="arrow--btn left dateChange">
+                                    <img class="arrow--btn-black"
+                                         src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
+                                    <img class="arrow--btn-blue"
+                                         src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                                </button>
+                                <button type="button"
+                                        data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'+1 month')) : date('Y-m-01', strtotime('+1 month')) }}"
+                                        class="arrow--btn dateChange">
+                                    <img class="arrow--btn-black"
+                                         src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
+                                    <img class="arrow--btn-blue"
+                                         src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                                </button>
+                            </div>
+                            <p class="main-events_right_top_month-text">
+                                {{
+                                    !empty($_GET['date'])
+                                    ?
+                                    "{$month[date('m', strtotime($_GET['date']))]} ". date('Y', strtotime($_GET['date']))
+                                    :
+                                    "{$month[date('m')]} ". date('Y')
+                                }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="calendar">
+                        <ul class="calendar_list">
+                            @foreach($calendar as $k => $i)
+                                @if($i === null)
+                                    <li class="calendar_date ">{{ date('d', strtotime($k)) }}</li>
+                                @else
+                                    <li class="calendar_date init">
+                                        <p>{{ date('d', strtotime($k)) }}</p>
+                                        <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
+                                        <div class="popup_event-wrap">
+                                            <div class="popup_event">
+                                                <img class="popup_event-image"
+                                                     src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
+                                                <div class="popup_event-info">
+                                                    <p class="popup_event-date">{{ $i["{$locale}date"] }}</p>
+                                                    <p class="popup_event-name">{{ $i["{$locale}name"] }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-    @endif
+        </div>
+    </section>
     @section('scripts')
         <script>
             $('.main-events_right').on('click', '.dateChange', function () {
