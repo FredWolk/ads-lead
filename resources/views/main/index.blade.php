@@ -540,6 +540,7 @@
             </div>
         </section>
     @endif
+    @if(!empty($firstEvent))
         <section class="main-events">
             <div class="container">
                 <h2 class="title">Events</h2>
@@ -691,6 +692,7 @@
                 </div>
             </div>
         </section>
+    @endif
     @section('scripts')
         <script>
             $('.main-events_right').on('click', '.dateChange', function () {
