@@ -40,10 +40,12 @@ class ArticleController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        if (!empty($data['image']))
+        if (!empty($data['image'])) {
             $data['image'] = Storage::disk('public')->put('/admin/images/article', $data['image']);
-        if (!empty($data['pt_image']))
+        }
+        if (!empty($data['pt_image'])) {
             $data['pt_image'] = Storage::disk('public')->put('/admin/images/article', $data['pt_image']);
+        }
         $article = Article::firstOrCreate($data);
         if ($article) {
             return redirect()->route('article.show', $article->id);
@@ -81,17 +83,20 @@ class ArticleController extends Controller
     {
         $data = $request->validated();
         if (!empty($data['image'])) {
-            if (!empty($article->image))
+            if (!empty($article->image)) {
                 Storage::disk('public')->delete($article->image);
+            }
             $data['image'] = Storage::disk('public')->put('/admin/images/article', $data['image']);
         }
         if (!empty($data['pt_image'])) {
-            if (!empty($article->pt_image))
+            if (!empty($article->pt_image)) {
                 Storage::disk('public')->delete($article->pt_image);
+            }
             $data['pt_image'] = Storage::disk('public')->put('/admin/images/article', $data['pt_image']);
         }
-        if ($article->update($data))
+        if ($article->update($data)) {
             return redirect()->route('article.show', $article->id);
+        }
     }
 
     /**
@@ -101,11 +106,14 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        if (!empty($article->image))
+        if (!empty($article->image)) {
             Storage::disk('public')->delete($article->image);
-        if (!empty($article->pt_image))
+        }
+        if (!empty($article->pt_image)) {
             Storage::disk('public')->delete($article->pt_image);
-        if ($article->delete())
+        }
+        if ($article->delete()) {
             return redirect()->route('article.index');
+        }
     }
 }

@@ -93,7 +93,8 @@
                         <form id="search_form">
                             @csrf
                             <input type="hidden" name="desc_locale" value="{{ App::getLocale() }}">
-                            <input id="search" class="header--search-input" name="search_desc" placeholder="Search..." type="text">
+                            <input id="search" class="header--search-input" name="search_desc" placeholder="Search..."
+                                   type="text">
                         </form>
                         <div style="overflow: auto; display: none" id="desctop__search" class="search__modal"></div>
                     </div>
@@ -522,7 +523,7 @@
 <script src="{{asset('assets/js/script.js')}}"></script>
 
 <script>
-    $('#search_form').on('submit', function (e){
+    $('#search_form').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             url: '{{ route('index.search') }}',
@@ -530,7 +531,7 @@
             dataType: 'JSON',
             data: $(this).serialize()
         }).done(function (r) {
-            if(r.article.length > 0 || r.cpa.length > 0){
+            if (r.article.length > 0 || r.cpa.length > 0) {
                 $('#desctop__search').text('');
                 r.article.map((e) => {
                     $('#desctop__search').append(`
@@ -556,7 +557,7 @@
     })
     let timeout
     $('#search').on('input', function () {
-        if($(this).val() == ''){
+        if ($(this).val() == '') {
             $('#desctop__search').fadeOut(300);
         } else {
             clearTimeout(timeout);
@@ -565,7 +566,7 @@
             }, 1000);
         }
     });
-    $('.btn--search').on('click', function (){
+    $('.btn--search').on('click', function () {
         $('#desctop__search').fadeOut(300);
     })
 </script>
