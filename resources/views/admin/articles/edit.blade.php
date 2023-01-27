@@ -222,14 +222,14 @@
                             @error('main_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="summernote2">Контент португальской статьи</label>
-                                <textarea name="pt_main_text" class="summernote"
-                                          id="summernote2">{{ $article->pt_main_text }}</textarea>
-                            </div>
-                            @error('pt_main_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label for="summernote2">Контент португальской статьи</label>--}}
+                            {{--                                <textarea name="pt_main_text" class="summernote"--}}
+                            {{--                                          id="summernote2">{{ $article->pt_main_text }}</textarea>--}}
+                            {{--                            </div>--}}
+                            {{--                            @error('pt_main_text')--}}
+                            {{--                            <div class="text-danger">{{ $message }}</div>--}}
+                            {{--                            @enderror--}}
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
