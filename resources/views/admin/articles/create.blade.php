@@ -100,7 +100,8 @@
                                     <div class="custom-file">
                                         <input value="{{ old('pt_image') }}" name="pt_image" type="file"
                                                class="custom-file-input" id="pt_image">
-                                        <label class="custom-file-label" for="pt_image">Выберите изображение статьи</label>
+                                        <label class="custom-file-label" for="pt_image">Выберите изображение
+                                            статьи</label>
                                     </div>
                                 </div>
                             </div>
@@ -109,21 +110,24 @@
                             @enderror
                             <div class="form-group">
                                 <label for="prev_text">Описание статьи</label>
-                                <textarea class="form-control" rows="3" id="prev_text" name="prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('prev_text') }}</textarea>
+                                <textarea class="form-control" rows="3" id="prev_text" name="prev_text"
+                                          placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('prev_text') }}</textarea>
                             </div>
                             @error('prev_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label for="pt_prev_text">Описание статьи на португальском</label>
-                                <textarea class="form-control" rows="3" id="pt_prev_text" name="pt_prev_text" placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('pt_prev_text') }}</textarea>
+                                <textarea class="form-control" rows="3" id="pt_prev_text" name="pt_prev_text"
+                                          placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('pt_prev_text') }}</textarea>
                             </div>
                             @error('pt_prev_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label for="views">Просмотры</label>
-                                <input type="number" min="0" name="views" value="{{ !empty(old('views')) ? old('views') : 0 }}" class="form-control"
+                                <input type="number" min="0" name="views"
+                                       value="{{ !empty(old('views')) ? old('views') : 0 }}" class="form-control"
                                        id="views" placeholder="На пример: 41">
                             </div>
                             @error('views')
@@ -474,33 +478,44 @@
     <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 
     <script>
         $(function () {
-            $('#summernote').summernote({
-                height: 300,
-                maxHeight: 500,
-                toolbar: [
-                    ['insert', ['picture','link','video','table','hr']],
-                    ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
-                    ['paragraph', ['style','ol','ul','paragraph','height']],
-                    ['misc', ['fullscreen','codeview','undo','redo','help']],
-                ],
-                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
-                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            tinymce.init({
+                selector: 'textarea.main_text',
+                width: 900,
+                height: 300
             });
-            $('#summernote2').summernote({
-                height: 300,
-                maxHeight: 500,
-                toolbar: [
-                    ['insert', ['picture','link','video','table','hr']],
-                    ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
-                    ['paragraph', ['style','ol','ul','paragraph','height']],
-                    ['misc', ['fullscreen','codeview','undo','redo','help']],
-                ],
-                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
-                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            tinymce.init({
+                selector: 'textarea.pt_main_text',
+                width: 900,
+                height: 300
             });
+            // $('#summernote').summernote({
+            //     height: 300,
+            //     maxHeight: 500,
+            //     toolbar: [
+            //         ['insert', ['picture','link','video','table','hr']],
+            //         ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
+            //         ['paragraph', ['style','ol','ul','paragraph','height']],
+            //         ['misc', ['fullscreen','codeview','undo','redo','help']],
+            //     ],
+            //     fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+            //     fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            // });
+            // $('#summernote2').summernote({
+            //     height: 300,
+            //     maxHeight: 500,
+            //     toolbar: [
+            //         ['insert', ['picture','link','video','table','hr']],
+            //         ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
+            //         ['paragraph', ['style','ol','ul','paragraph','height']],
+            //         ['misc', ['fullscreen','codeview','undo','redo','help']],
+            //     ],
+            //     fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+            //     fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            // });
             $('.select2').select2()
             $('#select1').select2({
                 tags: true,
