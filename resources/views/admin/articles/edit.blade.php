@@ -486,7 +486,8 @@
     <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
 
     <script>
-        setTimeout(() => {
+
+        $(function () {
             $('.summernote').summernote({
                 height: 300,
                 maxHeight: 500,
@@ -499,8 +500,6 @@
                 fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
                 fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
             });
-        }, 10000);
-        $(function () {
             $('.select2').select2()
             $('#select1').select2({
                 tags: true,
