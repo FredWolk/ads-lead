@@ -20,6 +20,7 @@
     font-size: 18px !important;
     line-height: 160% !important;
     color: #272C31 !important;
+    width: 100%;
 }
 
 .main__article b, .main__article b * {
@@ -30,6 +31,7 @@
     line-height: 160% !important;
     color: #272C31 !important;
 }
+
 .main__article i, .main__article i * {
     font-family: 'Montserrat' !important;
     font-style: italic !important;
@@ -38,6 +40,7 @@
     line-height: 160% !important;
     color: #272C31 !important;
 }
+
 .main__article h1, .main__article h1 * {
     font-family: 'Jost' !important;
     font-style: normal !important;
@@ -68,3 +71,6 @@
     color: #014EFF !important;
 }
 
+.main__article img {
+    width: 100%;
+}
