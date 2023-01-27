@@ -502,7 +502,7 @@
         //     });
         // }, 10000);
         tinymce.init({
-            selector: 'textarea',
+            selector: 'textarea.main_text, textarea.pt_main_text',
             width: 900,
             height: 300
         });
