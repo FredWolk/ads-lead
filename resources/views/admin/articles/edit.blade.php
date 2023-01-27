@@ -475,51 +475,51 @@
 @endsection
 
 @section('scripts')
-    {{--    <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>--}}
-    {{--    <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>--}}
-    {{--    <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>--}}
+    <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
 
-    {{--    <script>--}}
-    {{--        $(function () {--}}
-    {{--            $('.summernote').summernote({--}}
-    {{--                height: 300,--}}
-    {{--                maxHeight: 500,--}}
-    {{--                toolbar: [--}}
-    {{--                    ['insert', ['picture', 'link', 'video', 'table', 'hr']],--}}
-    {{--                    ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],--}}
-    {{--                    ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],--}}
-    {{--                    ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],--}}
-    {{--                ],--}}
-    {{--                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],--}}
-    {{--                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']--}}
-    {{--            });--}}
-    {{--            $('.select2').select2()--}}
-    {{--            $('#select1').select2({--}}
-    {{--                tags: true,--}}
-    {{--            })--}}
-    {{--            $('#select2').select2({--}}
-    {{--                tags: true,--}}
-    {{--            })--}}
-    {{--            $('#select3').select2({--}}
-    {{--                tags: true,--}}
-    {{--            })--}}
-    {{--            $('#select4').select2({--}}
-    {{--                tags: true,--}}
-    {{--            })--}}
-    {{--            $('#select5').select2({--}}
-    {{--                tags: true,--}}
-    {{--            })--}}
-    {{--            bsCustomFileInput.init();--}}
-    {{--        });--}}
+    <script>
+        $(function () {
+            $('.summernote').summernote({
+                height: 300,
+                maxHeight: 500,
+                toolbar: [
+                    ['insert', ['picture', 'link', 'video', 'table', 'hr']],
+                    ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                    ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
+                    ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
+                ],
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            });
+            $('.select2').select2()
+            $('#select1').select2({
+                tags: true,
+            })
+            $('#select2').select2({
+                tags: true,
+            })
+            $('#select3').select2({
+                tags: true,
+            })
+            $('#select4').select2({
+                tags: true,
+            })
+            $('#select5').select2({
+                tags: true,
+            })
+            bsCustomFileInput.init();
+        });
 
-    {{--        $('#name').on('input', function () {--}}
-    {{--            var j = createLink($(this).val());--}}
-    {{--            j = j.replace(/ /g, '-');--}}
-    {{--            j = j.replace(/,-/g, '-');--}}
-    {{--            j = j.replace(/\\/g, '-');--}}
-    {{--            j = j.replace(/\//g, '-');--}}
-    {{--            $('#link').val(j.toLowerCase());--}}
-    {{--        })--}}
-    {{--    </script>--}}
+        $('#name').on('input', function () {
+            var j = createLink($(this).val());
+            j = j.replace(/ /g, '-');
+            j = j.replace(/,-/g, '-');
+            j = j.replace(/\\/g, '-');
+            j = j.replace(/\//g, '-');
+            $('#link').val(j.toLowerCase());
+        })
+    </script>
 
 @endsection
