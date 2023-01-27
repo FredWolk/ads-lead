@@ -214,14 +214,14 @@
                             @error('pt_for_whom')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            {{--                            <div class="form-group">--}}
-                            {{--                                <label for="summernote">Контент статьи</label>--}}
-                            {{--                                <textarea name="main_text" class="summernote"--}}
-                            {{--                                          id="summernote">{{ $article->main_text }}</textarea>--}}
-                            {{--                            </div>--}}
-                            {{--                            @error('main_text')--}}
-                            {{--                            <div class="text-danger">{{ $message }}</div>--}}
-                            {{--                            @enderror--}}
+                            <div class="form-group">
+                                <label for="summernote">Контент статьи</label>
+                                <textarea name="main_text" class="summernote"
+                                          id="summernote">{{ $article->main_text }}</textarea>
+                            </div>
+                            @error('main_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             {{--                            <div class="form-group">--}}
                             {{--                                <label for="summernote2">Контент португальской статьи</label>--}}
                             {{--                                <textarea name="pt_main_text" class="summernote"--}}
