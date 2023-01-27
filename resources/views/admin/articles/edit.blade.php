@@ -484,33 +484,22 @@
     <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 
     <script>
-        // setTimeout(() => {
-        //     $('.summernote').summernote({
-        //         height: 300,
-        //         maxHeight: 500,
-        //         toolbar: [
-        //             ['insert', ['picture', 'link', 'video', 'table', 'hr']],
-        //             ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-        //             ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
-        //             ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
-        //         ],
-        //         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
-        //         fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
-        //     });
-        // }, 10000);
-        tinymce.init({
-            selector: 'textarea.main_text',
-            width: 900,
-            height: 300
-        });
-        tinymce.init({
-            selector: 'textarea.pt_main_text',
-            width: 900,
-            height: 300
-        });
+        setTimeout(() => {
+            $('.summernote').summernote({
+                height: 300,
+                maxHeight: 500,
+                toolbar: [
+                    ['insert', ['picture', 'link', 'video', 'table', 'hr']],
+                    ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                    ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
+                    ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
+                ],
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            });
+        }, 10000);
         $(function () {
             $('.select2').select2()
             $('#select1').select2({
