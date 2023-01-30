@@ -187,7 +187,6 @@ a, button {
 
 .header_buttons {
     max-width: 353px;
-    width: 100%;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1841,6 +1840,7 @@ img {
 .videopage_main--image {
     max-width: 100%;
     width: 100%;
+    max-height: 452px;
 }
 
 .videopage_main--image img {
@@ -2791,7 +2791,7 @@ img {
     flex-direction: column;
     align-items: start;
     gap: 17px;
-    padding: 30px 42px;
+    padding: 24px 40px;
     border: 1px solid var(--blue);
 }
 
