@@ -21,6 +21,7 @@
     line-height: 160% !important;
     color: #272C31 !important;
     width: 100% !important;
+    height: 100% !important;
 }
 
 .main__article h1, .main__article h1 * {
@@ -74,4 +75,5 @@
 
 .main__article img {
     width: 100% !important;
+    height: 100% !important;
 }

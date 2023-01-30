@@ -13,9 +13,10 @@ class KnowladgeBaseController extends Controller
     {
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $seo = Seo::where('page', Seo::ARTICLES_PAGE)->first();
-        if (!empty($seo))
+        if (!empty($seo)) {
             $seo->toArray();
-        $articles = Article::with('author')->where('type', 'base')->paginate(9);
+        }
+        $articles = Article::with('author')->where('type', 'base')->orderByDesc('id')->paginate(9);
         return view('main.articles.knowladge-base', compact('articles', 'seo', 'locale'));
     }
 }
