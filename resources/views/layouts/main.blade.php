@@ -41,9 +41,11 @@
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('video') }}">Video</a>
                         </li>
-                        <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('forum') }}">Forum</a>
-                        </li>
+                        @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
+                            <li class="header_nav_list_item">
+                                <a class="header_nav--link" href="{{ route('forum') }}">Forum</a>
+                            </li>
+                        @endif
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
                         </li>
@@ -99,20 +101,22 @@
                         <div id="desctop__search" class="search__modal"></div>
                     </div>
 
-                    @auth()
-                        <a href="{{ route('user.index') }}" class="header-user-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                        </a>
-                    @else
-                        <button type="button" class="btn-rectangle btn--exit login--btn">
-                            <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z"
-                                    fill="#272C31"/>
-                            </svg>
-                        </button>
-                    @endauth
+                    @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
+                        @auth()
+                            <a href="{{ route('user.index') }}" class="header-user-icon">
+                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            </a>
+                        @else
+                            <button type="button" class="btn-rectangle btn--exit login--btn">
+                                <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z"
+                                        fill="#272C31"/>
+                                </svg>
+                            </button>
+                        @endauth
+                    @endif
                 </div>
             </div>
         </div>
