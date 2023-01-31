@@ -120,5 +120,6 @@ Route::group(['prefix' => 'filters'], function () {
     Route::get('/ad-catalog/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, 'filter'])->name(
         'ad.catalog.filter'
     );
+    Route::get('/events', [EventsController::class, 'filter'])->name('event.filter');
     Route::post('/search', [IndexController::class, 'search'])->name('index.search');
 });

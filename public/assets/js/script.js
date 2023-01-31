@@ -48,14 +48,6 @@ $('.filter-aside--btn').on('click', function () {
     }
 });
 
-$('.filter-aside_list-item_wrapper').on('click', function (e) {
-    if (!$('.filter-aside_list-item_wrap_list-item').is(e.target) && $('.filter-aside_list-item_wrap_list-item').has(e.target).length === 0) {
-        $(this).toggleClass('active');
-        $(this).prev().toggleClass('active');
-        $(this).slideUp(300);
-    }
-});
-
 $('.btn--filter').on('click', function () {
     $(this).toggleClass('active');
     $('.filter-aside').toggleClass('active');
