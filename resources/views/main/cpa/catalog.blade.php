@@ -24,20 +24,22 @@
                     <h1 class="title">{{ $catalog }}</h1>
                     {{--                <p style="margin-bottom: 20px" class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>--}}
 
-                    <ul class="cpapage_main-to-show_filter__tags visible">
-                        <button type="button" class="cpapage_main-to-show_filter__tags--reset">
-                            <p>Remove filters</p>
-                        </button>
-                        <li class="cpapage_main-to-show_filter__tag">#sweepstakes
-                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <rect width="13" height="13" rx="6.5" fill="white"/>
-                                <path
-                                    d="M8.61978 4.80585L8.19247 4.37854L6.49837 6.07264L4.80427 4.37854L4.37695 4.80585L6.07105 6.49995L4.37695 8.19405L4.80427 8.62137L6.49837 6.92727L8.19247 8.62137L8.61978 8.19405L6.92568 6.49995L8.61978 4.80585Z"
-                                    fill="#181A1C"/>
-                            </svg>
-                        </li>
-                    </ul>
+                    @if(false)
+                        <ul class="cpapage_main-to-show_filter__tags visible">
+                            <button type="button" class="cpapage_main-to-show_filter__tags--reset">
+                                <p>Remove filters</p>
+                            </button>
+                            <li class="cpapage_main-to-show_filter__tag">#sweepstakes
+                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="13" height="13" rx="6.5" fill="white"/>
+                                    <path
+                                        d="M8.61978 4.80585L8.19247 4.37854L6.49837 6.07264L4.80427 4.37854L4.37695 4.80585L6.07105 6.49995L4.37695 8.19405L4.80427 8.62137L6.49837 6.92727L8.19247 8.62137L8.61978 8.19405L6.92568 6.49995L8.61978 4.80585Z"
+                                        fill="#181A1C"/>
+                                </svg>
+                            </li>
+                        </ul>
+                    @endif
                 </div>
                 <div class="cpapage_info-wrapper">
                     <div class="cpapage_info--block">
@@ -64,7 +66,8 @@
                                     </div>
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
-                                        <a class="btn--blue header_buttons-blue-btn" href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
+                                        <a class="btn--blue header_buttons-blue-btn"
+                                           href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
                                             <span>Review</span>
                                             <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
@@ -81,50 +84,50 @@
                                     </div>
                                 </li>
                             @endforeach
-                                <div class="pagination">
-                                    {{ $cpa->links() }}
-                                </div>
+                            <div class="pagination">
+                                {{ $cpa->links() }}
+                            </div>
                         </ul>
                     </div>
                 </div>
 
-{{--                <aside class="articles_seo-text">--}}
-{{--                    <h3 class="articles_seo-text--title">seo text</h3>--}}
-{{--                    <p class="articles_seo-text--text">--}}
-{{--                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.--}}
-{{--                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus--}}
-{{--                        mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa--}}
-{{--                        quis enim.--}}
-{{--                        <br>--}}
-{{--                        <br>--}}
-{{--                        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,--}}
-{{--                        imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer--}}
-{{--                        tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean--}}
-{{--                        leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.--}}
-{{--                        <br>--}}
-{{--                        <br>--}}
-{{--                        Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut--}}
-{{--                        metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.--}}
-{{--                        Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget--}}
-{{--                        condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.--}}
-{{--                        <br>--}}
-{{--                        Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante--}}
-{{--                        tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit--}}
-{{--                    </p>--}}
-{{--                    <button type="button" class="link--black-rotateble-arrows readmore--btn">--}}
-{{--                        <span>read more</span>--}}
-{{--                        <div class="link--black-rotateble-arrows-group">--}}
-{{--                            @for ($a=0; $a<3; $a++)--}}
-{{--                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"--}}
-{{--                                     xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                    <path fill-rule="evenodd" clip-rule="evenodd"--}}
-{{--                                          d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"--}}
-{{--                                          fill="#272C31"/>--}}
-{{--                                </svg>--}}
-{{--                            @endfor--}}
-{{--                        </div>--}}
-{{--                    </button>--}}
-{{--                </aside>--}}
+                {{--                <aside class="articles_seo-text">--}}
+                {{--                    <h3 class="articles_seo-text--title">seo text</h3>--}}
+                {{--                    <p class="articles_seo-text--text">--}}
+                {{--                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.--}}
+                {{--                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus--}}
+                {{--                        mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa--}}
+                {{--                        quis enim.--}}
+                {{--                        <br>--}}
+                {{--                        <br>--}}
+                {{--                        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,--}}
+                {{--                        imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer--}}
+                {{--                        tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean--}}
+                {{--                        leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.--}}
+                {{--                        <br>--}}
+                {{--                        <br>--}}
+                {{--                        Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut--}}
+                {{--                        metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.--}}
+                {{--                        Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget--}}
+                {{--                        condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.--}}
+                {{--                        <br>--}}
+                {{--                        Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante--}}
+                {{--                        tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit--}}
+                {{--                    </p>--}}
+                {{--                    <button type="button" class="link--black-rotateble-arrows readmore--btn">--}}
+                {{--                        <span>read more</span>--}}
+                {{--                        <div class="link--black-rotateble-arrows-group">--}}
+                {{--                            @for ($a=0; $a<3; $a++)--}}
+                {{--                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"--}}
+                {{--                                     xmlns="http://www.w3.org/2000/svg">--}}
+                {{--                                    <path fill-rule="evenodd" clip-rule="evenodd"--}}
+                {{--                                          d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"--}}
+                {{--                                          fill="#272C31"/>--}}
+                {{--                                </svg>--}}
+                {{--                            @endfor--}}
+                {{--                        </div>--}}
+                {{--                    </button>--}}
+                {{--                </aside>--}}
             </section>
 
             <aside class="filter-aside">
@@ -168,7 +171,8 @@
                                 @if($banner->type == 'image')
                                     <img width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
-                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
+                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                                           muted></video>
                                 @endif
                             </a>
                         </div>
@@ -276,7 +280,7 @@
                 data: $(this).serialize(),
                 type: 'GET'
             }).done(function (rsp) {
-                if(rsp !== ''){
+                if (rsp !== '') {
                     $('.cpapage_info-list').html(rsp);
                 } else {
                     $('.cpapage_info-list').html(`

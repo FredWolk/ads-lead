@@ -33,19 +33,21 @@
                         <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                         <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
                     @endempty
-
-                    <ul class="cpapage_main-to-show_filter__tags visible">
-                        <button type="button" class="cpapage_main-to-show_filter__tags--reset">Remove filters</button>
-                        <li class="cpapage_main-to-show_filter__tag">#sweepstakes
-                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <rect width="13" height="13" rx="6.5" fill="white"/>
-                                <path
-                                    d="M8.61978 4.80585L8.19247 4.37854L6.49837 6.07264L4.80427 4.37854L4.37695 4.80585L6.07105 6.49995L4.37695 8.19405L4.80427 8.62137L6.49837 6.92727L8.19247 8.62137L8.61978 8.19405L6.92568 6.49995L8.61978 4.80585Z"
-                                    fill="#181A1C"/>
-                            </svg>
-                        </li>
-                    </ul>
+                    @if(false)
+                        <ul class="cpapage_main-to-show_filter__tags visible">
+                            <button type="button" class="cpapage_main-to-show_filter__tags--reset">Remove filters
+                            </button>
+                            <li class="cpapage_main-to-show_filter__tag">#sweepstakes
+                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="13" height="13" rx="6.5" fill="white"/>
+                                    <path
+                                        d="M8.61978 4.80585L8.19247 4.37854L6.49837 6.07264L4.80427 4.37854L4.37695 4.80585L6.07105 6.49995L4.37695 8.19405L4.80427 8.62137L6.49837 6.92727L8.19247 8.62137L8.61978 8.19405L6.92568 6.49995L8.61978 4.80585Z"
+                                        fill="#181A1C"/>
+                                </svg>
+                            </li>
+                        </ul>
+                    @endif
                 </div>
                 <div class="cpapage_info-wrapper">
                     <div class="cpapage_info--block">
