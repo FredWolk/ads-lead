@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::table('cpas', function (Blueprint $table) {
             $table->string('manager_link')->nullable();
-            $table->string('pr_editorial_opinion')->nullable();
+            $table->text('pr_editorial_opinion')->nullable();
         });
     }
 
