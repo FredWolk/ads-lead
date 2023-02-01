@@ -51,8 +51,8 @@
                                 <div class="form-group col-4">
                                     <label for="is_main">На главной</label>
                                     <select name="is_main" class="form-control" id="is_main">
-                                            <option {{ old('is_main') == true ? 'selected' : '' }} value="1">Да</option>
-                                            <option {{ old('is_main') == false ? 'selected' : '' }} value="0">Нет</option>
+                                        <option {{ old('is_main') == true ? 'selected' : '' }} value="1">Да</option>
+                                        <option {{ old('is_main') == false ? 'selected' : '' }} value="0">Нет</option>
                                     </select>
                                 </div>
                                 @error('is_main')
@@ -61,8 +61,8 @@
                                 <div class="form-group col-4">
                                     <label for="is_top">Топ-5</label>
                                     <select name="is_top" class="form-control" id="is_top">
-                                            <option {{ old('is_top') == true ? 'selected' : '' }} value="1">Да</option>
-                                            <option {{ old('is_top') == false ? 'selected' : '' }} value="0">Нет</option>
+                                        <option {{ old('is_top') == true ? 'selected' : '' }} value="1">Да</option>
+                                        <option {{ old('is_top') == false ? 'selected' : '' }} value="0">Нет</option>
                                     </select>
                                 </div>
                                 @error('is_top')
@@ -71,8 +71,10 @@
                                 <div class="form-group col-4">
                                     <label for="is_recomendated">Рекомендован</label>
                                     <select name="is_recomendated" class="form-control" id="is_recomendated">
-                                            <option {{ old('is_recomendated') == true ? 'selected' : '' }} value="1">Да</option>
-                                            <option {{ old('is_recomendated') == false ? 'selected' : '' }} value="0">Нет</option>
+                                        <option {{ old('is_recomendated') == true ? 'selected' : '' }} value="1">Да
+                                        </option>
+                                        <option {{ old('is_recomendated') == false ? 'selected' : '' }} value="0">Нет
+                                        </option>
                                     </select>
                                 </div>
                                 @error('is_recomendated')
@@ -180,7 +182,8 @@
 
                             <div class="form-group">
                                 <label for="views">Просмотры</label>
-                                <input type="number" name="views" value="{{ !empty(old('views')) ? old('views') : 0 }}" class="form-control"
+                                <input type="number" name="views" value="{{ !empty(old('views')) ? old('views') : 0 }}"
+                                       class="form-control"
                                        id="views" placeholder="На пример: 41">
                             </div>
                             @error('views')
@@ -231,7 +234,8 @@
                                     <select name="main_verticales" class="form-control select2"
                                             id="select2">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option {{ old('main_verticales') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                            <option
+                                                {{ old('main_verticales') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -243,7 +247,8 @@
                                     <select name="verticales[]" multiple="multiple" class="form-control select1"
                                             id="select1">
                                         @foreach(json_decode($filters['vertical']) as $i)
-                                            <option {{ !empty(old('verticales')) && in_array($i, old('verticales')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
+                                            <option
+                                                {{ !empty(old('verticales')) && in_array($i, old('verticales')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -257,7 +262,8 @@
                                             id="select2">
                                         @if(!empty($filters['countries']))
                                             @foreach(json_decode($filters['countries']) as $i)
-                                                <option {{ !empty(old('countries')) && in_array($i, old('countries')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{ !empty(old('countries')) && in_array($i, old('countries')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -272,7 +278,8 @@
                                             id="select3">
                                         @if(!empty($filters['payment_models']))
                                             @foreach(json_decode($filters['payment_models']) as $i)
-                                                <option {{ !empty(old('payment_models')) && in_array($i, old('payment_models')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{ !empty(old('payment_models')) && in_array($i, old('payment_models')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -287,7 +294,8 @@
                                             class="form-control select1" id="select4">
                                         @if(!empty($filters['payment_schedule']))
                                             @foreach(json_decode($filters['payment_schedule']) as $i)
-                                                <option {{ !empty(old('payment_schedule_f')) && in_array($i, old('payment_schedule_f')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{ !empty(old('payment_schedule_f')) && in_array($i, old('payment_schedule_f')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -302,7 +310,8 @@
                                             id="select5">
                                         @if(!empty($filters['payment_systems']))
                                             @foreach(json_decode($filters['payment_systems']) as $i)
-                                                <option {{ !empty(old('payment_systems')) && in_array($i, old('payment_systems')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
+                                                <option
+                                                    {{ !empty(old('payment_systems')) && in_array($i, old('payment_systems')) ? 'selected' : ''}} value="{{ $i }}">{{ $i }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -459,6 +468,17 @@
                                 @error('manager_position')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
+
+                                <div class="form-group">
+                                    <label for="manager_link">Ссылка на мессенджер</label>
+                                    <input value="{{ old('manager_link') }}" name="manager_link" type="text"
+                                           class="form-control"
+                                           id="manager_link"
+                                           placeholder="https://t.me/bla-bla-bla">
+                                </div>
+                                @error('manager_link')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="card card-success p-3">
@@ -513,6 +533,16 @@
                                 @error('editorial_opinion')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
+
+                                <div class="form-group">
+                                    <label for="pr_editorial_opinion">Отзыв редакции на португальском</label>
+                                    <textarea name="pr_editorial_opinion" class="form-control"
+                                              id="pr_editorial_opinion"
+                                              placeholder="Отзыв редакции на португальском">{{ old('pr_editorial_opinion') }}</textarea>
+                                </div>
+                                @error('pr_editorial_opinion')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="card card-success p-3">
@@ -521,7 +551,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="rating_support">Поддержки</label>
-                                    <input type="number" max="5" name="rating_support" value="{{ old('rating_support') }}" class="form-control"
+                                    <input type="number" max="5" name="rating_support"
+                                           value="{{ old('rating_support') }}" class="form-control"
                                            id="rating_support" placeholder="На пример: 4">
                                 </div>
                                 @error('rating_support')
@@ -530,7 +561,8 @@
 
                                 <div class="form-group">
                                     <label for="rating_payments">Оплат</label>
-                                    <input type="number" max="5" name="rating_payments" value="{{ old('rating_payments') }}" class="form-control"
+                                    <input type="number" max="5" name="rating_payments"
+                                           value="{{ old('rating_payments') }}" class="form-control"
                                            id="rating_payments" placeholder="На пример: 5">
                                 </div>
                                 @error('rating_payments')
@@ -539,7 +571,8 @@
 
                                 <div class="form-group">
                                     <label for="rating_offers">Офферов</label>
-                                    <input type="number" max="5" name="rating_offers" value="{{ old('rating_offers') }}" class="form-control"
+                                    <input type="number" max="5" name="rating_offers" value="{{ old('rating_offers') }}"
+                                           class="form-control"
                                            id="rating_offers" placeholder="На пример: 3">
                                 </div>
                                 @error('rating_offers')
@@ -548,7 +581,8 @@
 
                                 <div class="form-group">
                                     <label for="rating_betting">Ставок</label>
-                                    <input type="number" max="5" name="rating_betting" value="{{ old('rating_betting') }}" class="form-control"
+                                    <input type="number" max="5" name="rating_betting"
+                                           value="{{ old('rating_betting') }}" class="form-control"
                                            id="rating_betting" placeholder="На пример: 5">
                                 </div>
                                 @error('rating_betting')
@@ -817,10 +851,10 @@
                 height: 300,
                 maxHeight: 500,
                 toolbar: [
-                    ['insert', ['picture','link','video','table','hr']],
-                    ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
-                    ['paragraph', ['style','ol','ul','paragraph','height']],
-                    ['misc', ['fullscreen','codeview','undo','redo','help']],
+                    ['insert', ['picture', 'link', 'video', 'table', 'hr']],
+                    ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                    ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
+                    ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
                 ],
                 fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
                 fontNamesIgnoreCheck: ['Roboto', 'Montserrat']

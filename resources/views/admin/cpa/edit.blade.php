@@ -73,8 +73,10 @@
                                 <div class="form-group col-4">
                                     <label for="is_recomendated">Рекомендован</label>
                                     <select name="is_recomendated" class="form-control" id="is_recomendated">
-                                        <option {{ $cpa->is_recomendated == true ? 'selected' : '' }} value="1">Да</option>
-                                        <option {{ $cpa->is_recomendated == false ? 'selected' : '' }} value="0">Нет</option>
+                                        <option {{ $cpa->is_recomendated == true ? 'selected' : '' }} value="1">Да
+                                        </option>
+                                        <option {{ $cpa->is_recomendated == false ? 'selected' : '' }} value="0">Нет
+                                        </option>
                                     </select>
                                 </div>
                                 @error('is_recomendated')
@@ -472,6 +474,17 @@
                                 @error('manager_position')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
+
+                                <div class="form-group">
+                                    <label for="manager_link">Ссылка на мессенджер</label>
+                                    <input value="{{ $cpa->manager_link }}" name="manager_link" type="text"
+                                           class="form-control"
+                                           id="manager_link"
+                                           placeholder="https://t.me/bla-bla-bla">
+                                </div>
+                                @error('manager_link')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="card card-success p-3">
@@ -524,6 +537,16 @@
                                               placeholder="Отзыв редакции">{{ $cpa->editorial_opinion }}</textarea>
                                 </div>
                                 @error('editorial_opinion')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="pr_editorial_opinion">Отзыв редакции на португальском</label>
+                                    <textarea name="pr_editorial_opinion" class="form-control"
+                                              id="pr_editorial_opinion"
+                                              placeholder="Отзыв редакции на португальском">{{ $cpa->pr_editorial_opinion }}</textarea>
+                                </div>
+                                @error('pr_editorial_opinion')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -834,10 +857,10 @@
                 height: 300,
                 maxHeight: 500,
                 toolbar: [
-                    ['insert', ['picture','link','video','table','hr']],
-                    ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
-                    ['paragraph', ['style','ol','ul','paragraph','height']],
-                    ['misc', ['fullscreen','codeview','undo','redo','help']],
+                    ['insert', ['picture', 'link', 'video', 'table', 'hr']],
+                    ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                    ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
+                    ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
                 ],
                 fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
                 fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
