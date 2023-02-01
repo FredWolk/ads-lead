@@ -24,7 +24,7 @@
                 <h1 class="title">{{ $cpa["{$locale}name"] }}</h1>
                 <div class="videopage_main-underimage_autor to-show">
                     <div class="videopage_main-underimage_autor-image">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                        <img src="{{asset('assets/images/cpa_logo.webp')}}" alt="autor">
                     </div>
                     <p style="font-size: 14px;" class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                 </div>
