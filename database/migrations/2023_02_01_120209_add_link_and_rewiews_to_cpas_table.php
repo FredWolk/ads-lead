@@ -26,7 +26,6 @@ return new class extends Migration {
     public function down()
     {
         Schema::table('cpas', function (Blueprint $table) {
-            $table->dropColumn('manager_link');
             $table->dropColumn('pr_editorial_opinion');
         });
     }
