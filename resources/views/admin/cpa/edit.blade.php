@@ -541,12 +541,12 @@
                                 @enderror
 
                                 <div class="form-group">
-                                    <label for="pr_editorial_opinion">Отзыв редакции на португальском</label>
-                                    <textarea name="pr_editorial_opinion" class="form-control"
-                                              id="pr_editorial_opinion"
-                                              placeholder="Отзыв редакции на португальском">{{ $cpa->pr_editorial_opinion }}</textarea>
+                                    <label for="pt_editorial_opinion">Отзыв редакции на португальском</label>
+                                    <textarea name="pt_editorial_opinion" class="form-control"
+                                              id="pt_editorial_opinion"
+                                              placeholder="Отзыв редакции на португальском">{{ $cpa->pt_editorial_opinion }}</textarea>
                                 </div>
-                                @error('pr_editorial_opinion')
+                                @error('pt_editorial_opinion')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

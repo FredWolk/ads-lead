@@ -65,7 +65,7 @@ class StoreCpaRequest extends FormRequest
             'linkedin' => 'url|nullable',
             'forum_link' => 'url|nullable',
             'editorial_opinion' => 'string|nullable',
-            'pr_editorial_opinion' => 'string|nullable',
+            'pt_editorial_opinion' => 'string|nullable',
             'rating_support' => 'integer|nullable',
             'rating_payments' => 'integer|nullable',
             'rating_offers' => 'integer|nullable',
