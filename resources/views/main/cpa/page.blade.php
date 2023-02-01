@@ -52,7 +52,7 @@
                     <div class="videopage_main-underimage">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img src="{{ asset('storage/'. $cpa["{$locale}image"]) }}" alt="autor">
+                                <img src="{{ asset('assets/images/cpa_logo.webp') }}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                         </div>
@@ -273,7 +273,7 @@
                     <div class="videopage_main-underimage change">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                <img src="{{asset('assets/images/cpa_logo.webp')}}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                         </div>
