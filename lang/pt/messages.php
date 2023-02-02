@@ -3,9 +3,9 @@
 return [
     'articles' => 'Artigos',
     'video' => 'Vídeo',
-    'cpa' => 'Fórum',
-    'ad' => 'Redes de Afiliados',
-    'forum' => 'Redes de Propaganda',
+    'cpa' => 'Redes de Afiliados',
+    'ad' => 'Redes de Propaganda',
+    'forum' => 'Fórum',
     'services' => 'Serviços',
 
     'lasted' => 'Últimos Artigos',

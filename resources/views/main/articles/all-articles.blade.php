@@ -26,7 +26,7 @@
     <section class="articlespage">
         <div class="container">
             @empty($seo)
-                <h1 class="title">Article</h1>
+                <h1 class="title"></h1>
             @else
                 <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                 <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
