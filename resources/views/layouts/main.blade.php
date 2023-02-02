@@ -36,24 +36,24 @@
                 <nav class="header_nav">
                     <ul class="header_nav_list">
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('articles') }}">Articles</a>
+                            <a class="header_nav--link" href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('video') }}">Video</a>
+                            <a class="header_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
                         </li>
                         @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
                             <li class="header_nav_list_item">
-                                <a class="header_nav--link" href="{{ route('forum') }}">Forum</a>
+                                <a class="header_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
                             </li>
                         @endif
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
+                            <a class="header_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('ad') }}">Ad-networks</a>
+                            <a class="header_nav--link" href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                         </li>
                         <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('services') }}">Services</a>
+                            <a class="header_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                         </li>
                     </ul>
                 </nav>
@@ -159,24 +159,24 @@
             <nav class="burger_nav">
                 <ul class="burger_nav_list">
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('articles') }}">Articles</a>
+                        <a class="burger_nav--link" href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('video') }}">Video</a>
+                        <a class="burger_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
                     </li>
                     @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
                         <li class="burger_nav_list_item">
-                            <a class="burger_nav--link" href="{{ route('forum') }}">Forum</a>
+                            <a class="burger_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
                         </li>
                     @endif
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
+                        <a class="burger_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('ad') }}">Ad-networks</a>
+                        <a class="burger_nav--link" href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('index') }}">Services</a>
+                        <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
                     </li>
                 </ul>
             </nav>
@@ -204,13 +204,13 @@
     <footer class="footer">
         <div class="container">
             <div class="footer_contacts">
-                <p class="footer_contacts-text">Contact</p>
+                <p class="footer_contacts-text">{{ __('messages.contact') }}</p>
                 <address class="footer_contacts-address">
                     <p class="footer_contacts-address-text">8 Ubi Road 2 #04-24 Zervex Singapore 408538</p>
                     <a class="footer_contacts-address-text"
                        href="mailto:support@adleadpro.com">support@adleadpro.com</a>
-                    <a class="footer_contacts-address-text" target="_blank" href="{{ route('index') }}">Privacy
-                        policy</a>
+                    <a class="footer_contacts-address-text" target="_blank"
+                       href="{{ route('index') }}">{{ __('messages.policy') }}</a>
                 </address>
                 <span class="footer_tm">© 2022 eduardmadia</span>
             </div>
@@ -219,23 +219,23 @@
                 <nav class="footer_nav">
                     <ul class="footer_nav_list">
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('forum') }}">Forum</a>
+                            <a class="footer_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
                         </li>
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
+                            <a class="footer_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                         </li>
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('ad') }}">Ad-networks</a>
+                            <a class="footer_nav--link" href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                         </li>
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('index') }}">Services</a>
+                            <a class="footer_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                         </li>
                         <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('base') }}">KNOWLEDGE BASE</a>
+                            <a class="footer_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
                         </li>
                     </ul>
                 </nav>
-                <p class="footer_social-title">Subscribe to us</p>
+                <p class="footer_social-title">{{ __('messages.subscribe') }}</p>
                 <ul class="footer_social_list">
                     <li class="footer_social_list_item">
                         <a class="footer_social--link" href="{{ route('index') }}">instagram</a>

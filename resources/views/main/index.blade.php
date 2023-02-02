@@ -13,9 +13,9 @@
     @if(!empty($article))
         <section class="main_articles">
             <div class="container">
-                <h1 class="mainpage-title"><span>Affjournal</span> — {{ __('messages.index') }}</h1>
+                <h1 class="mainpage-title"><span>Affjournal</span> — {{ __('messages.index.h1') }}</h1>
                 <div class="main_articles_top">
-                    <h2 class="title">{{ __('messages.title') }}</h2>
+                    <h2 class="title">{{ __('messages.lasted') }}</h2>
                     <div class="main_articles_top_link-wrapp">
                         <div class="main_articles_top_link-wrapp-arrows">
                             @for ($i=0; $i<10; $i++)
@@ -27,7 +27,7 @@
                                 </svg>
                             @endfor
                         </div>
-                        <a class="btn--grey" href="{{ route('articles') }}">Show all</a>
+                        <a class="btn--grey" href="{{ route('articles') }}">{{ __('messages.show') }}</a>
                     </div>
                 </div>
                 <ul class="main_articles_info">
@@ -164,7 +164,7 @@
     @if(!empty($cpa))
         <section class="main-cpa">
             <div class="container">
-                <h2 class="title">CPA-networks</h2>
+                <h2 class="title">{{ __('messages.cpa') }}</h2>
                 <div class="main-cpa_wrapper">
                     <div class="main-cpa_review">
                         <p class="main-cpa-subt">review</p>
@@ -253,7 +253,7 @@
                         <div class="main-cpa-subt_wrapp">
                             <p class="main-cpa-subt">TOp-5</p>
                             <a class="link--blue" href="{{ route('cpa') }}">
-                                <span>Show all</span>
+                                <span>{{ __('messages.show') }}</span>
                                 <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                             </a>
                         </div>
@@ -309,9 +309,9 @@
             <div class="container">
                 <div class="main_articles_top">
                     <div class="main-video-top-left">
-                        <h2 class="title">Video</h2>
+                        <h2 class="title">{{ __('messages.video') }}</h2>
                         <a class="link--blue" href="{{ route('video') }}">
-                            <span>Show all</span>
+                            <span>{{ __('messages.show') }}</span>
                             <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                         </a>
                     </div>
@@ -327,7 +327,7 @@
                             @endfor
                         </div>
                         <a class="btn--red" target="_blank" href="https://youtube.com">
-                            <span>our youtube</span>
+                            <span>{{ __('messages.youtube') }}</span>
                             <img src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                         </a>
                     </div>
@@ -390,7 +390,7 @@
 
                 <div class="main_articles--mobile">
                     <a class="btn--red" href="{{ route('index') }}">
-                        <span>our youtube</span>
+                        <span>{{ __('messages.youtube') }}</span>
                         <img src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                     </a>
                 </div>
@@ -400,7 +400,7 @@
     @if(!empty($ads))
         <section class="main-adn">
             <div class="container">
-                <h2 class="title">Ad-networks</h2>
+                <h2 class="title">{{ __('messages.ad') }}</h2>
                 <div class="main-cpa_wrapper">
                     <div class="main-cpa_review">
                         <p class="main-cpa-subt">review</p>
@@ -489,7 +489,7 @@
                         <div class="main-cpa-subt_wrapp">
                             <p class="main-cpa-subt">TOp-5</p>
                             <a class="link--blue" href="{{ route('ad') }}">
-                                <span>Show all</span>
+                                <span>{{ __('messages.show') }}</span>
                                 <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                             </a>
                         </div>
@@ -547,9 +547,9 @@
             <div class="main-events_wrapper">
                 <div class="main-events_left">
                     <div class="main-cpa-subt_wrapp">
-                        <h3 class="main-cpa-subt">Coming Event</h3>
+                        <h3 class="main-cpa-subt">{{ __('messages.index.events') }}</h3>
                         <a class="link--blue" href="{{ route('events') }}">
-                            <span>Show all</span>
+                            <span>{{ __('messages.show') }}</span>
                             <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                         </a>
                     </div>
@@ -612,7 +612,7 @@
                             <div class="swiper-pagination"></div>
                         </div>
 
-                        <a class="btn--grey" href="{{ route('events') }}">Show all</a>
+                        <a class="btn--grey" href="{{ route('events') }}">{{ __('messages.show') }}</a>
                     </div>
                 </div>
                 @php
@@ -633,7 +633,7 @@
                 @endphp
                 <div class="main-events_right">
                     <div class="main-events_right_top">
-                        <h3 class="main-cpa-subt">Calendar</h3>
+                        <h3 class="main-cpa-subt">{{ __('messages.calendar') }}</h3>
 
                         <div class="main-events_right_top_month">
                             <div class="main-events_right_top_month_arrows">

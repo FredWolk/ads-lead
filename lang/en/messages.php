@@ -18,6 +18,7 @@ return [
     'base' => 'Knowledge base',
     'subscribe' => 'Subscribe',
     'policy' => 'Privacy policy',
+
     'vertical' => 'Vertical',
     'countries' => 'Countries',
     'payment_models' => 'Payment models',
@@ -40,6 +41,7 @@ return [
 
     'comments' => 'Comments',
     'comments.text' => 'Leave a comment under the video on our YouTube channel',
+
     'сhoose' => 'Choose a month',
 
     'rating' => 'Rating',
@@ -57,6 +59,7 @@ return [
     'cpa.payment.method' => 'Payment frequency',
     'cpa.affiliate' => 'Affiliate program',
     'cpa.tools' => 'Rates/bets',
+
     'opinion' => 'Editorial opinion',
 
     'ad.year' => 'Foundation year',
