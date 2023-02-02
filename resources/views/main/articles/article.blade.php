@@ -2,10 +2,10 @@
 @section('seo')
     <title>{{ $article["{$locale}title"] }}</title>
     <meta name="description" content="{{ $article["{$locale}description"] }}">
-    <meta name="keywords" content="{{ $article["{$locale}keywords"] }}" />
-    <meta property="og:title" content="{{ $article["{$locale}og_title"] }}" />
-    <meta property="og:description" content="{{ $article["{$locale}og_description"] }}" />
-    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta name="keywords" content="{{ $article["{$locale}keywords"] }}"/>
+    <meta property="og:title" content="{{ $article["{$locale}og_title"] }}"/>
+    <meta property="og:description" content="{{ $article["{$locale}og_description"] }}"/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
@@ -18,7 +18,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('articles') }}">Articles</a>
+                    <a href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
                     <a>{{ $article["{$locale}name"] }}</a>
@@ -81,7 +81,7 @@
                     <div class="articlepage_menu">
                         @if(!empty($article["{$locale}contents"]))
                             <div class="articlepage_menu--item">
-                                <p class="articlepage_menu--item-title">Contents</p>
+                                <p class="articlepage_menu--item-title">{{ __('messages.сontent') }}</p>
                                 <ul class="articlepage_menu--item_list">
                                     @foreach($article["{$locale}contents"] as $k => $v)
                                         <li class="articlepage_menu--item_list-item">
@@ -93,7 +93,7 @@
                         @endif
                         @if(!empty($article["{$locale}contents"]))
                             <div class="articlepage_menu--item">
-                                <p class="articlepage_menu--item-title">For whom</p>
+                                <p class="articlepage_menu--item-title">{{ __('messages.who') }}</p>
                                 <ul class="articlepage_menu--item_list">
                                     @foreach($article["{$locale}for_whom"] as $k => $v)
                                         <li class="articlepage_menu--item_list-item">
@@ -128,7 +128,7 @@
                     </div>
                     <div class="articlepage__links">
                         <div class="articlepage__links-item">
-                            <p class="articlepage__links-item-title">Subscribe</p>
+                            <p class="articlepage__links-item-title">{{ __('messages.subscribe') }}</p>
                             <ul class="articlepage__links-item_list">
                                 <li class="articlepage__links-item_list-item">
                                     <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">instagram</a>
@@ -149,7 +149,7 @@
                         </div>
                         <div class="articlepage__links-line"></div>
                         <div class="articlepage__links-item">
-                            <p class="articlepage__links-item-title">share</p>
+                            <p class="articlepage__links-item-title">{{ __('messages.share') }}</p>
                             <ul class="articlepage__links-item_list">
                                 <li class="articlepage__links-item_list-item">
                                     <a class="articlepage__links-item_list-item--link" target="_blank"

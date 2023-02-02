@@ -17,7 +17,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('video') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : 'Video' }}</a>
+                    <a href="{{ route('video') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.video') }}</a>
                 </li>
             </ul>
         </div>
@@ -28,7 +28,7 @@
             <div class="allvideopage_top">
                 <div class="allvideopage_top-left">
                     @empty($seo)
-                        <h1 class="title">Video</h1>
+                        <h1 class="title">{{ __('messages.video') }}</h1>
                     @else
                         <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                         <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
@@ -47,7 +47,7 @@
                         @endfor
                     </div>
                     <a class="btn--red" href="{{ route('index') }}">
-                        <span>our youtube</span>
+                        <span>{{ __('messages.youtube') }}</span>
                         <img src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                     </a>
                 </div>
@@ -108,7 +108,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('video') }}">Video</a>
+                    <a href="{{ route('video') }}">{{ __('messages.video') }}</a>
                 </li>
             </ul>
         </div>

@@ -17,7 +17,8 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('articles') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : 'Base' }}</a>
+                    <a href="{{ route('articles') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.base') }}
+                        }}</a>
                 </li>
             </ul>
         </div>
@@ -26,7 +27,7 @@
     <section class="articlespage">
         <div class="container">
             @empty($seo)
-                <h1 class="title">Base</h1>
+                <h1 class="title">{{ __('messages.base') }}</h1>
             @else
                 <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                 <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
@@ -97,7 +98,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('articles') }}">Articles</a>
+                    <a href="{{ route('articles') }}">{{ __('messages.base') }}</a>
                 </li>
             </ul>
         </div>

@@ -97,7 +97,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('articles') }}">Articles</a>
+                    <a href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                 </li>
             </ul>
         </div>
