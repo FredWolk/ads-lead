@@ -3,8 +3,8 @@
 return [
     'articles' => 'articles',
     'video' => 'video',
-    'cpa' => 'Partner network',
-    'ad' => 'Ad network',
+    'cpa' => 'cpa networks',
+    'ad' => 'Ad networks',
     'forum' => 'forum',
     'services' => 'tools',
 
