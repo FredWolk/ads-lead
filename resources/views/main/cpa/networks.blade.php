@@ -28,7 +28,7 @@
             <section class="cpapage_main">
                 <div class="cpapage_main-to-hide" style="margin-block: 25px">
                     @empty($seo)
-                        <h1 class="title">__('messages.cpa')</h1>
+                        <h1 class="title">{{ __('messages.cpa') }}</h1>
                     @else
                         <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                         <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
