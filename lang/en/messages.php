@@ -36,7 +36,7 @@ return [
     'vertical' => 'Vertical',
     'countries' => 'Countries',
     'payment_models' => 'Payment models',
-    'regularity_payments' => 'Regularity of payments',
+    'payment_schedule' => 'Regularity of payments',
     'payment_systems' => 'Payment systems',
 
     'minimum_amount' => 'Minimum amount to deposit',

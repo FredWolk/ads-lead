@@ -36,7 +36,7 @@ return [
     'vertical' => 'Orientação',
     'countries' => 'Países',
     'payment_models' => 'Modelos de pagamento',
-    'regularity_payments' => 'Periodicidade de pagamentos',
+    'payment_schedule' => 'Periodicidade de pagamentos',
     'payment_systems' => 'Sistemas de Pagamento',
 
     'minimum_amount' => 'Depósito Mínimo',
