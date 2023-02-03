@@ -38,8 +38,7 @@ return [
     'payment_models' => 'Payment models',
     'payment_schedule' => 'Regularity of payments',
     'payment_systems' => 'Payment systems',
-
-    'minimum_amount' => 'Minimum amount to deposit',
+    'minimum_top_up_amount' => 'Minimum amount to deposit',
 
     'ad_types' => 'Ad types',
     'promocode' => 'promocode',

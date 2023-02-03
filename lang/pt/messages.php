@@ -38,8 +38,7 @@ return [
     'payment_models' => 'Modelos de pagamento',
     'payment_schedule' => 'Periodicidade de pagamentos',
     'payment_systems' => 'Sistemas de Pagamento',
-
-    'minimum_amount' => 'Depósito Mínimo',
+    'minimum_top_up_amount' => 'Depósito Mínimo',
 
     'ad_types' => 'Formatos de Propaganda',
     'promocode' => 'Código de Promoção',

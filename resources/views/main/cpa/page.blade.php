@@ -305,8 +305,7 @@
                                         <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
                                     </div>
                                     <div class="articlepage--review-integration_autor-text-wrapp">
-                                        <p class="articlepage--review-integration_autor-text-wrapp-name">Editorial
-                                            Opinion</p>
+                                        <p class="articlepage--review-integration_autor-text-wrapp-name">{{ __('messages.opinion') }}</p>
                                     </div>
                                 </div>
                                 <p class="articlepage--comments-none-editorial-opinion-text">{{ $cpa["{$locale}editorial_opinion"] }}</p>
