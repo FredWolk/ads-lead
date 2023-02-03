@@ -1,17 +1,17 @@
 @php
     $month = [
-            '01' => 'January',
-            '02' => 'February',
-            '03' => 'March',
-            '04' => 'April',
-            '05' => 'May',
-            '06' => 'June',
-            '07' => 'July',
-            '08' => 'August',
-            '09' => 'September',
-            '10' => 'October',
-            '11' => 'November',
-            '12' => 'December'
+            '01' => __('messages.January'),
+            '02' => __('messages.February'),
+            '03' => __('messages.March'),
+            '04' => __('messages.April'),
+            '05' => __('messages.May'),
+            '06' => __('messages.June'),
+            '07' => __('messages.July'),
+            '08' => __('messages.August'),
+            '09' => __('messages.September'),
+            '10' => __('messages.October'),
+            '11' => __('messages.November'),
+            '12' => __('messages.December')
         ]
 @endphp
 <div class="main-events_right_top">
@@ -19,13 +19,17 @@
 
     <div class="main-events_right_top_month">
         <div class="main-events_right_top_month_arrows">
-            <button type="button" data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'-1 month')) : date('Y-m-01', strtotime('-1 month')) }}" class="arrow--btn left dateChange">
+            <button type="button"
+                    data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'-1 month')) : date('Y-m-01', strtotime('-1 month')) }}"
+                    class="arrow--btn left dateChange">
                 <img class="arrow--btn-black"
                      src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
                 <img class="arrow--btn-blue"
                      src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
             </button>
-            <button type="button" data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'+1 month')) : date('Y-m-01', strtotime('+1 month')) }}" class="arrow--btn dateChange">
+            <button type="button"
+                    data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'+1 month')) : date('Y-m-01', strtotime('+1 month')) }}"
+                    class="arrow--btn dateChange">
                 <img class="arrow--btn-black"
                      src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
                 <img class="arrow--btn-blue"
