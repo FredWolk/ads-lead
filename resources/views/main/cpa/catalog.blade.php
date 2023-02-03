@@ -8,7 +8,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('cpa') }}">CPA-networks</a>
+                    <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
                     <a>{{ $catalog }}</a>
@@ -68,7 +68,7 @@
                                     <div class="cpapage_info--item_buttons">
                                         <a class="btn--blue header_buttons-blue-btn"
                                            href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
-                                            <span>Review</span>
+                                            <span>{{ __('messages.review') }}</span>
                                             <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
