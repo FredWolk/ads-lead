@@ -747,10 +747,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('cpa') }}">CPA-networks</a>
+                    <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('cpa') }}">AdleadPro</a>
+                    <a>{{ $cpa["{$locale}name"] }}</a>
                 </li>
             </ul>
         </div>
