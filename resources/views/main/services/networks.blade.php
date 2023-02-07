@@ -228,6 +228,9 @@
                                     </div>
                                 </li>
                             @endforeach
+                            <div class="pagination">
+                                {{ $services->links() }}
+                            </div>
                         </ul>
                     </div>
 
