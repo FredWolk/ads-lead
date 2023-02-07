@@ -17,7 +17,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : 'AD-networks' }}</a>
+                    <a href="{{ route('ad') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.ad') }}</a>
                 </li>
             </ul>
         </div>
@@ -28,7 +28,7 @@
             <div class="cpapage_main">
                 <div class="cpapage_main-to-hide" style="margin-block: 25px">
                     @empty($seo)
-                        <h1 class="title">AD-networks</h1>
+                        <h1 class="title">{{ __('messages.ad') }}</h1>
                     @else
                         <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                         <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
@@ -98,7 +98,7 @@
                                     <div class="cpapage_info--item_buttons">
                                         <a class="btn--blue header_buttons-blue-btn"
                                            href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
-                                            <span>Review</span>
+                                            <span>{{ __('messages.review') }}</span>
                                             <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
@@ -112,7 +112,7 @@
                                         line-height: 160%;
                                         text-transform: uppercase;
                                         ">
-                                                promo code
+                                                {{ __('messages.promocode') }}
                                                 <svg class="svg1" width="13" height="13" viewBox="0 0 13 13" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -169,7 +169,7 @@
                         </ul>
 
                         <a style="max-width: 200px; width: 100%;" href="{{ route('ad') }}"
-                           class="btn--grey cpapage_info--block--link">Show all</a>
+                           class="btn--grey cpapage_info--block--link">{{ __('messages.show') }}</a>
                     </div>
 
                     @if(!empty($banner))
@@ -191,7 +191,7 @@
                                 <div class="cpapage_info-header">
                                     <h2 class="cpapage_info-title">{{ $k }}</h2>
                                     <a class="link--black-rotateble-arrows" href="{{ route('ad.catalog', $k) }}">
-                                        <span>See all</span>
+                                        <span>{{ __('messages.show') }}</span>
                                         <div class="link--black-rotateble-arrows-group">
                                             @for ($a=0; $a<3; $a++)
                                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
@@ -229,7 +229,7 @@
                                             <div class="cpapage_info--item_buttons">
                                                 <a class="btn--blue header_buttons-blue-btn"
                                                    href="{{ route('ad.page', [$v['main_advertising_formats'], $v['link']]) }}">
-                                                    <span>Review</span>
+                                                    <span>{{ __('messages.review') }}</span>
                                                     <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                          alt="arrow">
                                                 </a>
@@ -244,7 +244,7 @@
                                         line-height: 160%;
                                         text-transform: uppercase;
                                         ">
-                                                        promo code
+                                                        {{ __('messages.promocode') }}
                                                         <svg class="svg1" width="13" height="13" viewBox="0 0 13 13"
                                                              fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -295,7 +295,7 @@
                                 </ul>
 
                                 <a style="max-width: 200px; width: 100%;" href="{{ route('ad') }}"
-                                   class="btn--grey cpapage_info--block--link">Show all</a>
+                                   class="btn--grey cpapage_info--block--link">{{ __('messages.show') }}</a>
                             </div>
                         @endforeach
                         <div style="margin-top: 20px">
@@ -330,7 +330,7 @@
                         @foreach($filters as $k => $i)
                             <li class="filter-aside_list-item">
                                 <button type="button" class="filter-aside--btn">
-                                    <p class="filter-aside--btn-text">{{ $k }}</p>
+                                    <p class="filter-aside--btn-text">{{ __("messages.{$k}") }}</p>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -375,7 +375,7 @@
 
             <div class="cpapage_main-to-show">
                 @empty($seo)
-                    <h1 class="title">AD-networks</h1>
+                    <h1 class="title">{{ __('messages.ad') }}</h1>
                 @else
                     <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                     <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
@@ -417,7 +417,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">Ad-networks</a>
+                    <a href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                 </li>
             </ul>
         </div>

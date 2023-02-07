@@ -8,10 +8,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">Ad-networks</a>
+                    <a href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">banners</a>
+                    <a href="{{ route('ad') }}">{{ $catalog }}</a>
                 </li>
             </ul>
         </div>
@@ -67,7 +67,7 @@
                                     <div class="cpapage_info--item_buttons">
                                         <a class="btn--blue header_buttons-blue-btn"
                                            href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
-                                            <span>Review</span>
+                                            <span>{{ __('messages.review') }}</span>
                                             <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
@@ -81,7 +81,7 @@
                                         line-height: 160%;
                                         text-transform: uppercase;
                                         ">
-                                                promo code
+                                                {{ __('messages.promocode') }}
                                                 <svg class="svg1" width="13" height="13" viewBox="0 0 13 13" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -165,7 +165,7 @@
                         @foreach($filters as $k => $i)
                             <li class="filter-aside_list-item">
                                 <button type="button" class="filter-aside--btn">
-                                    <p class="filter-aside--btn-text">{{ $k }}</p>
+                                    <p class="filter-aside--btn-text">{{ __("messages.{$k}") }}</p>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -251,10 +251,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">Ad-networks</a>
+                    <a href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">banners</a>
+                    <a href="{{ route('ad') }}">{{ $catalog }}</a>
                 </li>
             </ul>
         </div>
