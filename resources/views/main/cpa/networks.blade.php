@@ -145,7 +145,7 @@
                         @foreach($cpa->groupBy('main_verticales')->toArray() as $k => $i)
                             <div class="cpapage_info--block">
                                 <div class="cpapage_info-header">
-                                    <h2 class="cpapage_info-title">{{ __("messages.{$k}") }}</h2>
+                                    <h2 class="cpapage_info-title">{{ $k }}</h2>
                                     <a class="link--black-rotateble-arrows" href="{{ route('cpa.catalog', $k) }}">
                                         <span>{{ __('messages.show') }}</span>
                                         <div class="link--black-rotateble-arrows-group">
