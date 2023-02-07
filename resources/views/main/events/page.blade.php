@@ -45,6 +45,7 @@
                                 if (!empty($event['form_social']))
                                     $arr = explode('||', $event['form_social'])
                             @endphp
+                            @dd($arr)
                             <p class="eventpage_card--item-title">social media</p>
                             <div class="eventpage_card--item_links">
                                 @if(!empty($arr))
