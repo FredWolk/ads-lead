@@ -46,15 +46,19 @@
                                 <td>{{ $article->views }}</td>
                             </tr>
                             <tr>
+                                <td>Тип статьи</td>
+                                <td>{{ $article->type }}</td>
+                            </tr>
+                            <tr>
                                 <td>Изображение</td>
                                 <td><img width="150" src="{{ asset('storage/'.$article->image) }}" alt=""></td>
                             </tr>
                             <tr>
                                 <td>Теги</td>
                                 <td>
-                                   @if(!empty($article->tags))
-                                       @foreach($article->tags as $i)
-                                           {{ $i }};
+                                    @if(!empty($article->tags))
+                                        @foreach($article->tags as $i)
+                                            {{ $i }};
                                         @endforeach
                                     @endif
                                 </td>
