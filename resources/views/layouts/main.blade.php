@@ -24,6 +24,19 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
     @yield('style')
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-64MR45VMSZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-64MR45VMSZ');
+    </script>
 </head>
 <body>
 <div class="wrapper">
