@@ -14,7 +14,7 @@ class EventsController extends Controller
     public function __invoke()
     {
         return view('main.events.index', [
-            'events' => Events::paginate(4),
+            'events' => Events::paginate(8),
             'locale' => App::getLocale() == 'en' ? '' : 'pt_',
             'banner' => BannerAside::where('status', 1)->where('show', 'all')->first(),
             'seo' => Seo::where('page', Seo::EVENTS_PAGE)->first()
