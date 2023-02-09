@@ -576,12 +576,11 @@
                 </article>
                 <aside class="filter-aside">
                     <div class="cpaartpage_aside_rating">
-                        <p class="cpaartpage_aside_rating-title">Rating</p>
+                        <p class="cpaartpage_aside_rating-title">{{ __('messages.rating') }}</p>
                         <div class="cpaartpage_aside_rating_group">
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                        Support</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.support') }}</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
                                             <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
@@ -599,8 +598,7 @@
                             </div>
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                        Payments</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.payouts') }}</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
                                             <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
@@ -618,8 +616,7 @@
                             </div>
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                        Offers</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.offers') }}</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
                                             <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
@@ -637,8 +634,7 @@
                             </div>
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                        Betting</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.rates') }}</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
                                             <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
