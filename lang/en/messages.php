@@ -7,6 +7,7 @@ return [
     'ad' => 'Ad networks',
     'forum' => 'forum',
     'services' => 'tools',
+    'all_services' => 'all tools',
 
     'January' => 'January',
     'February' => 'February',

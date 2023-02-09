@@ -7,6 +7,7 @@ return [
     'ad' => 'Redes de Propaganda',
     'forum' => 'Fórum',
     'services' => 'Serviços',
+    'all_services' => 'todas as ferramentas',
 
     'January' => 'Janeiro',
     'February' => 'fevereiro',

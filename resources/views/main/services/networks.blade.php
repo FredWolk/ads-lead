@@ -17,7 +17,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('services') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : 'Services' }}</a>
+                    <a href="{{ route('services') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : '__('messages.services')' }}</a>
                 </li>
             </ul>
         </div>
@@ -28,7 +28,7 @@
             <div class="cpapage_main">
                 <div class="cpapage_main-to-hide" style="margin-block: 25px">
                     @empty($seo)
-                        <h1 class="title">Services</h1>
+                        <h1 class="title">{{ __('messages.services') }}</h1>
                     @else
                         <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
                         <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
@@ -80,7 +80,7 @@
                                         line-height: 160%;
                                         text-transform: uppercase;
                                         ">
-                                                promo code
+                                                {{ __('messages.promocode') }}
                                                 <svg class="svg1" width="13" height="13" viewBox="0 0 13 13" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -140,7 +140,7 @@
 
                     <div class="cpapage_info--block">
                         <div class="cpapage_info-header">
-                            <h2 class="cpapage_info-title">All Services</h2>
+                            <h2 class="cpapage_info-title">{{ __('messages.all_services') }}</h2>
                         </div>
                         <ul class="cpapage_info-list ad__filters">
                             @foreach($services as $i)
