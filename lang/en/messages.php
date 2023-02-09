@@ -40,7 +40,7 @@ return [
     'payment_systems' => 'Payment systems',
     'minimum_top_up_amount' => 'Minimum amount to deposit',
 
-    'ad_types' => 'Ad types',
+    'advertising_formats' => 'Ad types',
     'promocode' => 'promocode',
     'сontent' => 'Content',
     'who' => 'Who it is for',

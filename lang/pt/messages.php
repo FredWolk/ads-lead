@@ -40,7 +40,7 @@ return [
     'payment_systems' => 'Sistemas de Pagamento',
     'minimum_top_up_amount' => 'Depósito Mínimo',
 
-    'ad_types' => 'Formatos de Propaganda',
+    'advertising_formats' => 'Formatos de Propaganda',
     'promocode' => 'Código de Promoção',
     'сontent' => 'Sumário',
     'who' => 'Destinatários',
