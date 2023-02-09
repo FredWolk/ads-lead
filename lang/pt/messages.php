@@ -58,7 +58,7 @@ return [
 
     'сhoose' => 'Selecionar o mês',
 
-    'rating' => 'Classificação',
+    'rating' => 'Ranking',
     'support' => 'Suporte',
     'payouts' => 'Pagamentos',
     'offers' => 'Ofertas',
