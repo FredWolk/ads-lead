@@ -11,7 +11,7 @@
                     <a href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">{{ $catalog }}</a>
+                    {{ $catalog }}
                 </li>
             </ul>
         </div>
@@ -254,7 +254,7 @@
                     <a href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">{{ $catalog }}</a>
+                    {{ $catalog }}
                 </li>
             </ul>
         </div>

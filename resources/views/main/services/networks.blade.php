@@ -17,7 +17,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('services') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.services') }}</a>
+                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.services') }}
                 </li>
             </ul>
         </div>
@@ -302,7 +302,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('services') }}">Services</a>
+                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.services') }}
                 </li>
             </ul>
         </div>

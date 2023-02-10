@@ -21,7 +21,7 @@
                     <a href="{{ route('video') }}">{{ __('messages.video') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a>{{ $video["{$locale}name"] }}</a>
+                    {{ $video["{$locale}name"] }}
                 </li>
             </ul>
         </div>
@@ -134,7 +134,7 @@
                     <a href="{{ route('video') }}">{{ __('messages.video') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('video') }}">Traffic Arbitrage from...</a>
+                    {{ $video["{$locale}name"] }}
                 </li>
             </ul>
         </div>

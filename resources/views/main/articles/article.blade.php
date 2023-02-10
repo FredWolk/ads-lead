@@ -21,7 +21,7 @@
                     <a href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a>{{ $article["{$locale}name"] }}</a>
+                    {{ $article["{$locale}name"] }}
                 </li>
             </ul>
         </div>
@@ -293,10 +293,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('articles') }}">Articles</a>
+                    <a href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('articles') }}">Traffic Arbitrage from...</a>
+                    {{ $article["{$locale}name"] }}
                 </li>
             </ul>
         </div>

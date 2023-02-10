@@ -11,7 +11,7 @@
                     <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a>{{ $catalog }}</a>
+                    {{ $catalog }}
                 </li>
             </ul>
         </div>
@@ -228,10 +228,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('index') }}">CPA-networks</a>
+                    <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('cpa') }}">sweepstakes</a>
+                    {{ $catalog }}
                 </li>
             </ul>
         </div>

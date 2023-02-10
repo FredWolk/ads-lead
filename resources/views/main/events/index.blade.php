@@ -17,7 +17,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('events') }}">{{ !empty($seo) ? $seo["{$locale}h1"] : 'Events' }}</a>
+                    {{ !empty($seo) ? $seo["{$locale}h1"] : 'Events' }}
                 </li>
             </ul>
         </div>
@@ -236,7 +236,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('events') }}">Events</a>
+                    {{ !empty($seo) ? $seo["{$locale}h1"] : 'Events' }}
                 </li>
             </ul>
         </div>

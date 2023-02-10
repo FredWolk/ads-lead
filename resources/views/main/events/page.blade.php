@@ -10,7 +10,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('events') }}">{{ $event["${locale}name"] }}</a>
+                    {{ $event["${locale}name"] }}
                 </li>
             </ul>
         </div>
@@ -152,7 +152,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('events') }}">SBC Summit Latinoamérica</a>
+                    {{ $event["${locale}name"] }}
                 </li>
             </ul>
         </div>

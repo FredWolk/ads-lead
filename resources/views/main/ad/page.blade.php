@@ -3,209 +3,215 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
 @endsection
 @section('content')
-<section class="breadcrambs top">
-    <div class="container">
-        <ul class="breadcrambs_list">
-            <li class="breadcrambs_list-item">
-                <a href="{{ route('index') }}">Homepage</a>
-            </li>
-            <li class="breadcrambs_list-item">
-                <a href="{{ route('ad') }}">Ad-networks</a>
-            </li>
-            <li class="breadcrambs_list-item">
-                <a>{{ $ad["{$locale}name"] }}</a>
-            </li>
-        </ul>
-    </div>
-</section>
-<section class="videopage articlepage">
-    <div class="container">
-        <div class="articlepage_top">
-            <h1 class="title">{{ $ad["{$locale}name"] }}</h1>
-            <div class="videopage_main-underimage_autor to-show">
-                <div class="videopage_main-underimage_autor-image">
-                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
-                </div>
-                <p style="font-size: 14px;" class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
-            </div>
-            <div class="articlepage_bot">
-                <div class="articlepage_bot_item">
-                    <p class="articlepage--date">Date written:<span class="articlepage--date-text-value">{{ date('d/m/Y', strtotime($ad['created_at'])) }}</span></p>
-                </div>
-                <div class="articlepage_bot_item">
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.9987 1.79167C8.07129 1.7881 9.12312 2.08729 10.0333 2.65484C10.9434 3.22239 11.6749 4.03526 12.1437 5C11.6755 5.96517 10.9441 6.77843 10.0338 7.34606C9.12356 7.91368 8.07144 8.21259 6.9987 8.20833C5.92596 8.21259 4.87384 7.91368 3.96357 7.34606C3.0533 6.77843 2.32192 5.96517 1.8537 5C2.32247 4.03526 3.05398 3.22239 3.96413 2.65484C4.87427 2.08729 5.9261 1.7881 6.9987 1.79167ZM6.9987 0.625C4.08203 0.625 1.5912 2.43917 0.582031 5C1.5912 7.56083 4.08203 9.375 6.9987 9.375C9.91536 9.375 12.4062 7.56083 13.4154 5C12.4062 2.43917 9.91536 0.625 6.9987 0.625ZM6.9987 3.54167C7.38547 3.54167 7.7564 3.69531 8.02989 3.9688C8.30339 4.24229 8.45703 4.61323 8.45703 5C8.45703 5.38677 8.30339 5.75771 8.02989 6.0312C7.7564 6.30469 7.38547 6.45833 6.9987 6.45833C6.61192 6.45833 6.24099 6.30469 5.9675 6.0312C5.69401 5.75771 5.54036 5.38677 5.54036 5C5.54036 4.61323 5.69401 4.24229 5.9675 3.9688C6.24099 3.69531 6.61192 3.54167 6.9987 3.54167ZM6.9987 2.375C5.55203 2.375 4.3737 3.55333 4.3737 5C4.3737 6.44667 5.55203 7.625 6.9987 7.625C8.44536 7.625 9.6237 6.44667 9.6237 5C9.6237 3.55333 8.44536 2.375 6.9987 2.375Z" fill="#181A1C"/></svg>
-                    <span class="articlepage--date-text-value">{{ $ad['views'] }}</span>
-                </div>
-            </div>
+    <section class="breadcrambs top">
+        <div class="container">
+            <ul class="breadcrambs_list">
+                <li class="breadcrambs_list-item">
+                    <a href="{{ route('index') }}">Homepage</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    <a href="{{ route('ad') }}">Ad-networks</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $ad["{$locale}name"] }}
+                </li>
+            </ul>
         </div>
-        <div class="videopage_wrapper">
-            <article class="videopage_main">
-                <div class="videopage_main--image">
-                    <img src="{{ asset('storage/'. $ad["{$locale}image"]) }}" alt="banner">
-                </div>
-                <div class="videopage_main-underimage">
-                    <div class="videopage_main-underimage_autor to-hide">
-                        <div class="videopage_main-underimage_autor-image">
-                            <img src="{{ asset('storage/'. $ad["{$locale}image"]) }}" alt="autor">
-                        </div>
-                        <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
+    </section>
+    <section class="videopage articlepage">
+        <div class="container">
+            <div class="articlepage_top">
+                <h1 class="title">{{ $ad["{$locale}name"] }}</h1>
+                <div class="videopage_main-underimage_autor to-show">
+                    <div class="videopage_main-underimage_autor-image">
+                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
                     </div>
-                    <ul class="cpapage_info--item_main_top-list cpapage_info--item_main_top-list-articlepage">
-                        @if(!empty($ad['advertising_formats']))
-                            @foreach($ad['advertising_formats'] as $tag)
-                                <li class="article--card_info_tags-list-item mobhide">
-                                    <a class="article--card_info_tags-list-item--link"
-                                       href="{{ route('index') }}">#{{ $tag }}</a>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul>
+                    <p style="font-size: 14px;" class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                 </div>
-                <div class="videopage_main--text"
-                     style="margin-bottom: 43px">{!! $ad["{$locale}before_main_text"] !!}</div>
-                <div class="cpaartpage_card">
-                    <ul class="cpaartpage_card_top">
-                        @if(!empty($ad['date_of_creation']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Date of creation:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['date_of_creation'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['traffic_volume_per_month']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Traffic volume per montn:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['traffic_volume_per_month'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['formats']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Formats:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['formats'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['forbidden_subjects']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Forbidden subjects:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['forbidden_subjects'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['average_click_price']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Average click price:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['average_click_price'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['top_up_methods']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Top up methods:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['top_up_methods'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['minimum_deposit']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Minimum deposit:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['minimum_deposit'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['referral_program']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Referral program:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['referral_program'] }}</p>
-                            </li>
-                        @endif
-                        @if(!empty($ad['tools']))
-                            <li class="cpaartpage_card_top--item">
-                                <div class="cpaartpage_card_top--item_top">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                    <p class="cpaartpage_card_top--item_top-text">Tools:</p>
-                                </div>
-                                <p class="cpaartpage_card_top--item-text">{{ $ad['tools'] }}</p>
-                            </li>
-                        @endif
-                    </ul>
-                    <div class="cpaartpage_card_bot ad">
-                        <div class="cpaartpage_card_bot_social">
-                            @if(!empty($ad['facebook']))
-                                <a class="cpaartpage_card_bot_social-link" target="_blank"
-                                   href="{{ $ad['facebook'] }}">
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.5" y="0.5" width="39" height="39" stroke="white"/>
-                                        <path
-                                            d="M20.9588 21.565H23.4142L23.8763 18.4842H20.9588V16.4912C20.9588 15.6483 21.3665 14.8283 22.6732 14.8283H24V12.2082C23.2217 12.0808 22.4352 12.0113 21.6468 12C19.2481 12 17.6726 13.4738 17.6726 16.1421V18.4842H15V21.5612H17.6726V29H20.955L20.9588 21.565Z"
-                                            fill="white"/>
-                                    </svg>
-                                </a>
+                <div class="articlepage_bot">
+                    <div class="articlepage_bot_item">
+                        <p class="articlepage--date">Date written:<span
+                                class="articlepage--date-text-value">{{ date('d/m/Y', strtotime($ad['created_at'])) }}</span>
+                        </p>
+                    </div>
+                    <div class="articlepage_bot_item">
+                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.9987 1.79167C8.07129 1.7881 9.12312 2.08729 10.0333 2.65484C10.9434 3.22239 11.6749 4.03526 12.1437 5C11.6755 5.96517 10.9441 6.77843 10.0338 7.34606C9.12356 7.91368 8.07144 8.21259 6.9987 8.20833C5.92596 8.21259 4.87384 7.91368 3.96357 7.34606C3.0533 6.77843 2.32192 5.96517 1.8537 5C2.32247 4.03526 3.05398 3.22239 3.96413 2.65484C4.87427 2.08729 5.9261 1.7881 6.9987 1.79167ZM6.9987 0.625C4.08203 0.625 1.5912 2.43917 0.582031 5C1.5912 7.56083 4.08203 9.375 6.9987 9.375C9.91536 9.375 12.4062 7.56083 13.4154 5C12.4062 2.43917 9.91536 0.625 6.9987 0.625ZM6.9987 3.54167C7.38547 3.54167 7.7564 3.69531 8.02989 3.9688C8.30339 4.24229 8.45703 4.61323 8.45703 5C8.45703 5.38677 8.30339 5.75771 8.02989 6.0312C7.7564 6.30469 7.38547 6.45833 6.9987 6.45833C6.61192 6.45833 6.24099 6.30469 5.9675 6.0312C5.69401 5.75771 5.54036 5.38677 5.54036 5C5.54036 4.61323 5.69401 4.24229 5.9675 3.9688C6.24099 3.69531 6.61192 3.54167 6.9987 3.54167ZM6.9987 2.375C5.55203 2.375 4.3737 3.55333 4.3737 5C4.3737 6.44667 5.55203 7.625 6.9987 7.625C8.44536 7.625 9.6237 6.44667 9.6237 5C9.6237 3.55333 8.44536 2.375 6.9987 2.375Z"
+                                fill="#181A1C"/>
+                        </svg>
+                        <span class="articlepage--date-text-value">{{ $ad['views'] }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="videopage_wrapper">
+                <article class="videopage_main">
+                    <div class="videopage_main--image">
+                        <img src="{{ asset('storage/'. $ad["{$locale}image"]) }}" alt="banner">
+                    </div>
+                    <div class="videopage_main-underimage">
+                        <div class="videopage_main-underimage_autor to-hide">
+                            <div class="videopage_main-underimage_autor-image">
+                                <img src="{{ asset('storage/'. $ad["{$locale}image"]) }}" alt="autor">
+                            </div>
+                            <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
+                        </div>
+                        <ul class="cpapage_info--item_main_top-list cpapage_info--item_main_top-list-articlepage">
+                            @if(!empty($ad['advertising_formats']))
+                                @foreach($ad['advertising_formats'] as $tag)
+                                    <li class="article--card_info_tags-list-item mobhide">
+                                        <a class="article--card_info_tags-list-item--link"
+                                           href="{{ route('index') }}">#{{ $tag }}</a>
+                                    </li>
+                                @endforeach
                             @endif
+                        </ul>
+                    </div>
+                    <div class="videopage_main--text"
+                         style="margin-bottom: 43px">{!! $ad["{$locale}before_main_text"] !!}</div>
+                    <div class="cpaartpage_card">
+                        <ul class="cpaartpage_card_top">
+                            @if(!empty($ad['date_of_creation']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Date of creation:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['date_of_creation'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['traffic_volume_per_month']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Traffic volume per montn:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['traffic_volume_per_month'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['formats']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Formats:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['formats'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['forbidden_subjects']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Forbidden subjects:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['forbidden_subjects'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['average_click_price']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Average click price:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['average_click_price'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['top_up_methods']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Top up methods:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['top_up_methods'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['minimum_deposit']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Minimum deposit:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['minimum_deposit'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['referral_program']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Referral program:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['referral_program'] }}</p>
+                                </li>
+                            @endif
+                            @if(!empty($ad['tools']))
+                                <li class="cpaartpage_card_top--item">
+                                    <div class="cpaartpage_card_top--item_top">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
+                                                  fill="#181A1C"/>
+                                        </svg>
+                                        <p class="cpaartpage_card_top--item_top-text">Tools:</p>
+                                    </div>
+                                    <p class="cpaartpage_card_top--item-text">{{ $ad['tools'] }}</p>
+                                </li>
+                            @endif
+                        </ul>
+                        <div class="cpaartpage_card_bot ad">
+                            <div class="cpaartpage_card_bot_social">
+                                @if(!empty($ad['facebook']))
+                                    <a class="cpaartpage_card_bot_social-link" target="_blank"
+                                       href="{{ $ad['facebook'] }}">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="0.5" y="0.5" width="39" height="39" stroke="white"/>
+                                            <path
+                                                d="M20.9588 21.565H23.4142L23.8763 18.4842H20.9588V16.4912C20.9588 15.6483 21.3665 14.8283 22.6732 14.8283H24V12.2082C23.2217 12.0808 22.4352 12.0113 21.6468 12C19.2481 12 17.6726 13.4738 17.6726 16.1421V18.4842H15V21.5612H17.6726V29H20.955L20.9588 21.565Z"
+                                                fill="white"/>
+                                        </svg>
+                                    </a>
+                                @endif
                                 @if(!empty($ad['instagram']))
                                     <a class="cpaartpage_card_bot_social-link" target="_blank"
                                        href="{{ $ad['instagram'] }}">
@@ -234,343 +240,487 @@
                                         </svg>
                                     </a>
                                 @endif
-                        </div>
-                        <div class="cpaartpage_card_bot--line"></div>
-                        <div class="cpaartpage_card_bot--link_wrapper ad">
-                            <a target="_blank" class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link" href="{{ $ad['url'] }}">
-                                <span>website</span>
-                                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                            </a>
-                            <div class="cpaartpage_card_bot--line"></div>
-                            <a class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link" href="{{ $ad['forum_link'] }}">
-                                <span>Forum</span>
-                                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="videopage_main--text main__article"
-                     style="margin-bottom: 43px">{!! $ad["{$locale}main_text"] !!}</div>
-                <div class="videopage_main-underimage change">
-                    <div class="videopage_main-underimage_autor to-hide">
-                        <div class="videopage_main-underimage_autor-image">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
-                        </div>
-                        <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
-                    </div>
-                    <ul class="cpapage_info--item_main_top-list cpapage_info--item_main_top-list-articlepage">
-                        @if(!empty($ad['advertising_formats']))
-                            @foreach($ad['advertising_formats'] as $tag)
-                                <li class="article--card_info_tags-list-item mobhide">
-                                    <a class="article--card_info_tags-list-item--link"
-                                       href="{{ route('index') }}">#{{ $tag }}</a>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul>
-                </div>
-                <div class="articlepage--comments">
-                    <h2 class="videopage--comments-title">Reviews of  .... <span>(0)</span></h2>
-                    <div class="articlepage--comments_main">
-                        <p class="articlepage--comments-none">Be the first to comment</p>
-                        <div class="articlepage--comments-none-editorial-opinion">
-                            <div class="articlepage--review-integration_autor">
-                                <div class="videopage_main-underimage_autor-image">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
-                                </div>
-                                <div class="articlepage--review-integration_autor-text-wrapp">
-                                    <p class="articlepage--review-integration_autor-text-wrapp-name">Editorial Opinion</p>
-                                </div>
                             </div>
-                            <p class="articlepage--comments-none-editorial-opinion-text">{{ $ad['editorial_opinion'] }}</p>
+                            <div class="cpaartpage_card_bot--line"></div>
+                            <div class="cpaartpage_card_bot--link_wrapper ad">
+                                <a target="_blank" class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
+                                   href="{{ $ad['url'] }}">
+                                    <span>website</span>
+                                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                </a>
+                                <div class="cpaartpage_card_bot--line"></div>
+                                <a class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
+                                   href="{{ $ad['forum_link'] }}">
+                                    <span>Forum</span>
+                                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="videopage_main--text main__article"
+                         style="margin-bottom: 43px">{!! $ad["{$locale}main_text"] !!}</div>
+                    <div class="videopage_main-underimage change">
+                        <div class="videopage_main-underimage_autor to-hide">
+                            <div class="videopage_main-underimage_autor-image">
+                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                            </div>
+                            <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
+                        </div>
+                        <ul class="cpapage_info--item_main_top-list cpapage_info--item_main_top-list-articlepage">
+                            @if(!empty($ad['advertising_formats']))
+                                @foreach($ad['advertising_formats'] as $tag)
+                                    <li class="article--card_info_tags-list-item mobhide">
+                                        <a class="article--card_info_tags-list-item--link"
+                                           href="{{ route('index') }}">#{{ $tag }}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                    <div class="articlepage--comments">
+                        <h2 class="videopage--comments-title">Reviews of .... <span>(0)</span></h2>
+                        <div class="articlepage--comments_main">
+                            <p class="articlepage--comments-none">Be the first to comment</p>
+                            <div class="articlepage--comments-none-editorial-opinion">
+                                <div class="articlepage--review-integration_autor">
+                                    <div class="videopage_main-underimage_autor-image">
+                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                    </div>
+                                    <div class="articlepage--review-integration_autor-text-wrapp">
+                                        <p class="articlepage--review-integration_autor-text-wrapp-name">Editorial
+                                            Opinion</p>
+                                    </div>
+                                </div>
+                                <p class="articlepage--comments-none-editorial-opinion-text">{{ $ad['editorial_opinion'] }}</p>
+                            </div>
+                            {{--                        TODO: доделать после личного кабинета                           --}}
+                            @if(false)
+                                <ul class="articlepage--comments_main_list">
+                                    <li class="articlepage--comments_main_list-item">
+                                        <div class="articlepage--comments_main_list-item_top">
+                                            <div class="articlepage--review-integration_autor">
+                                                <div class="videopage_main-underimage_autor-image">
+                                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                                </div>
+                                                <div class="articlepage--review-integration_autor-text-wrapp">
+                                                    <p class="articlepage--review-integration_autor-text-wrapp-name">
+                                                        Wade Warren</p>
+                                                    <p class="articlepage--review-integration_autor-text-wrapp-company">
+                                                        01/21/2022</p>
+                                                </div>
+                                            </div>
+                                            <div class="articlepage--comments_main_list-item_top_rating-group">
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                        Support</p>
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                        @for ($i=0; $i<5; $i++)
+                                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                                    fill="#014EFF"/>
+                                                            </svg>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                        Payments</p>
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                        @for ($i=0; $i<5; $i++)
+                                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                                    fill="#014EFF"/>
+                                                            </svg>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                        offers</p>
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                        @for ($i=0; $i<5; $i++)
+                                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                                    fill="#014EFF"/>
+                                                            </svg>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                        Betting</p>
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                        @for ($i=0; $i<5; $i++)
+                                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                                    fill="#014EFF"/>
+                                                            </svg>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="articlepage--comments_main_list-item-text">The list is not complete,
+                                            obviously. For each GEO and culture you can find dozens of local holidays
+                                            (that are easily googleable). <br><br> The idea is not in the holidays per
+                                            se, but in the approaches. If you follow the world news, you’ll be able to
+                                            create an ad for any occasion. Here are some examples of what we worked with
+                                            when everyone else was using the same old methods.</p>
+                                        <button class="articlepage--comments_main_list-item-btn">Reply</button>
+                                    </li>
+                                </ul>
+                            @endif
                         </div>
                         {{--                        TODO: доделать после личного кабинета                           --}}
                         @if(false)
-                        <ul class="articlepage--comments_main_list">
-                            <li class="articlepage--comments_main_list-item">
-                                <div class="articlepage--comments_main_list-item_top">
-                                    <div class="articlepage--review-integration_autor">
-                                        <div class="videopage_main-underimage_autor-image">
-                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                            <div class="cpaartpage_aside_rating to-show">
+                                <p class="cpaartpage_aside_rating-title">Rating</p>
+                                <div class="cpaartpage_aside_rating_group">
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                Support</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
                                         </div>
-                                        <div class="articlepage--review-integration_autor-text-wrapp">
-                                            <p class="articlepage--review-integration_autor-text-wrapp-name">Wade Warren</p>
-                                            <p class="articlepage--review-integration_autor-text-wrapp-company">01/21/2022</p>
-                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
                                     </div>
-                                    <div class="articlepage--comments_main_list-item_top_rating-group">
+                                    <div class="cpaartpage_aside_rating_group-item">
                                         <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Support</p>
-                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                Payments</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                 @for ($i=0; $i<5; $i++)
-                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
                                                 @endfor
                                             </div>
                                         </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
                                         <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Payments</p>
-                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                offers</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                 @for ($i=0; $i<5; $i++)
-                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
                                                 @endfor
                                             </div>
                                         </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
                                         <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">offers</p>
-                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                Betting</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                 @for ($i=0; $i<5; $i++)
-                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
                                                 @endfor
                                             </div>
                                         </div>
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Betting</p>
-                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                                @endfor
-                                            </div>
-                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
                                     </div>
                                 </div>
-                                <p class="articlepage--comments_main_list-item-text">The list is not complete, obviously. For each GEO and culture you can find dozens of local holidays (that are easily googleable). <br><br> The idea is not in the holidays per se, but in the approaches. If you follow the world news, you’ll be able to create an ad for any occasion. Here are some examples of what we worked with when everyone else was using the same old methods.</p>
-                                <button class="articlepage--comments_main_list-item-btn">Reply</button>
-                            </li>
-                        </ul>
+                            </div>
+                            <h2 class="videopage--comments-title">Leave a Review</h2>
+                            <div class="articlepage--comments_main">
+                                <p class="articlepage--comments-none">You must be
+                                    <button class="login--btn" type="button">login</button>
+                                    in to leave a review
+                                </p>
+                                <form class="articlepage--comments_main-form" action="" method="POST">
+                                    <div class="articlepage--comments_main_list-item_top_rating-group">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                Support</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                Payments</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                offers</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                Betting</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.2"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <textarea required minlength="1" placeholder="Leave a comment here"
+                                              class="input-textarea" name="text"></textarea>
+                                    <button class="btn--blue header_buttons-blue-btn">
+                                        <span>Send</span>
+                                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                    </button>
+                                </form>
+                            </div>
                         @endif
                     </div>
-                    {{--                        TODO: доделать после личного кабинета                           --}}
-                    @if(false)
-                    <div class="cpaartpage_aside_rating to-show">
+                </article>
+                <aside class="filter-aside">
+                    <div class="cpaartpage_aside_rating">
                         <p class="cpaartpage_aside_rating-title">Rating</p>
                         <div class="cpaartpage_aside_rating_group">
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Support</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                        Support</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
+                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="{{ $i < $ad['rating_support'] ? '1' : '0.2' }}"
+                                                      d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                      fill="#014EFF"/>
+                                            </svg>
                                         @endfor
                                     </div>
                                 </div>
-                                <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
+                                <div class="cpaartpage_aside_rating_group-item-num">
+                                    <span>{{ $ad['rating_support'] }}</span>/5
+                                </div>
                             </div>
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Payments</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Traffic
+                                        quality</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
+                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="{{ $i < $ad['rating_traffic_quality'] ? '1' : '0.2' }}"
+                                                      d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                      fill="#014EFF"/>
+                                            </svg>
                                         @endfor
                                     </div>
                                 </div>
-                                <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
+                                <div class="cpaartpage_aside_rating_group-item-num">
+                                    <span>{{ $ad['rating_traffic_quality'] }}</span>/5
+                                </div>
                             </div>
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">offers</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Number of
+                                        GEOs</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
+                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="{{ $i < $ad['rating_number_of_geos'] ? '1' : '0.2' }}"
+                                                      d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                      fill="#014EFF"/>
+                                            </svg>
                                         @endfor
                                     </div>
                                 </div>
-                                <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
+                                <div class="cpaartpage_aside_rating_group-item-num">
+                                    <span>{{ $ad['rating_number_of_geos'] }}</span>/5
+                                </div>
                             </div>
                             <div class="cpaartpage_aside_rating_group-item">
                                 <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Betting</p>
+                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Price per
+                                        click</p>
                                     <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                         @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
+                                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="{{ $i < $ad['rating_price_per_click'] ? '1' : '0.2' }}"
+                                                      d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                      fill="#014EFF"/>
+                                            </svg>
                                         @endfor
                                     </div>
                                 </div>
-                                <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
+                                <div class="cpaartpage_aside_rating_group-item-num">
+                                    <span>{{ $ad['rating_price_per_click'] }}</span>/5
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <h2 class="videopage--comments-title">Leave a Review</h2>
-                    <div class="articlepage--comments_main">
-                        <p class="articlepage--comments-none">You must be <button class="login--btn" type="button">login</button> in to leave a review</p>
-                        <form class="articlepage--comments_main-form" action="" method="POST">
-                            <div class="articlepage--comments_main_list-item_top_rating-group">
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Support</p>
-                                    <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                        @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                        @endfor
-                                    </div>
-                                </div>
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Payments</p>
-                                    <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                        @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                        @endfor
-                                    </div>
-                                </div>
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">offers</p>
-                                    <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                        @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                        @endfor
-                                    </div>
-                                </div>
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                    <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Betting</p>
-                                    <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                        @for ($i=0; $i<5; $i++)
-                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.2" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                        @endfor
-                                    </div>
-                                </div>
+                    @if(!empty($banner))
+                        <div class="filter-aside">
+                            <div class="filter-aside-banner sticky">
+                                <a target="_blank" href="{{ $banner->link }}">
+                                    @if($banner->type == 'image')
+                                        <img width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    @else
+                                        <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                                               muted></video>
+                                    @endif
+                                </a>
                             </div>
-                            <textarea required minlength="1" placeholder="Leave a comment here" class="input-textarea" name="text"></textarea>
-                            <button class="btn--blue header_buttons-blue-btn">
-                                <span>Send</span>
-                                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                            </button>
-                        </form>
-                    </div>
+                        </div>
                     @endif
-                </div>
-            </article>
-            <aside class="filter-aside">
-                <div class="cpaartpage_aside_rating">
-                    <p class="cpaartpage_aside_rating-title">Rating</p>
-                    <div class="cpaartpage_aside_rating_group">
-                        <div class="cpaartpage_aside_rating_group-item">
-                            <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Support</p>
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                    @for ($i=0; $i<5; $i++)
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="{{ $i < $ad['rating_support'] ? '1' : '0.2' }}" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                    @endfor
-                                </div>
-                            </div>
-                            <div class="cpaartpage_aside_rating_group-item-num"><span>{{ $ad['rating_support'] }}</span>/5</div>
-                        </div>
-                        <div class="cpaartpage_aside_rating_group-item">
-                            <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Traffic quality</p>
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                    @for ($i=0; $i<5; $i++)
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="{{ $i < $ad['rating_traffic_quality'] ? '1' : '0.2' }}" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                    @endfor
-                                </div>
-                            </div>
-                            <div class="cpaartpage_aside_rating_group-item-num"><span>{{ $ad['rating_traffic_quality'] }}</span>/5</div>
-                        </div>
-                        <div class="cpaartpage_aside_rating_group-item">
-                            <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Number of GEOs</p>
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                    @for ($i=0; $i<5; $i++)
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="{{ $i < $ad['rating_number_of_geos'] ? '1' : '0.2' }}" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                    @endfor
-                                </div>
-                            </div>
-                            <div class="cpaartpage_aside_rating_group-item-num"><span>{{ $ad['rating_number_of_geos'] }}</span>/5</div>
-                        </div>
-                        <div class="cpaartpage_aside_rating_group-item">
-                            <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Price per click</p>
-                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                    @for ($i=0; $i<5; $i++)
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="{{ $i < $ad['rating_price_per_click'] ? '1' : '0.2' }}" d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z" fill="#014EFF"/></svg>
-                                    @endfor
-                                </div>
-                            </div>
-                            <div class="cpaartpage_aside_rating_group-item-num"><span>{{ $ad['rating_price_per_click'] }}</span>/5</div>
-                        </div>
-                    </div>
-                </div>
-                @if(!empty($banner))
-                    <div class="filter-aside">
-                        <div class="filter-aside-banner sticky">
-                            <a target="_blank" href="{{ $banner->link }}">
-                                @if($banner->type == 'image')
-                                    <img width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
-                                @else
-                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
-                                @endif
-                            </a>
-                        </div>
-                    </div>
-                @endif
-            </aside>
-        </div>
-    </div>
-</section>
-<aside class="main-video aside-other-wideos">
-    <div class="container">
-        <h3 class="aside-other-wideos-title">Related Ad-networks</h3>
-
-        <div class="swiper">
-            <ul class="swiper-wrapper">
-                @foreach ($moreAd as $i)
-                    <li class="article--card swiper-slide">
-                        <a class="article--card-link" href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
-                        <img src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="banner">
-                        <div class="article--card_info">
-                            <ul class="article--card_info_tags-list">
-                                @if(!empty($ad['advertising_formats']))
-                                    @foreach($ad['advertising_formats'] as $tag)
-                                        <li class="article--card_info_tags-list-item mobhide">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#{{ $tag }}</a>
-                                        </li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                            <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
-
-                            <div class="article--card_info-views">
-                                <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z" fill="#181A1C"/></svg>
-                                <span>{{ $i['views'] }}</span>
-                            </div>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-
-            <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
-            </button>
-            <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
-            </button>
-
-            <div class="main_articles--mobile">
-                <div class="main_articles_top_link-wrapp-arrows">
-                    @for ($i=0; $i<10; $i++)
-                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.2425 6L6.43923 2.1967L8.56055 0.0753784L15.9852 7.5L8.56055 14.9246L6.43923 12.8033L10.2425 9L1.13593 9L1.13593 6H10.2425Z" fill="#272C31"/></svg>
-                    @endfor
-                </div>
+                </aside>
             </div>
-
-            <div class="swiper-pagination"></div>
         </div>
-    </div>
-</aside>
-<section class="breadcrambs bot">
-    <div class="container">
-        <ul class="breadcrambs_list">
-            <li class="breadcrambs_list-item">
-                <a href="{{ route('index') }}">Homepage</a>
-            </li>
-            <li class="breadcrambs_list-item">
-                <a href="{{ route('ad') }}">Ad-networks </a>
-            </li>
-            <li class="breadcrambs_list-item">
-                <a href="{{ route('ad') }}">AdleadPro</a>
-            </li>
-        </ul>
-    </div>
-</section>
+    </section>
+    <aside class="main-video aside-other-wideos">
+        <div class="container">
+            <h3 class="aside-other-wideos-title">Related Ad-networks</h3>
+
+            <div class="swiper">
+                <ul class="swiper-wrapper">
+                    @foreach ($moreAd as $i)
+                        <li class="article--card swiper-slide">
+                            <a class="article--card-link"
+                               href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
+                            <img src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="banner">
+                            <div class="article--card_info">
+                                <ul class="article--card_info_tags-list">
+                                    @if(!empty($ad['advertising_formats']))
+                                        @foreach($ad['advertising_formats'] as $tag)
+                                            <li class="article--card_info_tags-list-item mobhide">
+                                                <a class="article--card_info_tags-list-item--link"
+                                                   href="{{ route('index') }}">#{{ $tag }}</a>
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                                <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
+
+                                <div class="article--card_info-views">
+                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.99967 1.29167C8.07227 1.2881 9.1241 1.58729 10.0342 2.15484C10.9444 2.72239 11.6759 3.53526 12.1447 4.5C11.6765 5.46517 10.9451 6.27843 10.0348 6.84606C9.12453 7.41368 8.07242 7.71259 6.99967 7.70833C5.92693 7.71259 4.87481 7.41368 3.96454 6.84606C3.05427 6.27843 2.3229 5.46517 1.85467 4.5C2.32345 3.53526 3.05496 2.72239 3.9651 2.15484C4.87525 1.58729 5.92708 1.2881 6.99967 1.29167V1.29167ZM6.99967 0.125C4.08301 0.125 1.59217 1.93917 0.583008 4.5C1.59217 7.06083 4.08301 8.875 6.99967 8.875C9.91634 8.875 12.4072 7.06083 13.4163 4.5C12.4072 1.93917 9.91634 0.125 6.99967 0.125ZM6.99967 3.04167C7.38645 3.04167 7.75738 3.19531 8.03087 3.4688C8.30436 3.74229 8.45801 4.11323 8.45801 4.5C8.45801 4.88677 8.30436 5.25771 8.03087 5.5312C7.75738 5.80469 7.38645 5.95833 6.99967 5.95833C6.6129 5.95833 6.24197 5.80469 5.96848 5.5312C5.69499 5.25771 5.54134 4.88677 5.54134 4.5C5.54134 4.11323 5.69499 3.74229 5.96848 3.4688C6.24197 3.19531 6.6129 3.04167 6.99967 3.04167V3.04167ZM6.99967 1.875C5.55301 1.875 4.37467 3.05333 4.37467 4.5C4.37467 5.94667 5.55301 7.125 6.99967 7.125C8.44634 7.125 9.62467 5.94667 9.62467 4.5C9.62467 3.05333 8.44634 1.875 6.99967 1.875Z"
+                                            fill="#181A1C"/>
+                                    </svg>
+                                    <span>{{ $i['views'] }}</span>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
+                    <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                         alt="arrow">
+                    <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                </button>
+                <button type="button" class="swiper-button-next swiper-button arrow--btn">
+                    <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                         alt="arrow">
+                    <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                </button>
+
+                <div class="main_articles--mobile">
+                    <div class="main_articles_top_link-wrapp-arrows">
+                        @for ($i=0; $i<10; $i++)
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.2425 6L6.43923 2.1967L8.56055 0.0753784L15.9852 7.5L8.56055 14.9246L6.43923 12.8033L10.2425 9L1.13593 9L1.13593 6H10.2425Z"
+                                      fill="#272C31"/>
+                            </svg>
+                        @endfor
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </aside>
+    <section class="breadcrambs bot">
+        <div class="container">
+            <ul class="breadcrambs_list">
+                <li class="breadcrambs_list-item">
+                    <a href="{{ route('index') }}">Homepage</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    <a href="{{ route('ad') }}">Ad-networks</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $ad["{$locale}name"] }}
+                </li>
+            </ul>
+        </div>
+    </section>
 @endsection

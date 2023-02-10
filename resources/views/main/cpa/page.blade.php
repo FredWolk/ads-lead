@@ -13,7 +13,7 @@
                     <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a>{{ $cpa["{$locale}name"] }}</a>
+                    {{ $cpa["{$locale}name"] }}
                 </li>
             </ul>
         </div>
@@ -746,7 +746,7 @@
                     <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a>{{ $cpa["{$locale}name"] }}</a>
+                    {{ $cpa["{$locale}name"] }}
                 </li>
             </ul>
         </div>
