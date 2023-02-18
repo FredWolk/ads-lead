@@ -26,22 +26,27 @@
             <nav class="header_nav">
                 <ul class="header_nav_list">
                     <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('articles') }}">Articles</a>
+                        <a class="header_nav--link" href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                     </li>
                     <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('video') }}">Video</a>
+                        <a class="header_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
+                    </li>
+                    @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
+                        <li class="header_nav_list_item">
+                            <a class="header_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
+                        </li>
+                    @endif
+                    <li class="header_nav_list_item">
+                        <a class="header_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                     </li>
                     <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('index') }}">Forum</a>
+                        <a class="header_nav--link" href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                     </li>
                     <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('cpa') }}">CPA-networks</a>
+                        <a class="header_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                     </li>
                     <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('ad') }}">Ad-networks</a>
-                    </li>
-                    <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('index') }}">Services</a>
+                        <a class="header_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
                     </li>
                 </ul>
             </nav>
@@ -263,22 +268,27 @@
         <nav class="burger_nav">
             <ul class="burger_nav_list">
                 <li class="burger_nav_list_item">
-                    <a class="burger_nav--link" href="{{ route('index') }}">Articles</a>
+                    <a class="burger_nav--link" href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                 </li>
                 <li class="burger_nav_list_item">
-                    <a class="burger_nav--link" href="{{ route('index') }}">Video</a>
+                    <a class="burger_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
+                </li>
+                @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
+                    <li class="burger_nav_list_item">
+                        <a class="burger_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
+                    </li>
+                @endif
+                <li class="burger_nav_list_item">
+                    <a class="burger_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="burger_nav_list_item">
-                    <a class="burger_nav--link" href="{{ route('index') }}">Forum</a>
+                    <a class="burger_nav--link" href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                 </li>
                 <li class="burger_nav_list_item">
-                    <a class="burger_nav--link" href="{{ route('index') }}">CPA-networks</a>
+                    <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
                 </li>
                 <li class="burger_nav_list_item">
-                    <a class="burger_nav--link" href="{{ route('index') }}">Ad-networks</a>
-                </li>
-                <li class="burger_nav_list_item">
-                    <a class="burger_nav--link" href="{{ route('index') }}">Services</a>
+                    <a class="burger_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
                 </li>
             </ul>
         </nav>
@@ -340,7 +350,7 @@
             <p class="user_nav-menu">Main menu</p>
             <ul class="user_nav-menu_list">
                 {{--CCOM нужно сделать чтобы к текущей странице добавлялся класс active --}}
-                <li class="user_nav-menu--item active">
+                <li class="user_nav-menu--item {{ Request::route()->getName() === 'user.index' ? 'active' : '' }}">
                     <a href="{{ route('user.index') }}" class="user_nav-menu--link">
                         <p class="user_nav-menu--link-text">Profile settings</p>
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -350,27 +360,31 @@
                         </svg>
                     </a>
                 </li>
-                <li class="user_nav-menu--item">
-                    <a href="{{ route('user.alerts') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Alerts <span>(9)</span></p>
-                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
-                                  fill="#181A1C"/>
-                        </svg>
-                    </a>
-                </li>
-                <li class="user_nav-menu--item">
-                    <a href="{{ route('user.correspondence') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Correspondence</p>
-                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
-                                  fill="#181A1C"/>
-                        </svg>
-                    </a>
-                </li>
-                <li class="user_nav-menu--item">
+                @if(false)
+                    <li class="user_nav-menu--item">
+                        <a href="{{ route('user.alerts') }}" class="user_nav-menu--link">
+                            <p class="user_nav-menu--link-text">Alerts <span>(9)</span></p>
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
+                                      fill="#181A1C"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="user_nav-menu--item">
+                        <a href="{{ route('user.correspondence') }}" class="user_nav-menu--link">
+                            <p class="user_nav-menu--link-text">Correspondence</p>
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
+                                      fill="#181A1C"/>
+                            </svg>
+                        </a>
+                    </li>
+                @endif
+                <li class="user_nav-menu--item {{ Request::route()->getName() === 'user.security' ? 'active' : '' }}">
                     <a href="{{ route('user.security') }}" class="user_nav-menu--link">
                         <p class="user_nav-menu--link-text">Security</p>
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -380,26 +394,30 @@
                         </svg>
                     </a>
                 </li>
-                <li class="user_nav-menu--item">
-                    <a href="{{ route('user.subscriptions') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Subscriptions</p>
-                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
-                                  fill="#181A1C"/>
-                        </svg>
-                    </a>
-                </li>
-                <li class="user_nav-menu--item">
-                    <a href="{{ route('user.favorite') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Favorite entries</p>
-                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
-                                  fill="#181A1C"/>
-                        </svg>
-                    </a>
-                </li>
+                @if(false)
+                    <li class="user_nav-menu--item">
+                        <a href="{{ route('user.subscriptions') }}" class="user_nav-menu--link">
+                            <p class="user_nav-menu--link-text">Subscriptions</p>
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
+                                      fill="#181A1C"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="user_nav-menu--item">
+                        <a href="{{ route('user.favorite') }}" class="user_nav-menu--link">
+                            <p class="user_nav-menu--link-text">Favorite entries</p>
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
+                                      fill="#181A1C"/>
+                            </svg>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
         <div class="user_nav_first-last">

@@ -4206,7 +4206,7 @@ form {
 .user-wrapper {
     display: flex;
     gap: 30px;
-    height: 875px;
+    height: auto;
     padding-bottom: 20px;
 }
 
