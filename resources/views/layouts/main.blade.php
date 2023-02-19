@@ -1,8 +1,14 @@
 @php
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
-	$urlEn = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
-	$urlPt = $_SERVER['APP_URL'] . '/pt' . $_SERVER['REQUEST_URI'];
+	if (\Illuminate\Support\Facades\App::getLocale() === 'en'){
+      $urlEn = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
+	  $urlPt = $_SERVER['APP_URL'] . '/pt' . $_SERVER['REQUEST_URI'];
+	} else {
+		$urlEn = $_SERVER['APP_URL'] . substr($_SERVER['REQUEST_URI'], 3);
+		$urlPt = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
+	}
+
 @endphp
     <!doctype html>
 <html lang="en">
