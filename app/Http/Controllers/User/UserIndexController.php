@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserIndexController extends Controller
 {
     public function __invoke()
     {
-       return view('user.index');
+        $userInfo = Auth::user();
+        return view('user.index', compact('userInfo'));
     }
 }

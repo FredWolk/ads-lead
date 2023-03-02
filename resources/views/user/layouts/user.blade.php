@@ -1,4 +1,7 @@
-<!doctype html>
+@php
+    $userInfo = \Illuminate\Support\Facades\Auth::user();
+@endphp
+    <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,9 +48,6 @@
                     <li class="header_nav_list_item">
                         <a class="header_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                     </li>
-                    <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
-                    </li>
                 </ul>
             </nav>
             <div class="header_buttons">
@@ -83,127 +83,128 @@
                     </button>
                     <input class="header--search-input" placeholder="Search..." type="text">
                 </div>
+                @if(false)
+                    <button type="button" class="btn-rectangle btn--notif header--notif-btn">
+                        <svg class="svg1" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1256_17647)">
+                                <path
+                                    d="M5.6875 13.25C5.6875 13.5981 5.82578 13.9319 6.07192 14.1781C6.31806 14.4242 6.6519 14.5625 7 14.5625C7.3481 14.5625 7.68194 14.4242 7.92808 14.1781C8.17422 13.9319 8.3125 13.5981 8.3125 13.25"
+                                    stroke="#272C31" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path
+                                    d="M12.6875 11.9375C12.6875 11.9375 11.375 9.75 11.375 8V5.8125C11.375 4.65218 10.9141 3.53938 10.0936 2.71891C9.27312 1.89844 8.16032 1.4375 7 1.4375C5.83968 1.4375 4.72688 1.89844 3.90641 2.71891C3.08594 3.53938 2.625 4.65218 2.625 5.8125V8C2.625 9.75 1.3125 11.9375 1.3125 11.9375H12.6875Z"
+                                    stroke="#272C31" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1256_17647">
+                                    <rect width="14" height="16" fill="white"/>
+                                    <rect width="14" height="14" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
 
-                <button type="button" class="btn-rectangle btn--notif header--notif-btn">
-                    <svg class="svg1" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_1256_17647)">
-                            <path
-                                d="M5.6875 13.25C5.6875 13.5981 5.82578 13.9319 6.07192 14.1781C6.31806 14.4242 6.6519 14.5625 7 14.5625C7.3481 14.5625 7.68194 14.4242 7.92808 14.1781C8.17422 13.9319 8.3125 13.5981 8.3125 13.25"
-                                stroke="#272C31" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path
-                                d="M12.6875 11.9375C12.6875 11.9375 11.375 9.75 11.375 8V5.8125C11.375 4.65218 10.9141 3.53938 10.0936 2.71891C9.27312 1.89844 8.16032 1.4375 7 1.4375C5.83968 1.4375 4.72688 1.89844 3.90641 2.71891C3.08594 3.53938 2.625 4.65218 2.625 5.8125V8C2.625 9.75 1.3125 11.9375 1.3125 11.9375H12.6875Z"
-                                stroke="#272C31" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_1256_17647">
-                                <rect width="14" height="16" fill="white"/>
-                                <rect width="14" height="14" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
+                        <svg class="svg2" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="39" height="39" fill="#014EFF" stroke="#014EFF"/>
+                            <rect x="25.832" y="13" width="1.64975" height="18.1473" transform="rotate(45 25.832 13)"
+                                  fill="white"/>
+                            <rect x="13" y="14.1665" width="1.64975" height="18.1473" transform="rotate(-45 13 14.1665)"
+                                  fill="white"/>
+                        </svg>
 
-                    <svg class="svg2" width="40" height="40" viewBox="0 0 40 40" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.5" y="0.5" width="39" height="39" fill="#014EFF" stroke="#014EFF"/>
-                        <rect x="25.832" y="13" width="1.64975" height="18.1473" transform="rotate(45 25.832 13)"
-                              fill="white"/>
-                        <rect x="13" y="14.1665" width="1.64975" height="18.1473" transform="rotate(-45 13 14.1665)"
-                              fill="white"/>
-                    </svg>
-
-                    <div class="header--notif-btn-new"></div>
-                </button>
-
+                        <div class="header--notif-btn-new"></div>
+                    </button>
+                @endif
 
                 <div class="header-user-icon">
                     <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                 </div>
             </div>
         </div>
-
-        <div class="header--notif-body">
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+        @if(false)
+            <div class="header--notif-body">
+                <div class="header--notif-body--item">
+                    <div class="header--notif-body--item-icon-wrapper">
+                        <div class="header--notif-body--item-icon">
+                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        </div>
+                        <div class="header--notif-body--item-icon-online"></div>
                     </div>
-                    <div class="header--notif-body--item-icon-online"></div>
+                    <div class="header--notif-body--item-main">
+                        <div class="header--notif-body--item-main_top">
+                            <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
+                            <p class="header--notif-body--item-main-time">13 minutes ago</p>
+                        </div>
+                        <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
+                                href="{{ route('index') }}">Jendosina</a></p>
+                    </div>
                 </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
+                <div class="header--notif-body--item">
+                    <div class="header--notif-body--item-icon-wrapper">
+                        <div class="header--notif-body--item-icon">
+                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        </div>
+                        <div class="header--notif-body--item-icon-online"></div>
                     </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
+                    <div class="header--notif-body--item-main">
+                        <div class="header--notif-body--item-main_top">
+                            <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
+                            <p class="header--notif-body--item-main-time">13 minutes ago</p>
+                        </div>
+                        <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
+                                href="{{ route('index') }}">Jendosina</a></p>
+                    </div>
+                </div>
+                <div class="header--notif-body--item">
+                    <div class="header--notif-body--item-icon-wrapper">
+                        <div class="header--notif-body--item-icon">
+                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        </div>
+                        <div class="header--notif-body--item-icon-online"></div>
+                    </div>
+                    <div class="header--notif-body--item-main">
+                        <div class="header--notif-body--item-main_top">
+                            <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
+                            <p class="header--notif-body--item-main-time">13 minutes ago</p>
+                        </div>
+                        <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
+                                href="{{ route('index') }}">Jendosina</a></p>
+                    </div>
+                </div>
+                <div class="header--notif-body--item">
+                    <div class="header--notif-body--item-icon-wrapper">
+                        <div class="header--notif-body--item-icon">
+                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        </div>
+                        <div class="header--notif-body--item-icon-online"></div>
+                    </div>
+                    <div class="header--notif-body--item-main">
+                        <div class="header--notif-body--item-main_top">
+                            <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
+                            <p class="header--notif-body--item-main-time">13 minutes ago</p>
+                        </div>
+                        <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
+                                href="{{ route('index') }}">Jendosina</a></p>
+                    </div>
+                </div>
+                <div class="header--notif-body--item">
+                    <div class="header--notif-body--item-icon-wrapper">
+                        <div class="header--notif-body--item-icon">
+                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        </div>
+                        <div class="header--notif-body--item-icon-online"></div>
+                    </div>
+                    <div class="header--notif-body--item-main">
+                        <div class="header--notif-body--item-main_top">
+                            <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
+                            <p class="header--notif-body--item-main-time">13 minutes ago</p>
+                        </div>
+                        <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
+                                href="{{ route('index') }}">Jendosina</a></p>
+                    </div>
                 </div>
             </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
-        </div>
+        @endif
     </div>
 </header>
 <section class="burger-menu">
@@ -287,9 +288,6 @@
                 <li class="burger_nav_list_item">
                     <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
                 </li>
-                <li class="burger_nav_list_item">
-                    <a class="burger_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
-                </li>
             </ul>
         </nav>
     </div>
@@ -323,7 +321,7 @@
                 <a href="{{ route('user.index') }}">Robert Fox</a>
             </li>
         </ul>
-    </div>
+    </div> deleted_at        timestamp       mapped to deleted_at
 </section> --}}
 
 <div class="container user-wrapper">
@@ -332,18 +330,33 @@
             <div class="user_nav_top">
                 <div class="user_nav-avatar-wrapper">
                     <div class="user_nav-avatar">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                        @empty($userInfo->photo)
+                            <img
+                                src="{{asset('assets/images/card-pict.jpg')}}"
+                                alt="avatar">
+                        @else
+                            <img
+                                src="{{asset('storage/' . $userInfo->photo)}}"
+                                alt="avatar">
+                        @endempty
                     </div>
-                    <button type="button" class="user_nav-avatar-download--btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10" fill="#014EFF" stroke="white" stroke-width="2"/>
-                            <path d="M15.5 10.5H13.5V7.5H10.5V10.5H8.5L12 14L15.5 10.5ZM8.5 15V16H15.5V15H8.5Z"
-                                  fill="white"/>
-                        </svg>
-                    </button>
+                    <form enctype="multipart/form-data" id="photo_change" method="post"
+                          action="{{ route('setting.photo.change') }}">
+                        @csrf
+                        <label class="user_nav-avatar-download--btn">
+                            <input accept="image/png, image/jpeg, image/webp" style="display: none" type="file"
+                                   name="photo" id="photo_inp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" fill="#014EFF" stroke="white" stroke-width="2"/>
+                                <path d="M15.5 10.5H13.5V7.5H10.5V10.5H8.5L12 14L15.5 10.5ZM8.5 15V16H15.5V15H8.5Z"
+                                      fill="white"/>
+                            </svg>
+                        </label>
+                    </form>
                 </div>
                 <div class="user_nav-text-wrapper">
-                    <p class="user_nav-username">Wade Warren</p>
+                    <p class="user_nav-username">{{ $userInfo->name }}</p>
                     <p class="user_nav-welcome">Welcome</p>
                 </div>
             </div>
@@ -448,5 +461,11 @@
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
+<script>
+    $('#photo_inp').on('input', function () {
+        $('#photo_change').submit();
+    })
+</script>
+@stack('scripts')
 </body>
 </html>

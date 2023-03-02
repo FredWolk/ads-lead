@@ -6,27 +6,35 @@
             <p class="user-main--title">Settings</p>
             <div class="user_card--line"></div>
             <p class="user-main--subtitle">E-mail</p>
-            <p class="user-main-email">pr@adleadpro.com</p>
-            <button type="button" class="link--blue user-main-email-edit--btn">
-                <span>Edit</span>
-                <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
-            </button>
-            <form action="" method="GET" class="new-email-group">
-                <div class="new-email-group_left">
-                    <label class="input-email-label" for="input-email">New E-mail</label>
-                    <input id="input-email" type="email" class="input-style" required placeholder="New E-mail">
-                </div>
-                <button style="max-width: 161px; height: 50px" class="btn--blue header_buttons-blue-btn">
-                    <span>Save</span>
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+            <p class="user-main-email">{{ $userInfo->email }}</p>
+            @if(false)
+                <button type="button" class="link--blue user-main-email-edit--btn">
+                    <span>Edit</span>
+                    <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                 </button>
-            </form>
+                <form action="" method="GET" class="new-email-group">
+                    <div class="new-email-group_left">
+                        <label class="input-email-label" for="input-email">New E-mail</label>
+                        <input id="input-email" type="email" class="input-style" required placeholder="New E-mail">
+                    </div>
+                    <button style="max-width: 161px; height: 50px" class="btn--blue header_buttons-blue-btn">
+                        <span>Save</span>
+                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    </button>
+                </form>
+            @endif
             <div class="user_card--line"></div>
+
+            @if(Session::has('success'))
+                <h2 style="color: green; margin-bottom: 20px;">{{Session::get('success')}}</h2>
+            @endif
+
             <p class="user-main--subtitle">Status</p>
-            <form action="" method="GET" class="user-main--status-form">
+            <form action="{{ route('setting.status.change') }}" method="post" class="user-main--status-form">
+                @csrf
                 <textarea style="height: 117px" class="input-style input-textarea" required
                           placeholder="Set the status to 80 characters, which will be seen by all users on the forum"
-                          name="status" maxlength="80"></textarea>
+                          name="status" maxlength="80">{{ $userInfo->status }}</textarea>
                 <button style="max-width: 161px; height: 50px" class="btn--blue header_buttons-blue-btn">
                     <span>Save</span>
                     <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
@@ -95,8 +103,8 @@
                 <div class="user_card--line"></div>
                 <div class="user-main_info_group">
                     <div class="user-main_info_group--item">
-                        <p class="user-main_info-subt">Account age:</p>
-                        <p class="user-main_info_group--item-text">1 year 4 months 15 days</p>
+                        <p class="user-main_info-subt">Registered:</p>
+                        <p class="user-main_info_group--item-text">{{ date('d.m.Y', strtotime($userInfo->created_at)) }}</p>
                     </div>
                     @if(false)
                         <div class="user-main_info_group--item">
@@ -116,11 +124,11 @@
                                 <p class="user-main_info_group--item_group-text">+ 134</p>
                             </div>
                         </div>
+                        <div cla$userInfo->created_atss="user-main_info_group--item">
+                            <p class="user-main_info-subt">Your messages:</p>
+                            <p class="user-main_info_group--item-text">1 867</p>
+                        </div>
                     @endif
-                    <div class="user-main_info_group--item">
-                        <p class="user-main_info-subt">Your messages:</p>
-                        <p class="user-main_info_group--item-text">1 867</p>
-                    </div>
                 </div>
             </div>
             @if(false)

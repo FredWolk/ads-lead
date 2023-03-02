@@ -8,7 +8,6 @@
 		$urlEn = $_SERVER['APP_URL'] . substr($_SERVER['REQUEST_URI'], 3);
 		$urlPt = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
 	}
-
 @endphp
     <!doctype html>
 <html lang="en">
@@ -79,9 +78,6 @@
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                         </li>
-                        <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
-                        </li>
                     </ul>
                 </nav>
                 <div class="header_buttons">
@@ -127,8 +123,7 @@
                         </form>
                         <div id="desctop__search" class="search__modal"></div>
                     </div>
-
-                    @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
+                    @if(!empty($_GET['admin']) && $_GET['admin'] === 'login')
                         @auth()
                             <a href="{{ route('user.index') }}" class="header-user-icon">
                                 <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
@@ -205,9 +200,6 @@
                     <li class="burger_nav_list_item">
                         <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
                     </li>
-                    <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
-                    </li>
                 </ul>
             </nav>
         </div>
@@ -223,7 +215,8 @@
                         <img width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}" alt="banner">
                     </picture>
                 @else
-                    <video id="video" width="100%" autoplay loop muted></video>
+                    <video id="video" width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                           muted></video>
                 @endif
             </a>
         </section>
@@ -259,9 +252,6 @@
                         </li>
                         <li class="footer_nav_list_item">
                             <a class="footer_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
-                        </li>
-                        <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
                         </li>
                     </ul>
                 </nav>

@@ -28,6 +28,7 @@ use App\Http\Controllers\User\UserAlertController;
 use App\Http\Controllers\User\UserFavoriteController;
 use App\Http\Controllers\User\UserIndexController;
 use App\Http\Controllers\User\UserSecurityController;
+use App\Http\Controllers\User\UserSettingsController;
 use App\Http\Controllers\User\UserSubscriptionController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -89,6 +90,12 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], fun
         Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name(
             'user.correspondence.page'
         );
+
+        Route::group(['prefix' => 'settings'], function () {
+            Route::post('/change-password', [UserSettingsController::class, 'changePass'])->name('setting.password.change');
+            Route::post('/change-status', [UserSettingsController::class, 'changeStatus'])->name('setting.status.change');
+            Route::post('/change-photo', [UserSettingsController::class, 'changePhoto'])->name('setting.photo.change');
+        });
     });
 });
 

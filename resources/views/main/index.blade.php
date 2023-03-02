@@ -77,7 +77,7 @@
                         @else
                             <li class="article--card">
                                 <a class="article--card-link" href="{{ route('article', $a['link']) }}"></a>
-                                <img src="{{ asset('storage/'. $a["image"]) }}" alt="banner">
+                                <img src="{{ asset('storage/'. $a["{$locale}image"]) }}" alt="banner">
                                 <div class="article--card_info">
                                     <p class="article--card_info-date">{{ date('d/m/Y', strtotime($a['created_at'])) }}</p>
                                     <ul class="article--card_info_tags-list">
