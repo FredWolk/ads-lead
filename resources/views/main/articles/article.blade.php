@@ -164,13 +164,12 @@
                             </ul>
                         </div>
                     </div>
-                    {{--                TODO: Сделать когда будет ЛК--}}
-                    @if(false)
-                        <div class="articlepage--comments">
-                            <h2 class="videopage--comments-title">comments <span>(0)</span></h2>
-                            <div class="articlepage--comments_main">
+                    <div class="articlepage--comments">
+                        <h2 class="videopage--comments-title">comments <span>(0)</span></h2>
+                        <div class="articlepage--comments_main">
+                            @empty($coments)
                                 <p class="articlepage--comments-none">Be the first to comment</p>
-
+                            @else
                                 <ul class="articlepage--comments_main_list">
                                     <li class="articlepage--comments_main_list-item">
                                         <div class="articlepage--review-integration_autor">
@@ -190,16 +189,13 @@
                                             se, but in the approaches. If you follow the world news, you’ll be able to
                                             create an ad for any occasion. Here are some examples of what we worked with
                                             when everyone else was using the same old methods.</p>
-                                        <button class="articlepage--comments_main_list-item-btn">Reply</button>
                                     </li>
                                 </ul>
-                            </div>
-                            <h2 class="videopage--comments-title">Leave a comment</h2>
-                            <div class="articlepage--comments_main">
-                                <p class="articlepage--comments-none">You must be
-                                    <button class="login--btn" type="button">login</button>
-                                    in to leave a comment
-                                </p>
+                            @endempty
+                        </div>
+                        <h2 class="videopage--comments-title">Leave a comment</h2>
+                        <div class="articlepage--comments_main">
+                            @auth
                                 <form class="articlepage--comments_main-form" action="" method="POST">
                                     <textarea required minlength="1" placeholder="Leave a comment here"
                                               class="input-textarea" name="text"></textarea>
@@ -208,10 +204,14 @@
                                         <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                                     </button>
                                 </form>
-                            </div>
+                            @else
+                                <p class="articlepage--comments-none">You must be
+                                    <button class="login--btn" type="button">login</button>
+                                    in to leave a comment
+                                </p>
+                            @endauth
                         </div>
-                    @endif
-
+                    </div>
                 </article>
                 @if(!empty($banner))
                     <aside class="filter-aside">

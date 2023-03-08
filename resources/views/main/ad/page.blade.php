@@ -293,8 +293,6 @@
                                 </div>
                                 <p class="articlepage--comments-none-editorial-opinion-text">{{ $ad['editorial_opinion'] }}</p>
                             </div>
-                            {{--                        TODO: доделать после личного кабинета                           --}}
-                            @if(false)
                                 <ul class="articlepage--comments_main_list">
                                     <li class="articlepage--comments_main_list-item">
                                         <div class="articlepage--comments_main_list-item_top">
@@ -381,7 +379,6 @@
                                         <button class="articlepage--comments_main_list-item-btn">Reply</button>
                                     </li>
                                 </ul>
-                            @endif
                         </div>
                         {{--                        TODO: доделать после личного кабинета                           --}}
                         @if(false)
