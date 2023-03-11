@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Main\SendCommentController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController, KnowladgeBaseController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\Event\EventPageController;
@@ -65,6 +66,7 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], fun
         Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
         Route::get('/base', [KnowladgeBaseController::class, '__invoke'])->name('base');
         Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
+        Route::post('/send-comment', [SendCommentController::class, 'articleComment'])->name('article.comment');
     });
     Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
         Route::get('/', [AllVideoController::class, '__invoke'])->name('video');

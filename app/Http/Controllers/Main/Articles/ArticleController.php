@@ -14,7 +14,7 @@ class ArticleController extends Controller
 {
     public function __invoke($link, ViewService $service)
     {
-        $article = Article::where('link', $link)->with('author')->first();
+        $article = Article::where('link', $link)->with('author')->with('comments')->first();
         if (empty($article))
             return redirect()->route('articles');
         $moreArticle = Article::where('id', '!=', $article->id)->take(6)->get();

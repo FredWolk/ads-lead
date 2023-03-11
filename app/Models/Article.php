@@ -26,4 +26,8 @@ class Article extends Model
     {
         return $this->hasOne(Author::class, 'id', 'author_id');
     }
+    public function comments()
+    {
+        return $this->hasMany(ArticleComments::class, 'article_id', 'id')->with('author')->where('confirm', 1);
+    }
 }

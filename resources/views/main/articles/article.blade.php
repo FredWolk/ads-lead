@@ -165,40 +165,42 @@
                         </div>
                     </div>
                     <div class="articlepage--comments">
-                        <h2 class="videopage--comments-title">comments <span>(0)</span></h2>
+                        <h2 class="videopage--comments-title">comments <span>({{ !empty($article->comments) ? $article->comments->count() : '0' }})</span></h2>
                         <div class="articlepage--comments_main">
-                            @empty($coments)
+                            @empty($article->comments)
                                 <p class="articlepage--comments-none">Be the first to comment</p>
                             @else
+                                @foreach($article->comments as $comment)
                                 <ul class="articlepage--comments_main_list">
                                     <li class="articlepage--comments_main_list-item">
                                         <div class="articlepage--review-integration_autor">
                                             <div class="videopage_main-underimage_autor-image">
-                                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                                @if(!empty($comment->author->photo))
+                                                    <img src="{{ asset('storage/'. $comment->author->photo)}}" alt="autor">
+                                                @else
+                                                    <img src="{{ asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                                @endif
                                             </div>
                                             <div class="articlepage--review-integration_autor-text-wrapp">
-                                                <p class="articlepage--review-integration_autor-text-wrapp-name">Wade
-                                                    Warren</p>
-                                                <p class="articlepage--review-integration_autor-text-wrapp-company">
-                                                    01/21/2022</p>
+                                                <p class="articlepage--review-integration_autor-text-wrapp-name">{{ $comment->author->name }}</p>
+                                                <p class="articlepage--review-integration_autor-text-wrapp-company">{{ date('d.m.Y', strtotime($comment->created_at)) }}</p>
                                             </div>
                                         </div>
-                                        <p class="articlepage--comments_main_list-item-text">The list is not complete,
-                                            obviously. For each GEO and culture you can find dozens of local holidays
-                                            (that are easily googleable). <br><br> The idea is not in the holidays per
-                                            se, but in the approaches. If you follow the world news, you’ll be able to
-                                            create an ad for any occasion. Here are some examples of what we worked with
-                                            when everyone else was using the same old methods.</p>
+                                        <p class="articlepage--comments_main_list-item-text">{{ $comment->text }}</p>
                                     </li>
                                 </ul>
+                                @endforeach
                             @endempty
                         </div>
                         <h2 class="videopage--comments-title">Leave a comment</h2>
                         <div class="articlepage--comments_main">
                             @auth
-                                <form class="articlepage--comments_main-form" action="" method="POST">
-                                    <textarea required minlength="1" placeholder="Leave a comment here"
-                                              class="input-textarea" name="text"></textarea>
+                                <p id="comment__text" style="font-size: 16px; color: #00a87d"></p>
+                                <form id="comment_send" class="articlepage--comments_main-form">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $article['id'] }}">
+                                    <textarea id="comment" required minlength="1" placeholder="Leave a comment here"
+                                              class="input-textarea" name="comment"></textarea>
                                     <button class="btn--blue header_buttons-blue-btn">
                                         <span>Send</span>
                                         <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
@@ -301,4 +303,22 @@
             </ul>
         </div>
     </section>
+@endsection
+@section('scripts')
+    <script>
+        $('#comment_send').on('submit', function (e) {
+           e.preventDefault();
+           $.ajax({
+               url: '{{ route('article.comment') }}',
+               data: $(this).serialize(),
+               type: 'POST',
+               dataType: 'JSON'
+           }).done(function (rsp) {
+               if(rsp.status){
+                   $('#comment').val('');
+                    $('#comment__text').text('Your comment is being moderated')
+               }
+           })
+        });
+    </script>
 @endsection
