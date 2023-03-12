@@ -3,20 +3,29 @@
 namespace App\Http\Controllers\Admin\Comments;
 
 use App\Http\Controllers\Controller;
+use App\Models\CpaComments;
 use Illuminate\Http\Request;
 
 class CpaController extends Controller
 {
     public function index()
     {
-        return view('admin.comments.cpa');
+        $comments = CpaComments::all()->where('confirm', 0);
+        return view('admin.comments.cpa', compact('comments'));
     }
-    public function success(Request $request)
+    public function success(CpaComments $cpaComments)
     {
-        dd('123');
+        $comments = $cpaComments->update([
+            'confirm' => 1
+        ]);
+        if ($comments){
+            return redirect()->route('comments.cpa.index');
+        }
     }
-    public function delete(Request $request)
+
+    public function delete(CpaComments $cpaComments)
     {
-        dd('123');
+        $cpaComments->delete();
+        return redirect()->route('comments.cpa.index');
     }
 }

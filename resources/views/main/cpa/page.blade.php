@@ -309,202 +309,172 @@
                                     </div>
                                 </div>
                                 <p class="articlepage--comments-none-editorial-opinion-text">{{ $cpa["{$locale}editorial_opinion"] }}</p>
-                                {{--                        TODO: доделать после личного кабинета                           --}}
-                                @if(false)
-                                    <ul class="articlepage--comments_main_list">
-                                        <li class="articlepage--comments_main_list-item">
-                                            <div class="articlepage--comments_main_list-item_top">
-                                                <div class="articlepage--review-integration_autor">
-                                                    <div class="videopage_main-underimage_autor-image">
-                                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
-                                                    </div>
-                                                    <div class="articlepage--review-integration_autor-text-wrapp">
-                                                        <p class="articlepage--review-integration_autor-text-wrapp-name">
-                                                            Wade
-                                                            Warren</p>
-                                                        <p class="articlepage--review-integration_autor-text-wrapp-company">
-                                                            01/21/2022</p>
-                                                    </div>
-                                                </div>
-                                                <div class="articlepage--comments_main_list-item_top_rating-group">
-                                                    <div
-                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
-                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                            Support</p>
-                                                        <div
-                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                            @for ($i=0; $i<5; $i++)
-                                                                <svg width="17" height="16" viewBox="0 0 17 16"
-                                                                     fill="none"
-                                                                     xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                        fill="#014EFF"/>
-                                                                </svg>
-                                                            @endfor
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
-                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                            Payments</p>
-                                                        <div
-                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                            @for ($i=0; $i<5; $i++)
-                                                                <svg width="17" height="16" viewBox="0 0 17 16"
-                                                                     fill="none"
-                                                                     xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                        fill="#014EFF"/>
-                                                                </svg>
-                                                            @endfor
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
-                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                            offers</p>
-                                                        <div
-                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                            @for ($i=0; $i<5; $i++)
-                                                                <svg width="17" height="16" viewBox="0 0 17 16"
-                                                                     fill="none"
-                                                                     xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                        fill="#014EFF"/>
-                                                                </svg>
-                                                            @endfor
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
-                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                            Betting</p>
-                                                        <div
-                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                            @for ($i=0; $i<5; $i++)
-                                                                <svg width="17" height="16" viewBox="0 0 17 16"
-                                                                     fill="none"
-                                                                     xmlns="http://www.w3.org/2000/svg">
-                                                                    <path
-                                                                        d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                        fill="#014EFF"/>
-                                                                </svg>
-                                                            @endfor
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p class="articlepage--comments_main_list-item-text">The list is not
-                                                complete,
-                                                obviously. For each GEO and culture you can find dozens of local
-                                                holidays (that
-                                                are easily googleable). <br><br> The idea is not in the holidays per se,
-                                                but in
-                                                the approaches. If you follow the world news, you’ll be able to create
-                                                an ad for
-                                                any occasion. Here are some examples of what we worked with when
-                                                everyone else
-                                                was using the same old methods.</p>
-                                            <button class="articlepage--comments_main_list-item-btn">Reply</button>
-                                        </li>
-                                    </ul>
-                                @endif
                             </div>
-                            {{--                        TODO: доделать после личного кабинета                           --}}
-                            @if(false)
-                                <div class="cpaartpage_aside_rating to-show">
-                                    <p class="cpaartpage_aside_rating-title">Rating</p>
-                                    <div class="cpaartpage_aside_rating_group">
-                                        <div class="cpaartpage_aside_rating_group-item">
+                            <ul class="articlepage--comments_main_list">
+                                <li class="articlepage--comments_main_list-item">
+                                    <div class="articlepage--comments_main_list-item_top">
+                                        <div class="articlepage--review-integration_autor">
+                                            <div class="videopage_main-underimage_autor-image">
+                                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                            </div>
+                                            <div class="articlepage--review-integration_autor-text-wrapp">
+                                                <p class="articlepage--review-integration_autor-text-wrapp-name">
+                                                    Wade Warren</p>
+                                                <p class="articlepage--review-integration_autor-text-wrapp-company">
+                                                    01/21/2022</p>
+                                            </div>
+                                        </div>
+                                        <div class="articlepage--comments_main_list-item_top_rating-group">
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
                                                     Support</p>
-                                                <div
-                                                    class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path opacity="0.2"
-                                                                  d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                  fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                    <div class="rating-mini">
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
-                                        </div>
-                                        <div class="cpaartpage_aside_rating_group-item">
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
                                                     Payments</p>
-                                                <div
-                                                    class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path opacity="0.2"
-                                                                  d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                  fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                    <div class="rating-mini">
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
-                                        </div>
-                                        <div class="cpaartpage_aside_rating_group-item">
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
                                                     offers</p>
-                                                <div
-                                                    class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path opacity="0.2"
-                                                                  d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                  fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                    <div class="rating-mini">
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
-                                        </div>
-                                        <div class="cpaartpage_aside_rating_group-item">
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
                                                     Betting</p>
-                                                <div
-                                                    class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path opacity="0.2"
-                                                                  d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                  fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                    <div class="rating-mini">
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span class="active"></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
+                                        </div>
+                                    </div>
+                                    <p class="articlepage--comments_main_list-item-text">The list is not complete,
+                                        obviously. For each GEO and culture you can find dozens of local holidays
+                                        (that are easily googleable). <br><br> The idea is not in the holidays per
+                                        se, but in the approaches. If you follow the world news, you’ll be able to
+                                        create an ad for any occasion. Here are some examples of what we worked with
+                                        when everyone else was using the same old methods.</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="cpaartpage_aside_rating to-show">
+                                <p class="cpaartpage_aside_rating-title">{{ __('messages.rating') }}</p>
+                                <div class="cpaartpage_aside_rating_group">
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.support') }}</p>
+                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $cpa['rating_support'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $cpa['rating_support'] }}</span>/5
+                                        </div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.payouts') }}</p>
+                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $cpa['rating_payments'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $cpa['rating_payments'] }}</span>/5
+                                        </div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.offers') }}</p>
+                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $cpa['rating_offers'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $cpa['rating_offers'] }}</span>/5
+                                        </div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.rates') }}</p>
+                                            <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $cpa['rating_betting'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $cpa['rating_betting'] }}</span>/5
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="videopage--comments-title">Leave a Review</h2>
-                                <div class="articlepage--comments_main">
-                                    <p class="articlepage--comments-none">You must be
-                                        <button class="login--btn" type="button">login</button>
-                                        in to leave a review
-                                    </p>
+                            </div>
+                            <h2 class="videopage--comments-title">Leave a Review</h2>
+                            <div class="articlepage--comments_main">
+                                @auth()
                                     <form class="articlepage--comments_main-form" action="" method="POST">
                                         <div class="articlepage--comments_main_list-item_top_rating-group">
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
                                                     Support</p>
-                                                <div
-                                                    class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                <div class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                     @for ($i=0; $i<5; $i++)
                                                         <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -569,8 +539,13 @@
                                                  alt="arrow">
                                         </button>
                                     </form>
-                                </div>
-                            @endif
+                                @else
+                                    <p class="articlepage--comments-none">You must be
+                                        <button class="login--btn" type="button">login</button>
+                                        in to leave a review
+                                    </p>
+                                @endauth
+                            </div>
                         </div>
                     </div>
                 </article>

@@ -2165,7 +2165,6 @@ img {
     font-size: 18px;
     line-height: 160%;
     color: #272C31;
-    margin-bottom: 20px;
 }
 
 .articlepage--comments_main_list-item-btn {
@@ -2694,7 +2693,7 @@ img {
 }
 
 .articlepage--comments-none-editorial-opinion {
-    margin-top: 22px;
+    margin: 22px 0;
     width: 100%;
     padding: 32px 40px;
     display: flex;
@@ -6912,3 +6911,23 @@ form {
 }
 
 /*--CALENDAR--*/
+/*--RATING--*/
+.rating-mini {
+    display: inline-block;
+    font-size: 0;
+}
+.rating-mini span {
+    padding: 0;
+    font-size: 20px;
+    line-height: 1;
+    color: #014EFF;
+    opacity: 0.2;
+}
+.rating-mini > span:before {
+    content: '★';
+}
+.rating-mini > span.active {
+    color: #014EFF;
+    opacity: 1;
+}
+/*--RATING--*/

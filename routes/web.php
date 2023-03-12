@@ -127,13 +127,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
        });
        Route::group(['prefix' => 'cpa'], function (){
           Route::get('/', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'index'])->name('comments.cpa.index');
-          Route::put('/success/{id}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'success'])->name('comments.cpa.success');
-          Route::delete('/delete/{id}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'delete'])->name('comments.cpa.delete');
+          Route::put('/success/{cpaComments}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'success'])->name('comments.cpa.success');
+          Route::delete('/delete/{cpaComments}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'delete'])->name('comments.cpa.delete');
        });
        Route::group(['prefix' => 'adv'], function (){
           Route::get('/', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'index'])->name('comments.adv.index');
-          Route::put('/success/{id}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'success'])->name('comments.adv.success');
-          Route::delete('/delete/{id}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'delete'])->name('comments.adv.delete');
+          Route::put('/success/{advComments}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'success'])->name('comments.adv.success');
+          Route::delete('/delete/{advComments}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'delete'])->name('comments.adv.delete');
        });
     });
 });

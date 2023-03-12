@@ -3,20 +3,29 @@
 namespace App\Http\Controllers\Admin\Comments;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdvComments;
 use Illuminate\Http\Request;
 
 class AdvController extends Controller
 {
     public function index()
     {
-        return view('admin.comments.adv');
+        $comments = AdvComments::all()->where('confirm', 0);
+        return view('admin.comments.adv', compact('comments'));
     }
-    public function success(Request $request)
+    public function success(AdvComments $advComments)
     {
-        dd('123');
+        $comments = $advComments->update([
+            'confirm' => 1
+        ]);
+        if ($comments){
+            return redirect()->route('comments.adv.index');
+        }
     }
-    public function delete(Request $request)
+
+    public function delete(AdvComments $advComments)
     {
-        dd('123');
+        $advComments->delete();
+        return redirect()->route('comments.adv.index');
     }
 }
