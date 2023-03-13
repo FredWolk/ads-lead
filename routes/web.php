@@ -49,6 +49,7 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], fun
         Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
         Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
         Route::get('/{catalog}/{link}', [PageController::class, '__invoke'])->name('cpa.page');
+        Route::post('/send-comment', [SendCommentController::class, 'cpaComment'])->name('cpa.comment');
     });
     Route::group(['namespace' => 'ad', 'prefix' => 'ad-networks'], function () {
         Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
@@ -58,8 +59,9 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], fun
         Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name(
             'ad.page'
         );
+        Route::post('/send-comment', [SendCommentController::class, 'adCommentComment'])->name('ad.comment');
     });
-    Route::group(['namespace' => 'ad', 'prefix' => 'services'], function () {
+    Route::group(['namespace' => 'services', 'prefix' => 'services'], function () {
         Route::get('/', [\App\Http\Controllers\Main\Services\NetworksController::class, '__invoke'])->name('services');
     });
     Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {

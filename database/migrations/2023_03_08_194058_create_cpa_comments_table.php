@@ -19,6 +19,10 @@ return new class extends Migration
             $table->text('text');
             $table->integer('cpa_id');
             $table->boolean('confirm');
+            $table->integer('support')->default(0);
+            $table->integer('payments')->default(0);
+            $table->integer('offers')->default(0);
+            $table->integer('betting')->default(0);
             $table->timestamps();
         });
     }

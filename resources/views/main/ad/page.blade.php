@@ -279,78 +279,259 @@
                     </div>
                     <div class="articlepage--comments">
                         <h2 class="videopage--comments-title">Reviews of .... <span>(0)</span></h2>
-                        <div class="articlepage--comments_main">
-                            <p class="articlepage--comments-none">Be the first to comment</p>
-                            <div class="articlepage--comments-none-editorial-opinion">
-                                <div class="articlepage--review-integration_autor">
-                                    <div class="videopage_main-underimage_autor-image">
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
-                                    </div>
-                                    <div class="articlepage--review-integration_autor-text-wrapp">
-                                        <p class="articlepage--review-integration_autor-text-wrapp-name">Editorial
-                                            Opinion</p>
-                                    </div>
+                        <div class="articlepage--comments-none-editorial-opinion">
+                            <div class="articlepage--review-integration_autor">
+                                <div class="videopage_main-underimage_autor-image">
+                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
                                 </div>
-                                <p class="articlepage--comments-none-editorial-opinion-text">{{ $ad['editorial_opinion'] }}</p>
+                                <div class="articlepage--review-integration_autor-text-wrapp">
+                                    <p class="articlepage--review-integration_autor-text-wrapp-name">{{ __('messages.opinion') }}</p>
+                                </div>
                             </div>
-                            <ul class="articlepage--comments_main_list">
-                                <li class="articlepage--comments_main_list-item">
-                                    <div class="articlepage--comments_main_list-item_top">
-                                        <div class="articlepage--review-integration_autor">
-                                            <div class="videopage_main-underimage_autor-image">
-                                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                            <p class="articlepage--comments-none-editorial-opinion-text">{{ $ad["{$locale}editorial_opinion"] }}</p>
+                        </div>
+                        <div class="articlepage--comments_main">
+                            @empty($ad->comments)
+                                <p class="articlepage--comments-none">Be the first to comment</p>
+                            @else
+                                <ul class="articlepage--comments_main_list">
+                                    @foreach($ad->comments as $comment)
+                                        <li class="articlepage--comments_main_list-item">
+                                            <div class="articlepage--comments_main_list-item_top">
+                                                <div class="articlepage--review-integration_autor">
+                                                    <div class="videopage_main-underimage_autor-image">
+                                                        @empty($comment->author->photo)
+                                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                                        @else
+                                                            <img src="{{asset('storage/'.$comment->author->photo)}}" alt="autor">
+                                                        @endempty
+                                                    </div>
+                                                    <div class="articlepage--review-integration_autor-text-wrapp">
+                                                        <p class="articlepage--review-integration_autor-text-wrapp-name">{{ $comment->author->name }}</p>
+                                                        <p class="articlepage--review-integration_autor-text-wrapp-company">{{ date('d.m.Y', strtotime($comment->created_at)) }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="articlepage--comments_main_list-item_top_rating-group">
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                            Support</p>
+                                                        <div
+                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                            <div class="rating-mini">
+                                                                @for($i = 0; $i < 5; $i++)
+                                                                    @if($i <= $comment->support)
+                                                                        <span class="active"></span>
+                                                                    @else
+                                                                        <span></span>
+                                                                    @endif
+                                                                @endfor
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                            Payments</p>
+                                                        <div
+                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                            <div class="rating-mini">
+                                                                @for($i = 0; $i < 5; $i++)
+                                                                    @if($i <= $comment->traffic_quality)
+                                                                        <span class="active"></span>
+                                                                    @else
+                                                                        <span></span>
+                                                                    @endif
+                                                                @endfor
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                            offers</p>
+                                                        <div
+                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                            <div class="rating-mini">
+                                                                @for($i = 0; $i < 5; $i++)
+                                                                    @if($i <= $comment->number_geos)
+                                                                        <span class="active"></span>
+                                                                    @else
+                                                                        <span></span>
+                                                                    @endif
+                                                                @endfor
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="articlepage--comments_main_list-item_top_rating-group-item">
+                                                        <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                            Betting</p>
+                                                        <div
+                                                            class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                            <div class="rating-mini">
+                                                                @for($i = 0; $i < 5; $i++)
+                                                                    @if($i <= $comment->price_click)
+                                                                        <span class="active"></span>
+                                                                    @else
+                                                                        <span></span>
+                                                                    @endif
+                                                                @endfor
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="articlepage--review-integration_autor-text-wrapp">
-                                                <p class="articlepage--review-integration_autor-text-wrapp-name">
-                                                    Wade Warren</p>
-                                                <p class="articlepage--review-integration_autor-text-wrapp-company">
-                                                    01/21/2022</p>
+                                            <p class="articlepage--comments_main_list-item-text">{{ $comment->text }}</p>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                        <div>
+                            <div class="cpaartpage_aside_rating to-show">
+                                <p class="cpaartpage_aside_rating-title">{{ __('messages.rating') }}</p>
+                                <div class="cpaartpage_aside_rating_group">
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.support') }}</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $ad['rating_support'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
                                             </div>
                                         </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $ad['rating_support'] }}</span>/5
+                                        </div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.payouts') }}</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $ad['rating_payments'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $ad['rating_payments'] }}</span>/5
+                                        </div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.offers') }}</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $ad['rating_offers'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $ad['rating_offers'] }}</span>/5
+                                        </div>
+                                    </div>
+                                    <div class="cpaartpage_aside_rating_group-item">
+                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
+                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">{{ __('messages.rates') }}</p>
+                                            <div
+                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
+                                                @for ($i=0; $i<5; $i++)
+                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="{{ $i < $ad['rating_betting'] ? '1' : '0.2' }}"
+                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
+                                                              fill="#014EFF"/>
+                                                    </svg>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="cpaartpage_aside_rating_group-item-num">
+                                            <span>{{ $ad['rating_betting'] }}</span>/5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="videopage--comments-title">Leave a Review</h2>
+                            <div class="articlepage--comments_main">
+                                @auth()
+                                    <p id="comment__text" style="font-size: 16px; color: #00a87d"></p>
+                                    <form id="comment_send" class="articlepage--comments_main-form">
+                                        @csrf
                                         <div class="articlepage--comments_main_list-item_top_rating-group">
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
                                                     Support</p>
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                    <div class="rating-area">
+                                                        <input type="radio" id="support-5" name="support" value="5">
+                                                        <label for="support-5" title="«5»"></label>
+                                                        <input type="radio" id="support-4" name="support" value="4">
+                                                        <label for="support-4" title="«4»"></label>
+                                                        <input type="radio" id="support-3" name="support" value="3">
+                                                        <label for="support-3" title="«3»"></label>
+                                                        <input type="radio" id="support-2" name="support" value="2">
+                                                        <label for="support-2" title="«2»"></label>
+                                                        <input type="radio" id="support-1" name="support" value="1">
+                                                        <label for="support-1" title="«1»"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                    Payments</p>
+                                                    Traffic quality</p>
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                    <div class="rating-area">
+                                                        <input type="radio" id="traffic_quality-5" name="traffic_quality" value="5">
+                                                        <label for="traffic_quality-5" title="«5»"></label>
+                                                        <input type="radio" id="traffic_quality-4" name="traffic_quality" value="4">
+                                                        <label for="traffic_quality-4" title="«4»"></label>
+                                                        <input type="radio" id="traffic_quality-3" name="traffic_quality" value="3">
+                                                        <label for="traffic_quality-3" title="«3»"></label>
+                                                        <input type="radio" id="traffic_quality-2" name="traffic_quality" value="2">
+                                                        <label for="traffic_quality-2" title="«2»"></label>
+                                                        <input type="radio" id="traffic_quality-1" name="traffic_quality" value="1">
+                                                        <label for="traffic_quality-1" title="«1»"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                    offers</p>
+                                                    Number of GEOs</p>
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                    <div class="rating-area">
+                                                        <input type="radio" id="offers-5" name="offers" value="5">
+                                                        <label for="offers-5" title="«5»"></label>
+                                                        <input type="radio" id="offers-4" name="offers" value="4">
+                                                        <label for="offers-4" title="«4»"></label>
+                                                        <input type="radio" id="offers-3" name="offers" value="3">
+                                                        <label for="offers-3" title="«3»"></label>
+                                                        <input type="radio" id="offers-2" name="offers" value="2">
+                                                        <label for="offers-2" title="«2»"></label>
+                                                        <input type="radio" id="offers-1" name="offers" value="1">
+                                                        <label for="offers-1" title="«1»"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
@@ -358,185 +539,38 @@
                                                     Betting</p>
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                    @for ($i=0; $i<5; $i++)
-                                                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                                fill="#014EFF"/>
-                                                        </svg>
-                                                    @endfor
+                                                    <div class="rating-area">
+                                                        <input type="radio" id="betting-5" name="betting" value="5">
+                                                        <label for="betting-5" title="«5»"></label>
+                                                        <input type="radio" id="betting-4" name="betting" value="4">
+                                                        <label for="betting-4" title="«4»"></label>
+                                                        <input type="radio" id="betting-3" name="betting" value="3">
+                                                        <label for="betting-3" title="«3»"></label>
+                                                        <input type="radio" id="betting-2" name="betting" value="2">
+                                                        <label for="betting-2" title="«2»"></label>
+                                                        <input type="radio" id="betting-1" name="betting" value="1">
+                                                        <label for="betting-1" title="«1»"></label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p class="articlepage--comments_main_list-item-text">The list is not complete,
-                                        obviously. For each GEO and culture you can find dozens of local holidays
-                                        (that are easily googleable). <br><br> The idea is not in the holidays per
-                                        se, but in the approaches. If you follow the world news, you’ll be able to
-                                        create an ad for any occasion. Here are some examples of what we worked with
-                                        when everyone else was using the same old methods.</p>
-                                    <button class="articlepage--comments_main_list-item-btn">Reply</button>
-                                </li>
-                            </ul>
+                                        <input type="hidden" name="id" value="{{ $ad['id'] }}">
+                                        <textarea id="comment" required minlength="1" placeholder="Leave a comment here"
+                                                  class="input-textarea" name="comment"></textarea>
+                                        <button class="btn--blue header_buttons-blue-btn">
+                                            <span>Send</span>
+                                            <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                                 alt="arrow">
+                                        </button>
+                                    </form>
+                                @else
+                                    <p class="articlepage--comments-none">You must be
+                                        <button class="login--btn" type="button">login</button>
+                                        in to leave a review
+                                    </p>
+                                @endauth
+                            </div>
                         </div>
-                        {{--                        TODO: доделать после личного кабинета                           --}}
-                        @if(false)
-                            <div class="cpaartpage_aside_rating to-show">
-                                <p class="cpaartpage_aside_rating-title">Rating</p>
-                                <div class="cpaartpage_aside_rating_group">
-                                    <div class="cpaartpage_aside_rating_group-item">
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                Support</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
-                                    </div>
-                                    <div class="cpaartpage_aside_rating_group-item">
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                Payments</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
-                                    </div>
-                                    <div class="cpaartpage_aside_rating_group-item">
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                offers</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
-                                    </div>
-                                    <div class="cpaartpage_aside_rating_group-item">
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                Betting</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="cpaartpage_aside_rating_group-item-num"><span>5</span>/5</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h2 class="videopage--comments-title">Leave a Review</h2>
-                            <div class="articlepage--comments_main">
-                                <p class="articlepage--comments-none">You must be
-                                    <button class="login--btn" type="button">login</button>
-                                    in to leave a review
-                                </p>
-                                <form class="articlepage--comments_main-form" action="" method="POST">
-                                    <div class="articlepage--comments_main_list-item_top_rating-group">
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                Support</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                Payments</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                offers</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                            <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                Betting</p>
-                                            <div
-                                                class="articlepage--comments_main_list-item_top_rating-group-item-stars">
-                                                @for ($i=0; $i<5; $i++)
-                                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.2"
-                                                              d="M8.50065 12.6722L13.3932 15.6252L12.0948 10.0597L16.4173 6.31516L10.7252 5.83225L8.50065 0.583496L6.27607 5.83225L0.583984 6.31516L4.90648 10.0597L3.60815 15.6252L8.50065 12.6722Z"
-                                                              fill="#014EFF"/>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <textarea required minlength="1" placeholder="Leave a comment here"
-                                              class="input-textarea" name="text"></textarea>
-                                    <button class="btn--blue header_buttons-blue-btn">
-                                        <span>Send</span>
-                                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                                    </button>
-                                </form>
-                            </div>
-                        @endif
                     </div>
                 </article>
                 <aside class="filter-aside">
@@ -642,7 +676,6 @@
     <aside class="main-video aside-other-wideos">
         <div class="container">
             <h3 class="aside-other-wideos-title">Related Ad-networks</h3>
-
             <div class="swiper">
                 <ul class="swiper-wrapper">
                     @foreach ($moreAd as $i)
@@ -720,4 +753,23 @@
             </ul>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    <script>
+        $('#comment_send').on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '{{ route('ad.comment') }}',
+                data: $(this).serialize(),
+                type: 'POST',
+                dataType: 'JSON'
+            }).done(function (rsp) {
+                if (rsp.status) {
+                    $('#comment').val('');
+                    $('#comment__text').text('Your comment is being moderated')
+                }
+            })
+        });
+    </script>
 @endsection

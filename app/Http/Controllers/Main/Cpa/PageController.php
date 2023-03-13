@@ -13,7 +13,7 @@ class PageController extends Controller
 {
     public function __invoke($catalog, $link, ViewService $service)
     {
-        $cpa = Cpa::where('link', $link)->first();
+        $cpa = Cpa::where('link', $link)->with('comments')->first();
         if (empty($cpa))
             return redirect()->route('cpa');
         $moreCpa = Cpa::where('id', '!=', $cpa->id)->take(6)->get();

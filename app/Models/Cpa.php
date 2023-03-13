@@ -21,4 +21,9 @@ class Cpa extends Model
         'payment_systems' => 'array',
     ];
 
+    public function comments()
+    {
+        return $this->hasMany(CpaComments::class, 'cpa_id', 'id')->with('author')->where('confirm', 1);
+    }
+
 }

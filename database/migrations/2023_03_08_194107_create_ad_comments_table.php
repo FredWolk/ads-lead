@@ -19,6 +19,10 @@ return new class extends Migration
             $table->text('text');
             $table->integer('ad_id');
             $table->boolean('confirm');
+            $table->integer('support')->default(0);
+            $table->integer('traffic_quality')->default(0);
+            $table->integer('number_geos')->default(0);
+            $table->integer('price_click')->default(0);
             $table->timestamps();
         });
     }
