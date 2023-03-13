@@ -1,5 +1,6 @@
 @php
     $userInfo = \Illuminate\Support\Facades\Auth::user();
+	$banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
 @endphp
     <!doctype html>
 <html lang="en">
@@ -31,9 +32,11 @@
                     <li class="header_nav_list_item">
                         <a class="header_nav--link" href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                     </li>
-                    <li class="header_nav_list_item">
-                        <a class="header_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
-                    </li>
+                    @if(false)
+                        <li class="header_nav_list_item">
+                            <a class="header_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
+                        </li>
+                    @endif
                     @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
@@ -51,10 +54,12 @@
                 </ul>
             </nav>
             <div class="header_buttons">
-                <a class="btn--blue header_buttons-blue-btn" href="{{ route('index') }}">
-                    <span>Sweepstakes offers</span>
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                </a>
+                @if(!empty($banner_button))
+                    <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
+                        <span>{{ $banner_button->text }}</span>
+                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    </a>
+                @endif
 
                 <button type="button" class="btn-rectangle btn--burger">
                     <div class="burger--btn_wrapper">

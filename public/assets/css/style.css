@@ -186,11 +186,24 @@ a, button {
 }
 
 .header_buttons {
-    max-width: 353px;
+    max-width: 400px;
     display: flex;
     align-items: center;
+    width: 100%;
     gap: 8px;
 }
+
+.change__lang {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #014EFF;
+ }
 
 .btn--blue {
     font-weight: 700;

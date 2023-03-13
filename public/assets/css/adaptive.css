@@ -340,6 +340,36 @@
         padding-right: 14px !important;
     }
 
+    .change__lang{
+        display: none;
+    }
+
+    .switch__lang {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        background: #FFFFFF;
+        border-width: 1px 0;
+        border-style: solid;
+        border-color: #014EFF;
+        padding: 12px 0;
+        margin-top: 25px;
+    }
+
+    .switch__lang-link {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #272C31;
+    }
+
+    .switch__lang-link.active{
+        color: #014EFF;
+    }
+
     .header_buttons-blue-btn {
         max-width: 190px;
         font-size: 12px;

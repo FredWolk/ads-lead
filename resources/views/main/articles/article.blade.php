@@ -131,19 +131,16 @@
                             <p class="articlepage__links-item-title">{{ __('messages.subscribe') }}</p>
                             <ul class="articlepage__links-item_list">
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">instagram</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=' : 'https://instagram.com/affjournal_br?igshid=YmMyMTA2M2Y=' }}">instagram</a>
                                 </li>
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">telegram</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://t.me/affjournal_eng' : 'https://t.me/affiliatejournal' }}">telegram</a>
                                 </li>
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">facebook</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://www.facebook.com/profile.php?id=100089855863483' : 'https://www.facebook.com/profile.php?id=100089869573266' }}">facebook</a>
                                 </li>
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">youtube</a>
-                                </li>
-                                <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">linkedin</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="https://www.linkedin.com/in/affjournal-eng-b23466265/recent-activity/">linkedin</a>
                                 </li>
                             </ul>
                         </div>
@@ -155,40 +152,45 @@
                                     <a class="articlepage__links-item_list-item--link" target="_blank"
                                        href="https://t.me/share/url?url={{ url()->current() }}">telegram</a>
                                 </li>
-                                <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">facebook</a>
-                                </li>
-                                <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">twitter</a>
-                                </li>
+                                @if(false)
+                                    <li class="articlepage__links-item_list-item">
+                                        <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">facebook</a>
+                                    </li>
+                                    <li class="articlepage__links-item_list-item">
+                                        <a class="articlepage__links-item_list-item--link" href="{{ route('index') }}">twitter</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                     <div class="articlepage--comments">
-                        <h2 class="videopage--comments-title">comments <span>({{ !empty($article->comments) ? $article->comments->count() : '0' }})</span></h2>
+                        <h2 class="videopage--comments-title">comments <span>({{ !empty($article->comments) ? $article->comments->count() : '0' }})</span>
+                        </h2>
                         <div class="articlepage--comments_main">
                             @empty($article->comments)
                                 <p class="articlepage--comments-none">Be the first to comment</p>
                             @else
                                 @foreach($article->comments as $comment)
-                                <ul class="articlepage--comments_main_list">
-                                    <li class="articlepage--comments_main_list-item">
-                                        <div class="articlepage--review-integration_autor">
-                                            <div class="videopage_main-underimage_autor-image">
-                                                @if(!empty($comment->author->photo))
-                                                    <img src="{{ asset('storage/'. $comment->author->photo)}}" alt="autor">
-                                                @else
-                                                    <img src="{{ asset('assets/images/card-pict.jpg')}}" alt="autor">
-                                                @endif
+                                    <ul class="articlepage--comments_main_list">
+                                        <li class="articlepage--comments_main_list-item">
+                                            <div class="articlepage--review-integration_autor">
+                                                <div class="videopage_main-underimage_autor-image">
+                                                    @if(!empty($comment->author->photo))
+                                                        <img src="{{ asset('storage/'. $comment->author->photo)}}"
+                                                             alt="autor">
+                                                    @else
+                                                        <img src="{{ asset('assets/images/card-pict.jpg')}}"
+                                                             alt="autor">
+                                                    @endif
+                                                </div>
+                                                <div class="articlepage--review-integration_autor-text-wrapp">
+                                                    <p class="articlepage--review-integration_autor-text-wrapp-name">{{ $comment->author->name }}</p>
+                                                    <p class="articlepage--review-integration_autor-text-wrapp-company">{{ date('d.m.Y', strtotime($comment->created_at)) }}</p>
+                                                </div>
                                             </div>
-                                            <div class="articlepage--review-integration_autor-text-wrapp">
-                                                <p class="articlepage--review-integration_autor-text-wrapp-name">{{ $comment->author->name }}</p>
-                                                <p class="articlepage--review-integration_autor-text-wrapp-company">{{ date('d.m.Y', strtotime($comment->created_at)) }}</p>
-                                            </div>
-                                        </div>
-                                        <p class="articlepage--comments_main_list-item-text">{{ $comment->text }}</p>
-                                    </li>
-                                </ul>
+                                            <p class="articlepage--comments_main_list-item-text">{{ $comment->text }}</p>
+                                        </li>
+                                    </ul>
                                 @endforeach
                             @endempty
                         </div>
@@ -307,18 +309,18 @@
 @section('scripts')
     <script>
         $('#comment_send').on('submit', function (e) {
-           e.preventDefault();
-           $.ajax({
-               url: '{{ route('article.comment') }}',
-               data: $(this).serialize(),
-               type: 'POST',
-               dataType: 'JSON'
-           }).done(function (rsp) {
-               if(rsp.status){
-                   $('#comment').val('');
+            e.preventDefault();
+            $.ajax({
+                url: '{{ route('article.comment') }}',
+                data: $(this).serialize(),
+                type: 'POST',
+                dataType: 'JSON'
+            }).done(function (rsp) {
+                if (rsp.status) {
+                    $('#comment').val('');
                     $('#comment__text').text('Your comment is being moderated')
-               }
-           })
+                }
+            })
         });
     </script>
 @endsection

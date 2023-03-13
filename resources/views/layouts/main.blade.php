@@ -1,7 +1,8 @@
 @php
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
-	if (\Illuminate\Support\Facades\App::getLocale() === 'en'){
+	$lang =	\Illuminate\Support\Facades\App::getLocale();
+	if ($lang === 'en'){
       $urlEn = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
 	  $urlPt = $_SERVER['APP_URL'] . '/pt' . $_SERVER['REQUEST_URI'];
 	} else {
@@ -61,9 +62,11 @@
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                         </li>
-                        <li class="header_nav_list_item">
-                            <a class="header_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
-                        </li>
+                        @if(false)
+                            <li class="header_nav_list_item">
+                                <a class="header_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
+                            </li>
+                        @endif
                         @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
                             <li class="header_nav_list_item">
                                 <a class="header_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
@@ -81,6 +84,11 @@
                     </ul>
                 </nav>
                 <div class="header_buttons">
+                    <select class="change__lang" name="lang" id="set_lang">
+                        <option {{ $lang === 'en' ? 'selected' : '' }} value="en">Eng</option>
+                        <option {{ $lang === 'pt' ? 'selected' : '' }} value="pt">Pt</option>
+                    </select>
+
                     @if(!empty($banner_button))
                         <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
                             <span>{{ $banner_button->text }}</span>
@@ -123,22 +131,20 @@
                         </form>
                         <div id="desctop__search" class="search__modal"></div>
                     </div>
-                    @if(!empty($_GET['admin']) && $_GET['admin'] === 'login')
-                        @auth()
-                            <a href="{{ route('user.index') }}" class="header-user-icon">
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                            </a>
-                        @else
-                            <button type="button" class="btn-rectangle btn--exit login--btn">
-                                <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z"
-                                        fill="#272C31"/>
-                                </svg>
-                            </button>
-                        @endauth
-                    @endif
+                    @auth()
+                        <a href="{{ route('user.index') }}" class="header-user-icon">
+                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        </a>
+                    @else
+                        <button type="button" class="btn-rectangle btn--exit login--btn">
+                            <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z"
+                                    fill="#272C31"/>
+                            </svg>
+                        </button>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -167,15 +173,13 @@
                         </svg>
                     </button>
                 </div>
-                @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
-                    <button type="button" class="btn-rectangle btn--exit login--btn">
-                        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z"
-                                fill="#272C31"/>
-                        </svg>
-                    </button>
-                @endif
+                <button type="button" class="btn-rectangle btn--exit login--btn">
+                    <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.33325 2.66667L5.39992 3.6L7.13325 5.33333H0.333252V6.66667H7.13325L5.39992 8.4L6.33325 9.33333L9.66659 6L6.33325 2.66667ZM12.3333 10.6667H6.99992V12H12.3333C13.0666 12 13.6666 11.4 13.6666 10.6667V1.33333C13.6666 0.6 13.0666 0 12.3333 0H6.99992V1.33333H12.3333V10.6667Z"
+                            fill="#272C31"/>
+                    </svg>
+                </button>
             </div>
             <p class="burger-menu-title">menu</p>
             <nav class="burger_nav">
@@ -183,9 +187,11 @@
                     <li class="burger_nav_list_item">
                         <a class="burger_nav--link" href="{{ route('articles') }}">{{ __('messages.articles') }}</a>
                     </li>
-                    <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
-                    </li>
+                    @if(false)
+                        <li class="burger_nav_list_item">
+                            <a class="burger_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
+                        </li>
+                    @endif
                     @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
                         <li class="burger_nav_list_item">
                             <a class="burger_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
@@ -201,6 +207,11 @@
                         <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
                     </li>
                 </ul>
+                <div class="switch__lang">
+                    <a class="switch__lang-link {{ $lang === 'en' ? 'active' : '' }}" href="{{ $urlEn }}">English</a>
+                    <div style="color: #014EFF">|</div>
+                    <a class="switch__lang-link {{ $lang === 'pt' ? 'active' : '' }}" href="{{ $urlPt }}">Portuguese</a>
+                </div>
             </nav>
         </div>
     </section>
@@ -241,9 +252,11 @@
                 <p class="footer_social-title footer_nav-wrapper-first">menu</p>
                 <nav class="footer_nav">
                     <ul class="footer_nav_list">
-                        <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
-                        </li>
+                        @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
+                            <li class="footer_nav_list_item">
+                                <a class="footer_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
+                            </li>
+                        @endif
                         <li class="footer_nav_list_item">
                             <a class="footer_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                         </li>
@@ -258,16 +271,16 @@
                 <p class="footer_social-title">{{ __('messages.subscribe') }}</p>
                 <ul class="footer_social_list">
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" href="{{ route('index') }}">instagram</a>
+                        <a class="footer_social--link" target="_blank" href="{{ $lang === 'en' ? 'https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=' : 'https://instagram.com/affjournal_br?igshid=YmMyMTA2M2Y=' }}">instagram</a>
                     </li>
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" href="{{ route('index') }}">telegram</a>
+                        <a class="footer_social--link" target="_blank" href="{{ $lang === 'en' ? 'https://t.me/affjournal_eng' : 'https://t.me/affiliatejournal' }}">telegram</a>
                     </li>
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" href="{{ route('index') }}">facebook</a>
+                        <a class="footer_social--link" target="_blank" href="{{ $lang === 'en' ? 'https://www.facebook.com/profile.php?id=100089855863483' : 'https://www.facebook.com/profile.php?id=100089869573266' }}">facebook</a>
                     </li>
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" href="{{ route('index') }}">youtube</a>
+                        <a class="footer_social--link" target="_blank" href="https://www.linkedin.com/in/affjournal-eng-b23466265/recent-activity/">linkedin</a>
                     </li>
                 </ul>
             </div>
@@ -596,6 +609,17 @@
     $('.btn--search').on('click', function () {
         $('#desctop__search').fadeOut(300);
     })
+    $('#set_lang').on('input', function (e) {
+        if ($(this).val() === 'en') {
+            let path = window.location.pathname.substring(3);
+            var url = window.location.origin + path;
+        } else {
+            let lang = '/pt';
+            var url = window.location.origin + lang + window.location.pathname;
+        }
+        window.location.href = url
+    })
+
 </script>
 
 @yield('scripts')
