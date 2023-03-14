@@ -19,4 +19,9 @@ class Ad extends Model
         'payment_systems' => 'array',
         'minimum_top_up_amount' => 'array'
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(AdvComments::class, 'ad_id', 'id')->with('author')->where('confirm', 1);
+    }
 }

@@ -278,7 +278,7 @@
                         </ul>
                     </div>
                     <div class="articlepage--comments">
-                        <h2 class="videopage--comments-title">Reviews of .... <span>(0)</span></h2>
+                        <h2 class="videopage--comments-title">Reviews of .... <span>({{ !empty($ad->comments) ? $ad->comments->count() : '0' }})</span></h2>
                         <div class="articlepage--comments-none-editorial-opinion">
                             <div class="articlepage--review-integration_autor">
                                 <div class="videopage_main-underimage_autor-image">
@@ -319,7 +319,7 @@
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->support)
                                                                         <span class="active"></span>
                                                                     @else
@@ -332,11 +332,11 @@
                                                     <div
                                                         class="articlepage--comments_main_list-item_top_rating-group-item">
                                                         <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                            Payments</p>
+                                                            TRAFFIC QUALITY</p>
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->traffic_quality)
                                                                         <span class="active"></span>
                                                                     @else
@@ -349,11 +349,11 @@
                                                     <div
                                                         class="articlepage--comments_main_list-item_top_rating-group-item">
                                                         <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                            offers</p>
+                                                            NUMBER OF GEOS</p>
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->number_geos)
                                                                         <span class="active"></span>
                                                                     @else
@@ -366,11 +366,11 @@
                                                     <div
                                                         class="articlepage--comments_main_list-item_top_rating-group-item">
                                                         <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                            Betting</p>
+                                                            PRICE PER CLICK</p>
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->price_click)
                                                                         <span class="active"></span>
                                                                     @else
@@ -516,40 +516,39 @@
                                                 </div>
                                             </div>
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                    Number of GEOs</p>
+                                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Number of GEOs</p>
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                     <div class="rating-area">
-                                                        <input type="radio" id="offers-5" name="offers" value="5">
-                                                        <label for="offers-5" title="«5»"></label>
-                                                        <input type="radio" id="offers-4" name="offers" value="4">
-                                                        <label for="offers-4" title="«4»"></label>
-                                                        <input type="radio" id="offers-3" name="offers" value="3">
-                                                        <label for="offers-3" title="«3»"></label>
-                                                        <input type="radio" id="offers-2" name="offers" value="2">
-                                                        <label for="offers-2" title="«2»"></label>
-                                                        <input type="radio" id="offers-1" name="offers" value="1">
-                                                        <label for="offers-1" title="«1»"></label>
+                                                        <input type="radio" id="number_geos-5" name="number_geos" value="5">
+                                                        <label for="number_geos-5" title="«5»"></label>
+                                                        <input type="radio" id="number_geos-4" name="number_geos" value="4">
+                                                        <label for="number_geos-4" title="«4»"></label>
+                                                        <input type="radio" id="number_geos-3" name="number_geos" value="3">
+                                                        <label for="number_geos-3" title="«3»"></label>
+                                                        <input type="radio" id="number_geos-2" name="number_geos" value="2">
+                                                        <label for="number_geos-2" title="«2»"></label>
+                                                        <input type="radio" id="number_geos-1" name="number_geos" value="1">
+                                                        <label for="number_geos-1" title="«1»"></label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
                                                 <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
-                                                    Betting</p>
+                                                    Price per click</p>
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                     <div class="rating-area">
-                                                        <input type="radio" id="betting-5" name="betting" value="5">
-                                                        <label for="betting-5" title="«5»"></label>
-                                                        <input type="radio" id="betting-4" name="betting" value="4">
-                                                        <label for="betting-4" title="«4»"></label>
-                                                        <input type="radio" id="betting-3" name="betting" value="3">
-                                                        <label for="betting-3" title="«3»"></label>
-                                                        <input type="radio" id="betting-2" name="betting" value="2">
-                                                        <label for="betting-2" title="«2»"></label>
-                                                        <input type="radio" id="betting-1" name="betting" value="1">
-                                                        <label for="betting-1" title="«1»"></label>
+                                                        <input type="radio" id="price_click-5" name="price_click" value="5">
+                                                        <label for="price_click-5" title="«5»"></label>
+                                                        <input type="radio" id="price_click-4" name="price_click" value="4">
+                                                        <label for="price_click-4" title="«4»"></label>
+                                                        <input type="radio" id="price_click-3" name="price_click" value="3">
+                                                        <label for="price_click-3" title="«3»"></label>
+                                                        <input type="radio" id="price_click-2" name="price_click" value="2">
+                                                        <label for="price_click-2" title="«2»"></label>
+                                                        <input type="radio" id="price_click-1" name="price_click" value="1">
+                                                        <label for="price_click-1" title="«1»"></label>
                                                     </div>
                                                 </div>
                                             </div>

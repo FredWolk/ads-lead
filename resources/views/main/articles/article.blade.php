@@ -164,7 +164,7 @@
                         </div>
                     </div>
                     <div class="articlepage--comments">
-                        <h2 class="videopage--comments-title">comments <span>({{ !empty($article->comments) ? $article->comments->count() : '0' }})</span>
+                        <h2 class="videopage--comments-title">comments ....<span>({{ !empty($article->comments) ? $article->comments->count() : '0' }})</span>
                         </h2>
                         <div class="articlepage--comments_main">
                             @empty($article->comments)

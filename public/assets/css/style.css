@@ -2757,7 +2757,9 @@ img {
 .articlepage--comments_main_list-item_top_rating-group {
     display: flex;
     align-items: center;
-    gap: 61px;
+    max-width: 575px;
+    width: 100%;
+    gap: 15px;
     margin-top: -28px;
 }
 
@@ -2765,7 +2767,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: start;
-    max-width: 107px;
+    max-width: 130px;
     width: 100%;
 }
 

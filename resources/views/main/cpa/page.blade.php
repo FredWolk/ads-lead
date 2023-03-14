@@ -296,7 +296,7 @@
                         </ul>
                     </div>
                     <div class="articlepage--comments">
-                        <h2 class="videopage--comments-title">Reviews of .... <span>(0)</span></h2>
+                        <h2 class="videopage--comments-title">Reviews of .... <span>({{ !empty($cpa->comments) ? $cpa->comments->count() : '0' }})</span></h2>
                         <div class="articlepage--comments-none-editorial-opinion">
                             <div class="articlepage--review-integration_autor">
                                 <div class="videopage_main-underimage_autor-image">
@@ -337,7 +337,7 @@
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->support)
                                                                         <span class="active"></span>
                                                                     @else
@@ -354,7 +354,7 @@
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->payments)
                                                                         <span class="active"></span>
                                                                     @else
@@ -371,7 +371,7 @@
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->offers)
                                                                         <span class="active"></span>
                                                                     @else
@@ -388,7 +388,7 @@
                                                         <div
                                                             class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                             <div class="rating-mini">
-                                                                @for($i = 0; $i < 5; $i++)
+                                                                @for($i = 1; $i <= 5; $i++)
                                                                     @if($i <= $comment->betting)
                                                                         <span class="active"></span>
                                                                     @else

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdvComments;
 use App\Models\ArticleComments;
 use App\Models\CpaComments;
 use Illuminate\Http\Request;
@@ -73,14 +74,14 @@ class SendCommentController extends Controller
         ]);
         $user_id = Auth::user()->getAuthIdentifier();
 
-        $model = CpaComments::create([
+        $model = AdvComments::create([
             'user_id' => $user_id,
             'text' => $data['comment'],
             'support' => !empty($data['support']) ? $data['support'] : 0,
             'traffic_quality' => !empty($data['traffic_quality']) ? $data['traffic_quality'] : 0,
             'number_geos' => !empty($data['number_geos']) ? $data['number_geos'] : 0,
             'price_click' => !empty($data['price_click']) ? $data['price_click'] : 0,
-            'cpa_id' => $data['id'],
+            'ad_id' => $data['id'],
             'confirm' => 0,
         ]);
 

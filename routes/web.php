@@ -59,7 +59,7 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], fun
         Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name(
             'ad.page'
         );
-        Route::post('/send-comment', [SendCommentController::class, 'adCommentComment'])->name('ad.comment');
+        Route::post('/send-comment', [SendCommentController::class, 'adComment'])->name('ad.comment');
     });
     Route::group(['namespace' => 'services', 'prefix' => 'services'], function () {
         Route::get('/', [\App\Http\Controllers\Main\Services\NetworksController::class, '__invoke'])->name('services');
