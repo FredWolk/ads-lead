@@ -242,11 +242,11 @@
                 <address class="footer_contacts-address">
                     <p class="footer_contacts-address-text">8 Ubi Road 2 #04-24 Zervex Singapore 408538</p>
                     <a class="footer_contacts-address-text"
-                       href="mailto:support@adleadpro.com">support@adleadpro.com</a>
+                       href="mailto:affjournal.media@gmail.com">affjournal.media@gmail.com</a>
                     <a class="footer_contacts-address-text" target="_blank"
                        href="{{ route('index') }}">{{ __('messages.policy') }}</a>
                 </address>
-                <span class="footer_tm">© 2022 eduardmadia</span>
+                <span class="footer_tm">© {{ date('Y') }} affjournal media</span>
             </div>
             <div class="footer_nav-wrapper">
                 <p class="footer_social-title footer_nav-wrapper-first">menu</p>
@@ -401,6 +401,13 @@
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
                                         <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Gambling">
+                                        <span class="custom-select_list-item-label-text">Gambling</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Betting">
                                         <span class="custom-select_list-item-label-text">Betting</span>
                                     </label>
@@ -421,7 +428,8 @@
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Ppc">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Ppc">
                                         <span class="custom-select_list-item-label-text">Ppc</span>
                                     </label>
                                 </li>
@@ -434,7 +442,8 @@
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical" value="Cpi">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Cpi">
                                         <span class="custom-select_list-item-label-text">Cpi</span>
                                     </label>
                                 </li>
@@ -455,8 +464,50 @@
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
                                         <input type="radio" class="custom-radio input-hide" name="vertical"
-                                               value="Gambling">
-                                        <span class="custom-select_list-item-label-text">Gambling</span>
+                                               value="E-commerce">
+                                        <span class="custom-select_list-item-label-text">E-commerce</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Travel">
+                                        <span class="custom-select_list-item-label-text">Travel</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Utilites">
+                                        <span class="custom-select_list-item-label-text">Utilites</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Dating">
+                                        <span class="custom-select_list-item-label-text">Dating</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Finance">
+                                        <span class="custom-select_list-item-label-text">Finance</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Crypto">
+                                        <span class="custom-select_list-item-label-text">Crypto</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                               value="Ivr">
+                                        <span class="custom-select_list-item-label-text">Ivr</span>
                                     </label>
                                 </li>
                             </ul>
@@ -496,22 +547,43 @@
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
                                         <input type="radio" class="custom-radio input-hide" name="profession"
-                                               value="Betting">
-                                        <span class="custom-select_list-item-label-text">Betting</span>
+                                               value="Media-Bar">
+                                        <span class="custom-select_list-item-label-text">Media-Bar</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
                                         <input type="radio" class="custom-radio input-hide" name="profession"
-                                               value="Nutra">
-                                        <span class="custom-select_list-item-label-text">Nutra</span>
+                                               value="Account Manager">
+                                        <span class="custom-select_list-item-label-text">Account Manager</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
                                         <input type="radio" class="custom-radio input-hide" name="profession"
-                                               value="Sweepstakes">
-                                        <span class="custom-select_list-item-label-text">Sweepstakes</span>
+                                               value="Seller">
+                                        <span class="custom-select_list-item-label-text">Seller</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                               value="CPA network">
+                                        <span class="custom-select_list-item-label-text">CPA network</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                               value="Representative">
+                                        <span class="custom-select_list-item-label-text">Representative</span>
+                                    </label>
+                                </li>
+                                <li class="custom-select_list-item">
+                                    <label class="custom-select_list-item-label">
+                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                               value="AD network representative">
+                                        <span class="custom-select_list-item-label-text">AD network representative</span>
                                     </label>
                                 </li>
                             </ul>
@@ -537,15 +609,15 @@
                 <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
             </button>
         </form>
-        <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a
-                href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>
+{{--        <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}
+{{--                href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
     </div>
     <div class="signup_wrapper_main-tnx">
         <p class="signup_wrapper_main-title">Thanks for <br> registering!</p>
-        <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave
-            comments on our materials and communicate on our forum.</p>
-        <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>
-            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>
+{{--        <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave--}}
+{{--            comments on our materials and communicate on our forum.</p>--}}
+{{--        <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>--}}
+{{--            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
     </div>
 
     <button type="button" class="btn--close-mobile">
