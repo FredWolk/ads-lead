@@ -84,10 +84,11 @@
                     </ul>
                 </nav>
                 <div class="header_buttons">
-                    <select class="change__lang" name="lang" id="set_lang">
-                        <option {{ $lang === 'en' ? 'selected' : '' }} value="en">Eng</option>
-                        <option {{ $lang === 'pt' ? 'selected' : '' }} value="pt">Pt</option>
-                    </select>
+                    @if($lang === 'en')
+                        <a class="change__lang" href="{{ $urlPt }}">Pt</a>
+                    @else
+                        <a class="change__lang" href="{{ $urlEn }}">Eng</a>
+                    @endif
 
                     @if(!empty($banner_button))
                         <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
@@ -271,16 +272,20 @@
                 <p class="footer_social-title">{{ __('messages.subscribe') }}</p>
                 <ul class="footer_social_list">
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" target="_blank" href="{{ $lang === 'en' ? 'https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=' : 'https://instagram.com/affjournal_br?igshid=YmMyMTA2M2Y=' }}">instagram</a>
+                        <a class="footer_social--link" target="_blank"
+                           href="{{ $lang === 'en' ? 'https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=' : 'https://instagram.com/affjournal_br?igshid=YmMyMTA2M2Y=' }}">instagram</a>
                     </li>
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" target="_blank" href="{{ $lang === 'en' ? 'https://t.me/affjournal_eng' : 'https://t.me/affiliatejournal' }}">telegram</a>
+                        <a class="footer_social--link" target="_blank"
+                           href="{{ $lang === 'en' ? 'https://t.me/affjournal_eng' : 'https://t.me/affiliatejournal' }}">telegram</a>
                     </li>
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" target="_blank" href="{{ $lang === 'en' ? 'https://www.facebook.com/profile.php?id=100089855863483' : 'https://www.facebook.com/profile.php?id=100089869573266' }}">facebook</a>
+                        <a class="footer_social--link" target="_blank"
+                           href="{{ $lang === 'en' ? 'https://www.facebook.com/profile.php?id=100089855863483' : 'https://www.facebook.com/profile.php?id=100089869573266' }}">facebook</a>
                     </li>
                     <li class="footer_social_list_item">
-                        <a class="footer_social--link" target="_blank" href="https://www.linkedin.com/in/affjournal-eng-b23466265/recent-activity/">linkedin</a>
+                        <a class="footer_social--link" target="_blank"
+                           href="https://www.linkedin.com/in/affjournal-eng-b23466265/recent-activity/">linkedin</a>
                     </li>
                 </ul>
             </div>
@@ -583,7 +588,8 @@
                                     <label class="custom-select_list-item-label">
                                         <input type="radio" class="custom-radio input-hide" name="profession"
                                                value="AD network representative">
-                                        <span class="custom-select_list-item-label-text">AD network representative</span>
+                                        <span
+                                            class="custom-select_list-item-label-text">AD network representative</span>
                                     </label>
                                 </li>
                             </ul>
@@ -609,15 +615,15 @@
                 <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
             </button>
         </form>
-{{--        <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}
-{{--                href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
+        {{--        <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}
+        {{--                href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
     </div>
     <div class="signup_wrapper_main-tnx">
         <p class="signup_wrapper_main-title">Thanks for <br> registering!</p>
-{{--        <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave--}}
-{{--            comments on our materials and communicate on our forum.</p>--}}
-{{--        <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>--}}
-{{--            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
+        {{--        <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave--}}
+        {{--            comments on our materials and communicate on our forum.</p>--}}
+        {{--        <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>--}}
+        {{--            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
     </div>
 
     <button type="button" class="btn--close-mobile">
