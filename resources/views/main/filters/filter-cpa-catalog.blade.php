@@ -4,7 +4,7 @@
                 <div class="cpapage_info--item_main">
                     <div class="cpapage_info--item_main_top">
                         <div class="cpapage_info--item_main_top-icon">
-                            <img src="{{ asset('storage/'. $v['logo']) }}" alt="logo">
+                            <img loading="lazy" src="{{ asset('storage/'. $v['logo']) }}" alt="logo">
                         </div>
                         <ul class="cpapage_info--item_main_top-list">
                             @if(!empty($v['verticales']))
@@ -34,7 +34,7 @@
                     <a class="btn--blue header_buttons-blue-btn"
                        href="{{ route('cpa.page', [$v['main_verticales'], $v['link']]) }}">
                         <span>Review</span>
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                              alt="arrow">
                     </a>
                     <a target="_blank" class="btn--grey-with-icons" href="{{ $v['url'] }}">

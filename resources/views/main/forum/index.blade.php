@@ -29,7 +29,7 @@
                     </div>
                     <a style="max-width: 155px; height: 30px;" class="btn--blue header_buttons-blue-btn" href="{{ route('index') }}">
                         <span>Edited by</span>
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </a>
                 </div>
                 <div class="forum_main_card_tabs">
@@ -47,12 +47,12 @@
                                         <p class="forum_main_card_list--item_right-time">17 min. ago</p>
                                         <div class="forum_main_card_list--item_right-wrapper">
                                             <a href="{{ route('index') }}" class="forum_main_card_list--item_right-name">Serious.Partners</a>
-    
+
                                             <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
                                                 <div class="forum-user-preview_card_main">
                                                     <div class="forum-user-preview_card_main_info">
                                                         <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                                         </div>
                                                         <div class="forum-user-preview_card_main_info_right">
                                                             <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -93,12 +93,12 @@
                                         <p class="forum_main_card_list--item_right-time">17 min. ago</p>
                                         <div class="forum_main_card_list--item_right-wrapper">
                                             <a href="{{ route('index') }}" class="forum_main_card_list--item_right-name">Serious.Partners</a>
-    
+
                                             <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
                                                 <div class="forum-user-preview_card_main">
                                                     <div class="forum-user-preview_card_main_info">
                                                         <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                                         </div>
                                                         <div class="forum-user-preview_card_main_info_right">
                                                             <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -139,12 +139,12 @@
                                         <p class="forum_main_card_list--item_right-time">17 min. ago</p>
                                         <div class="forum_main_card_list--item_right-wrapper">
                                             <a href="{{ route('index') }}" class="forum_main_card_list--item_right-name">Serious.Partners</a>
-    
+
                                             <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
                                                 <div class="forum-user-preview_card_main">
                                                     <div class="forum-user-preview_card_main_info">
                                                         <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                                         </div>
                                                         <div class="forum-user-preview_card_main_info_right">
                                                             <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -185,12 +185,12 @@
                                         <p class="forum_main_card_list--item_right-time">17 min. ago</p>
                                         <div class="forum_main_card_list--item_right-wrapper">
                                             <a href="{{ route('index') }}" class="forum_main_card_list--item_right-name">Serious.Partners</a>
-    
+
                                             <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
                                                 <div class="forum-user-preview_card_main">
                                                     <div class="forum-user-preview_card_main_info">
                                                         <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                                         </div>
                                                         <div class="forum-user-preview_card_main_info_right">
                                                             <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -221,9 +221,9 @@
             </div>
 
             <div class="filter-aside-banner to-show">
-                <img src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
+                <img loading="lazy" src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
             </div>
-            
+
             <div class="forum_main_links-group">
                 <div class="forum_main_links-group-item">
                     <a href="{{ route('index') }}" class="forum_main_links-group-item--link"></a>
@@ -236,14 +236,14 @@
                         </div>
                         <div class="forum_main_links-group-item_main-last">
                             <div class="forum_main_links-group-item_main-last-avatar">
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                             </div>
                             <div class="forum_main_links-group-item_main-last-info">
                                 <p class="forum_main_links-group-item_main-last-info-title">Serious.Partners - international partner network</p>
                                 <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | ADLEAD PRO</p>
                             </div>
                         </div>
-                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5248 7.79998H5.20176V2.59998H23.4018V20.8H18.2018V11.4769L7.04024 22.6385L3.36328 18.9615L14.5248 7.79998Z" fill="#F7FAFF"/></svg>                            
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5248 7.79998H5.20176V2.59998H23.4018V20.8H18.2018V11.4769L7.04024 22.6385L3.36328 18.9615L14.5248 7.79998Z" fill="#F7FAFF"/></svg>
                     </div>
                 </div>
                 <div class="forum_main_links-group-item">
@@ -257,14 +257,14 @@
                         </div>
                         <div class="forum_main_links-group-item_main-last">
                             <div class="forum_main_links-group-item_main-last-avatar">
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                             </div>
                             <div class="forum_main_links-group-item_main-last-info">
                                 <p class="forum_main_links-group-item_main-last-info-title">Serious.Partners - international partner network</p>
                                 <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | ADLEAD PRO</p>
                             </div>
                         </div>
-                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5248 7.79998H5.20176V2.59998H23.4018V20.8H18.2018V11.4769L7.04024 22.6385L3.36328 18.9615L14.5248 7.79998Z" fill="#F7FAFF"/></svg>                            
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5248 7.79998H5.20176V2.59998H23.4018V20.8H18.2018V11.4769L7.04024 22.6385L3.36328 18.9615L14.5248 7.79998Z" fill="#F7FAFF"/></svg>
                     </div>
                 </div>
             </div>
@@ -276,7 +276,7 @@
                         <li class="forum_main_cards_list--item">
                             <div class="forum_main_cards_list--item_left">
                                 <div class="forum_main_cards_list--item_left_icon">
-                                    <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.93128 15.7542H14.0237L14.7938 10.6798H9.93128V7.39725C9.93128 6.00896 10.6109 4.6583 12.7886 4.6583H15V0.342892C13.7029 0.133143 12.392 0.0185359 11.078 0C7.08024 0 4.45435 2.42742 4.45435 6.82228V10.6798H0V15.7479H4.45435V28H9.92496L9.93128 15.7542Z" fill="white"/></svg>                                    
+                                    <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.93128 15.7542H14.0237L14.7938 10.6798H9.93128V7.39725C9.93128 6.00896 10.6109 4.6583 12.7886 4.6583H15V0.342892C13.7029 0.133143 12.392 0.0185359 11.078 0C7.08024 0 4.45435 2.42742 4.45435 6.82228V10.6798H0V15.7479H4.45435V28H9.92496L9.93128 15.7542Z" fill="white"/></svg>
                                 </div>
                                 <div class="forum_main_cards_list--item_left_main">
                                     <div class="forum_main_cards_list--item_left_main_top">
@@ -290,7 +290,7 @@
                             </div>
                             <div class="forum_main_cards_list--item_right">
                                 <div class="forum_main_links-group-item_main-last-avatar">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                 </div>
                                 <div class="forum_main_links-group-item_main-last-info">
                                     <div class="forum_main_cards_list--item_left_main_top">
@@ -303,14 +303,14 @@
                         </li>
                     </ul>
                 </div>
-    
+
                 <div class="forum_main_cards">
                     <h2 class="forum_main_cards-title">Technical part</h2>
                     <ul class="forum_main_cards_list">
                         <li class="forum_main_cards_list--item">
                             <div class="forum_main_cards_list--item_left">
                                 <div class="forum_main_cards_list--item_left_icon">
-                                    <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.93128 15.7542H14.0237L14.7938 10.6798H9.93128V7.39725C9.93128 6.00896 10.6109 4.6583 12.7886 4.6583H15V0.342892C13.7029 0.133143 12.392 0.0185359 11.078 0C7.08024 0 4.45435 2.42742 4.45435 6.82228V10.6798H0V15.7479H4.45435V28H9.92496L9.93128 15.7542Z" fill="white"/></svg>                                    
+                                    <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.93128 15.7542H14.0237L14.7938 10.6798H9.93128V7.39725C9.93128 6.00896 10.6109 4.6583 12.7886 4.6583H15V0.342892C13.7029 0.133143 12.392 0.0185359 11.078 0C7.08024 0 4.45435 2.42742 4.45435 6.82228V10.6798H0V15.7479H4.45435V28H9.92496L9.93128 15.7542Z" fill="white"/></svg>
                                 </div>
                                 <div class="forum_main_cards_list--item_left_main">
                                     <div class="forum_main_cards_list--item_left_main_top">
@@ -323,7 +323,7 @@
                             </div>
                             <div class="forum_main_cards_list--item_right">
                                 <div class="forum_main_links-group-item_main-last-avatar">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                 </div>
                                 <div class="forum_main_links-group-item_main-last-info">
                                     <div class="forum_main_cards_list--item_left_main_top">
@@ -336,14 +336,14 @@
                         </li>
                     </ul>
                 </div>
-    
+
                 <div class="forum_main_cards">
                     <h2 class="forum_main_cards-title">The rest</h2>
                     <ul class="forum_main_cards_list">
                         <li class="forum_main_cards_list--item">
                             <div class="forum_main_cards_list--item_left">
                                 <div class="forum_main_cards_list--item_left_icon">
-                                    <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.93128 15.7542H14.0237L14.7938 10.6798H9.93128V7.39725C9.93128 6.00896 10.6109 4.6583 12.7886 4.6583H15V0.342892C13.7029 0.133143 12.392 0.0185359 11.078 0C7.08024 0 4.45435 2.42742 4.45435 6.82228V10.6798H0V15.7479H4.45435V28H9.92496L9.93128 15.7542Z" fill="white"/></svg>                                    
+                                    <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.93128 15.7542H14.0237L14.7938 10.6798H9.93128V7.39725C9.93128 6.00896 10.6109 4.6583 12.7886 4.6583H15V0.342892C13.7029 0.133143 12.392 0.0185359 11.078 0C7.08024 0 4.45435 2.42742 4.45435 6.82228V10.6798H0V15.7479H4.45435V28H9.92496L9.93128 15.7542Z" fill="white"/></svg>
                                 </div>
                                 <div class="forum_main_cards_list--item_left_main">
                                     <div class="forum_main_cards_list--item_left_main_top">
@@ -356,7 +356,7 @@
                             </div>
                             <div class="forum_main_cards_list--item_right">
                                 <div class="forum_main_links-group-item_main-last-avatar">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                 </div>
                                 <div class="forum_main_links-group-item_main-last-info">
                                     <div class="forum_main_cards_list--item_left_main_top">
@@ -401,7 +401,7 @@
                                 <div class="forum-user-preview_card_main">
                                     <div class="forum-user-preview_card_main_info">
                                         <div class="forum-user-preview_card_main_info-avatar">
-                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                         </div>
                                         <div class="forum-user-preview_card_main_info_right">
                                             <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -429,7 +429,7 @@
             </div>
 
             <div class="filter-aside-banner sticky">
-                <img src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
+                <img loading="lazy" src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
             </div>
         </aside>
     </div>

@@ -9,7 +9,7 @@
             <a href="{{ route('index') }}" class="user_alerts--item--link"></a>
             <div class="header--notif-body--item-icon-wrapper">
                 <div class="header--notif-body--item-icon">
-                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                 </div>
             </div>
             <div class="header--notif-body--item-main">

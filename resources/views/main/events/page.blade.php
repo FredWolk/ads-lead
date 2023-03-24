@@ -26,7 +26,7 @@
             <div class="videopage_wrapper">
                 <article class="videopage_main">
                     <div class="videopage_main--image">
-                        <img src="{{asset('storage/' . $event["{$locale}image"])}}" alt="banner">
+                        <img loading="lazy" src="{{asset('storage/' . $event["{$locale}image"])}}" alt="banner">
                         <p class="conference--evetn">conference</p>
                     </div>
                     <div class="eventpage_card">
@@ -66,7 +66,7 @@
                     <div class="videopage_main--text main__article"
                          style="margin-bottom: 20px">{!! $event["{$locale}content"] !!}</div>
                     <div class="filter-aside-banner to-show">
-                        <img src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
+                        <img loading="lazy" src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
                     </div>
                 </article>
                 <aside class="filter-aside">
@@ -75,7 +75,7 @@
                             <div class="filter-aside-banner sticky">
                                 <a target="_blank" href="{{ $banner->link }}">
                                     @if($banner->type == 'image')
-                                        <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                        <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                     @else
                                         <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
                                     @endif
@@ -99,7 +99,7 @@
                                 <a class="eventpage_asidecard--link" href="{{ route('index') }}"></a>
                                 <div class="eventpage_asidecard_main">
                                     <div class="eventpage_asidecard_main_left">
-                                        <img src="{{asset('storage/'. $ev["{$locale}image"])}}" alt="banner">
+                                        <img loading="lazy" src="{{asset('storage/'. $ev["{$locale}image"])}}" alt="banner">
                                     </div>
                                     <div class="eventpage_asidecard_main_left_info">
                                         <p class="eventpage_asidecard_main_left_info-date">{{ $ev["{$locale}date"] }}</p>
@@ -107,7 +107,7 @@
                                     </div>
 
                                     <div class="eventpage_asidecard_main-icon">
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
+                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="banner">
                                     </div>
                                 </div>
                             </li>
@@ -115,15 +115,15 @@
                     </ul>
 
                     <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                        <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                        <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                              alt="arrow">
-                        <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                        <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                              alt="blue">
                     </button>
                     <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                        <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                        <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                              alt="arrow">
-                        <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                        <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                              alt="blue">
                     </button>
 

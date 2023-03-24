@@ -18,7 +18,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img width="20%" src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
+        <img loading="lazy" width="20%" src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
     </div>
 
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -41,7 +41,7 @@
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="{{ route('admin') }}" class="brand-link">
-            <img width="100%" src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
+            <img loading="lazy" width="100%" src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
         </a>
 
         <div class="sidebar">

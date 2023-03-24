@@ -69,7 +69,7 @@
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
                                             <div class="cpapage_info--item_main_top-icon">
-                                                <img src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
+                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
                                             </div>
                                             <ul class="cpapage_info--item_main_top-list">
                                                 @if(!empty($i['advertising_formats']))
@@ -99,7 +99,7 @@
                                         <a class="btn--blue header_buttons-blue-btn"
                                            href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                                             <span>{{ __('messages.review') }}</span>
-                                            <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
                                         <div class="promocode--btn-wrapper">
@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
                                         <a class="link--blue-sphere" target="_blank" href="{{ $i['url'] }}">
-                                            <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                                             <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
                                         </a>
 
@@ -176,7 +176,7 @@
                         <div class="filter-aside-banner to-show">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
                                            muted></video>
@@ -210,7 +210,7 @@
                                             <div class="cpapage_info--item_main">
                                                 <div class="cpapage_info--item_main_top">
                                                     <div class="cpapage_info--item_main_top-icon">
-                                                        <img src="{{ asset('storage/'. $v['logo']) }}" alt="logo">
+                                                        <img loading="lazy" src="{{ asset('storage/'. $v['logo']) }}" alt="logo">
                                                     </div>
                                                     <ul class="cpapage_info--item_main_top-list">
                                                         @if(!empty($v['advertising_formats']))
@@ -230,7 +230,7 @@
                                                 <a class="btn--blue header_buttons-blue-btn"
                                                    href="{{ route('ad.page', [$v['main_advertising_formats'], $v['link']]) }}">
                                                     <span>{{ __('messages.review') }}</span>
-                                                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                          alt="arrow">
                                                 </a>
                                                 <div class="promocode--btn-wrapper">
@@ -276,7 +276,7 @@
                                                     </div>
                                                 </div>
                                                 <a class="link--blue-sphere" target="_blank" href="{{ $v['url'] }}">
-                                                    <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                                                    <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                                                     <span>{{ substr(substr($v['url'], 8), 0, -1) }}</span>
                                                 </a>
 
@@ -363,7 +363,7 @@
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
                                 @endif

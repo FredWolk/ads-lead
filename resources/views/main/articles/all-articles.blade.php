@@ -36,7 +36,7 @@
                 @foreach($articles as $article)
                     <li class="article--card">
                         <a class="article--card-link" href="{{ route('article', $article['link']) }}"></a>
-                        <img src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
+                        <img loading="lazy" src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
                         <div class="article--card_info">
                             <p class="article--card_info-date">{{ date('d/m/Y', strtotime($article['created_at'])) }}</p>
                             <ul class="article--card_info_tags-list">

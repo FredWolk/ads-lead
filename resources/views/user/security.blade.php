@@ -27,7 +27,7 @@
                                 <input class="popup_main-input-view-password input-hide" type="checkbox"
                                        name="viewpasswors">
                                 <div class="popup_main-input-view-password-label-icon">
-                                    <img src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
+                                    <img loading="lazy" loading="lazy" src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
                                 </div>
                             </label>
                         </div>
@@ -47,7 +47,7 @@
                                 <input class="popup_main-input-view-password input-hide" type="checkbox"
                                        name="viewpasswors">
                                 <div class="popup_main-input-view-password-label-icon">
-                                    <img src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
+                                    <img loading="lazy" src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
                                 </div>
                             </label>
                         </div>
@@ -70,7 +70,7 @@
                                 <input class="popup_main-input-view-password input-hide" type="checkbox"
                                        name="viewpasswors">
                                 <div class="popup_main-input-view-password-label-icon">
-                                    <img src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
+                                    <img loading="lazy" src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
                                 </div>
                             </label>
                         </div>
@@ -78,7 +78,7 @@
                 </div>
                 <button style="max-width: 100%; height: 50px;" class="btn--blue header_buttons-blue-btn">
                     <span>Save</span>
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
             </div>
         </form>

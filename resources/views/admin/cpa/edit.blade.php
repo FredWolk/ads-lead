@@ -110,7 +110,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <img width="150" src="{{ asset('storage/'.$cpa->image) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->image) }}" alt="">
                             <div class="form-group">
                                 <label for="image">Изображение партнерки</label>
                                 <div class="input-group">
@@ -126,7 +126,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <img width="150" src="{{ asset('storage/'.$cpa->pt_image) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->pt_image) }}" alt="">
                             <div class="form-group">
                                 <label for="pt_image">Изображение партнерки на португальском</label>
                                 <div class="input-group">
@@ -141,7 +141,7 @@
                             @error('pt_image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <img width="150" src="{{ asset('storage/'.$cpa->logo) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->logo) }}" alt="">
                             <div class="form-group">
                                 <label for="logo">Логотип партнерки</label>
                                 <div class="input-group">
@@ -437,7 +437,7 @@
                                     <h3 class="card-title">Информация о менеджере</h3>
                                 </div>
 
-                                <img width="150" src="{{ asset('storage/'.$cpa->manager_image) }}" alt="">
+                                <img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->manager_image) }}" alt="">
                                 <div class="form-group">
                                     <label for="manager_image">Фото менеджера</label>
                                     <div class="input-group">

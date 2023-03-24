@@ -10,7 +10,7 @@
             @if(false)
                 <button type="button" class="link--blue user-main-email-edit--btn">
                     <span>Edit</span>
-                    <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                 </button>
                 <form action="" method="GET" class="new-email-group">
                     <div class="new-email-group_left">
@@ -19,7 +19,7 @@
                     </div>
                     <button style="max-width: 161px; height: 50px" class="btn--blue header_buttons-blue-btn">
                         <span>Save</span>
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </button>
                 </form>
             @endif
@@ -37,7 +37,7 @@
                           name="status" maxlength="80">{{ $userInfo->status }}</textarea>
                 <button style="max-width: 161px; height: 50px" class="btn--blue header_buttons-blue-btn">
                     <span>Save</span>
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
             </form>
             <div class="user_card--line"></div>
@@ -112,13 +112,13 @@
                             <div class="user-main_info_group--item_group">
                                 <div class="user-main_info_group--item_group-subs">
                                     <div class="user-main_info_group--item_group-subs-item">
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                     </div>
                                     <div class="user-main_info_group--item_group-subs-item">
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                     </div>
                                     <div class="user-main_info_group--item_group-subs-item">
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                     </div>
                                 </div>
                                 <p class="user-main_info_group--item_group-text">+ 134</p>
@@ -139,7 +139,7 @@
                         <li class="user-main_trophies--item active">
                             <div class="user-main_trophies--item-main">
                                 <div class="user-main_trophies--item-main-image">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                 </div>
                                 <div class="puser-main_trophies--item-main-text">First</div>
                             </div>
@@ -162,7 +162,7 @@
                             <li class="user-main_trophies--item">
                                 <div class="user-main_trophies--item-main">
                                     <div class="user-main_trophies--item-main-image">
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                     </div>
                                     <div class="puser-main_trophies--item-main-text">First</div>
                                 </div>
@@ -186,7 +186,7 @@
                     </ul>
                     <button type="button" class="link--blue user-main_trophies-show-all--btn">
                         <span>Show all</span>
-                        <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                     </button>
                 </div>
             @endif

@@ -24,7 +24,7 @@
 <header class="header user">
     <div class="container">
         <a class="header-link" href="{{ route('index') }}">
-            <img src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
+            <img loading="lazy" src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
         </a>
         <div class="header_nav-wrapper">
             <nav class="header_nav">
@@ -57,7 +57,7 @@
                 @if(!empty($banner_button))
                     <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
                         <span>{{ $banner_button->text }}</span>
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </a>
                 @endif
 
@@ -122,7 +122,7 @@
                 @endif
 
                 <div class="header-user-icon">
-                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                 </div>
             </div>
         </div>
@@ -131,7 +131,7 @@
                 <div class="header--notif-body--item">
                     <div class="header--notif-body--item-icon-wrapper">
                         <div class="header--notif-body--item-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                         </div>
                         <div class="header--notif-body--item-icon-online"></div>
                     </div>
@@ -147,7 +147,7 @@
                 <div class="header--notif-body--item">
                     <div class="header--notif-body--item-icon-wrapper">
                         <div class="header--notif-body--item-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                         </div>
                         <div class="header--notif-body--item-icon-online"></div>
                     </div>
@@ -163,7 +163,7 @@
                 <div class="header--notif-body--item">
                     <div class="header--notif-body--item-icon-wrapper">
                         <div class="header--notif-body--item-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                         </div>
                         <div class="header--notif-body--item-icon-online"></div>
                     </div>
@@ -179,7 +179,7 @@
                 <div class="header--notif-body--item">
                     <div class="header--notif-body--item-icon-wrapper">
                         <div class="header--notif-body--item-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                         </div>
                         <div class="header--notif-body--item-icon-online"></div>
                     </div>
@@ -195,7 +195,7 @@
                 <div class="header--notif-body--item">
                     <div class="header--notif-body--item-icon-wrapper">
                         <div class="header--notif-body--item-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                         </div>
                         <div class="header--notif-body--item-icon-online"></div>
                     </div>
@@ -267,7 +267,7 @@
             </button>
 
             <div class="header-user-icon">
-                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
             </div>
         </div>
         <p class="burger-menu-title">menu</p>
@@ -441,7 +441,7 @@
         <div class="user_nav_first-last">
             <button type="button" class="link--blue user_nav_first-last-show-all--btn">
                 <span>Show all menu</span>
-                <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
             </button>
 
             <form action="{{ route('logout') }}" method="post">

@@ -35,7 +35,7 @@
                         @if($k == 0)
                             <li class="article--card big">
                                 <a class="article--card-link" href="{{ route('article', $a['link']) }}"></a>
-                                <img src="{{ asset('storage/'. $a["{$locale}image"]) }}" alt="banner">
+                                <img loading="lazy" src="{{ asset('storage/'. $a["{$locale}image"]) }}" alt="banner">
                                 <div class="article--card_info">
                                     <p class="article--card_info-date">{{ date('d/m/Y', strtotime($a['created_at'])) }}</p>
                                     <ul class="article--card_info_tags-list">
@@ -77,7 +77,7 @@
                         @else
                             <li class="article--card">
                                 <a class="article--card-link" href="{{ route('article', $a['link']) }}"></a>
-                                <img src="{{ asset('storage/'. $a["{$locale}image"]) }}" alt="banner">
+                                <img loading="lazy" src="{{ asset('storage/'. $a["{$locale}image"]) }}" alt="banner">
                                 <div class="article--card_info">
                                     <p class="article--card_info-date">{{ date('d/m/Y', strtotime($a['created_at'])) }}</p>
                                     <ul class="article--card_info_tags-list">
@@ -115,7 +115,7 @@
                                 @if($k !== 0)
                                     <li class="article--card swiper-slide">
                                         <a class="article--card-link" href="{{ route('index') }}"></a>
-                                        <img src="{{asset('storage/'.$a["{$locale}image"])}}" alt="banner">
+                                        <img loading="lazy" src="{{asset('storage/'.$a["{$locale}image"])}}" alt="banner">
                                         <div class="article--card_info">
                                             <ul class="article--card_info_tags-list">
                                                 @if(!empty($a['tags']))
@@ -173,7 +173,7 @@
                                 <li class="article--card">
                                     <a class="article--card-link"
                                        href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
-                                    <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
+                                    <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                     <div class="article--card_info">
                                         <ul class="article--card_info_tags-list">
                                             @if(!empty($i['verticales']))
@@ -208,7 +208,7 @@
                                         <li class="article--card swiper-slide">
                                             <a class="article--card-link"
                                                href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
-                                            <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
+                                            <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                             <div class="article--card_info">
                                                 <ul class="article--card_info_tags-list">
                                                     @if(!empty($i['verticales']))
@@ -254,7 +254,7 @@
                             <p class="main-cpa-subt">TOp-5</p>
                             <a class="link--blue" href="{{ route('cpa') }}">
                                 <span>{{ __('messages.show') }}</span>
-                                <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                             </a>
                         </div>
                         <ul class="main-cpa_aside_list">
@@ -262,7 +262,7 @@
                                 <li class="main-cpa_aside_list-item">
                                     <div class="main-cpa_aside_list-item_top">
                                         <div class="main-cpa_aside_list-item_top-logo">
-                                            <img src="{{asset('storage/'. $i['logo'])}}"
+                                            <img loading="lazy" src="{{asset('storage/'. $i['logo'])}}"
                                                  alt="{{ $i["{$locale}name"] }}">
                                         </div>
                                         <ul class="article--card_info_tags-list">
@@ -292,7 +292,7 @@
                                             </div>
                                         </a>
                                         <a class="link--blue-sphere" href="{{ $i['url'] }}">
-                                            <img src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
+                                            <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
                                             <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
                                         </a>
                                     </div>
@@ -313,7 +313,7 @@
                             <h2 class="title">{{ __('messages.video') }}</h2>
                             <a class="link--blue" href="{{ route('video') }}">
                                 <span>{{ __('messages.show') }}</span>
-                                <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                             </a>
                         </div>
                         <div class="main_articles_top_link-wrapp">
@@ -329,7 +329,7 @@
                             </div>
                             <a class="btn--red" target="_blank" href="https://youtube.com">
                                 <span>{{ __('messages.youtube') }}</span>
-                                <img src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
+                                <img loading="lazy" src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                             </a>
                         </div>
                     </div>
@@ -339,7 +339,7 @@
                             @foreach ($video as $k => $v)
                                 <li class="article--card swiper-slide">
                                     <a class="article--card-link" href="{{ route('index') }}"></a>
-                                    <img src="{{asset('storage/'. $v["{$locale}image"])}}" alt="banner">
+                                    <img loading="lazy" src="{{asset('storage/'. $v["{$locale}image"])}}" alt="banner">
                                     <div class="article--card_info">
                                         <p class="article--card_info-date">{{ date('d/m/Y', strtotime($v['created_at'])) }}</p>
                                         <h3 class="article--card_info-title">{{ $v["{$locale}name"] }}</h3>
@@ -361,15 +361,15 @@
                         </ul>
 
                         <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                            <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                            <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                                  alt="arrow">
-                            <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                            <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                                  alt="blue">
                         </button>
                         <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                            <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                            <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                                  alt="arrow">
-                            <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                            <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                                  alt="blue">
                         </button>
 
@@ -392,7 +392,7 @@
                     <div class="main_articles--mobile">
                         <a class="btn--red" href="{{ route('index') }}">
                             <span>{{ __('messages.youtube') }}</span>
-                            <img src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
+                            <img loading="lazy" src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                         </a>
                     </div>
                 </div>
@@ -411,7 +411,7 @@
                                 <li class="article--card">
                                     <a class="article--card-link"
                                        href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
-                                    <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
+                                    <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                     <div class="article--card_info">
                                         <ul class="article--card_info_tags-list">
                                             @if(!empty($i['advertising_formats']))
@@ -446,7 +446,7 @@
                                         <li class="article--card swiper-slide">
                                             <a class="article--card-link"
                                                href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
-                                            <img src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
+                                            <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
                                             <div class="article--card_info">
                                                 <ul class="article--card_info_tags-list">
                                                     @if(!empty($i['advertising_formats']))
@@ -492,7 +492,7 @@
                             <p class="main-cpa-subt">TOp-5</p>
                             <a class="link--blue" href="{{ route('ad') }}">
                                 <span>{{ __('messages.show') }}</span>
-                                <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                             </a>
                         </div>
                         <ul class="main-cpa_aside_list">
@@ -500,7 +500,7 @@
                                 <li class="main-cpa_aside_list-item">
                                     <div class="main-cpa_aside_list-item_top">
                                         <div class="main-cpa_aside_list-item_top-logo">
-                                            <img src="{{asset('storage/'. $i['logo'])}}"
+                                            <img loading="lazy" src="{{asset('storage/'. $i['logo'])}}"
                                                  alt="{{ $i["{$locale}name"] }}">
                                         </div>
                                         <ul class="article--card_info_tags-list">
@@ -530,7 +530,7 @@
                                             </div>
                                         </a>
                                         <a class="link--blue-sphere" href="{{ $i['url'] }}">
-                                            <img src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
+                                            <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
                                             <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
                                         </a>
                                     </div>
@@ -552,13 +552,13 @@
                         <h3 class="main-cpa-subt">{{ __('messages.index.events') }}</h3>
                         <a class="link--blue" href="{{ route('events') }}">
                             <span>{{ __('messages.show') }}</span>
-                            <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
                         </a>
                     </div>
                     @if(!empty($firstEvent))
                         <li class="article--card hide">
                             <a class="article--card-link" href="{{ route('event.page', $firstEvent['link']) }}"></a>
-                            <img src="{{ asset('storage/' . $firstEvent["{$locale}image"]) }}" alt="banner">
+                            <img loading="lazy" src="{{ asset('storage/' . $firstEvent["{$locale}image"]) }}" alt="banner">
                             <div class="article--card_info">
                                 <div class="main-events__article--card_info_top">
                                     <div class="main-events__article--card_info_top-date">
@@ -584,7 +584,7 @@
                                     <li class="article--card swiper-slide">
                                         <a class="article--card-link"
                                            href="{{ route('event.page', $i['link']) }}"></a>
-                                        <img src="{{ asset('storage/' . $i["{$locale}image"]) }}" alt="banner">
+                                        <img loading="lazy" src="{{ asset('storage/' . $i["{$locale}image"]) }}" alt="banner">
                                         <div class="article--card_info">
                                             <p class="main-events__article--card_info_top-text">{{ $i["{$locale}location"] }}</p>
                                             <h4 class="article--card_info-title">{{ $i["{$locale}name"] }}</h4>
@@ -642,17 +642,17 @@
                                 <button type="button"
                                         data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'-1 month')) : date('Y-m-01', strtotime('-1 month')) }}"
                                         class="arrow--btn left dateChange">
-                                    <img class="arrow--btn-black"
+                                    <img loading="lazy" class="arrow--btn-black"
                                          src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                                    <img class="arrow--btn-blue"
+                                    <img loading="lazy" class="arrow--btn-blue"
                                          src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                                 </button>
                                 <button type="button"
                                         data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'+1 month')) : date('Y-m-01', strtotime('+1 month')) }}"
                                         class="arrow--btn dateChange">
-                                    <img class="arrow--btn-black"
+                                    <img loading="lazy" class="arrow--btn-black"
                                          src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                                    <img class="arrow--btn-blue"
+                                    <img loading="lazy" class="arrow--btn-blue"
                                          src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                                 </button>
                             </div>
@@ -678,7 +678,7 @@
                                         <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
                                         <div class="popup_event-wrap">
                                             <div class="popup_event">
-                                                <img class="popup_event-image"
+                                                <img loading="lazy" class="popup_event-image"
                                                      src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
                                                 <div class="popup_event-info">
                                                     <p class="popup_event-date">{{ $i["{$locale}date"] }}</p>

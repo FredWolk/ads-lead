@@ -1,7 +1,7 @@
 @foreach ($events as $event)
     <li class="article--card">
         <a class="article--card-link" href="{{ route('event.page', $event['link']) }}"></a>
-        <img src="{{asset('storage/' . $event["{$locale}image"])}}" alt="banner">
+        <img loading="lazy" src="{{asset('storage/' . $event["{$locale}image"])}}" alt="banner">
         <div class="article--card_info">
             <div class="eventcard-item">
                 <p class="main-events__article--card_info_top-text">

@@ -51,7 +51,7 @@
                             </tr>
                             <tr>
                                 <td>Изображение</td>
-                                <td><img width="150" src="{{ asset('storage/'.$article->image) }}" alt=""></td>
+                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$article->image) }}" alt=""></td>
                             </tr>
                             <tr>
                                 <td>Теги</td>

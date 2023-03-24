@@ -49,7 +49,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             @if($top->type == 'image')
-                                <img width="400" src="{{ asset('storage/'. $top->file) }}" alt="">
+                                <img loading="lazy" width="400" src="{{ asset('storage/'. $top->file) }}" alt="">
                             @else
                                 <video width="400" src="{{ asset('storage/'. $top->file) }}" controls="controls"></video>
                             @endif
@@ -68,7 +68,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             @if($top->type == 'image')
-                                <img width="400" src="{{ asset('storage/'. $top->mobile_file) }}" alt="">
+                                <img loading="lazy" width="400" src="{{ asset('storage/'. $top->mobile_file) }}" alt="">
                             @else
                                 <video width="400" src="{{ asset('storage/'. $top->mobile_file) }}" controls="controls"></video>
                             @endif

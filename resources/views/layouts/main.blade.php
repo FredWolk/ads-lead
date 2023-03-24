@@ -54,7 +54,7 @@
     <header class="header">
         <div class="container">
             <a class="header-link" href="{{ route('index') }}">
-                <img src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
+                <img loading="lazy" src="{{asset('assets/images/icons/logo.webp')}}" alt="Aff journal">
             </a>
             <div class="header_nav-wrapper">
                 <nav class="header_nav">
@@ -93,7 +93,7 @@
                     @if(!empty($banner_button))
                         <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
                             <span>{{ $banner_button->text }}</span>
-                            <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                         </a>
                     @endif
 
@@ -134,7 +134,7 @@
                     </div>
                     @auth()
                         <a href="{{ route('user.index') }}" class="header-user-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                         </a>
                     @else
                         <button type="button" class="btn-rectangle btn--exit login--btn">
@@ -224,7 +224,7 @@
                     <picture>
                         <source srcset="{{asset('storage/'. $banner->file)}}"
                                 media="(min-width: 600px)">
-                        <img width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}" alt="banner">
+                        <img loading="lazy" width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}" alt="banner">
                     </picture>
                 @else
                     <video id="video" width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
@@ -314,7 +314,7 @@
                                 <input class="popup_main-input-view-password input-hide" type="checkbox"
                                        name="viewpasswors">
                                 <div class="popup_main-input-view-password-label-icon">
-                                    <img src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
+                                    <img loading="lazy" src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
                                 </div>
                             </label>
                         </div>
@@ -334,7 +334,7 @@
                 </div>
                 <button style="max-width: 100%" class="btn--blue header_buttons-blue-btn">
                     <span>Send</span>
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
             </form>
             <p class="popup_main-no-acc">No account?
@@ -368,7 +368,7 @@
                             <input class="popup_main-input-view-password input-hide" type="checkbox"
                                    name="viewpasswors">
                             <div class="popup_main-input-view-password-label-icon">
-                                <img src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
+                                <img loading="lazy" src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
                             </div>
                         </label>
                     </div>
@@ -383,7 +383,7 @@
                             <input class="popup_main-input-view-password input-hide" type="checkbox"
                                    name="viewpasswors">
                             <div class="popup_main-input-view-password-label-icon">
-                                <img src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
+                                <img loading="lazy" src="{{asset('assets/images/icons/eye.svg')}}" alt="eye">
                             </div>
                         </label>
                     </div>
@@ -612,7 +612,7 @@
             </div>
             <button style="max-width: 100%" class="btn--blue header_buttons-blue-btn">
                 <span>Send</span>
-                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
             </button>
         </form>
         {{--        <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}

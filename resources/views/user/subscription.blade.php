@@ -10,7 +10,7 @@
             <li class="user-main__subscribers_list-item">
                 <a class="user-main__subscribers_list-item-link" href="{{ route('index') }}"></a>
                 <div class="user-main__subscribers_list-item-icon">
-                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                 </div>
                 <p class="user-main__subscribers_list-item-name">Darrell Steward</p>
             </li>
@@ -18,7 +18,7 @@
         </ul>
         <button type="button" class="link--blue user-main_subscribers-show-all--btn">
             <span>Show all</span>
-            <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
         </button>
     </div>
     <div class="user_card">
@@ -29,7 +29,7 @@
             <li class="user-main__subscribers_list-item">
                 <a class="user-main__subscribers_list-item-link" href="{{ route('index') }}"></a>
                 <div class="user-main__subscribers_list-item-icon">
-                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                 </div>
                 <p class="user-main__subscribers_list-item-name">Darrell Steward</p>
             </li>
@@ -37,7 +37,7 @@
         </ul>
         <button type="button" class="link--blue user-main_subscribers-show-all--btn">
             <span>Show all</span>
-            <img src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
         </button>
     </div>
 </section>

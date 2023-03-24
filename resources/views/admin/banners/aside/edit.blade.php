@@ -49,7 +49,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                             @if($aside->type == 'image')
-                                <img width="400" src="{{ asset('storage/'. $aside->file) }}" alt="">
+                                <img loading="lazy" width="400" src="{{ asset('storage/'. $aside->file) }}" alt="">
                             @else
                                 <video width="400" src="{{ asset('storage/'. $aside->file) }}" controls="controls"></video>
                             @endif

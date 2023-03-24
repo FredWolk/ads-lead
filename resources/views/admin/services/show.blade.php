@@ -43,7 +43,7 @@
                             </tr>
                             <tr>
                                 <td>Изображение</td>
-                                <td><img width="150" src="{{ asset('storage/'.$service->logo) }}" alt=""></td>
+                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$service->logo) }}" alt=""></td>
                             </tr>
 
                             </tbody>

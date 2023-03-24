@@ -48,7 +48,7 @@
                     </div>
                     <a class="btn--red" href="{{ route('index') }}">
                         <span>{{ __('messages.youtube') }}</span>
-                        <img src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
+                        <img loading="lazy" src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                     </a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 @foreach ($video as $k => $i)
                     <li class="article--card">
                         <a class="article--card-link" href="{{ route('video.page', $i['link']) }}"></a>
-                        <img src="{{asset('storage/'.$i["{$locale}image"])}}" alt="banner">
+                        <img loading="lazy" src="{{asset('storage/'.$i["{$locale}image"])}}" alt="banner">
                         <div class="article--card_info">
                             <p class="article--card_info-date">{{ date('d/m/Y', strtotime($i['created_at'])) }}</p>
                             <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>

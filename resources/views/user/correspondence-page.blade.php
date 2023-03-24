@@ -7,7 +7,7 @@
             <div class="user-main-corpage_top_left-wrapper">
                 <div class="header--notif-body--item-icon-wrapper">
                     <div class="user-main-corpage_top_left-icon">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                     </div>
                     <div class="header--notif-body--item-icon-online"></div> {{-- CCOM для отсутствия в онлайне - класс grey --}}
                 </div>
@@ -18,7 +18,7 @@
                         <div class="forum-user-preview_card_main">
                             <div class="forum-user-preview_card_main_info">
                                 <div class="forum-user-preview_card_main_info-avatar">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                 </div>
                                 <div class="forum-user-preview_card_main_info_right">
                                     <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -49,13 +49,13 @@
                 <li class="user-main_trophies--item active">
                     <div class="user-main_trophies--item-main">
                         <div class="user-main_trophies--item-main-image">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                         </div>
                     </div>
 
                     <button type="button" class="user_card--toltip--btn user-main_trophies--item-toolti-btn">
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="9.5" r="9.5" fill="#014EFF"/><path d="M9.0298 10.5597C9.0298 10.3329 9.06394 10.1319 9.13222 9.95694C9.2067 9.78194 9.29671 9.62639 9.40223 9.49028C9.51397 9.35417 9.63191 9.22778 9.75605 9.11111C9.8802 8.99444 9.99503 8.88426 10.1006 8.78056C10.2123 8.67037 10.3023 8.55694 10.3706 8.44028C10.4451 8.32361 10.4823 8.19398 10.4823 8.05139C10.4823 7.81806 10.3892 7.63009 10.203 7.4875C10.023 7.34491 9.78088 7.27361 9.47672 7.27361C9.18498 7.27361 8.92427 7.33843 8.6946 7.46806C8.46493 7.5912 8.27561 7.7662 8.12663 7.99306L7 7.30278C7.24829 6.90741 7.5928 6.59306 8.03352 6.35972C8.47424 6.11991 9.00807 6 9.63501 6C10.1006 6 10.5102 6.0713 10.8641 6.21389C11.2179 6.35 11.4941 6.55093 11.6927 6.81667C11.8976 7.08241 12 7.40972 12 7.79861C12 8.05139 11.9628 8.275 11.8883 8.46944C11.8138 8.66389 11.7176 8.83241 11.5996 8.975C11.4817 9.11759 11.3544 9.25046 11.2179 9.37361C11.0875 9.49676 10.9634 9.61667 10.8454 9.73333C10.7275 9.85 10.6282 9.97315 10.5475 10.1028C10.473 10.2324 10.4358 10.3847 10.4358 10.5597H9.0298ZM9.73743 13C9.47672 13 9.26257 12.9125 9.09497 12.7375C8.92737 12.5625 8.84358 12.3551 8.84358 12.1153C8.84358 11.869 8.92737 11.6648 9.09497 11.5028C9.26257 11.3343 9.47672 11.25 9.73743 11.25C10.0043 11.25 10.2185 11.3343 10.3799 11.5028C10.5475 11.6648 10.6313 11.869 10.6313 12.1153C10.6313 12.3551 10.5475 12.5625 10.3799 12.7375C10.2185 12.9125 10.0043 13 9.73743 13Z" fill="white"/></svg>
-    
+
                         <p class="user_card-tooltip_body">
                             Awarded when the user wrote 1 message and activated the account.
                         </p>
@@ -83,8 +83,8 @@
                 <p class="user-main-corpage_top_right_top-date">8/15/17</p>
                 <div class="user-main-corpage_top_right_top_right">
                     <button class="user-main-corpage_top_right_top_right--btn" type="button">
-                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 15.5C10.875 15.5 10.3438 15.2812 9.90625 14.8438C9.46875 14.4062 9.25 13.875 9.25 13.25C9.25 13.1625 9.25625 13.0717 9.26875 12.9777C9.28125 12.8842 9.3 12.8 9.325 12.725L4.0375 9.65C3.825 9.8375 3.5875 9.98425 3.325 10.0903C3.0625 10.1967 2.7875 10.25 2.5 10.25C1.875 10.25 1.34375 10.0312 0.90625 9.59375C0.46875 9.15625 0.25 8.625 0.25 8C0.25 7.375 0.46875 6.84375 0.90625 6.40625C1.34375 5.96875 1.875 5.75 2.5 5.75C2.7875 5.75 3.0625 5.803 3.325 5.909C3.5875 6.0155 3.825 6.1625 4.0375 6.35L9.325 3.275C9.3 3.2 9.28125 3.11575 9.26875 3.02225C9.25625 2.92825 9.25 2.8375 9.25 2.75C9.25 2.125 9.46875 1.59375 9.90625 1.15625C10.3438 0.71875 10.875 0.5 11.5 0.5C12.125 0.5 12.6562 0.71875 13.0938 1.15625C13.5312 1.59375 13.75 2.125 13.75 2.75C13.75 3.375 13.5312 3.90625 13.0938 4.34375C12.6562 4.78125 12.125 5 11.5 5C11.2125 5 10.9375 4.94675 10.675 4.84025C10.4125 4.73425 10.175 4.5875 9.9625 4.4L4.675 7.475C4.7 7.55 4.71875 7.63425 4.73125 7.72775C4.74375 7.82175 4.75 7.9125 4.75 8C4.75 8.0875 4.74375 8.178 4.73125 8.2715C4.71875 8.3655 4.7 8.45 4.675 8.525L9.9625 11.6C10.175 11.4125 10.4125 11.2655 10.675 11.159C10.9375 11.053 11.2125 11 11.5 11C12.125 11 12.6562 11.2188 13.0938 11.6562C13.5312 12.0938 13.75 12.625 13.75 13.25C13.75 13.875 13.5312 14.4062 13.0938 14.8438C12.6562 15.2812 12.125 15.5 11.5 15.5Z" fill="#014EFF"/></svg>       
-                        
+                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 15.5C10.875 15.5 10.3438 15.2812 9.90625 14.8438C9.46875 14.4062 9.25 13.875 9.25 13.25C9.25 13.1625 9.25625 13.0717 9.26875 12.9777C9.28125 12.8842 9.3 12.8 9.325 12.725L4.0375 9.65C3.825 9.8375 3.5875 9.98425 3.325 10.0903C3.0625 10.1967 2.7875 10.25 2.5 10.25C1.875 10.25 1.34375 10.0312 0.90625 9.59375C0.46875 9.15625 0.25 8.625 0.25 8C0.25 7.375 0.46875 6.84375 0.90625 6.40625C1.34375 5.96875 1.875 5.75 2.5 5.75C2.7875 5.75 3.0625 5.803 3.325 5.909C3.5875 6.0155 3.825 6.1625 4.0375 6.35L9.325 3.275C9.3 3.2 9.28125 3.11575 9.26875 3.02225C9.25625 2.92825 9.25 2.8375 9.25 2.75C9.25 2.125 9.46875 1.59375 9.90625 1.15625C10.3438 0.71875 10.875 0.5 11.5 0.5C12.125 0.5 12.6562 0.71875 13.0938 1.15625C13.5312 1.59375 13.75 2.125 13.75 2.75C13.75 3.375 13.5312 3.90625 13.0938 4.34375C12.6562 4.78125 12.125 5 11.5 5C11.2125 5 10.9375 4.94675 10.675 4.84025C10.4125 4.73425 10.175 4.5875 9.9625 4.4L4.675 7.475C4.7 7.55 4.71875 7.63425 4.73125 7.72775C4.74375 7.82175 4.75 7.9125 4.75 8C4.75 8.0875 4.74375 8.178 4.73125 8.2715C4.71875 8.3655 4.7 8.45 4.675 8.525L9.9625 11.6C10.175 11.4125 10.4125 11.2655 10.675 11.159C10.9375 11.053 11.2125 11 11.5 11C12.125 11 12.6562 11.2188 13.0938 11.6562C13.5312 12.0938 13.75 12.625 13.75 13.25C13.75 13.875 13.5312 14.4062 13.0938 14.8438C12.6562 15.2812 12.125 15.5 11.5 15.5Z" fill="#014EFF"/></svg>
+
                         <div class="user-main-corpage_top_right_top_right--btn-body">
                             <div class="user-main-corpage_top_right_top_right--btn-body_top">
                                 <p class="user-main-corpage_top_right_top_right--btn-body_top-text">Share</p>
@@ -113,7 +113,7 @@
                         <span>Complaint</span>
                     </button>
                     <button class="user-main-corpage_top_right_bottom--btn">
-                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/><path d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z" fill="white"/></svg>                            
+                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/><path d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z" fill="white"/></svg>
                         <span>Like</span>
                     </button>
                 </div>
@@ -125,7 +125,7 @@
         <div class="user-main-corpage_bot_left">
             <div class="header--notif-body--item-icon-wrapper">
                 <div class="user-main-corpage_top_left-icon">
-                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                 </div>
             </div>
             <div class="user-main-corpage_top_left-name-wrapper">
@@ -135,7 +135,7 @@
                     <div class="forum-user-preview_card_main">
                         <div class="forum-user-preview_card_main_info">
                             <div class="forum-user-preview_card_main_info-avatar">
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                             </div>
                             <div class="forum-user-preview_card_main_info_right">
                                 <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -165,7 +165,7 @@
             </div>
             <button style="max-width: 161px; height: 40px;" class="btn--blue header_buttons-blue-btn">
                 <span>Send</span>
-                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
             </button>
         </form>
     </div>

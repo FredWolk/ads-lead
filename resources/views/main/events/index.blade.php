@@ -40,7 +40,7 @@
                             @foreach ($events as $event)
                                 <li class="article--card">
                                     <a class="article--card-link" href="{{ route('event.page', $event['link']) }}"></a>
-                                    <img src="{{asset('storage/' . $event["{$locale}image"])}}" alt="banner">
+                                    <img loading="lazy" src="{{asset('storage/' . $event["{$locale}image"])}}" alt="banner">
                                     <div class="article--card_info">
                                         <div class="eventcard-item">
                                             <p class="main-events__article--card_info_top-text">
@@ -108,19 +108,19 @@
 
                                 <div class="main-events_right_top_month_arrows">
                                     <button type="button" id="yearDown" class="arrow--btn left">
-                                        <img class="arrow--btn-black"
+                                        <img loading="lazy" class="arrow--btn-black"
                                              src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                                              alt="arrow">
-                                        <img class="arrow--btn-blue"
+                                        <img loading="lazy" class="arrow--btn-blue"
                                              src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                                     </button>
                                     <input type="hidden" id="inpYear" name="year" value="{{ date('Y') }}">
                                     <p id="years" class="events-filter-aside-time">{{ date('Y') }}</p>
                                     <button type="button" id="yearUp" class="arrow--btn">
-                                        <img class="arrow--btn-black"
+                                        <img loading="lazy" class="arrow--btn-black"
                                              src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                                              alt="arrow">
-                                        <img class="arrow--btn-blue"
+                                        <img loading="lazy" class="arrow--btn-blue"
                                              src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                                     </button>
                                 </div>
@@ -210,7 +210,7 @@
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
                                 @endif

@@ -38,7 +38,7 @@
                             @error('name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <img width="150" src="{{ asset('storage/'.$author->photo) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'.$author->photo) }}" alt="">
                             <div class="form-group">
                                 <label for="photo">Фото автора</label>
                                 <div class="input-group">

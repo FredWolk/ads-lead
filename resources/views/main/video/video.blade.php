@@ -46,7 +46,7 @@
                     </ul>
                     <div class="videopage_main--text main__article">{!! $video["{$locale}content"] !!}</div>
                     <div class="filter-aside-banner to-show">
-                        <img src="{{asset('storage/'.$video["{$locale}image"])}}" alt="bunner">
+                        <img loading="lazy" src="{{asset('storage/'.$video["{$locale}image"])}}" alt="bunner">
                     </div>
 
                     <div class="videopage--comments">
@@ -62,7 +62,7 @@
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
                                 @endif
@@ -84,7 +84,7 @@
                         @foreach ($moreVideo as $video)
                             <li class="article--card swiper-slide">
                                 <a class="article--card-link" href="{{ route('video.page', $i['link']) }}"></a>
-                                <img src="{{asset('storage/'.$i["{$locale}image"])}}" alt="banner">
+                                <img loading="lazy" src="{{asset('storage/'.$i["{$locale}image"])}}" alt="banner">
                                 <div class="article--card_info">
                                     <p class="article--card_info-date">{{ date('d/m/Y', strtotime($i['created_at'])) }}</p>
                                     <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
@@ -94,15 +94,15 @@
                     </ul>
 
                     <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                        <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                        <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                              alt="arrow">
-                        <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                        <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                              alt="blue">
                     </button>
                     <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                        <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                        <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                              alt="arrow">
-                        <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                        <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                              alt="blue">
                     </button>
 

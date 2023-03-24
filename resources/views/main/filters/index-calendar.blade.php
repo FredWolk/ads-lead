@@ -22,17 +22,17 @@
             <button type="button"
                     data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'-1 month')) : date('Y-m-01', strtotime('-1 month')) }}"
                     class="arrow--btn left dateChange">
-                <img class="arrow--btn-black"
+                <img loading="lazy" class="arrow--btn-black"
                      src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                <img class="arrow--btn-blue"
+                <img loading="lazy" class="arrow--btn-blue"
                      src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
             </button>
             <button type="button"
                     data-date="{{ !empty($_GET['date']) ? date('Y-m-01', strtotime($_GET['date'].'+1 month')) : date('Y-m-01', strtotime('+1 month')) }}"
                     class="arrow--btn dateChange">
-                <img class="arrow--btn-black"
+                <img loading="lazy" class="arrow--btn-black"
                      src="{{asset('assets/images/icons/arrow-right-black.svg')}}" alt="arrow">
-                <img class="arrow--btn-blue"
+                <img loading="lazy" class="arrow--btn-blue"
                      src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
             </button>
         </div>
@@ -58,7 +58,7 @@
                     <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
                     <div class="popup_event-wrap">
                         <div class="popup_event">
-                            <img class="popup_event-image"
+                            <img loading="lazy" class="popup_event-image"
                                  src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
                             <div class="popup_event-info">
                                 <p class="popup_event-date">{{ $i["{$locale}date"] }}</p>

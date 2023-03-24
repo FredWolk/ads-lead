@@ -3,7 +3,7 @@
         <div class="cpapage_info--item_main">
             <div class="cpapage_info--item_main_top">
                 <div class="cpapage_info--item_main_top-icon">
-                    <img src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
+                    <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
                 </div>
                 <ul class="cpapage_info--item_main_top-list">
                     @if(!empty($i['advertising_formats']))
@@ -22,7 +22,7 @@
         <div class="cpapage_info--item_buttons">
             <a class="btn--blue header_buttons-blue-btn" href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                 <span>Review</span>
-                <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
             </a>
             <div class="promocode--btn-wrapper">
                 <button type="button" class="btn--grey-with-icons promocode promocode--btn"
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <a class="link--blue-sphere" href="{{ $i['url'] }}">
-                <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                 <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
             </a>
 

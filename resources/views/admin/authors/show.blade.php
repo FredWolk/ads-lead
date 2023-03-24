@@ -43,7 +43,7 @@
                             </tr>
                             <tr>
                                 <td>Фото</td>
-                                <td><img width="150" src="{{ asset('storage/'. $author['photo']) }}" alt=""></td>
+                                <td><img loading="lazy" width="150" src="{{ asset('storage/'. $author['photo']) }}" alt=""></td>
                             </tr>
                             </tbody>
                         </table>

@@ -105,7 +105,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <img width="150" src="{{ asset('storage/'. $ad->image) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'. $ad->image) }}" alt="">
                             <div class="form-group">
                                 <label for="image">Изображение рекламы</label>
                                 <div class="input-group">
@@ -121,7 +121,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <img width="150" src="{{ asset('storage/'. $ad->pt_image) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'. $ad->pt_image) }}" alt="">
                             <div class="form-group">
                                 <label for="pt_image">Изображение рекламы на португальском</label>
                                 <div class="input-group">
@@ -137,7 +137,7 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <img width="150" src="{{ asset('storage/'. $ad->logo) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'. $ad->logo) }}" alt="">
                             <div class="form-group">
                                 <label for="logo">Логотип рекламы</label>
                                 <div class="input-group">

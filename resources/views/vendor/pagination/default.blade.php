@@ -7,7 +7,7 @@
                         style="cursor: not-allowed"
                         aria-disabled="true"
                         aria-label="@lang('pagination.previous')">
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
             @else
                 <button type="button">
@@ -15,7 +15,7 @@
                        href="{{ $paginator->previousPageUrl() }}"
                        rel="prev"
                        aria-label="@lang('pagination.previous')">
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </a>
                 </button>
             @endif
@@ -49,12 +49,12 @@
                        href="{{ $paginator->nextPageUrl() }}"
                        rel="next"
                        aria-label="@lang('pagination.next')">
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </a>
                 </button>
             @else
                 <button style="cursor: not-allowed" type="button" class="pagination_button right">
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
             @endif
         </div>

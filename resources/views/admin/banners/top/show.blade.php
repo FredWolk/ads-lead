@@ -44,7 +44,7 @@
                                 <td>Файл</td>
                                 <td>
                                 @if($top->type == 'image')
-                                        <img width="400" src="{{ asset('storage/'.$top->file) }}" alt="">
+                                        <img loading="lazy" width="400" src="{{ asset('storage/'.$top->file) }}" alt="">
                                 @else
                                         <video width="500" autoplay controls="controls" src="{{ asset('storage/'. $top->file) }}"></video>
                                 @endif

@@ -27,7 +27,7 @@
             <div class="forumpage-board_top_left">
                 <div class="forumpage-board_top_left_first">
                     <div class="forumpage-board_top_left_first-avatar">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                     </div>
                     <a href="{{ route('index') }}" class="forumpage-board_top_left_first-name">Jerome Bell</a>
 
@@ -35,7 +35,7 @@
                         <div class="forum-user-preview_card_main">
                             <div class="forum-user-preview_card_main_info">
                                 <div class="forum-user-preview_card_main_info-avatar">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                 </div>
                                 <div class="forum-user-preview_card_main_info_right">
                                     <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -83,7 +83,7 @@
         <div class="forumpage-board_top-pagin-wrapp">
             <div class="pagination">
                 <button type="button" class="pagination_button left">
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
                 <ul class="pagination_list">
                     <li class="pagination--item active">1</li>
@@ -92,19 +92,19 @@
                     <li class="pagination--item">4</li>
                 </ul>
                 <button type="button" class="pagination_button right">
-                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
             </div>
             <div class="forumpage-board_top-pagin-wrapp-right">
                 <button class="forum_treads_list--item_left_info_bottom-tracking" type="button">
-                    <svg class="svg1" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_752_21272)"><path d="M11.0807 3.73913L10.2582 2.91663L6.9974 6.17746L3.73656 2.91663L2.91406 3.73913L6.1749 6.99996L2.91406 10.2608L3.73656 11.0833L6.9974 7.82246L10.2582 11.0833L11.0807 10.2608L7.8199 6.99996L11.0807 3.73913Z" fill="#F7FAFF"/></g><defs><clipPath id="clip0_752_21272"><rect width="14" height="14" fill="white"/></clipPath></defs></svg>                                        
+                    <svg class="svg1" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_752_21272)"><path d="M11.0807 3.73913L10.2582 2.91663L6.9974 6.17746L3.73656 2.91663L2.91406 3.73913L6.1749 6.99996L2.91406 10.2608L3.73656 11.0833L6.9974 7.82246L10.2582 11.0833L11.0807 10.2608L7.8199 6.99996L11.0807 3.73913Z" fill="#F7FAFF"/></g><defs><clipPath id="clip0_752_21272"><rect width="14" height="14" fill="white"/></clipPath></defs></svg>
                     <svg class="svg2" width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.50521 10.2854L4.84063 9.68042C2.48021 7.54 0.921875 6.12375 0.921875 4.39583C0.921875 2.97958 2.03104 1.875 3.44271 1.875C4.24021 1.875 5.00563 2.24625 5.50521 2.82833C6.00479 2.24625 6.77021 1.875 7.56771 1.875C8.97937 1.875 10.0885 2.97958 10.0885 4.39583C10.0885 6.12375 8.53021 7.54 6.16979 9.68042L5.50521 10.2854Z" fill="#181A1C"/></svg>
-                    <span>Tracking</span>                               
+                    <span>Tracking</span>
                 </button>
 
                 <button type="button" class="forumpage-board_top-pagin-wrapp-right-more--btn">
                     <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="2" fill="#014EFF"/><circle cx="20" cy="12" r="2" fill="#014EFF"/><circle cx="28" cy="12" r="2" fill="#014EFF"/><rect x="0.5" y="0.5" width="39" height="23" rx="11.5" stroke="#014EFF"/></svg>
-                    
+
                     <div class="forumpage-board_top-pagin-wrapp-right-more--body">
                         <div class="forumpage-board_top-pagin-wrapp-right-more--body-top">
                             <p class="forumpage-board_top-pagin-wrapp-right-more--body-top-text">More</p>
@@ -124,18 +124,18 @@
                     <div class="user-main-corpage_top_left-wrapper">
                         <div class="header--notif-body--item-icon-wrapper">
                             <div class="user-main-corpage_top_left-icon">
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                             </div>
                             <div class="header--notif-body--item-icon-online"></div> {{-- CCOM для отсутствия в онлайне - класс grey --}}
                         </div>
                         <div class="user-main-corpage_top_left-name-wrapper">
                             <a href="{{ route('index') }}" class="user-main-corpage_top_left-name">Jerome Bell</a>
-    
+
                             <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
                                 <div class="forum-user-preview_card_main">
                                     <div class="forum-user-preview_card_main_info">
                                         <div class="forum-user-preview_card_main_info-avatar">
-                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                         </div>
                                         <div class="forum-user-preview_card_main_info_right">
                                             <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -166,13 +166,13 @@
                         <li class="user-main_trophies--item active">
                             <div class="user-main_trophies--item-main">
                                 <div class="user-main_trophies--item-main-image">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                 </div>
                             </div>
-        
+
                             <button type="button" class="user_card--toltip--btn user-main_trophies--item-toolti-btn">
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="9.5" r="9.5" fill="#014EFF"/><path d="M9.0298 10.5597C9.0298 10.3329 9.06394 10.1319 9.13222 9.95694C9.2067 9.78194 9.29671 9.62639 9.40223 9.49028C9.51397 9.35417 9.63191 9.22778 9.75605 9.11111C9.8802 8.99444 9.99503 8.88426 10.1006 8.78056C10.2123 8.67037 10.3023 8.55694 10.3706 8.44028C10.4451 8.32361 10.4823 8.19398 10.4823 8.05139C10.4823 7.81806 10.3892 7.63009 10.203 7.4875C10.023 7.34491 9.78088 7.27361 9.47672 7.27361C9.18498 7.27361 8.92427 7.33843 8.6946 7.46806C8.46493 7.5912 8.27561 7.7662 8.12663 7.99306L7 7.30278C7.24829 6.90741 7.5928 6.59306 8.03352 6.35972C8.47424 6.11991 9.00807 6 9.63501 6C10.1006 6 10.5102 6.0713 10.8641 6.21389C11.2179 6.35 11.4941 6.55093 11.6927 6.81667C11.8976 7.08241 12 7.40972 12 7.79861C12 8.05139 11.9628 8.275 11.8883 8.46944C11.8138 8.66389 11.7176 8.83241 11.5996 8.975C11.4817 9.11759 11.3544 9.25046 11.2179 9.37361C11.0875 9.49676 10.9634 9.61667 10.8454 9.73333C10.7275 9.85 10.6282 9.97315 10.5475 10.1028C10.473 10.2324 10.4358 10.3847 10.4358 10.5597H9.0298ZM9.73743 13C9.47672 13 9.26257 12.9125 9.09497 12.7375C8.92737 12.5625 8.84358 12.3551 8.84358 12.1153C8.84358 11.869 8.92737 11.6648 9.09497 11.5028C9.26257 11.3343 9.47672 11.25 9.73743 11.25C10.0043 11.25 10.2185 11.3343 10.3799 11.5028C10.5475 11.6648 10.6313 11.869 10.6313 12.1153C10.6313 12.3551 10.5475 12.5625 10.3799 12.7375C10.2185 12.9125 10.0043 13 9.73743 13Z" fill="white"/></svg>
-            
+
                                 <p class="user_card-tooltip_body">
                                     Awarded when the user wrote 1 message and activated the account.
                                 </p>
@@ -200,8 +200,8 @@
                         <p class="user-main-corpage_top_right_top-date">8/15/17</p>
                         <div class="user-main-corpage_top_right_top_right">
                             <button class="user-main-corpage_top_right_top_right--btn" type="button">
-                                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 15.5C10.875 15.5 10.3438 15.2812 9.90625 14.8438C9.46875 14.4062 9.25 13.875 9.25 13.25C9.25 13.1625 9.25625 13.0717 9.26875 12.9777C9.28125 12.8842 9.3 12.8 9.325 12.725L4.0375 9.65C3.825 9.8375 3.5875 9.98425 3.325 10.0903C3.0625 10.1967 2.7875 10.25 2.5 10.25C1.875 10.25 1.34375 10.0312 0.90625 9.59375C0.46875 9.15625 0.25 8.625 0.25 8C0.25 7.375 0.46875 6.84375 0.90625 6.40625C1.34375 5.96875 1.875 5.75 2.5 5.75C2.7875 5.75 3.0625 5.803 3.325 5.909C3.5875 6.0155 3.825 6.1625 4.0375 6.35L9.325 3.275C9.3 3.2 9.28125 3.11575 9.26875 3.02225C9.25625 2.92825 9.25 2.8375 9.25 2.75C9.25 2.125 9.46875 1.59375 9.90625 1.15625C10.3438 0.71875 10.875 0.5 11.5 0.5C12.125 0.5 12.6562 0.71875 13.0938 1.15625C13.5312 1.59375 13.75 2.125 13.75 2.75C13.75 3.375 13.5312 3.90625 13.0938 4.34375C12.6562 4.78125 12.125 5 11.5 5C11.2125 5 10.9375 4.94675 10.675 4.84025C10.4125 4.73425 10.175 4.5875 9.9625 4.4L4.675 7.475C4.7 7.55 4.71875 7.63425 4.73125 7.72775C4.74375 7.82175 4.75 7.9125 4.75 8C4.75 8.0875 4.74375 8.178 4.73125 8.2715C4.71875 8.3655 4.7 8.45 4.675 8.525L9.9625 11.6C10.175 11.4125 10.4125 11.2655 10.675 11.159C10.9375 11.053 11.2125 11 11.5 11C12.125 11 12.6562 11.2188 13.0938 11.6562C13.5312 12.0938 13.75 12.625 13.75 13.25C13.75 13.875 13.5312 14.4062 13.0938 14.8438C12.6562 15.2812 12.125 15.5 11.5 15.5Z" fill="#014EFF"/></svg>    
-                                
+                                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 15.5C10.875 15.5 10.3438 15.2812 9.90625 14.8438C9.46875 14.4062 9.25 13.875 9.25 13.25C9.25 13.1625 9.25625 13.0717 9.26875 12.9777C9.28125 12.8842 9.3 12.8 9.325 12.725L4.0375 9.65C3.825 9.8375 3.5875 9.98425 3.325 10.0903C3.0625 10.1967 2.7875 10.25 2.5 10.25C1.875 10.25 1.34375 10.0312 0.90625 9.59375C0.46875 9.15625 0.25 8.625 0.25 8C0.25 7.375 0.46875 6.84375 0.90625 6.40625C1.34375 5.96875 1.875 5.75 2.5 5.75C2.7875 5.75 3.0625 5.803 3.325 5.909C3.5875 6.0155 3.825 6.1625 4.0375 6.35L9.325 3.275C9.3 3.2 9.28125 3.11575 9.26875 3.02225C9.25625 2.92825 9.25 2.8375 9.25 2.75C9.25 2.125 9.46875 1.59375 9.90625 1.15625C10.3438 0.71875 10.875 0.5 11.5 0.5C12.125 0.5 12.6562 0.71875 13.0938 1.15625C13.5312 1.59375 13.75 2.125 13.75 2.75C13.75 3.375 13.5312 3.90625 13.0938 4.34375C12.6562 4.78125 12.125 5 11.5 5C11.2125 5 10.9375 4.94675 10.675 4.84025C10.4125 4.73425 10.175 4.5875 9.9625 4.4L4.675 7.475C4.7 7.55 4.71875 7.63425 4.73125 7.72775C4.74375 7.82175 4.75 7.9125 4.75 8C4.75 8.0875 4.74375 8.178 4.73125 8.2715C4.71875 8.3655 4.7 8.45 4.675 8.525L9.9625 11.6C10.175 11.4125 10.4125 11.2655 10.675 11.159C10.9375 11.053 11.2125 11 11.5 11C12.125 11 12.6562 11.2188 13.0938 11.6562C13.5312 12.0938 13.75 12.625 13.75 13.25C13.75 13.875 13.5312 14.4062 13.0938 14.8438C12.6562 15.2812 12.125 15.5 11.5 15.5Z" fill="#014EFF"/></svg>
+
                                 <div class="user-main-corpage_top_right_top_right--btn-body">
                                     <div class="user-main-corpage_top_right_top_right--btn-body_top">
                                         <p class="user-main-corpage_top_right_top_right--btn-body_top-text">Share</p>
@@ -230,15 +230,15 @@
                                 <span>Complaint</span>
                             </button>
                             <button class="user-main-corpage_top_right_bottom--btn">
-                                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.5013 1.91675C4.5913 1.91675 1.41797 5.09008 1.41797 9.00008C1.41797 12.9101 4.5913 16.0834 8.5013 16.0834C12.4113 16.0834 15.5846 12.9101 15.5846 9.00008C15.5846 5.09008 12.4113 1.91675 8.5013 1.91675ZM9.14589 13.3563C9.09638 13.4049 9.03373 13.4378 8.96568 13.4511C8.89763 13.4643 8.82719 13.4573 8.76309 13.4309C8.69898 13.4045 8.64403 13.3599 8.60505 13.3026C8.56607 13.2452 8.54478 13.1777 8.5438 13.1084V12.5417H8.5013C7.59464 12.5417 6.68797 12.1947 5.9938 11.5076C5.51286 11.0255 5.18095 10.415 5.03775 9.74929C4.89455 9.08354 4.94612 8.39063 5.1863 7.75342C5.32089 7.39216 5.79547 7.30008 6.06464 7.57633C6.22047 7.73216 6.25589 7.95883 6.18505 8.15717C5.85922 9.0355 6.04339 10.0555 6.75172 10.7638C7.24755 11.2597 7.89922 11.4934 8.55089 11.4792V10.8134C8.55089 10.4947 8.93339 10.3388 9.15297 10.5655L10.3005 11.713C10.4421 11.8547 10.4421 12.0742 10.3005 12.2159L9.14589 13.3563ZM10.938 10.4309C10.8647 10.3556 10.8145 10.2609 10.7932 10.158C10.7719 10.0552 10.7803 9.94833 10.8176 9.85008C11.1434 8.97175 10.9592 7.95175 10.2509 7.24342C9.75505 6.74758 9.10339 6.50675 8.4588 6.52092V7.18675C8.4588 7.5055 8.0763 7.66133 7.85672 7.43467L6.70214 6.29425C6.56047 6.15258 6.56047 5.933 6.70214 5.79133L7.84964 4.64383C7.89914 4.5953 7.9618 4.56236 8.02984 4.5491C8.09789 4.53584 8.16833 4.54284 8.23244 4.56923C8.29654 4.59563 8.35149 4.64026 8.39047 4.69759C8.42945 4.75492 8.45075 4.82243 8.45172 4.89175V5.4655C9.37255 5.45133 10.3005 5.78425 11.0017 6.49258C11.4827 6.97469 11.8146 7.58512 11.9578 8.25087C12.101 8.91662 12.0494 9.60953 11.8092 10.2467C11.6746 10.6151 11.2071 10.7072 10.938 10.4309Z" fill="#014EFF"/></svg>                                                    
+                                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.5013 1.91675C4.5913 1.91675 1.41797 5.09008 1.41797 9.00008C1.41797 12.9101 4.5913 16.0834 8.5013 16.0834C12.4113 16.0834 15.5846 12.9101 15.5846 9.00008C15.5846 5.09008 12.4113 1.91675 8.5013 1.91675ZM9.14589 13.3563C9.09638 13.4049 9.03373 13.4378 8.96568 13.4511C8.89763 13.4643 8.82719 13.4573 8.76309 13.4309C8.69898 13.4045 8.64403 13.3599 8.60505 13.3026C8.56607 13.2452 8.54478 13.1777 8.5438 13.1084V12.5417H8.5013C7.59464 12.5417 6.68797 12.1947 5.9938 11.5076C5.51286 11.0255 5.18095 10.415 5.03775 9.74929C4.89455 9.08354 4.94612 8.39063 5.1863 7.75342C5.32089 7.39216 5.79547 7.30008 6.06464 7.57633C6.22047 7.73216 6.25589 7.95883 6.18505 8.15717C5.85922 9.0355 6.04339 10.0555 6.75172 10.7638C7.24755 11.2597 7.89922 11.4934 8.55089 11.4792V10.8134C8.55089 10.4947 8.93339 10.3388 9.15297 10.5655L10.3005 11.713C10.4421 11.8547 10.4421 12.0742 10.3005 12.2159L9.14589 13.3563ZM10.938 10.4309C10.8647 10.3556 10.8145 10.2609 10.7932 10.158C10.7719 10.0552 10.7803 9.94833 10.8176 9.85008C11.1434 8.97175 10.9592 7.95175 10.2509 7.24342C9.75505 6.74758 9.10339 6.50675 8.4588 6.52092V7.18675C8.4588 7.5055 8.0763 7.66133 7.85672 7.43467L6.70214 6.29425C6.56047 6.15258 6.56047 5.933 6.70214 5.79133L7.84964 4.64383C7.89914 4.5953 7.9618 4.56236 8.02984 4.5491C8.09789 4.53584 8.16833 4.54284 8.23244 4.56923C8.29654 4.59563 8.35149 4.64026 8.39047 4.69759C8.42945 4.75492 8.45075 4.82243 8.45172 4.89175V5.4655C9.37255 5.45133 10.3005 5.78425 11.0017 6.49258C11.4827 6.97469 11.8146 7.58512 11.9578 8.25087C12.101 8.91662 12.0494 9.60953 11.8092 10.2467C11.6746 10.6151 11.2071 10.7072 10.938 10.4309Z" fill="#014EFF"/></svg>
                                 <span>Change</span>
                             </button>
                             <button class="user-main-corpage_top_right_bottom--btn">
-                                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/><path d="M6.25 11.625C6.25 12.0375 6.5875 12.375 7 12.375H10C10.4125 12.375 10.75 12.0375 10.75 11.625V7.875C10.75 7.4625 10.4125 7.125 10 7.125H7C6.5875 7.125 6.25 7.4625 6.25 7.875V11.625ZM10.75 6H9.8125L9.54625 5.73375C9.47875 5.66625 9.38125 5.625 9.28375 5.625H7.71625C7.61875 5.625 7.52125 5.66625 7.45375 5.73375L7.1875 6H6.25C6.04375 6 5.875 6.16875 5.875 6.375C5.875 6.58125 6.04375 6.75 6.25 6.75H10.75C10.9563 6.75 11.125 6.58125 11.125 6.375C11.125 6.16875 10.9563 6 10.75 6Z" fill="white"/></svg>                                    
+                                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/><path d="M6.25 11.625C6.25 12.0375 6.5875 12.375 7 12.375H10C10.4125 12.375 10.75 12.0375 10.75 11.625V7.875C10.75 7.4625 10.4125 7.125 10 7.125H7C6.5875 7.125 6.25 7.4625 6.25 7.875V11.625ZM10.75 6H9.8125L9.54625 5.73375C9.47875 5.66625 9.38125 5.625 9.28375 5.625H7.71625C7.61875 5.625 7.52125 5.66625 7.45375 5.73375L7.1875 6H6.25C6.04375 6 5.875 6.16875 5.875 6.375C5.875 6.58125 6.04375 6.75 6.25 6.75H10.75C10.9563 6.75 11.125 6.58125 11.125 6.375C11.125 6.16875 10.9563 6 10.75 6Z" fill="white"/></svg>
                                 <span>delete</span>
                             </button>
                             <button class="user-main-corpage_top_right_bottom--btn">
-                                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/><path d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z" fill="white"/></svg>                            
+                                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/><path d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z" fill="white"/></svg>
                                 <span>Like</span>
                             </button>
                         </div>
@@ -250,7 +250,7 @@
                 <div class="user-main-corpage_bot_left">
                     <div class="header--notif-body--item-icon-wrapper">
                         <div class="user-main-corpage_top_left-icon">
-                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
                         </div>
                     </div>
                     <div class="user-main-corpage_top_left-name-wrapper">
@@ -260,7 +260,7 @@
                             <div class="forum-user-preview_card_main">
                                 <div class="forum-user-preview_card_main_info">
                                     <div class="forum-user-preview_card_main_info-avatar">
-                                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
                                     </div>
                                     <div class="forum-user-preview_card_main_info_right">
                                         <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
@@ -290,7 +290,7 @@
                     </div>
                     <button style="max-width: 161px; height: 40px;" class="btn--blue header_buttons-blue-btn">
                         <span>Send</span>
-                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                     </button>
                 </form>
             </div>

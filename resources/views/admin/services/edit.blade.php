@@ -77,7 +77,7 @@
                             @error('pt_name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <img width="150" src="{{ asset('storage/'.$service->logo) }}" alt="">
+                            <img loading="lazy" width="150" src="{{ asset('storage/'.$service->logo) }}" alt="">
                             <div class="form-group">
                                 <label for="logo">Логотип рекламы</label>
                                 <div class="input-group">

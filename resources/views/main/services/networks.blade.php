@@ -54,7 +54,7 @@
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
                                             <div class="cpapage_info--item_main_top-icon">
-                                                <img src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
+                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
                                             </div>
                                             <div class="article--card-top">
                                                 <svg width="12" height="15" viewBox="0 0 12 15" fill="none"
@@ -112,7 +112,7 @@
                                             </div>
                                         </div>
                                         <a class="link--blue-sphere" target="_blank" href="{{ $i['url'] }}">
-                                            <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                                             <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
                                         </a>
 
@@ -148,7 +148,7 @@
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
                                             <div class="cpapage_info--item_main_top-icon">
-                                                <img src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
+                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
                                             </div>
                                             <div class="article--card-top">
                                                 <svg width="12" height="15" viewBox="0 0 12 15" fill="none"
@@ -206,7 +206,7 @@
                                             </div>
                                         </div>
                                         <a class="link--blue-sphere" target="_blank" href="{{ $i['url'] }}">
-                                            <img src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                                             <span>{{ substr(substr($i['url'], 8), 0, -1) }}</span>
                                         </a>
 
@@ -238,7 +238,7 @@
                         <div class="filter-aside-banner to-show">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
                                            muted></video>
@@ -274,7 +274,7 @@
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
                                 @endif

@@ -32,7 +32,7 @@
                 <h1 class="title">{{ $article["{$locale}name"] }}</h1>
                 <div class="videopage_main-underimage_autor to-show">
                     <div class="videopage_main-underimage_autor-image">
-                        <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
                     </div>
                     <p style="font-size: 14px;" class="videopage_main-underimage_autor-link">by <a
                             href="{{ route('index') }}">Wade Warren</a></p>
@@ -56,12 +56,12 @@
             <div class="videopage_wrapper">
                 <article class="videopage_main">
                     <div class="videopage_main--image">
-                        <img src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
+                        <img loading="lazy" src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
                     </div>
                     <div class="videopage_main-underimage">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img src="{{asset('storage/'. $article['author']['photo'])}}" alt="autor">
+                                <img loading="lazy" src="{{asset('storage/'. $article['author']['photo'])}}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a
                                     href="{{ route('index') }}">{{ $article['author']['name'] }}</a></p>
@@ -110,7 +110,7 @@
                     <div class="videopage_main-underimage change">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a
                                     href="{{ route('index') }}">{{ $article['author']['name'] }}</a></p>
@@ -176,10 +176,10 @@
                                             <div class="articlepage--review-integration_autor">
                                                 <div class="videopage_main-underimage_autor-image">
                                                     @if(!empty($comment->author->photo))
-                                                        <img src="{{ asset('storage/'. $comment->author->photo)}}"
+                                                        <img loading="lazy" src="{{ asset('storage/'. $comment->author->photo)}}"
                                                              alt="autor">
                                                     @else
-                                                        <img src="{{ asset('assets/images/card-pict.jpg')}}"
+                                                        <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg')}}"
                                                              alt="autor">
                                                     @endif
                                                 </div>
@@ -205,7 +205,7 @@
                                               class="input-textarea" name="comment"></textarea>
                                     <button class="btn--blue header_buttons-blue-btn">
                                         <span>Send</span>
-                                        <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                                     </button>
                                 </form>
                             @else
@@ -222,7 +222,7 @@
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
                                 @endif
@@ -242,7 +242,7 @@
                     @foreach($moreArticle as $i)
                         <li class="article--card swiper-slide">
                             <a class="article--card-link" href="{{ route('article', $i['link']) }}"></a>
-                            <img src="{{asset('storage/' . $i['image'])}}" alt="banner">
+                            <img loading="lazy" src="{{asset('storage/' . $i['image'])}}" alt="banner">
                             <div class="article--card_info">
                                 <p class="article--card_info-date">{{ date('d/m/Y', strtotime($i['created_at'])) }}</p>
                                 <h3 class="article--card_info-title">{{ $i["{$locale}name"] }}</h3>
@@ -263,14 +263,14 @@
                 </ul>
 
                 <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                    <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
                 <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                    <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
 
                 <div class="main_articles--mobile">

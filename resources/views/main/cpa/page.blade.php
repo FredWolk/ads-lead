@@ -24,7 +24,7 @@
                 <h1 class="title">{{ $cpa["{$locale}name"] }}</h1>
                 <div class="videopage_main-underimage_autor to-show">
                     <div class="videopage_main-underimage_autor-image">
-                        <img src="{{asset('assets/images/cpa_logo.webp')}}" alt="autor">
+                        <img loading="lazy" src="{{asset('assets/images/cpa_logo.webp')}}" alt="autor">
                     </div>
                     <p style="font-size: 14px;" class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                 </div>
@@ -47,12 +47,12 @@
             <div class="videopage_wrapper">
                 <article class="videopage_main">
                     <div class="videopage_main--image">
-                        <img src="{{ asset('storage/'. $cpa["{$locale}image"]) }}" alt="banner">
+                        <img loading="lazy" src="{{ asset('storage/'. $cpa["{$locale}image"]) }}" alt="banner">
                     </div>
                     <div class="videopage_main-underimage">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img src="{{ asset('assets/images/cpa_logo.webp') }}" alt="autor">
+                                <img loading="lazy" src="{{ asset('assets/images/cpa_logo.webp') }}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                         </div>
@@ -209,7 +209,7 @@
                             <a href="{{ $cpa['manager_link'] }}" target="_blank"
                                class="articlepage--review-integration_autor">
                                 <div class="videopage_main-underimage_autor-image">
-                                    <img src="{{asset('storage/' . $cpa['manager_image'])}}" alt="autor">
+                                    <img loading="lazy" src="{{asset('storage/' . $cpa['manager_image'])}}" alt="autor">
                                 </div>
                                 <div class="articlepage--review-integration_autor-text-wrapp">
                                     <p class="articlepage--review-integration_autor-text-wrapp-name">{{ $cpa['manager_name'] }}</p>
@@ -264,13 +264,13 @@
                                 <a target="_blank" class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
                                    href="{{ $cpa['url'] }}">
                                     <span>website</span>
-                                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                                 </a>
                                 <div class="cpaartpage_card_bot--line"></div>
                                 <a class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
                                    href="{{ $cpa['forum_link'] }}">
                                     <span>Forum</span>
-                                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                                 </a>
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                     <div class="videopage_main-underimage change">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img src="{{asset('assets/images/cpa_logo.webp')}}" alt="autor">
+                                <img loading="lazy" src="{{asset('assets/images/cpa_logo.webp')}}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                         </div>
@@ -300,7 +300,7 @@
                         <div class="articlepage--comments-none-editorial-opinion">
                             <div class="articlepage--review-integration_autor">
                                 <div class="videopage_main-underimage_autor-image">
-                                    <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
                                 </div>
                                 <div class="articlepage--review-integration_autor-text-wrapp">
                                     <p class="articlepage--review-integration_autor-text-wrapp-name">{{ __('messages.opinion') }}</p>
@@ -319,9 +319,9 @@
                                                 <div class="articlepage--review-integration_autor">
                                                     <div class="videopage_main-underimage_autor-image">
                                                         @empty($comment->author->photo)
-                                                            <img src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
                                                         @else
-                                                            <img src="{{asset('storage/'.$comment->author->photo)}}" alt="autor">
+                                                            <img loading="lazy" src="{{asset('storage/'.$comment->author->photo)}}" alt="autor">
                                                         @endempty
                                                     </div>
                                                     <div class="articlepage--review-integration_autor-text-wrapp">
@@ -577,7 +577,7 @@
                                                   class="input-textarea" name="comment"></textarea>
                                         <button class="btn--blue header_buttons-blue-btn">
                                             <span>Send</span>
-                                            <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </button>
                                     </form>
@@ -674,7 +674,7 @@
                             <div class="filter-aside-banner sticky">
                                 <a target="_blank" href="{{ $banner->link }}">
                                     @if($banner->type == 'image')
-                                        <img width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                        <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                     @else
                                         <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
                                                muted></video>
@@ -697,7 +697,7 @@
                         <li class="article--card swiper-slide">
                             <a class="article--card-link"
                                href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
-                            <img src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="banner">
+                            <img loading="lazy" src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="banner">
                             <div class="article--card_info">
                                 <ul class="article--card_info_tags-list">
                                     @if(!empty($ad['verticales']))
@@ -726,14 +726,14 @@
                 </ul>
 
                 <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                    <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
                 <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                    <img class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
 
                 <div class="main_articles--mobile">

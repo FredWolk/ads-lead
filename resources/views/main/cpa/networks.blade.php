@@ -71,7 +71,7 @@
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
                                             <div class="cpapage_info--item_main_top-icon">
-                                                <img src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
+                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
                                             </div>
                                             <ul class="cpapage_info--item_main_top-list">
                                                 @if(!empty($i['verticales']))
@@ -101,7 +101,7 @@
                                         <a class="btn--blue header_buttons-blue-btn"
                                            href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
                                             <span>{{ __('messages.review') }}</span>
-                                            <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
                                         <a target="_blank" class="btn--grey-with-icons" href="{{ $i['url'] }}">
@@ -132,7 +132,7 @@
                         <div class="filter-aside-banner to-show">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
                                            muted></video>
@@ -166,7 +166,7 @@
                                             <div class="cpapage_info--item_main">
                                                 <div class="cpapage_info--item_main_top">
                                                     <div class="cpapage_info--item_main_top-icon">
-                                                        <img src="{{ asset('storage/'. $v['logo']) }}" alt="logo">
+                                                        <img loading="lazy" src="{{ asset('storage/'. $v['logo']) }}" alt="logo">
                                                     </div>
                                                     <ul class="cpapage_info--item_main_top-list">
                                                         @if(!empty($v['verticales']))
@@ -196,7 +196,7 @@
                                                 <a class="btn--blue header_buttons-blue-btn"
                                                    href="{{ route('cpa.page', [$v['main_verticales'], $v['link']]) }}">
                                                     <span>{{ __('messages.review') }}</span>
-                                                    <img src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                          alt="arrow">
                                                 </a>
                                                 <a target="_blank" class="btn--grey-with-icons" href="{{ $v['url'] }}">
@@ -281,7 +281,7 @@
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
                                     <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
                                 @endif
