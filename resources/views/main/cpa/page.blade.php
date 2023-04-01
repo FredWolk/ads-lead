@@ -60,8 +60,7 @@
                             @if(!empty($cpa['verticales']))
                                 @foreach($cpa['verticales'] as $tag)
                                     <li class="article--card_info_tags-list-item mobhide">
-                                        <a class="article--card_info_tags-list-item--link"
-                                           href="{{ route('index') }}">#{{ $tag }}</a>
+                                        <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
                                     </li>
                                 @endforeach
                             @endif
@@ -288,8 +287,7 @@
                             @if(!empty($cpa['verticales']))
                                 @foreach($cpa['verticales'] as $tag)
                                     <li class="article--card_info_tags-list-item mobhide">
-                                        <a class="article--card_info_tags-list-item--link"
-                                           href="{{ route('index') }}">#{{ $tag }}</a>
+                                        <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
                                     </li>
                                 @endforeach
                             @endif
@@ -703,8 +701,7 @@
                                     @if(!empty($ad['verticales']))
                                         @foreach($ad['verticales'] as $tag)
                                             <li class="article--card_info_tags-list-item mobhide">
-                                                <a class="article--card_info_tags-list-item--link"
-                                                   href="{{ route('index') }}">#{{ $tag }}</a>
+                                                <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
                                             </li>
                                         @endforeach
                                     @endif

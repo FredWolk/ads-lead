@@ -55,8 +55,7 @@
                                                 @if(!empty($i['verticales']))
                                                     @foreach($i['verticales'] as $tag)
                                                         <li class="article--card_info_tags-list-item mobhide">
-                                                            <a class="article--card_info_tags-list-item--link"
-                                                               href="{{ route('index') }}">#{{ $tag }}</a>
+                                                            <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
                                                         </li>
                                                     @endforeach
                                                 @endif
