@@ -28,8 +28,7 @@
                                 @if(!empty($v['advertising_formats']))
                                     @foreach($v['advertising_formats'] as $tag)
                                         <li class="article--card_info_tags-list-item mobhide">
-                                            <a class="article--card_info_tags-list-item--link"
-                                               href="{{ route('index') }}">#{{ $tag }}</a>
+                                            <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
                                         </li>
                                     @endforeach
                                 @endif

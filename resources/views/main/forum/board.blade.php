@@ -60,13 +60,13 @@
                 </div>
                 <ul style="margin: 0px;" class="article--card_info_tags-list">
                     <li class="article--card_info_tags-list-item mobhide">
-                        <a class="article--card_info_tags-list-item--link" href="{{ route('index') }}">#facebook</a>
+                        <p class="article--card_info_tags-list-item--link">#facebook</p>
                     </li>
                     <li class="article--card_info_tags-list-item mobhide">
-                        <a class="article--card_info_tags-list-item--link" href="{{ route('index') }}">#affiliatemarketing</a>
+                        <p class="article--card_info_tags-list-item--link">#affiliatemarketing</p>
                     </li>
                     <li class="article--card_info_tags-list-item mobhide">
-                        <a class="article--card_info_tags-list-item--link" href="{{ route('index') }}">#gambling</a>
+                        <p class="article--card_info_tags-list-item--link">#gambling</p>
                     </li>
                 </ul>
             </div>
