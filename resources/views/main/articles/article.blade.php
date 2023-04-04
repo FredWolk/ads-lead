@@ -32,10 +32,10 @@
                 <h1 class="title">{{ $article["{$locale}name"] }}</h1>
                 <div class="videopage_main-underimage_autor to-show">
                     <div class="videopage_main-underimage_autor-image">
-                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                        <img loading="lazy" src="{{asset('storage/'. $article['author']['photo'])}}" alt="autor">
                     </div>
-                    <p style="font-size: 14px;" class="videopage_main-underimage_autor-link">by <a
-                            href="{{ route('index') }}">Wade Warren</a></p>
+                    <p class="videopage_main-underimage_autor-link">by <a
+                            href="{{ route('index') }}">{{ $article['author']['name'] }}</a></p>
                 </div>
                 <div class="articlepage_bot">
                     <div class="articlepage_bot_item">
@@ -109,7 +109,7 @@
                     <div class="videopage_main-underimage change">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                <img loading="lazy" src="{{asset('storage/'. $article['author']['photo'])}}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a
                                     href="{{ route('index') }}">{{ $article['author']['name'] }}</a></p>
