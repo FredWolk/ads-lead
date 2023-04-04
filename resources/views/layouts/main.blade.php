@@ -267,6 +267,9 @@
                         <li class="footer_nav_list_item">
                             <a class="footer_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                         </li>
+                        <li class="footer_nav_list_item">
+                            <a class="footer_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
+                        </li>
                     </ul>
                 </nav>
                 <p class="footer_social-title">{{ __('messages.subscribe') }}</p>

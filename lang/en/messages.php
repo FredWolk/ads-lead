@@ -30,7 +30,7 @@ return [
     'activities' => 'Activities',
     'calendar' => 'Calendar',
     'contact' => 'Contacts',
-    'base' => 'Knowledge base',
+    'base' => 'Cases',
     'subscribe' => 'Subscribe',
     'policy' => 'Privacy policy',
 
