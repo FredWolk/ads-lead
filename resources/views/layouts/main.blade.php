@@ -655,7 +655,6 @@
                     $('#desctop__search').append(`
                     <a href="https://affjournal.com/articles/${e.link}" class="search__item">
                         <p class="search__title">${e.{{$locale}}name}</p>
-                        <p class="search__desc">${e.{{$locale}}prev_text}</p>
                     </a>
                 `)
                 })
@@ -663,7 +662,6 @@
                     $('#desctop__search').append(`
                     <a href="https://affjournal.com/cpa-networks/${e.main_verticales}/${e.link}" class="search__item">
                         <p class="search__title">${e.{{$locale}}name}</p>
-                        <p class="search__desc">${e.{{$locale}}prev_text}</p>
                     </a>
                 `)
                 })

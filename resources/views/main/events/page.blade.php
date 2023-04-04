@@ -96,7 +96,7 @@
                     <ul class="swiper-wrapper">
                         @foreach($more_events as $ev)
                             <li class="eventpage_asidecard swiper-slide">
-                                <a class="eventpage_asidecard--link" href="{{ route('index') }}"></a>
+                                <a class="eventpage_asidecard--link" href="{{ route('event.page', $event['link']) }}"></a>
                                 <div class="eventpage_asidecard_main">
                                     <div class="eventpage_asidecard_main_left">
                                         <img loading="lazy" src="{{asset('storage/'. $ev["{$locale}image"])}}" alt="banner">
