@@ -26,10 +26,10 @@ class UpdateRequest extends FormRequest
         return [
             'name'                      => 'required|string',
             'link'                      => 'required|string',
-            'pt_name'                   => 'string',
+            'pt_name'                   => 'nullable|string',
             'type'                      => 'required|string',
             'image'                     => 'image',
-            'pt_image'                  => 'image',
+            'pt_image'                  => 'nullable|image',
             'prev_text'                 => 'nullable|string',
             'pt_prev_text'              => 'nullable|string',
             'views'                     => 'nullable|integer',
@@ -40,7 +40,7 @@ class UpdateRequest extends FormRequest
             'for_whom'                  => 'array|nullable',
             'pt_for_whom'               => 'array|nullable',
             'main_text'                 => 'required|string',
-            'pt_main_text'              => 'required|string',
+            'pt_main_text'              => 'nullable|string',
             'title'                     => 'nullable|string',
             'description'               => 'nullable|string',
 

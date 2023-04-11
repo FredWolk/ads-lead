@@ -241,7 +241,7 @@
             <div class="footer_contacts">
                 <p class="footer_contacts-text">{{ __('messages.contact') }}</p>
                 <address class="footer_contacts-address">
-                    <p class="footer_contacts-address-text">8 Ubi Road 2 #04-24 Zervex Singapore 408538</p>
+                    <p class="footer_contacts-address-text">143 CECIL STREET, 17 - 04 GB BUILDING 069542 SINGAPORE</p>
                     <a class="footer_contacts-address-text"
                        href="mailto:affjournal.media@gmail.com">affjournal.media@gmail.com</a>
                     <a class="footer_contacts-address-text" target="_blank"
