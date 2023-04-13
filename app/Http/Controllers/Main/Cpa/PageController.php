@@ -16,7 +16,7 @@ class PageController extends Controller
         $cpa = Cpa::where('link', $link)->with('comments')->first();
         if (empty($cpa))
             return redirect()->route('cpa');
-        $moreCpa = Cpa::where('id', '!=', $cpa->id)->take(6)->get();
+        $moreCpa = Cpa::where('id', '!=', $cpa->id)->take(6)->inRandomOrder()->get();
         $cookie = $service->View($cpa, 'cpa_views');
         $cpa->toArray();
         $banner = BannerAside::where('status', 1)->where('show', 'all')->first();

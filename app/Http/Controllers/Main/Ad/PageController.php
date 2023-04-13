@@ -16,7 +16,7 @@ class PageController extends Controller
         $ad = Ad::where('link', $link)->first();
         if (empty($ad))
             return redirect()->route('ad');
-        $moreAd = Ad::where('id', '!=', $ad->id)->take(6)->get();
+        $moreAd = Ad::where('id', '!=', $ad->id)->take(6)->inRandomOrder()->get();
         $cookie = $service->View($ad, 'ad_views');
         $ad->toArray();
         $banner = BannerAside::where('status', 1)->where('show', 'all')->first();

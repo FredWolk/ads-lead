@@ -34,6 +34,7 @@
 
             <ul class="main_articles_info">
                 @foreach($articles as $article)
+                    @continue(empty($article["{$locale}image"]) && empty($article["{$locale}name"]))
                     <li class="article--card">
                         <a class="article--card-link" href="{{ route('article', $article['link']) }}"></a>
                         <img loading="lazy" src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
