@@ -29,7 +29,6 @@ class StoreBannerTopRequest extends FormRequest
             'mobile_file' => 'required|file',
             'link' => 'required|URL',
             'status' => 'boolean',
-
         ];
     }
 }

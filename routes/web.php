@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FiltersController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ServicesController;
-use App\Http\Controllers\Main\SendCommentController;
+use App\Http\Controllers\Main\Forum\ForumCreateThreadsController;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController, KnowladgeBaseController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\Event\EventPageController;
@@ -22,6 +22,7 @@ use App\Http\Controllers\Main\Forum\ForumController;
 use App\Http\Controllers\Main\Forum\ForumThreadsController;
 use App\Http\Controllers\Main\Forum\ForumUserController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Main\SendCommentController;
 use App\Http\Controllers\Main\Video\{AllVideoController, VideoController};
 use App\Http\Controllers\User\Correspondence\UserCorrespondenceController;
 use App\Http\Controllers\User\Correspondence\UserCorrespondencePageController;
@@ -80,9 +81,10 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], fun
     });
     Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
         Route::get('/', [ForumController::class, '__invoke'])->name('forum');
-        Route::get('/threads', [ForumThreadsController::class, '__invoke'])->name('forum.threads');
+        Route::get('/threads/{link}', [ForumThreadsController::class, '__invoke'])->name('forum.threads');
         Route::get('/board', [ForumBoardController::class, '__invoke'])->name('forum.board');
         Route::get('/user', [ForumUserController::class, '__invoke'])->name('forum.user');
+        Route::get('/create-threads', [ForumCreateThreadsController::class, '__invoke'])->name('forum.create.threads');
     });
     Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
         Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
@@ -121,22 +123,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('top', BannerTopController::class);
     Route::resource('aside', BannerAsideController::class);
     Route::resource('forum', BannerForumAsideController::class);
-    Route::group(['prefix' => 'comments', 'namespace' => 'comments'], function (){
-       Route::group(['prefix' => 'article'], function (){
-          Route::get('/', [\App\Http\Controllers\Admin\Comments\ArticleController::class, 'index'])->name('comments.article.index');
-          Route::put('/success/{articleComments}', [\App\Http\Controllers\Admin\Comments\ArticleController::class, 'success'])->name('comments.article.success');
-          Route::delete('/delete/{articleComments}', [\App\Http\Controllers\Admin\Comments\ArticleController::class, 'delete'])->name('comments.article.delete');
-       });
-       Route::group(['prefix' => 'cpa'], function (){
-          Route::get('/', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'index'])->name('comments.cpa.index');
-          Route::put('/success/{cpaComments}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'success'])->name('comments.cpa.success');
-          Route::delete('/delete/{cpaComments}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'delete'])->name('comments.cpa.delete');
-       });
-       Route::group(['prefix' => 'adv'], function (){
-          Route::get('/', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'index'])->name('comments.adv.index');
-          Route::put('/success/{advComments}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'success'])->name('comments.adv.success');
-          Route::delete('/delete/{advComments}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'delete'])->name('comments.adv.delete');
-       });
+    Route::group(['prefix' => 'comments', 'namespace' => 'comments'], function () {
+        Route::group(['prefix' => 'article'], function () {
+            Route::get('/', [\App\Http\Controllers\Admin\Comments\ArticleController::class, 'index'])->name('comments.article.index');
+            Route::put('/success/{articleComments}', [\App\Http\Controllers\Admin\Comments\ArticleController::class, 'success'])->name('comments.article.success');
+            Route::delete('/delete/{articleComments}', [\App\Http\Controllers\Admin\Comments\ArticleController::class, 'delete'])->name('comments.article.delete');
+        });
+        Route::group(['prefix' => 'cpa'], function () {
+            Route::get('/', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'index'])->name('comments.cpa.index');
+            Route::put('/success/{cpaComments}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'success'])->name('comments.cpa.success');
+            Route::delete('/delete/{cpaComments}', [\App\Http\Controllers\Admin\Comments\CpaController::class, 'delete'])->name('comments.cpa.delete');
+        });
+        Route::group(['prefix' => 'adv'], function () {
+            Route::get('/', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'index'])->name('comments.adv.index');
+            Route::put('/success/{advComments}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'success'])->name('comments.adv.success');
+            Route::delete('/delete/{advComments}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'delete'])->name('comments.adv.delete');
+        });
     });
 });
 
