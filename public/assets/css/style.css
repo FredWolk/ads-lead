@@ -203,7 +203,7 @@ a, button {
     line-height: 22px;
     text-transform: uppercase;
     color: #014EFF;
- }
+}
 
 .btn--blue {
     font-weight: 700;
@@ -6931,6 +6931,7 @@ form {
     display: inline-block;
     font-size: 0;
 }
+
 .rating-mini span {
     padding: 0;
     font-size: 20px;
@@ -6938,9 +6939,11 @@ form {
     color: #014EFF;
     opacity: 0.2;
 }
+
 .rating-mini > span:before {
     content: '★';
 }
+
 .rating-mini > span.active {
     color: #014EFF;
     opacity: 1;
@@ -6951,9 +6954,11 @@ form {
     width: 100px;
     margin: 0 auto;
 }
+
 .rating-area:not(:checked) > input {
     display: none;
 }
+
 .rating-area:not(:checked) > label {
     float: right;
     width: 20px;
@@ -6963,16 +6968,20 @@ form {
     line-height: 19px;
     color: rgba(1, 78, 255, 0.2);
 }
+
 .rating-area:not(:checked) > label:before {
     content: '★';
 }
+
 .rating-area > input:checked ~ label {
     color: #014EFF;
 }
+
 .rating-area:not(:checked) > label:hover,
 .rating-area:not(:checked) > label:hover ~ label {
     color: #014EFF;
 }
+
 .rating-area > input:checked + label:hover,
 .rating-area > input:checked + label:hover ~ label,
 .rating-area > input:checked ~ label:hover,
@@ -6980,7 +6989,9 @@ form {
 .rating-area > label:hover ~ input:checked ~ label {
     color: #014EFF;
 }
+
 .rate-area > label:active {
     position: relative;
 }
+
 /*--RATING--*/
