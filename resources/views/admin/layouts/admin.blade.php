@@ -58,6 +58,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('topick.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-filter"></i>
+                            <p>
+                                Топики
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('filters.edit', 1) }}" class="nav-link">
                             <i class="nav-icon fas fa-filter"></i>
                             <p>

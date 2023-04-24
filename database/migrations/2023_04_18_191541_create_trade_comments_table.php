@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -15,6 +14,10 @@ return new class extends Migration
     {
         Schema::create('trade_comments', function (Blueprint $table) {
             $table->id();
+            $table->integer('threads_id');
+            $table->integer('user_id');
+            $table->longText('content');
+            $table->integer('like')->default(0);
             $table->timestamps();
         });
     }

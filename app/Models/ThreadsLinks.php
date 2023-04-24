@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ThreadsLinks extends Model
 {
     use HasFactory;
+
+    protected $guarded = false;
 }

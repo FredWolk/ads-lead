@@ -344,7 +344,7 @@
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
                                             <p class="forum--tag color2">New</p>
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'facebook') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Facebook</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -392,7 +392,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'tiktok') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">TikTok</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -441,7 +441,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'google-ads') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Google Ads</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -484,7 +484,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'push-and-other-advertising-networks') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Push and other
                                                 advertising networks</a>
                                         </div>
@@ -521,7 +521,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'ad-network') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">AD-network
                                                 blogs</a>
                                         </div>
@@ -575,7 +575,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'faq') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">FAQ</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -611,7 +611,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads','payment-solutions') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Payment
                                                 solutions</a>
                                         </div>
@@ -693,7 +693,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'anti-detect-browsers') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Anti-detect
                                                 browsers</a>
                                         </div>
@@ -733,7 +733,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'cloaking-and-trackers') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Cloaking and
                                                 Trackers</a>
                                         </div>
@@ -770,7 +770,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'proxy') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Proxy</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -806,7 +806,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'domains-and-hosting') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Domains &
                                                 Hosting</a>
                                         </div>
@@ -846,7 +846,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'spy-services') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">SPY Services</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -891,7 +891,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'creatives') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Creatives</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -933,7 +933,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'jobs') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Jobs/Job</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -971,7 +971,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'sell') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Buy/Sell</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -1009,7 +1009,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'floodlight') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Floodlight</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
@@ -1044,7 +1044,7 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
+                                            <a href="{{ route('forum.threads', 'humor') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Humor</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
