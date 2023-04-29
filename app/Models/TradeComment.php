@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class TradeComment extends Model
 {
     use HasFactory;
+
+    public function author()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

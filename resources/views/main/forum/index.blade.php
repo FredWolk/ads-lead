@@ -272,7 +272,8 @@
 
                 <div class="forum_main_links-group">
                     <div class="forum_main_links-group-item">
-                        <a href="{{ route('index') }}" class="forum_main_links-group-item--link"></a>
+                        <a href="{{ route('forum.threads', 'cpa-networks-blogs') }}"
+                           class="forum_main_links-group-item--link"></a>
                         <div class="forum_main_links-group-item_main">
                             <p class="forum_main_links-group-item_main-title">CPA-networks blogs</p>
                             <div class="forum_main_links-group-item_main-group">

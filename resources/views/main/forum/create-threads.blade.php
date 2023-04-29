@@ -1,5 +1,11 @@
 @extends('layouts.main')
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/plugins/summernote/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/select2.min.css') }}">
+
+@endsection
 @section('content')
     <style>
         .create__flex {
@@ -15,6 +21,55 @@
         .custom-select_list-item {
             width: auto;
         }
+
+        .select2-container--default .select2-selection--single {
+            height: 38px;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background-color: var(--blue);
+            border-radius: 20px;
+            padding: 0 15px;
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: 5px;
+            border: none;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            border: none;
+            width: 13px;
+            height: 13px;
+            top: 5px;
+            font-size: 10px;
+            padding: 0 4px;
+            line-height: 2px;
+            font-weight: 500;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+            color: white;
+            padding-left: 10px !important;
+        }
+
+        .select2-container--default .select2-selection--multiple {
+            min-height: 54px;
+            border-radius: 0;
+            border-color: black;
+            padding: 14px 20px;
+        }
+
+        .select2-container .select2-search--inline .select2-search__field {
+            margin: 0;
+            height: 21px;
+        }
+
+        .select2-container--default .select2-dropdown .select2-search__field:focus, .select2-container--default .select2-search--inline .select2-search__field:focus {
+            border: none !important;
+        }
     </style>
     <section class="articlespage forumpage">
         <div class="container">
@@ -23,20 +78,27 @@
                     <div class="user-main-corpage_bot_left">
                         <div class="header--notif-body--item-icon-wrapper">
                             <div class="user-main-corpage_top_left-icon">
-                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                                @empty($user->photo)
+                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                                @else
+                                    <img loading="lazy" src="{{asset('storage/'. $user->photo)}}" alt="user">
+                                @endempty
                             </div>
                         </div>
                         <div class="user-main-corpage_top_left-name-wrapper">
-                            <p class="user-main-corpage_top_left-name">Bessie Cooper</p>
+                            <p class="user-main-corpage_top_left-name">{{ $user->name }}</p>
                         </div>
                     </div>
-                    <form action="" method="POST" class="user-main-corpage_bot_right">
+                    <form action="{{ route('store.thread') }}" method="POST" class="user-main-corpage_bot_right">
+                        @csrf
+                        <input type="hidden" value="{{ $link }}" name="theme">
+                        <input type="hidden" id="link" name="link">
                         <div class="user-main-corpage_bot_right-pagin">
                             <div class="create__flex">
-                                <div class="popup_main-inputs-item">
+                                <div style="max-width: 300px" class="popup_main-inputs-item">
                                     <div class="custom-select_wrapper">
-                                        <button type="button" class="custom-select--btn">
-                                            <span style="color: white" id="slect__input">Без префикса</span>
+                                        <button style="height: 54px" type="button" class="custom-select--btn">
+                                            <span style="color: black" id="slect__input">Без префикса</span>
                                             <svg width="16" height="11" viewBox="0 0 16 11" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -44,7 +106,6 @@
                                                       fill="#272C31"/>
                                             </svg>
                                         </button>
-
                                         <div class="custom-select_list-wrapper">
                                             <ul class="custom-select_list">
                                                 <li class="custom-select_list-item">
@@ -164,17 +225,27 @@
                                     </div>
                                 </div>
                                 <div class="popup_main-inputs-item">
-                                    <input placeholder="Enter your name" required class="input-style" type="text"
-                                           name="name" id="Name">
+                                    <input style="height: 54px" id="name" placeholder="Theme" required
+                                           class="input-style"
+                                           type="text"
+                                           value="{{ old('title') }}"
+                                           name="title">
                                 </div>
                             </div>
-                            <div>
-
+                            <div class="form-group">
+                                <select name="tags[]" multiple="multiple" class="form-control select1" id="select1">
+                                    @if(!empty(old('tags')))
+                                        @foreach(old('tags') as $i)
+                                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
                             </div>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea class="summernote" name="content" id="" cols="30"
+                                      rows="10">{{ old('content') }}</textarea>
                         </div>
                         <button style="max-width: 161px; height: 40px;" class="btn--blue header_buttons-blue-btn">
-                            <span>Send</span>
+                            <span>Save</span>
                             <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                  alt="arrow">
                         </button>
@@ -186,11 +257,41 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
     <script>
         $('input[name="prefix"]').on('input', function () {
             let value = $(this).val(),
                 color = $(this).attr('data-color')
             $('#slect__input').removeClass().addClass(`forum--tag ${color}`).val(value);
+            $('.custom-select--btn').removeClass('active');
+            $('.custom-select_list-wrapper').hide(300)
+        })
+        $('#select1').select2({
+            tags: true,
+            placeholder: 'Facebook'
+        })
+        $('.summernote').summernote({
+            height: 300,
+            maxHeight: 500,
+            toolbar: [
+                ['insert', ['picture', 'link', 'table', 'hr']],
+                ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
+                ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
+            ],
+            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+            fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+        });
+        $('#name').on('input', function () {
+            var j = createLink($(this).val());
+            j = j.replace(/ /g, '-');
+            j = j.replace(/,-/g, '-');
+            j = j.replace(/\\/g, '-');
+            j = j.replace(/\//g, '-');
+            $('#link').val(j.toLowerCase());
         })
     </script>
 @endsection

@@ -33,9 +33,10 @@
         href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/swiper-bundle.min.css')}}">
+    @yield('style')
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
-    @yield('style')
+
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-64MR45VMSZ"></script>
     <script>
@@ -93,7 +94,8 @@
                     @if(!empty($banner_button))
                         <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
                             <span>{{ $banner_button->text }}</span>
-                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                 alt="arrow">
                         </a>
                     @endif
 
@@ -224,7 +226,8 @@
                     <picture>
                         <source srcset="{{asset('storage/'. $banner->file)}}"
                                 media="(min-width: 600px)">
-                        <img loading="lazy" width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}" alt="banner">
+                        <img loading="lazy" width="100%" src="{{ asset('storage/'. $banner->mobile_file) }}"
+                             alt="banner">
                     </picture>
                 @else
                     <video id="video" width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop

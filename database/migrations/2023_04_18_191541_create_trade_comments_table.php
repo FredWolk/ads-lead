@@ -15,6 +15,7 @@ return new class extends Migration {
         Schema::create('trade_comments', function (Blueprint $table) {
             $table->id();
             $table->integer('threads_id');
+            $table->string('theme');
             $table->integer('user_id');
             $table->longText('content');
             $table->integer('like')->default(0);

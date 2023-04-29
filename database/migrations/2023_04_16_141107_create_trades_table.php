@@ -15,48 +15,10 @@ return new class extends Migration {
         Schema::create('trades', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->enum(
-                'theme',
-                [
-                    'Facebook',
-                    'TikTok',
-                    'Google Ads',
-                    'Push and other advertising networks',
-                    'AD-network blogs',
-                    'FAQ',
-                    'Payment solutions',
-                    'Anti-detect browsers',
-                    'Cloaking and Trackers',
-                    'Proxy',
-                    'Domains & Hosting',
-                    'SPY Services',
-                    'Creatives',
-                    'Jobs/Job',
-                    'Buy/Sell',
-                    'Floodlight',
-                    'Humor'
-                ]
-            );
+            $table->string('theme');
             $table->string('title');
             $table->string('link');
-            $table->enum(
-                'prefix',
-                [
-                    '',
-                    'Case',
-                    'Question',
-                    'Testimonial',
-                    'Update',
-                    'Creatives',
-                    'Review',
-                    'Lifecycle',
-                    'Manual',
-                    'Parsing',
-                    'Training',
-                    'Beginners',
-                    'New'
-                ]
-            );
+            $table->string('prefix')->nullable();
             $table->json('tags')->nullable();
             $table->longText('content');
             $table->integer('views')->default(0);

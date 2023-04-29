@@ -6302,7 +6302,6 @@ form {
 .forum_main_card_list--item_left-head-title {
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
 }
 
 .forum_treads_list--item_left_info_bottom {

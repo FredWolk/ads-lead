@@ -22,6 +22,7 @@ use App\Http\Controllers\Main\Forum\ForumController;
 use App\Http\Controllers\Main\Forum\ForumCreateThreadsController;
 use App\Http\Controllers\Main\Forum\ForumThreadsController;
 use App\Http\Controllers\Main\Forum\ForumUserController;
+use App\Http\Controllers\Main\Forum\TradeController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Main\SendCommentController;
 use App\Http\Controllers\Main\Video\{AllVideoController, VideoController};
@@ -83,9 +84,12 @@ Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], fun
     Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
         Route::get('/', [ForumController::class, '__invoke'])->name('forum');
         Route::get('/threads/{link}', [ForumThreadsController::class, '__invoke'])->name('forum.threads');
-        Route::get('/board', [ForumBoardController::class, '__invoke'])->name('forum.board');
+        Route::get('/threads/{theme}/{link}', [ForumBoardController::class, '__invoke'])->name('forum.board');
         Route::get('/user', [ForumUserController::class, '__invoke'])->name('forum.user');
-        Route::get('/create-threads', [ForumCreateThreadsController::class, '__invoke'])->name('forum.create.threads');
+        Route::get('/create-threads/{link}', [ForumCreateThreadsController::class, '__invoke'])->name(
+            'forum.create.threads'
+        );
+        Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');
     });
     Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
         Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
