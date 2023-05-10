@@ -18,11 +18,13 @@ class ForumController extends Controller
             $themes[$link['link']] = [
                 'topik' => Trade::where('theme', $link['link'])->count(),
                 'comments' => TradeComment::where('theme', $link['link'])->count(),
-                'last_comment' => TradeComment::where('theme', $link['link'])->orderBy('created_at', 'desc')->with(
-                    'author'
-                )->first()
+                'last_topik' => Trade::where('theme', $link['link'])
+                    ->orderBy('created_at', 'desc')
+                    ->with('author')
+                    ->first()
             ];
         }
+
         return view('main.forum.index', compact('locale', 'themes'));
     }
 }

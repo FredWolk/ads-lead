@@ -34,83 +34,80 @@ use App\Http\Controllers\User\UserIndexController;
 use App\Http\Controllers\User\UserSecurityController;
 use App\Http\Controllers\User\UserSettingsController;
 use App\Http\Controllers\User\UserSubscriptionController;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-$url = explode('/', url()->current());
-if (isset($url[3]) && $url[3] == 'pt') {
-    App::setLocale('pt');
-} else {
-    App::setLocale('en');
-}
-Route::group(['prefix' => App::getLocale() == 'en' ? '' : App::getLocale()], function () {
-    Route::get('/', [IndexController::class, '__invoke'])->name('index');
-    Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
-        Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
-        Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
-        Route::get('/{catalog}/{link}', [PageController::class, '__invoke'])->name('cpa.page');
-        Route::post('/send-comment', [SendCommentController::class, 'cpaComment'])->name('cpa.comment');
-    });
-    Route::group(['namespace' => 'ad', 'prefix' => 'ad-networks'], function () {
-        Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
-        Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name(
-            'ad.catalog'
-        );
-        Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name(
-            'ad.page'
-        );
-        Route::post('/send-comment', [SendCommentController::class, 'adComment'])->name('ad.comment');
-    });
-    Route::group(['namespace' => 'services', 'prefix' => 'services'], function () {
-        Route::get('/', [\App\Http\Controllers\Main\Services\NetworksController::class, '__invoke'])->name('services');
-    });
-    Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
-        Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
-        Route::get('/base', [KnowladgeBaseController::class, '__invoke'])->name('base');
-        Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
-        Route::post('/send-comment', [SendCommentController::class, 'articleComment'])->name('article.comment');
-    });
-    Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
-        Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
-        Route::get('/{link}', [VideoController::class, '__invoke'])->name('video.page');
-    });
-    Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
-        Route::get('/', [EventsController::class, '__invoke'])->name('events');
-        Route::get('/{link}', [EventPageController::class, '__invoke'])->name('event.page');
-    });
-    Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
-        Route::get('/', [ForumController::class, '__invoke'])->name('forum');
-        Route::get('/threads/{link}', [ForumThreadsController::class, '__invoke'])->name('forum.threads');
-        Route::get('/threads/{theme}/{link}', [ForumBoardController::class, '__invoke'])->name('forum.board');
-        Route::get('/user', [ForumUserController::class, '__invoke'])->name('forum.user');
-        Route::get('/create-threads/{link}', [ForumCreateThreadsController::class, '__invoke'])->name(
-            'forum.create.threads'
-        );
-        Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');
-    });
-    Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
-        Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
-        Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
-        Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
-        Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
-        Route::get('/security', [UserSecurityController::class, '__invoke'])->name('user.security');
-        Route::get('/correspondence', [UserCorrespondenceController::class, '__invoke'])->name('user.correspondence');
-        Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name(
-            'user.correspondence.page'
-        );
+//$url = explode('/', url()->current());
+//if (isset($url[3]) && $url[3] == 'pt') {
+//    App::setLocale('pt');
+//} else {
+//    App::setLocale('en');
+//}
+Route::get('/', [IndexController::class, '__invoke'])->name('index');
+Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
+    Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
+    Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
+    Route::get('/{catalog}/{link}', [PageController::class, '__invoke'])->name('cpa.page');
+    Route::post('/send-comment', [SendCommentController::class, 'cpaComment'])->name('cpa.comment');
+});
+Route::group(['namespace' => 'ad', 'prefix' => 'ad-networks'], function () {
+    Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
+    Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name(
+        'ad.catalog'
+    );
+    Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name(
+        'ad.page'
+    );
+    Route::post('/send-comment', [SendCommentController::class, 'adComment'])->name('ad.comment');
+});
+Route::group(['namespace' => 'services', 'prefix' => 'services'], function () {
+    Route::get('/', [\App\Http\Controllers\Main\Services\NetworksController::class, '__invoke'])->name('services');
+});
+Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
+    Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
+    Route::get('/base', [KnowladgeBaseController::class, '__invoke'])->name('base');
+    Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
+    Route::post('/send-comment', [SendCommentController::class, 'articleComment'])->name('article.comment');
+});
+Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
+    Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
+    Route::get('/{link}', [VideoController::class, '__invoke'])->name('video.page');
+});
+Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
+    Route::get('/', [EventsController::class, '__invoke'])->name('events');
+    Route::get('/{link}', [EventPageController::class, '__invoke'])->name('event.page');
+});
+Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
+    Route::get('/', [ForumController::class, '__invoke'])->name('forum');
+    Route::get('/threads/{link}', [ForumThreadsController::class, '__invoke'])->name('forum.threads');
+    Route::get('/threads/{theme}/{link}', [ForumBoardController::class, '__invoke'])->name('forum.board');
+    Route::get('/user', [ForumUserController::class, '__invoke'])->name('forum.user');
+    Route::get('/create-threads/{link}', [ForumCreateThreadsController::class, '__invoke'])->name(
+        'forum.create.threads'
+    );
+    Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');
+});
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+    Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
+    Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
+    Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
+    Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
+    Route::get('/security', [UserSecurityController::class, '__invoke'])->name('user.security');
+    Route::get('/correspondence', [UserCorrespondenceController::class, '__invoke'])->name('user.correspondence');
+    Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name(
+        'user.correspondence.page'
+    );
 
-        Route::group(['prefix' => 'settings'], function () {
-            Route::post('/change-password', [UserSettingsController::class, 'changePass'])->name(
-                'setting.password.change'
-            );
-            Route::post('/change-status', [UserSettingsController::class, 'changeStatus'])->name(
-                'setting.status.change'
-            );
-            Route::post('/change-photo', [UserSettingsController::class, 'changePhoto'])->name('setting.photo.change');
-        });
+    Route::group(['prefix' => 'settings'], function () {
+        Route::post('/change-password', [UserSettingsController::class, 'changePass'])->name(
+            'setting.password.change'
+        );
+        Route::post('/change-status', [UserSettingsController::class, 'changeStatus'])->name(
+            'setting.status.change'
+        );
+        Route::post('/change-photo', [UserSettingsController::class, 'changePhoto'])->name('setting.photo.change');
     });
 });
 

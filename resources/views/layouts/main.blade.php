@@ -1,18 +1,31 @@
 @php
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
-	$lang =	\Illuminate\Support\Facades\App::getLocale();
-	if ($lang === 'en'){
-      $urlEn = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
-	  $urlPt = $_SERVER['APP_URL'] . '/pt' . $_SERVER['REQUEST_URI'];
-	} else {
-		$urlEn = $_SERVER['APP_URL'] . substr($_SERVER['REQUEST_URI'], 3);
-		$urlPt = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
-	}
+//	$lang =	\Illuminate\Support\Facades\App::getLocale();
+//	if ($lang === 'en'){
+//      $urlEn = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
+//	  $urlPt = $_SERVER['APP_URL'] . '/pt' . $_SERVER['REQUEST_URI'];
+//	} else {
+//		$urlEn = $_SERVER['APP_URL'] . substr($_SERVER['REQUEST_URI'], 3);
+//		$urlPt = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
+//	}
 @endphp
     <!doctype html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XKF83635G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-6XKF83635G');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -20,8 +33,8 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     @endif
 
-    <link rel="alternate" href="{{ $urlEn }}" hreflang="en"/>
-    <link rel="alternate" href="{{ $urlPt }}" hreflang="pt-br"/>
+    {{--    <link rel="alternate" href="{{ $urlEn }}" hreflang="en"/>--}}
+    {{--    <link rel="alternate" href="{{ $urlPt }}" hreflang="pt-br"/>--}}
     <link rel="canonical" href="{{ url()->full() }}"/>
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -36,19 +49,6 @@
     @yield('style')
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
-
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-64MR45VMSZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-64MR45VMSZ');
-    </script>
 </head>
 <body>
 <div class="wrapper">
@@ -85,11 +85,11 @@
                     </ul>
                 </nav>
                 <div class="header_buttons">
-                    @if($lang === 'en')
-                        <a class="change__lang" href="{{ $urlPt }}">Pt</a>
-                    @else
-                        <a class="change__lang" href="{{ $urlEn }}">Eng</a>
-                    @endif
+                    {{--                    @if($lang === 'en')--}}
+                    {{--                        <a class="change__lang" href="{{ $urlPt }}">Pt</a>--}}
+                    {{--                    @else--}}
+                    {{--                        <a class="change__lang" href="{{ $urlEn }}">Eng</a>--}}
+                    {{--                    @endif--}}
 
                     @if(!empty($banner_button))
                         <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
@@ -210,11 +210,11 @@
                         <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
                     </li>
                 </ul>
-                <div class="switch__lang">
-                    <a class="switch__lang-link {{ $lang === 'en' ? 'active' : '' }}" href="{{ $urlEn }}">English</a>
-                    <div style="color: #014EFF">|</div>
-                    <a class="switch__lang-link {{ $lang === 'pt' ? 'active' : '' }}" href="{{ $urlPt }}">Portuguese</a>
-                </div>
+                {{--                <div class="switch__lang">--}}
+                {{--                    <a class="switch__lang-link {{ $lang === 'en' ? 'active' : '' }}" href="{{ $urlEn }}">English</a>--}}
+                {{--                    <div style="color: #014EFF">|</div>--}}
+                {{--                    <a class="switch__lang-link {{ $lang === 'pt' ? 'active' : '' }}" href="{{ $urlPt }}">Portuguese</a>--}}
+                {{--                </div>--}}
             </nav>
         </div>
     </section>
@@ -279,15 +279,15 @@
                 <ul class="footer_social_list">
                     <li class="footer_social_list_item">
                         <a class="footer_social--link" target="_blank"
-                           href="{{ $lang === 'en' ? 'https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=' : 'https://instagram.com/affjournal_br?igshid=YmMyMTA2M2Y=' }}">instagram</a>
+                           href="https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=">instagram</a>
                     </li>
                     <li class="footer_social_list_item">
                         <a class="footer_social--link" target="_blank"
-                           href="{{ $lang === 'en' ? 'https://t.me/affjournal_eng' : 'https://t.me/affiliatejournal' }}">telegram</a>
+                           href="https://t.me/affjournal_eng">telegram</a>
                     </li>
                     <li class="footer_social_list_item">
                         <a class="footer_social--link" target="_blank"
-                           href="{{ $lang === 'en' ? 'https://www.facebook.com/profile.php?id=100089855863483' : 'https://www.facebook.com/profile.php?id=100089869573266' }}">facebook</a>
+                           href="https://www.facebook.com/profile.php?id=100089855863483">facebook</a>
                     </li>
                     <li class="footer_social_list_item">
                         <a class="footer_social--link" target="_blank"

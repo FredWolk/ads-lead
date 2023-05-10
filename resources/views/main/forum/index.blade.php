@@ -1,5 +1,22 @@
 @extends('layouts.main')
 
+@php
+    $colors = [
+        'Gambling' => 'color1',
+        'Betting' => 'color2',
+        'Nutra' => 'color3',
+        'Sweepstakes' => 'color4',
+        'Ppc' => 'color5',
+        'Whitehat' => 'color6',
+        'Cpi' => 'color7',
+        'Wap-Click' => 'color8',
+        'Mobile content' => 'color9',
+        'E-commerce' => 'color10',
+        'Travel' => 'color11',
+        'Utilites' => 'color12',
+    ];
+@endphp
+
 @section('content')
     <section class="breadcrambs top">
         <div class="container">
@@ -300,7 +317,8 @@
                         </div>
                     </div>
                     <div class="forum_main_links-group-item">
-                        <a href="{{ route('index') }}" class="forum_main_links-group-item--link"></a>
+                        <a href="{{ route('forum.threads', 'webmasters') }}"
+                           class="forum_main_links-group-item--link"></a>
                         <div class="forum_main_links-group-item_main">
                             <p class="forum_main_links-group-item_main-title">Webmasters blogs</p>
                             <div class="forum_main_links-group-item_main-group">
@@ -344,30 +362,42 @@
                                     </div>
                                     <div class="forum_main_cards_list--item_left_main">
                                         <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color2">New</p>
                                             <a href="{{ route('forum.threads', 'facebook') }}"
                                                class="forum_main_cards_list--item_left_main_top-link">Facebook</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['facebook']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['facebook']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['facebook']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['facebook']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['facebook']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['facebook']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['facebook']['last_topik']['prefix']] }}">{{ $themes['facebook']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['facebook']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['facebook']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['facebook']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -397,25 +427,38 @@
                                                class="forum_main_cards_list--item_left_main_top-link">TikTok</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['tiktok']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['tiktok']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['tiktok']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['tiktok']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['tiktok']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['tiktok']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['tiktok']['last_topik']['prefix']] }}">{{ $themes['tiktok']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['tiktok']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['tiktok']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['tiktok']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -450,21 +493,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['google-ads']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['google-ads']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['google-ads']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['google-ads']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['google-ads']['last_topik']['prefix']] }}">{{ $themes['google-ads']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['google-ads']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['google-ads']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['google-ads']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -494,21 +549,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['push-and-other-advertising-networks']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['push-and-other-advertising-networks']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['push-and-other-advertising-networks']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['push-and-other-advertising-networks']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['push-and-other-advertising-networks']['last_topik']['prefix']] }}">{{ $themes['push-and-other-advertising-networks']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['push-and-other-advertising-networks']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['push-and-other-advertising-networks']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['push-and-other-advertising-networks']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -531,21 +598,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['ad-network']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['ad-network']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['ad-network']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['ad-network']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['ad-network']['last_topik']['prefix']] }}">{{ $themes['ad-network']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['ad-network']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['ad-network']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['ad-network']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                         </ul>
                     </div>
@@ -584,21 +663,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['faq']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['faq']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['faq']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['faq']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['faq']['last_topik']['prefix']] }}">{{ $themes['faq']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['faq']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['faq']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['faq']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -621,21 +712,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['payment-solutions']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['payment-solutions']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['payment-solutions']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['payment-solutions']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['payment-solutions']['last_topik']['prefix']] }}">{{ $themes['payment-solutions']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['payment-solutions']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['payment-solutions']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['payment-solutions']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -703,21 +806,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['anti-detect-browsers']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['anti-detect-browsers']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['anti-detect-browsers']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['anti-detect-browsers']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['anti-detect-browsers']['last_topik']['prefix']] }}">{{ $themes['anti-detect-browsers']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['anti-detect-browsers']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['anti-detect-browsers']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['anti-detect-browsers']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -743,21 +858,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['cloaking-and-trackers']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['cloaking-and-trackers']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['cloaking-and-trackers']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['cloaking-and-trackers']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['cloaking-and-trackers']['last_topik']['prefix']] }}">{{ $themes['cloaking-and-trackers']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['cloaking-and-trackers']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['cloaking-and-trackers']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['cloaking-and-trackers']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -779,21 +906,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['proxy']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['proxy']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['proxy']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['proxy']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['proxy']['last_topik']['prefix']] }}">{{ $themes['proxy']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['proxy']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['proxy']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['proxy']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -816,21 +955,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['domains-and-hosting']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['domains-and-hosting']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['domains-and-hosting']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['domains-and-hosting']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['domains-and-hosting']['last_topik']['prefix']] }}">{{ $themes['domains-and-hosting']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['domains-and-hosting']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['domains-and-hosting']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['domains-and-hosting']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -855,21 +1006,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['spy-services']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['spy-services']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['spy-services']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['spy-services']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['spy-services']['last_topik']['prefix']] }}">{{ $themes['spy-services']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['spy-services']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['spy-services']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['spy-services']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -900,21 +1063,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['creatives']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['creatives']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['creatives']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['creatives']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['creatives']['last_topik']['prefix']] }}">{{ $themes['creatives']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['creatives']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['creatives']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['creatives']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                         </ul>
                     </div>
@@ -942,20 +1117,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['jobs']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['jobs']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['jobs']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['jobs']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['jobs']['last_topik']['prefix']] }}">{{ $themes['jobs']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['jobs']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['jobs']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['jobs']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -980,20 +1168,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['sell']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['sell']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['sell']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['sell']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['sell']['last_topik']['prefix']] }}">{{ $themes['sell']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['sell']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['sell']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['sell']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -1018,20 +1219,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['floodlight']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['floodlight']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['floodlight']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['floodlight']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['floodlight']['last_topik']['prefix']] }}">{{ $themes['floodlight']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['floodlight']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['floodlight']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['floodlight']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
@@ -1053,20 +1267,33 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="forum_main_cards_list--item_right">
-                                    <div class="forum_main_links-group-item_main-last-avatar">
-                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
-                                    </div>
-                                    <div class="forum_main_links-group-item_main-last-info">
-                                        <div class="forum_main_cards_list--item_left_main_top">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_links-group-item_main-last-info-title">Googling cookies
-                                                to farm a Facebook account. Sites with the FB pixel</a>
+                                @if(!empty($themes['humor']['last_topik']))
+                                    <div class="forum_main_cards_list--item_right">
+                                        <div class="forum_main_links-group-item_main-last-avatar">
+                                            @empty($themes['humor']['last_topik']['author']['photo'])
+                                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                     alt="avatar">
+                                            @else
+                                                <img loading="lazy"
+                                                     src="{{ asset('storage/' . $themes['humor']['last_topik']['author']['photo']) }}"
+                                                     alt="avatar">
+                                            @endempty
                                         </div>
-                                        <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | <a
-                                                href="{{ route('index') }}">ADLEAD PRO</a></p>
+                                        <div class="forum_main_links-group-item_main-last-info">
+                                            <div class="forum_main_cards_list--item_left_main_top">
+                                                @if(!empty($themes['humor']['last_topik']['prefix']))
+                                                    <p class="forum--tag {{ $colors[$themes['humor']['last_topik']['prefix']] }}">{{ $themes['humor']['last_topik']['prefix'] }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_links-group-item_main-last-info-title">{{ $themes['humor']['last_topik']['title'] }}</a>
+                                            </div>
+                                            <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['humor']['last_topik']['created_at'])) }}
+                                                | <a
+                                                    href="{{ route('index') }}">{{ $themes['humor']['last_topik']['author']['name'] }}</a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             </li>
                         </ul>
                     </div>
@@ -1154,3 +1381,4 @@
         </div>
     </section>
 @endsection
+
