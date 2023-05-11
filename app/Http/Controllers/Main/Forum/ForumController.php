@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ThreadsLinks;
 use App\Models\Trade;
 use App\Models\TradeComment;
+use App\Models\User;
 use Illuminate\Support\Facades\App;
 
 class ForumController extends Controller
@@ -24,7 +25,12 @@ class ForumController extends Controller
                     ->first()
             ];
         }
-
-        return view('main.forum.index', compact('locale', 'themes'));
+        $statistic = [
+            'themes' => Trade::all()->count(),
+            'comments' => TradeComment::all()->count(),
+            'users' => User::all()->where('role', 'user')->count(),
+            'new_user' => User::where('role', 'user')->latest('id')->with('comments')->first(),
+        ];
+        return view('main.forum.index', compact('locale', 'themes', 'statistic'));
     }
 }

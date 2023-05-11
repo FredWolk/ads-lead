@@ -5635,6 +5635,7 @@ form {
     font-size: 14px;
     line-height: 17px;
     color: #FFFFFF;
+    white-space: nowrap;
     display: flex;
     align-items: center;
     text-align: center;

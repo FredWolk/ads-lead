@@ -294,20 +294,32 @@
                         <div class="forum_main_links-group-item_main">
                             <p class="forum_main_links-group-item_main-title">CPA-networks blogs</p>
                             <div class="forum_main_links-group-item_main-group">
-                                <p class="forum_main_links-group-item_main-text">Topics: <span>67</span></p>
-                                <p class="forum_main_links-group-item_main-text">Messages: <span>927</span></p>
+                                <p class="forum_main_links-group-item_main-text">Topics:
+                                    <span>{{ $themes['cpa-networks-blogs']['topik'] ?? 0 }}</span></p>
+                                <p class="forum_main_links-group-item_main-text">Messages:
+                                    <span>{{ $themes['cpa-networks-blogs']['comments'] ?? 0 }}</span></p>
                             </div>
-                            <div class="forum_main_links-group-item_main-last">
-                                <div class="forum_main_links-group-item_main-last-avatar">
-                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                            @if(!empty($themes['cpa-networks-blogs']['last_topik']))
+                                <div class="forum_main_links-group-item_main-last">
+                                    <div class="forum_main_links-group-item_main-last-avatar">
+                                        @empty($themes['cpa-networks-blogs']['last_topik']['author']['photo'])
+                                            <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                 alt="avatar">
+                                        @else
+                                            <img loading="lazy"
+                                                 src="{{ asset('storage/' . $themes['cpa-networks-blogs']['last_topik']['author']['photo']) }}"
+                                                 alt="avatar">
+                                        @endempty
+                                    </div>
+                                    <div class="forum_main_links-group-item_main-last-info">
+                                        <p class="forum_main_links-group-item_main-last-info-title">
+                                            {{ $themes['cpa-networks-blogs']['last_topik']['title'] ?? '' }}
+                                        </p>
+                                        <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['cpa-networks-blogs']['last_topik']['created_at'])) }}
+                                            | {{ $themes['cpa-networks-blogs']['last_topik']['author']['name'] }}</p>
+                                    </div>
                                 </div>
-                                <div class="forum_main_links-group-item_main-last-info">
-                                    <p class="forum_main_links-group-item_main-last-info-title">Serious.Partners -
-                                        international partner network</p>
-                                    <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | ADLEAD
-                                        PRO</p>
-                                </div>
-                            </div>
+                            @endif
                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -322,20 +334,32 @@
                         <div class="forum_main_links-group-item_main">
                             <p class="forum_main_links-group-item_main-title">Webmasters blogs</p>
                             <div class="forum_main_links-group-item_main-group">
-                                <p class="forum_main_links-group-item_main-text">Topics: <span>67</span></p>
-                                <p class="forum_main_links-group-item_main-text">Messages: <span>927</span></p>
+                                <p class="forum_main_links-group-item_main-text">Topics:
+                                    <span>{{ $themes['webmasters']['topik'] ?? 0 }}</span></p>
+                                <p class="forum_main_links-group-item_main-text">Messages:
+                                    <span>{{ $themes['webmasters']['comments'] ?? 0 }}</span></p>
                             </div>
-                            <div class="forum_main_links-group-item_main-last">
-                                <div class="forum_main_links-group-item_main-last-avatar">
-                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                            @if(!empty($themes['webmasters']['last_topik']))
+                                <div class="forum_main_links-group-item_main-last">
+                                    <div class="forum_main_links-group-item_main-last-avatar">
+                                        @empty($themes['webmasters']['last_topik']['author']['photo'])
+                                            <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}"
+                                                 alt="avatar">
+                                        @else
+                                            <img loading="lazy"
+                                                 src="{{ asset('storage/' . $themes['webmasters']['last_topik']['author']['photo']) }}"
+                                                 alt="avatar">
+                                        @endempty
+                                    </div>
+                                    <div class="forum_main_links-group-item_main-last-info">
+                                        <p class="forum_main_links-group-item_main-last-info-title">
+                                            {{ $themes['webmasters']['last_topik']['title'] }}
+                                        </p>
+                                        <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['webmasters']['last_topik']['created_at'])) }}
+                                            | {{ $themes['webmasters']['last_topik']['author']['name'] }}</p>
+                                    </div>
                                 </div>
-                                <div class="forum_main_links-group-item_main-last-info">
-                                    <p class="forum_main_links-group-item_main-last-info-title">Serious.Partners -
-                                        international partner network</p>
-                                    <p class="forum_main_links-group-item_main-last-info-text">10 Nov 2022 | ADLEAD
-                                        PRO</p>
-                                </div>
-                            </div>
+                            @endif
                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -489,7 +513,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">Google Ads</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['google-ads']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['google-ads']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -545,7 +570,10 @@
                                                 advertising networks</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics:
+                                            <span>{{ $themes['push-and-other-advertising-networks']['topik'] ?? 0 }}</span>
+                                            | Messages:
+                                            <span>{{ $themes['push-and-other-advertising-networks']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -594,7 +622,8 @@
                                                 blogs</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['ad-network']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['ad-network']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -659,7 +688,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">FAQ</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['faq']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['faq']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -708,7 +738,9 @@
                                                 solutions</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['payment-solutions']['topik'] ?? 0 }}</span> |
+                                            Messages:
+                                            <span>{{ $themes['payment-solutions']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -802,7 +834,9 @@
                                                 browsers</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['anti-detect-browsers']['topik'] ?? 0 }}</span> |
+                                            Messages:
+                                            <span>{{ $themes['anti-detect-browsers']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -854,7 +888,9 @@
                                                 Trackers</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['cloaking-and-trackers']['topik'] ?? 0 }}</span> |
+                                            Messages:
+                                            <span>{{ $themes['cloaking-and-trackers']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -902,7 +938,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">Proxy</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['proxy']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['proxy']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -951,7 +988,9 @@
                                                 Hosting</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['domains-and-hosting']['topik'] ?? 0 }}</span> |
+                                            Messages:
+                                            <span>{{ $themes['domains-and-hosting']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1002,7 +1041,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">SPY Services</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['spy-services']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['spy-services']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1059,7 +1099,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">Creatives</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['creatives']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['creatives']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1113,7 +1154,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">Jobs/Job</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['jobs']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['jobs']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1164,7 +1206,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">Buy/Sell</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['sell']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['sell']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1215,7 +1258,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">Floodlight</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['floodlight']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['floodlight']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1263,7 +1307,8 @@
                                                class="forum_main_cards_list--item_left_main_top-link">Humor</a>
                                         </div>
                                         <p class="forum_main_cards_list--item_left_main_bot-text">
-                                            Topics: <span>556</span> | Messages: <span>32 429</span>
+                                            Topics: <span>{{ $themes['humor']['topik'] ?? 0 }}</span> | Messages:
+                                            <span>{{ $themes['humor']['comments'] ?? 0 }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1311,49 +1356,51 @@
                     <ul class="forum_aside_stats_list">
                         <li class="forum_aside_stats--item">
                             <p class="forum_aside_stats--item-type">Themes:</p>
-                            <p class="forum_aside_stats--item-value">500</p>
+                            <p class="forum_aside_stats--item-value">{{ $statistic['themes'] }}</p>
                         </li>
                         <li class="forum_aside_stats--item">
                             <p class="forum_aside_stats--item-type">Messages:</p>
-                            <p class="forum_aside_stats--item-value">105 764</p>
+                            <p class="forum_aside_stats--item-value">{{ $statistic['comments'] }}</p>
                         </li>
                         <li class="forum_aside_stats--item">
                             <p class="forum_aside_stats--item-type">Users</p>
-                            <p class="forum_aside_stats--item-value">1 983</p>
+                            <p class="forum_aside_stats--item-value">{{ $statistic['users'] }}</p>
                         </li>
                         <li class="forum_aside_stats--item">
                             <p class="forum_aside_stats--item-type">New user</p>
                             <div class="forum_aside_stats--item-user-wrapper">
-                                <a href="{{ route('index') }}" class="forum_aside_stats--item-value">Wade Warren</a>
+                                <a href="{{ route('index') }}"
+                                   class="forum_aside_stats--item-value">{{ $statistic['new_user']->name }}</a>
 
                                 <div
                                     class="forum-user-preview_card black forum_main_card_list--item_right-user-preview">
                                     <div class="forum-user-preview_card_main">
                                         <div class="forum-user-preview_card_main_info">
                                             <div class="forum-user-preview_card_main_info-avatar">
-                                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}"
-                                                     alt="avatar">
+                                                @empty($statistic['new_user']->photo)
+                                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}"
+                                                         alt="avatar">
+                                                @else
+                                                    <img loading="lazy"
+                                                         src="{{asset('storage/' . $statistic['new_user']->photo)}}"
+                                                         alt="avatar">
+                                                @endempty
                                             </div>
                                             <div class="forum-user-preview_card_main_info_right">
-                                                <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
+                                                <p class="forum-user-preview_card_main_info-name">{{ $statistic['new_user']->name }}</p>
                                                 <div class="forum-user-preview_card_main_info_right-items">
                                                     <p class="forum-user-preview_card_main_info_right-items-item">
-                                                        Registration: <span>21 Oct. 2022</span>
-                                                    </p>
-                                                    <p class="forum-user-preview_card_main_info_right-items-item">
-                                                        Last activity: <span>Today at 12:15 p.m.</span>
+                                                        Registration:
+                                                        <span>{{ date('d/m/Y', strtotime($statistic['new_user']->created_at)) }}</span>
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="user_card-main-example-btn"
-                                                style="background: #F9A826;">Elf 80 lvl
-                                        </button>
                                     </div>
                                     <div class="forum-user-preview_card_bott">
-                                        <p class="forum-user-preview_card_bott-text">Messages: <span>9 476</span></p>
+                                        <p class="forum-user-preview_card_bott-text">Messages:
+                                            <span>{{ $statistic['new_user']->comments->count() }}</span></p>
                                         <p class="forum-user-preview_card_bott-text">Reactions: <span>9 476</span></p>
-                                        <p class="forum-user-preview_card_bott-text">Trophies: <span>9 476</span></p>
                                     </div>
                                 </div>
                             </div>
