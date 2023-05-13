@@ -11,7 +11,7 @@
                     <a href="{{ route('forum') }}">Forum</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('forum') }}">{{ $theme->name }}</a>
+                    <p>{{ $theme->name }}</p>
                 </li>
             </ul>
         </div>
@@ -55,11 +55,14 @@
                         </form>
                     </div>
 
-                    <a style="max-width: 200px; height: 40px;" class="btn--blue header_buttons-blue-btn"
-                       href="{{ route('forum.create.threads', $theme->link) }}">
-                        <span>Create a topic</span>
-                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                    </a>
+                    @auth()
+                        <a style="max-width: 200px; height: 40px;" class="btn--blue header_buttons-blue-btn"
+                           href="{{ route('forum.create.threads', $theme->link) }}">
+                            <span>Create a topic</span>
+                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                 alt="arrow">
+                        </a>
+                    @endauth
                 </div>
 
                 <div class="filter-aside-banner to-show">
@@ -166,39 +169,45 @@
                             </div>
                             <div class="forum_treads_list--item_right">
                                 <div class="forum_treads_list--item_right_info">
-                                    <p class="forum_treads_list--item_right_info-date">5/27/15</p>
-                                    <a href="{{ route('index') }}" class="forum_treads_list--item_right_info-name">Wade
-                                        Warren</a>
+                                    <p class="forum_treads_list--item_right_info-date">{{ date('d/m/Y', strtotime($thread->author->created_at)) }}</p>
+                                    <a href="{{ route('index') }}"
+                                       class="forum_treads_list--item_right_info-name">{{ $thread->author->name }}</a>
 
                                     <div class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
                                         <div class="forum-user-preview_card_main">
                                             <div class="forum-user-preview_card_main_info">
                                                 <div class="forum-user-preview_card_main_info-avatar">
-                                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}"
-                                                         alt="avatar">
+                                                    @empty($thread->author->photo)
+                                                        <img loading="lazy"
+                                                             src="{{asset('assets/images/card-pict.jpg')}}"
+                                                             alt="avatar">
+                                                    @else
+                                                        <img loading="lazy"
+                                                             src="{{asset('storage/', $thread->author->photo)}}"
+                                                             alt="avatar">
+                                                    @endempty
                                                 </div>
                                                 <div class="forum-user-preview_card_main_info_right">
-                                                    <p class="forum-user-preview_card_main_info-name">Wade Warren</p>
+                                                    <p class="forum-user-preview_card_main_info-name">{{ $thread->author->name }}</p>
                                                     <div class="forum-user-preview_card_main_info_right-items">
                                                         <p class="forum-user-preview_card_main_info_right-items-item">
-                                                            Registration: <span>21 Oct. 2022</span>
+                                                            Registration:
+                                                            <span>{{ date('d/m/Y', strtotime($thread->author->created_at)) }}</span>
                                                         </p>
-                                                        <p class="forum-user-preview_card_main_info_right-items-item">
-                                                            Last activity: <span>Today at 12:15 p.m.</span>
-                                                        </p>
+                                                        @if(false)
+                                                            <p class="forum-user-preview_card_main_info_right-items-item">
+                                                                Last activity: <span>Today at 12:15 p.m.</span>
+                                                            </p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="user_card-main-example-btn"
-                                                    style="background: #F9A826;">Elf 80 lvl
-                                            </button>
                                         </div>
                                         <div class="forum-user-preview_card_bott">
-                                            <p class="forum-user-preview_card_bott-text">Messages: <span>9 476</span>
+                                            <p class="forum-user-preview_card_bott-text">Messages:
+                                                <span>{{ $thread->author->comments->count() }}</span>
                                             </p>
                                             <p class="forum-user-preview_card_bott-text">Reactions: <span>9 476</span>
-                                            </p>
-                                            <p class="forum-user-preview_card_bott-text">Trophies: <span>9 476</span>
                                             </p>
                                         </div>
                                     </div>
@@ -212,18 +221,7 @@
                 </ul>
 
                 <div style="margin-top: 40px;" class="pagination">
-                    <button type="button" class="pagination_button left">
-                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                    </button>
-                    <ul class="pagination_list">
-                        <li class="pagination--item active">1</li>
-                        <li class="pagination--item">2</li>
-                        <li class="pagination--item">3</li>
-                        <li class="pagination--item">4</li>
-                    </ul>
-                    <button type="button" class="pagination_button right">
-                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
-                    </button>
+                    {{ $threads->links() }}
                 </div>
             </section>
 

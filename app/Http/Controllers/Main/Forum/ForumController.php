@@ -8,6 +8,7 @@ use App\Models\Trade;
 use App\Models\TradeComment;
 use App\Models\User;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class ForumController extends Controller
 {
@@ -31,6 +32,13 @@ class ForumController extends Controller
             'users' => User::all()->where('role', 'user')->count(),
             'new_user' => User::where('role', 'user')->latest('id')->with('comments')->first(),
         ];
-        return view('main.forum.index', compact('locale', 'themes', 'statistic'));
+
+        $newTopik = Trade::orderBy('created_at', 'desc')->with('author')->take(7)->get();
+        $myTopik = Trade::where('user_id', Auth::id())->take(7)->get();
+        $popularTopik = Trade::withCount('comments')->with('author')->select('id')->get();
+        return view(
+            'main.forum.index',
+            compact('locale', 'themes', 'statistic', 'newTopik', 'myTopik', 'popularTopik')
+        );
     }
 }

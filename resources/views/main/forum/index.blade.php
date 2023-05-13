@@ -39,247 +39,258 @@
                 <div class="forum_main_card first">
                     <div class="forum_main_card_top">
                         <div class="forum_main_card_top_buttons-tabs">
-                            <button type="button" class="forum_main_card_top--tab-btn active" id="tab1">Latest answers
+                            {{--                            <button type="button" class="forum_main_card_top--tab-btn active" id="tab1">Latest answers--}}
+                            {{--                            </button>--}}
+                            <button type="button" class="forum_main_card_top--tab-btn active" id="tab2">New Topics
                             </button>
-                            <button type="button" class="forum_main_card_top--tab-btn" id="tab2">New Topics</button>
                             <button type="button" class="forum_main_card_top--tab-btn" id="tab3">Popular of the week
                             </button>
-                            <button type="button" class="forum_main_card_top--tab-btn" id="tab4">My topics</button>
+                            @auth()
+                                <button type="button" class="forum_main_card_top--tab-btn" id="tab4">My topics</button>
+                            @endauth
                         </div>
                     </div>
                     <div class="forum_main_card_tabs">
-                        <div class="forum_main_card_tabs--tab active" id="tab1">
-                            <ul class="forum_main_card_list">
-                                <li class="forum_main_card_list--item">
-                                    <div class="forum_main_card_list--item_left">
-                                        <span class="forum_main_card_list--item-num">1</span>
-                                        <div class="forum_main_card_list--item_left-head">
-                                            <p class="forum--tag color1">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_left-head-title">Serious.Partners -
-                                                international partner network</a>
-                                        </div>
-                                    </div>
-                                    <div class="forum_main_card_list--item_right">
-                                        <p class="forum_main_card_list--item_right-time">17 min. ago</p>
-                                        <div class="forum_main_card_list--item_right-wrapper">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_right-name">Serious.Partners</a>
+                        {{--                        <div class="forum_main_card_tabs--tab active" id="tab1">--}}
+                        {{--                            <ul class="forum_main_card_list">--}}
+                        {{--                                <li class="forum_main_card_list--item">--}}
+                        {{--                                    <div class="forum_main_card_list--item_left">--}}
+                        {{--                                        <span class="forum_main_card_list--item-num">1</span>--}}
+                        {{--                                        <div class="forum_main_card_list--item_left-head">--}}
+                        {{--                                            <p class="forum--tag color1">Case</p>--}}
+                        {{--                                            <a href="{{ route('index') }}"--}}
+                        {{--                                               class="forum_main_card_list--item_left-head-title">Serious.Partners ---}}
+                        {{--                                                international partner network</a>--}}
+                        {{--                                        </div>--}}
+                        {{--                                    </div>--}}
+                        {{--                                    <div class="forum_main_card_list--item_right">--}}
+                        {{--                                        <p class="forum_main_card_list--item_right-time">17 min. ago</p>--}}
+                        {{--                                        <div class="forum_main_card_list--item_right-wrapper">--}}
+                        {{--                                            <a href="{{ route('index') }}"--}}
+                        {{--                                               class="forum_main_card_list--item_right-name">Serious.Partners</a>--}}
 
-                                            <div
-                                                class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
-                                                <div class="forum-user-preview_card_main">
-                                                    <div class="forum-user-preview_card_main_info">
-                                                        <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img loading="lazy"
-                                                                 src="{{asset('assets/images/card-pict.jpg')}}"
-                                                                 alt="avatar">
-                                                        </div>
-                                                        <div class="forum-user-preview_card_main_info_right">
-                                                            <p class="forum-user-preview_card_main_info-name">Wade
-                                                                Warren</p>
-                                                            <div class="forum-user-preview_card_main_info_right-items">
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Registration: <span>21 Oct. 2022</span>
-                                                                </p>
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Last activity: <span>Today at 12:15 p.m.</span>
-                                                                </p>
+                        {{--                                            <div--}}
+                        {{--                                                class="forum-user-preview_card forum_main_card_list--item_right-user-preview">--}}
+                        {{--                                                <div class="forum-user-preview_card_main">--}}
+                        {{--                                                    <div class="forum-user-preview_card_main_info">--}}
+                        {{--                                                        <div class="forum-user-preview_card_main_info-avatar">--}}
+                        {{--                                                            <img loading="lazy"--}}
+                        {{--                                                                 src="{{asset('assets/images/card-pict.jpg')}}"--}}
+                        {{--                                                                 alt="avatar">--}}
+                        {{--                                                        </div>--}}
+                        {{--                                                        <div class="forum-user-preview_card_main_info_right">--}}
+                        {{--                                                            <p class="forum-user-preview_card_main_info-name">Wade--}}
+                        {{--                                                                Warren</p>--}}
+                        {{--                                                            <div class="forum-user-preview_card_main_info_right-items">--}}
+                        {{--                                                                <p class="forum-user-preview_card_main_info_right-items-item">--}}
+                        {{--                                                                    Registration: <span>21 Oct. 2022</span>--}}
+                        {{--                                                                </p>--}}
+                        {{--                                                                <p class="forum-user-preview_card_main_info_right-items-item">--}}
+                        {{--                                                                    Last activity: <span>Today at 12:15 p.m.</span>--}}
+                        {{--                                                                </p>--}}
+                        {{--                                                            </div>--}}
+                        {{--                                                        </div>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                    <button type="button" class="user_card-main-example-btn"--}}
+                        {{--                                                            style="background: #F9A826;">Elf 80 lvl--}}
+                        {{--                                                    </button>--}}
+                        {{--                                                </div>--}}
+                        {{--                                                <div class="forum-user-preview_card_bott">--}}
+                        {{--                                                    <p class="forum-user-preview_card_bott-text">Messages:--}}
+                        {{--                                                        <span>9 476</span></p>--}}
+                        {{--                                                    <p class="forum-user-preview_card_bott-text">Reactions:--}}
+                        {{--                                                        <span>9 476</span></p>--}}
+                        {{--                                                    <p class="forum-user-preview_card_bott-text">Trophies:--}}
+                        {{--                                                        <span>9 476</span></p>--}}
+                        {{--                                                </div>--}}
+                        {{--                                            </div>--}}
+                        {{--                                        </div>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </li>--}}
+                        {{--                            </ul>--}}
+                        {{--                        </div>--}}
+                        <div class="forum_main_card_tabs--tab active" id="tab2">
+                            <ul class="forum_main_card_list">
+                                @foreach($newTopik as $k => $v)
+                                    <li class="forum_main_card_list--item">
+                                        <div class="forum_main_card_list--item_left">
+                                            <span class="forum_main_card_list--item-num">{{ $k + 1 }}</span>
+                                            <div class="forum_main_card_list--item_left-head">
+                                                @if(!empty($v->prefix))
+                                                    <p class="forum--tag {{ $colors[$v->prefix] }}">{{ $v->prefix }}</p>
+                                                @endif
+                                                <a href="{{ route('forum.board', [$v->theme, $v->link]) }}"
+                                                   class="forum_main_card_list--item_left-head-title">{{ $v->title }}</a>
+                                            </div>
+                                        </div>
+                                        <div class="forum_main_card_list--item_right">
+                                            <p class="forum_main_card_list--item_right-time">{{ date('d/m/Y', strtotime($v->created_at)) }}</p>
+                                            <div class="forum_main_card_list--item_right-wrapper">
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_card_list--item_right-name">{{ $v->author->name }}</a>
+                                                <div
+                                                    class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
+                                                    <div class="forum-user-preview_card_main">
+                                                        <div class="forum-user-preview_card_main_info">
+                                                            <div class="forum-user-preview_card_main_info-avatar">
+                                                                @empty($v->author->photo)
+                                                                    <img loading="lazy"
+                                                                         src="{{asset('assets/images/card-pict.jpg')}}"
+                                                                         alt="avatar">
+                                                                @else
+                                                                    <img loading="lazy"
+                                                                         src="{{asset('storage/'.$v->author->photo)}}"
+                                                                         alt="avatar">
+                                                                @endempty
+                                                            </div>
+                                                            <div class="forum-user-preview_card_main_info_right">
+                                                                <p class="forum-user-preview_card_main_info-name">{{ $v->author->name }}</p>
+                                                                <div
+                                                                    class="forum-user-preview_card_main_info_right-items">
+                                                                    <p class="forum-user-preview_card_main_info_right-items-item">
+                                                                        Registration:
+                                                                        <span>{{ date('d/m/Y', strtotime($v->author->created_at)) }}</span>
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="user_card-main-example-btn"
-                                                            style="background: #F9A826;">Elf 80 lvl
-                                                    </button>
-                                                </div>
-                                                <div class="forum-user-preview_card_bott">
-                                                    <p class="forum-user-preview_card_bott-text">Messages:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Reactions:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Trophies:
-                                                        <span>9 476</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="forum_main_card_tabs--tab" id="tab2">
-                            <ul class="forum_main_card_list">
-                                <li class="forum_main_card_list--item">
-                                    <div class="forum_main_card_list--item_left">
-                                        <span class="forum_main_card_list--item-num">1</span>
-                                        <div class="forum_main_card_list--item_left-head">
-                                            <p class="forum--tag color2">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_left-head-title">Serious.Partners -
-                                                international partner network</a>
-                                        </div>
-                                    </div>
-                                    <div class="forum_main_card_list--item_right">
-                                        <p class="forum_main_card_list--item_right-time">17 min. ago</p>
-                                        <div class="forum_main_card_list--item_right-wrapper">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_right-name">Serious.Partners</a>
+                                                    <div class="forum-user-preview_card_bott">
+                                                        <p class="forum-user-preview_card_bott-text">Messages:
+                                                            <span>{{ $v->author->comments->count() }}</span></p>
+                                                        <p class="forum-user-preview_card_bott-text">Reactions:
+                                                            <span>9 476</span></p>
 
-                                            <div
-                                                class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
-                                                <div class="forum-user-preview_card_main">
-                                                    <div class="forum-user-preview_card_main_info">
-                                                        <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img loading="lazy"
-                                                                 src="{{asset('assets/images/card-pict.jpg')}}"
-                                                                 alt="avatar">
-                                                        </div>
-                                                        <div class="forum-user-preview_card_main_info_right">
-                                                            <p class="forum-user-preview_card_main_info-name">Wade
-                                                                Warren</p>
-                                                            <div class="forum-user-preview_card_main_info_right-items">
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Registration: <span>21 Oct. 2022</span>
-                                                                </p>
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Last activity: <span>Today at 12:15 p.m.</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
                                                     </div>
-                                                    <button type="button" class="user_card-main-example-btn"
-                                                            style="background: #F9A826;">Elf 80 lvl
-                                                    </button>
-                                                </div>
-                                                <div class="forum-user-preview_card_bott">
-                                                    <p class="forum-user-preview_card_bott-text">Messages:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Reactions:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Trophies:
-                                                        <span>9 476</span></p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="forum_main_card_tabs--tab" id="tab3">
                             <ul class="forum_main_card_list">
-                                <li class="forum_main_card_list--item">
-                                    <div class="forum_main_card_list--item_left">
-                                        <span class="forum_main_card_list--item-num">1</span>
-                                        <div class="forum_main_card_list--item_left-head">
-                                            <p class="forum--tag color3">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_left-head-title">Serious.Partners -
-                                                international partner network</a>
-                                        </div>
-                                    </div>
-                                    <div class="forum_main_card_list--item_right">
-                                        <p class="forum_main_card_list--item_right-time">17 min. ago</p>
-                                        <div class="forum_main_card_list--item_right-wrapper">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_right-name">Serious.Partners</a>
+                                {{--                                @foreach($popularTopik as $k => $v)--}}
+                                {{--                                    <li class="forum_main_card_list--item">--}}
+                                {{--                                        <div class="forum_main_card_list--item_left">--}}
+                                {{--                                            <span class="forum_main_card_list--item-num">{{ $k + 1 }}</span>--}}
+                                {{--                                            <div class="forum_main_card_list--item_left-head">--}}
+                                {{--                                                @if(!empty($v->prefix))--}}
+                                {{--                                                    <p class="forum--tag {{ $colors[$v->prefix] }}">{{ $v->prefix }}</p>--}}
+                                {{--                                                @endif--}}
+                                {{--                                                <a href="{{ route('index') }}"--}}
+                                {{--                                                   class="forum_main_card_list--item_left-head-title">{{ $v->title }}</a>--}}
+                                {{--                                            </div>--}}
+                                {{--                                        </div>--}}
+                                {{--                                        <div class="forum_main_card_list--item_right">--}}
+                                {{--                                            <p class="forum_main_card_list--item_right-time">{{ date('d/m/Y', strtotime($v->created_at)) }}</p>--}}
+                                {{--                                            <div class="forum_main_card_list--item_right-wrapper">--}}
+                                {{--                                                <a href="{{ route('index') }}"--}}
+                                {{--                                                   class="forum_main_card_list--item_right-name">{{ $v->author->name }}</a>--}}
+                                {{--                                                <div--}}
+                                {{--                                                    class="forum-user-preview_card forum_main_card_list--item_right-user-preview">--}}
+                                {{--                                                    <div class="forum-user-preview_card_main">--}}
+                                {{--                                                        <div class="forum-user-preview_card_main_info">--}}
+                                {{--                                                            <div class="forum-user-preview_card_main_info-avatar">--}}
+                                {{--                                                                @empty($v->author->photo)--}}
+                                {{--                                                                    <img loading="lazy"--}}
+                                {{--                                                                         src="{{asset('assets/images/card-pict.jpg')}}"--}}
+                                {{--                                                                         alt="avatar">--}}
+                                {{--                                                                @else--}}
+                                {{--                                                                    <img loading="lazy"--}}
+                                {{--                                                                         src="{{asset('storage/'.$v->author->photo)}}"--}}
+                                {{--                                                                         alt="avatar">--}}
+                                {{--                                                                @endempty--}}
+                                {{--                                                            </div>--}}
+                                {{--                                                            <div class="forum-user-preview_card_main_info_right">--}}
+                                {{--                                                                <p class="forum-user-preview_card_main_info-name">{{ $v->author->name }}</p>--}}
+                                {{--                                                                <div--}}
+                                {{--                                                                    class="forum-user-preview_card_main_info_right-items">--}}
+                                {{--                                                                    <p class="forum-user-preview_card_main_info_right-items-item">--}}
+                                {{--                                                                        Registration:--}}
+                                {{--                                                                        <span>{{ date('d/m/Y', strtotime($v->author->created_at)) }}</span>--}}
+                                {{--                                                                    </p>--}}
+                                {{--                                                                </div>--}}
+                                {{--                                                            </div>--}}
+                                {{--                                                        </div>--}}
+                                {{--                                                    </div>--}}
+                                {{--                                                    <div class="forum-user-preview_card_bott">--}}
+                                {{--                                                        <p class="forum-user-preview_card_bott-text">Messages:--}}
+                                {{--                                                            <span>{{ $v->author->comments->count() }}</span></p>--}}
+                                {{--                                                        <p class="forum-user-preview_card_bott-text">Reactions:--}}
+                                {{--                                                            <span>9 476</span></p>--}}
 
-                                            <div
-                                                class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
-                                                <div class="forum-user-preview_card_main">
-                                                    <div class="forum-user-preview_card_main_info">
-                                                        <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img loading="lazy"
-                                                                 src="{{asset('assets/images/card-pict.jpg')}}"
-                                                                 alt="avatar">
-                                                        </div>
-                                                        <div class="forum-user-preview_card_main_info_right">
-                                                            <p class="forum-user-preview_card_main_info-name">Wade
-                                                                Warren</p>
-                                                            <div class="forum-user-preview_card_main_info_right-items">
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Registration: <span>21 Oct. 2022</span>
-                                                                </p>
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Last activity: <span>Today at 12:15 p.m.</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button type="button" class="user_card-main-example-btn"
-                                                            style="background: #F9A826;">Elf 80 lvl
-                                                    </button>
-                                                </div>
-                                                <div class="forum-user-preview_card_bott">
-                                                    <p class="forum-user-preview_card_bott-text">Messages:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Reactions:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Trophies:
-                                                        <span>9 476</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                {{--                                                    </div>--}}
+                                {{--                                                </div>--}}
+                                {{--                                            </div>--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </li>--}}
+                                {{--                                @endforeach--}}
                             </ul>
                         </div>
-                        <div class="forum_main_card_tabs--tab" id="tab4">
-                            <ul class="forum_main_card_list">
-                                <li class="forum_main_card_list--item">
-                                    <div class="forum_main_card_list--item_left">
-                                        <span class="forum_main_card_list--item-num">1</span>
-                                        <div class="forum_main_card_list--item_left-head">
-                                            <p class="forum--tag color4">Case</p>
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_left-head-title">Serious.Partners -
-                                                international partner network</a>
-                                        </div>
-                                    </div>
-                                    <div class="forum_main_card_list--item_right">
-                                        <p class="forum_main_card_list--item_right-time">17 min. ago</p>
-                                        <div class="forum_main_card_list--item_right-wrapper">
-                                            <a href="{{ route('index') }}"
-                                               class="forum_main_card_list--item_right-name">Serious.Partners</a>
-
-                                            <div
-                                                class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
-                                                <div class="forum-user-preview_card_main">
-                                                    <div class="forum-user-preview_card_main_info">
-                                                        <div class="forum-user-preview_card_main_info-avatar">
-                                                            <img loading="lazy"
-                                                                 src="{{asset('assets/images/card-pict.jpg')}}"
-                                                                 alt="avatar">
-                                                        </div>
-                                                        <div class="forum-user-preview_card_main_info_right">
-                                                            <p class="forum-user-preview_card_main_info-name">Wade
-                                                                Warren</p>
-                                                            <div class="forum-user-preview_card_main_info_right-items">
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Registration: <span>21 Oct. 2022</span>
-                                                                </p>
-                                                                <p class="forum-user-preview_card_main_info_right-items-item">
-                                                                    Last activity: <span>Today at 12:15 p.m.</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button type="button" class="user_card-main-example-btn"
-                                                            style="background: #F9A826;">Elf 80 lvl
-                                                    </button>
-                                                </div>
-                                                <div class="forum-user-preview_card_bott">
-                                                    <p class="forum-user-preview_card_bott-text">Messages:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Reactions:
-                                                        <span>9 476</span></p>
-                                                    <p class="forum-user-preview_card_bott-text">Trophies:
-                                                        <span>9 476</span></p>
+                        @auth()
+                            <div class="forum_main_card_tabs--tab" id="tab4">
+                                <ul class="forum_main_card_list">
+                                    @foreach($myTopik as $key => $val)
+                                        <li class="forum_main_card_list--item">
+                                            <div class="forum_main_card_list--item_left">
+                                                <span class="forum_main_card_list--item-num">{{ $key + 1 }}</span>
+                                                <div class="forum_main_card_list--item_left-head">
+                                                    @if(!empty($val->prefix))
+                                                        <p class="forum--tag {{ $colors[$val->prefix] }}">{{ $val->prefix }}</p>
+                                                    @endif
+                                                    <a href="{{ route('forum.board', [$val->theme, $val->link]) }}"
+                                                       class="forum_main_card_list--item_left-head-title">{{ $val->title }}</a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                            <div class="forum_main_card_list--item_right">
+                                                <p class="forum_main_card_list--item_right-time">{{ date('d/m/Y', strtotime($val->created_at)) }}</p>
+                                                <div class="forum_main_card_list--item_right-wrapper">
+                                                    <a href="{{ route('index') }}"
+                                                       class="forum_main_card_list--item_right-name">{{ $val->author->name }}</a>
+                                                    <div
+                                                        class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
+                                                        <div class="forum-user-preview_card_main">
+                                                            <div class="forum-user-preview_card_main_info">
+                                                                <div class="forum-user-preview_card_main_info-avatar">
+                                                                    @empty($val->author->photo)
+                                                                        <img loading="lazy"
+                                                                             src="{{asset('assets/images/card-pict.jpg')}}"
+                                                                             alt="avatar">
+                                                                    @else
+                                                                        <img loading="lazy"
+                                                                             src="{{asset('storage/'.$val->author->photo)}}"
+                                                                             alt="avatar">
+                                                                    @endempty
+                                                                </div>
+                                                                <div class="forum-user-preview_card_main_info_right">
+                                                                    <p class="forum-user-preview_card_main_info-name">{{ $val->author->name }}</p>
+                                                                    <div
+                                                                        class="forum-user-preview_card_main_info_right-items">
+                                                                        <p class="forum-user-preview_card_main_info_right-items-item">
+                                                                            Registration:
+                                                                            <span>{{ date('d/m/Y', strtotime($val->author->created_at)) }}</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="forum-user-preview_card_bott">
+                                                            <p class="forum-user-preview_card_bott-text">Messages:
+                                                                <span>{{ $val->author->comments->count() }}</span></p>
+                                                            <p class="forum-user-preview_card_bott-text">Reactions:
+                                                                <span>9 476</span></p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endauth
                     </div>
                 </div>
 

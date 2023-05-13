@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/plugins/summernote/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/select2.min.css') }}">
-
 @endsection
 @section('content')
     <style>

@@ -1613,7 +1613,7 @@ img {
     display: none;
 }
 
-.breadcrambs_list-item:last-child a {
+.breadcrambs_list-item:last-child p {
     color: var(--blue);
     opacity: 1;
     font-weight: 500;

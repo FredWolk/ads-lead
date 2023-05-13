@@ -23,4 +23,8 @@ class TradeController extends Controller
         Trade::updateOrCreate($data);
         return redirect()->route('forum.threads', $data['link']);
     }
+
+    public function createComment(Request $request, $threads)
+    {$thread
+    }
 }

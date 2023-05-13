@@ -17,10 +17,8 @@ class ForumThreadsController extends Controller
         }
 
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
-        $thread = Trade::where('theme', $link)->with('author')->withCount('comments')->get();
-        if (!empty($thread)) {
-            $threads = $thread->toArray();
-        }
+        $threads = Trade::where('theme', $link)->with('author')->withCount('comments')->paginate(15);
+
         return view('main.forum.threads', compact('locale', 'theme', 'threads'));
     }
 }
