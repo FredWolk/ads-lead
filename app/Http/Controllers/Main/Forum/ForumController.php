@@ -16,6 +16,7 @@ class ForumController extends Controller
     {
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $links = ThreadsLinks::all();
+        $themes = [];
         foreach ($links as $link) {
             $themes[$link['link']] = [
                 'topik' => Trade::where('theme', $link['link'])->count(),

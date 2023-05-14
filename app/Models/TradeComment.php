@@ -9,6 +9,8 @@ class TradeComment extends Model
 {
     use HasFactory;
 
+    protected $guarded = false;
+
     public function author()
     {
         return $this->hasOne(User::class, 'id', 'user_id');

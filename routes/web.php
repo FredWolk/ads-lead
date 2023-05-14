@@ -87,7 +87,11 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
     Route::get('/create-threads/{link}', [ForumCreateThreadsController::class, '__invoke'])->name(
         'forum.create.threads'
     )->middleware('auth');
-    Route::post('/create-threads-comment/{threads}', [TradeController::class, ''])
+
+    Route::post('/create-threads-comment/{threads}', [TradeController::class, 'createComment'])->name(
+        'store.thread.comment'
+    );
+
     Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');
 });
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
