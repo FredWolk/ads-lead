@@ -88,8 +88,11 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
         'forum.create.threads'
     )->middleware('auth');
 
-    Route::post('/create-threads-comment/{threads}', [TradeController::class, 'createComment'])->name(
+    Route::post('/store-threads-comment/{threads}', [TradeController::class, 'createComment'])->name(
         'store.thread.comment'
+    );
+    Route::delete('/delete-threads-comment/{comment?}', [TradeController::class, 'deleteComment'])->name(
+        'delete.thread.comment'
     );
 
     Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');

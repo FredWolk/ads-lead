@@ -33,10 +33,13 @@ class TradeController extends Controller
         $data['theme'] = $threads->theme;
         $data['user_id'] = Auth::id();
         $data['threads_id'] = $threads->id;
-
-
         TradeComment::create($data);
-
         return redirect()->route('forum.board', [$threads->theme, $threads->link]);
+    }
+
+    public function deleteComment(TradeComment $comment)
+    {
+        $comment->delete();
+        return redirect()->back();
     }
 }

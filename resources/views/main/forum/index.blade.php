@@ -1357,7 +1357,7 @@
 
                 <div class="forum_main_last-button">
                     <p class="forum_main_last-button--title">Send suggestions for improving the forum</p>
-                    <a href="{{ route('index') }}" class="btn--blue-to-white">Button</a>
+                    <a href="{{ url('mailto:affjournal.media@gmail.com') }}" class="btn--blue-to-white">Button</a>
                 </div>
             </section>
 
