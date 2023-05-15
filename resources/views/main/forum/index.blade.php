@@ -171,62 +171,62 @@
                         </div>
                         <div class="forum_main_card_tabs--tab" id="tab3">
                             <ul class="forum_main_card_list">
-                                {{--                                @foreach($popularTopik as $k => $v)--}}
-                                {{--                                    <li class="forum_main_card_list--item">--}}
-                                {{--                                        <div class="forum_main_card_list--item_left">--}}
-                                {{--                                            <span class="forum_main_card_list--item-num">{{ $k + 1 }}</span>--}}
-                                {{--                                            <div class="forum_main_card_list--item_left-head">--}}
-                                {{--                                                @if(!empty($v->prefix))--}}
-                                {{--                                                    <p class="forum--tag {{ $colors[$v->prefix] }}">{{ $v->prefix }}</p>--}}
-                                {{--                                                @endif--}}
-                                {{--                                                <a href="{{ route('index') }}"--}}
-                                {{--                                                   class="forum_main_card_list--item_left-head-title">{{ $v->title }}</a>--}}
-                                {{--                                            </div>--}}
-                                {{--                                        </div>--}}
-                                {{--                                        <div class="forum_main_card_list--item_right">--}}
-                                {{--                                            <p class="forum_main_card_list--item_right-time">{{ date('d/m/Y', strtotime($v->created_at)) }}</p>--}}
-                                {{--                                            <div class="forum_main_card_list--item_right-wrapper">--}}
-                                {{--                                                <a href="{{ route('index') }}"--}}
-                                {{--                                                   class="forum_main_card_list--item_right-name">{{ $v->author->name }}</a>--}}
-                                {{--                                                <div--}}
-                                {{--                                                    class="forum-user-preview_card forum_main_card_list--item_right-user-preview">--}}
-                                {{--                                                    <div class="forum-user-preview_card_main">--}}
-                                {{--                                                        <div class="forum-user-preview_card_main_info">--}}
-                                {{--                                                            <div class="forum-user-preview_card_main_info-avatar">--}}
-                                {{--                                                                @empty($v->author->photo)--}}
-                                {{--                                                                    <img loading="lazy"--}}
-                                {{--                                                                         src="{{asset('assets/images/card-pict.jpg')}}"--}}
-                                {{--                                                                         alt="avatar">--}}
-                                {{--                                                                @else--}}
-                                {{--                                                                    <img loading="lazy"--}}
-                                {{--                                                                         src="{{asset('storage/'.$v->author->photo)}}"--}}
-                                {{--                                                                         alt="avatar">--}}
-                                {{--                                                                @endempty--}}
-                                {{--                                                            </div>--}}
-                                {{--                                                            <div class="forum-user-preview_card_main_info_right">--}}
-                                {{--                                                                <p class="forum-user-preview_card_main_info-name">{{ $v->author->name }}</p>--}}
-                                {{--                                                                <div--}}
-                                {{--                                                                    class="forum-user-preview_card_main_info_right-items">--}}
-                                {{--                                                                    <p class="forum-user-preview_card_main_info_right-items-item">--}}
-                                {{--                                                                        Registration:--}}
-                                {{--                                                                        <span>{{ date('d/m/Y', strtotime($v->author->created_at)) }}</span>--}}
-                                {{--                                                                    </p>--}}
-                                {{--                                                                </div>--}}
-                                {{--                                                            </div>--}}
-                                {{--                                                        </div>--}}
-                                {{--                                                    </div>--}}
-                                {{--                                                    <div class="forum-user-preview_card_bott">--}}
-                                {{--                                                        <p class="forum-user-preview_card_bott-text">Messages:--}}
-                                {{--                                                            <span>{{ $v->author->comments->count() }}</span></p>--}}
-                                {{--                                                        <p class="forum-user-preview_card_bott-text">Reactions:--}}
-                                {{--                                                            <span>9 476</span></p>--}}
+                                @foreach($popularTopik as $k => $v)
+                                    <li class="forum_main_card_list--item">
+                                        <div class="forum_main_card_list--item_left">
+                                            <span class="forum_main_card_list--item-num">{{ $k + 1 }}</span>
+                                            <div class="forum_main_card_list--item_left-head">
+                                                @if(!empty($v->prefix))
+                                                    <p class="forum--tag {{ $colors[$v->prefix] }}">{{ $v->prefix }}</p>
+                                                @endif
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_card_list--item_left-head-title">{{ $v->title }}</a>
+                                            </div>
+                                        </div>
+                                        <div class="forum_main_card_list--item_right">
+                                            <p class="forum_main_card_list--item_right-time">{{ date('d/m/Y', strtotime($v->created_at)) }}</p>
+                                            <div class="forum_main_card_list--item_right-wrapper">
+                                                <a href="{{ route('index') }}"
+                                                   class="forum_main_card_list--item_right-name">{{ $v->author->name }}</a>
+                                                <div
+                                                    class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
+                                                    <div class="forum-user-preview_card_main">
+                                                        <div class="forum-user-preview_card_main_info">
+                                                            <div class="forum-user-preview_card_main_info-avatar">
+                                                                @empty($v->author->photo)
+                                                                    <img loading="lazy"
+                                                                         src="{{asset('assets/images/card-pict.jpg')}}"
+                                                                         alt="avatar">
+                                                                @else
+                                                                    <img loading="lazy"
+                                                                         src="{{asset('storage/'.$v->author->photo)}}"
+                                                                         alt="avatar">
+                                                                @endempty
+                                                            </div>
+                                                            <div class="forum-user-preview_card_main_info_right">
+                                                                <p class="forum-user-preview_card_main_info-name">{{ $v->author->name }}</p>
+                                                                <div
+                                                                    class="forum-user-preview_card_main_info_right-items">
+                                                                    <p class="forum-user-preview_card_main_info_right-items-item">
+                                                                        Registration:
+                                                                        <span>{{ date('d/m/Y', strtotime($v->author->created_at)) }}</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="forum-user-preview_card_bott">
+                                                        <p class="forum-user-preview_card_bott-text">Messages:
+                                                            <span>{{ $v->author->comments->count() }}</span></p>
+                                                        <p class="forum-user-preview_card_bott-text">Reactions:
+                                                            <span>9 476</span></p>
 
-                                {{--                                                    </div>--}}
-                                {{--                                                </div>--}}
-                                {{--                                            </div>--}}
-                                {{--                                        </div>--}}
-                                {{--                                    </li>--}}
-                                {{--                                @endforeach--}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         @auth()
@@ -423,7 +423,7 @@
                                                 @if(!empty($themes['facebook']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['facebook']['last_topik']['prefix']] }}">{{ $themes['facebook']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['facebook']['last_topik']['theme'], $themes['facebook']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['facebook']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['facebook']['last_topik']['created_at'])) }}
@@ -484,7 +484,7 @@
                                                 @if(!empty($themes['tiktok']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['tiktok']['last_topik']['prefix']] }}">{{ $themes['tiktok']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['tiktok']['last_topik']['theme'], $themes['tiktok']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['tiktok']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['tiktok']['last_topik']['created_at'])) }}
@@ -546,7 +546,7 @@
                                                 @if(!empty($themes['google-ads']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['google-ads']['last_topik']['prefix']] }}">{{ $themes['google-ads']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['google-ads']['last_topik']['theme'], $themes['google-ads']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['google-ads']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['google-ads']['last_topik']['created_at'])) }}
@@ -605,7 +605,7 @@
                                                 @if(!empty($themes['push-and-other-advertising-networks']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['push-and-other-advertising-networks']['last_topik']['prefix']] }}">{{ $themes['push-and-other-advertising-networks']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['push-and-other-advertising-networks']['last_topik']['title'], $themes['theme-and-other-advertising-networks']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['push-and-other-advertising-networks']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['push-and-other-advertising-networks']['last_topik']['created_at'])) }}
@@ -655,7 +655,7 @@
                                                 @if(!empty($themes['ad-network']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['ad-network']['last_topik']['prefix']] }}">{{ $themes['ad-network']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['ad-network']['last_topik']['theme'], $themes['ad-network']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['ad-network']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['ad-network']['last_topik']['created_at'])) }}
@@ -721,7 +721,7 @@
                                                 @if(!empty($themes['faq']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['faq']['last_topik']['prefix']] }}">{{ $themes['faq']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['faq']['last_topik']['theme'], $themes['faq']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['faq']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['faq']['last_topik']['created_at'])) }}
@@ -772,7 +772,7 @@
                                                 @if(!empty($themes['payment-solutions']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['payment-solutions']['last_topik']['prefix']] }}">{{ $themes['payment-solutions']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['payment-solutions']['last_topik']['title']['theme'], $themes['payment-solutions']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['payment-solutions']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['payment-solutions']['last_topik']['created_at'])) }}
@@ -868,7 +868,7 @@
                                                 @if(!empty($themes['anti-detect-browsers']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['anti-detect-browsers']['last_topik']['prefix']] }}">{{ $themes['anti-detect-browsers']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['anti-detect-browsers']['last_topik']['title'], theme['anti-detect-browsers']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['anti-detect-browsers']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['anti-detect-browsers']['last_topik']['created_at'])) }}
@@ -922,7 +922,7 @@
                                                 @if(!empty($themes['cloaking-and-trackers']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['cloaking-and-trackers']['last_topik']['prefix']] }}">{{ $themes['cloaking-and-trackers']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['cloaking-and-trackers']['last_topik']['title'], theme['cloaking-and-trackers']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['cloaking-and-trackers']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['cloaking-and-trackers']['last_topik']['created_at'])) }}
@@ -971,7 +971,7 @@
                                                 @if(!empty($themes['proxy']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['proxy']['last_topik']['prefix']] }}">{{ $themes['proxy']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['proxy']['last_topik']['theme'], $themes['proxy']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['proxy']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['proxy']['last_topik']['created_at'])) }}
@@ -1022,7 +1022,7 @@
                                                 @if(!empty($themes['domains-and-hosting']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['domains-and-hosting']['last_topik']['prefix']] }}">{{ $themes['domains-and-hosting']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['domains-and-hosting']['last_topik']['title'], theme['domains-and-hosting']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['domains-and-hosting']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['domains-and-hosting']['last_topik']['created_at'])) }}
@@ -1074,7 +1074,7 @@
                                                 @if(!empty($themes['spy-services']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['spy-services']['last_topik']['prefix']] }}">{{ $themes['spy-services']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['spy-services']['last_topik']['title']['theme'], $themes['spy-services']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['spy-services']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['spy-services']['last_topik']['created_at'])) }}
@@ -1132,7 +1132,7 @@
                                                 @if(!empty($themes['creatives']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['creatives']['last_topik']['prefix']] }}">{{ $themes['creatives']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['creatives']['last_topik']['theme'], $themes['creatives']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['creatives']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['creatives']['last_topik']['created_at'])) }}
@@ -1187,7 +1187,7 @@
                                                 @if(!empty($themes['jobs']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['jobs']['last_topik']['prefix']] }}">{{ $themes['jobs']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['jobs']['last_topik']['theme'], $themes['jobs']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['jobs']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['jobs']['last_topik']['created_at'])) }}
@@ -1239,7 +1239,7 @@
                                                 @if(!empty($themes['sell']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['sell']['last_topik']['prefix']] }}">{{ $themes['sell']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['sell']['last_topik']['theme'], $themes['sell']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['sell']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['sell']['last_topik']['created_at'])) }}
@@ -1291,7 +1291,7 @@
                                                 @if(!empty($themes['floodlight']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['floodlight']['last_topik']['prefix']] }}">{{ $themes['floodlight']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['floodlight']['last_topik']['theme'], $themes['floodlight']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['floodlight']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['floodlight']['last_topik']['created_at'])) }}
@@ -1340,7 +1340,7 @@
                                                 @if(!empty($themes['humor']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['humor']['last_topik']['prefix']] }}">{{ $themes['humor']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('forum.board', [$themes['humor']['last_topik']['theme'], $themes['humor']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['humor']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['humor']['last_topik']['created_at'])) }}

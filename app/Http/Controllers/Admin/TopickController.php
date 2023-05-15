@@ -39,11 +39,11 @@ class TopickController extends Controller
         return view('admin.topick.edit', compact('topick'));
     }
 
-    public function update(UpdateRequest $request, $id)
+    public function update(UpdateRequest $request, ThreadsLinks $topick)
     {
         $data = $request->validated();
-        ThreadsLinks::firstWhere('id', $id)->update($data);
-        return redirect()->route('topick.show', $id);
+        $topick->update($data);
+        return redirect()->route('topick.show', $topick->id);
     }
 
     public function destroy($id)

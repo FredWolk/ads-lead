@@ -1,5 +1,22 @@
 @extends('layouts.main')
 
+@php
+    $colors = [
+        'Gambling' => 'color1',
+        'Betting' => 'color2',
+        'Nutra' => 'color3',
+        'Sweepstakes' => 'color4',
+        'Ppc' => 'color5',
+        'Whitehat' => 'color6',
+        'Cpi' => 'color7',
+        'Wap-Click' => 'color8',
+        'Mobile content' => 'color9',
+        'E-commerce' => 'color10',
+        'Travel' => 'color11',
+        'Utilites' => 'color12',
+    ];
+@endphp
+
 @section('content')
     <section class="breadcrambs top">
         <div class="container">
@@ -84,7 +101,7 @@
                                 <div class="forum_treads_list--item_left_info">
                                     <div class="forum_treads_list--item_left_info_top">
                                         @if(!empty($thread['prefix']))
-                                            <p class="forum--tag color1">{{ $thread['prefix'] }}</p>
+                                            <p class="forum--tag {{ !empty($thread['prefix']) ? $colors[$thread['prefix']] : '' }}">{{ $thread['prefix'] }}</p>
                                         @endif
                                         <a href="{{ route('forum.board', [$thread['theme'], $thread['link']]) }}"
                                            class="forum_main_card_list--item_left-head-title">{{ $thread['title'] }}</a>
@@ -177,13 +194,13 @@
                                         <div class="forum-user-preview_card_main">
                                             <div class="forum-user-preview_card_main_info">
                                                 <div class="forum-user-preview_card_main_info-avatar">
-                                                    @empty($thread->author->photo)
+                                                    @empty($thread['author']['photo'])
                                                         <img loading="lazy"
                                                              src="{{asset('assets/images/card-pict.jpg')}}"
                                                              alt="avatar">
                                                     @else
                                                         <img loading="lazy"
-                                                             src="{{asset('storage/', $thread->author->photo)}}"
+                                                             src="{{asset('storage/'.$thread['author']['photo'])}}"
                                                              alt="avatar">
                                                     @endempty
                                                 </div>
@@ -213,7 +230,15 @@
                                     </div>
                                 </div>
                                 <div class="forum_treads_list--item_right-avatar">
-                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                                    @empty($thread['author']['photo'])
+                                        <img loading="lazy"
+                                             src="{{asset('assets/images/card-pict.jpg')}}"
+                                             alt="avatar">
+                                    @else
+                                        <img loading="lazy"
+                                             src="{{asset('storage/'.$thread['author']['photo'])}}"
+                                             alt="avatar">
+                                    @endempty
                                 </div>
                             </div>
                         </li>
@@ -271,7 +296,7 @@
                     <a href="{{ route('forum') }}">Forum</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('forum') }}">TikTok</a>
+                    <p>{{ $theme->name }}</p>
                 </li>
             </ul>
         </div>
