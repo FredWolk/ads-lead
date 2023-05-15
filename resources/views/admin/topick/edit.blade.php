@@ -43,7 +43,7 @@
                             @enderror
                             <div class="form-group">
                                 <label for="link">Ссылка на статью</label>
-                                <input type="text" name="link" value="{{ $topick->link }}" class="form-control"
+                                <input disabled type="text" name="link" value="{{ $topick->link }}" class="form-control"
                                        id="link" placeholder="Название статьи">
                             </div>
                             @error('link')
