@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Main\Forum;
 
 use App\Http\Controllers\Controller;
+use App\Models\BannerForumAside;
 use App\Models\ThreadsLinks;
 use App\Models\Trade;
 use App\Models\TradeComment;
@@ -37,6 +38,8 @@ class ForumController extends Controller
         $newTopik = Trade::orderBy('created_at', 'desc')->with('author')->take(7)->get();
         $myTopik = Trade::where('user_id', Auth::id())->orderBy('created_at', 'desc')->take(7)->get();
         $popularTopik = Trade::withCount('comments')->orderBy('comments_count', 'desc')->with('author')->take(7)->get();
+        $smallBanner = BannerForumAside::first();
+
         return view(
             'main.forum.index',
             compact('locale', 'themes', 'statistic', 'newTopik', 'myTopik', 'popularTopik')
