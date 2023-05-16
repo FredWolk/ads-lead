@@ -135,7 +135,14 @@
                     </div>
                     @auth()
                         <a href="{{ route('user.index') }}" class="header-user-icon">
-                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                            @empty(\Illuminate\Support\Facades\Auth::user()->photo)
+                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}"
+                                     alt="avatar">
+                            @else
+                                <img loading="lazy"
+                                     src="{{asset('storage/' . \Illuminate\Support\Facades\Auth::user()->photo)}}"
+                                     alt="avatar">
+                            @endempty
                         </a>
                     @else
                         <button type="button" class="btn-rectangle btn--exit login--btn">

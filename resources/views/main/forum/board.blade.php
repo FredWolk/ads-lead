@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('style')
+    <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/plugins/summernote/summernote-bs4.min.css') }}">
     <style>
@@ -271,7 +272,7 @@
                             </div>
                         </div>
                         <h1 class="user-main-corpage_top_right-title">{{ $thread->title }}</h1>
-                        <div class="user-main-corpage_top_right-text">
+                        <div class="user-main-corpage_top_right-text main__article">
                             {!! $thread->content !!}
                         </div>
                         @auth()
@@ -398,7 +399,7 @@
                                     <p class="user-main-corpage_top_right_top_right-text">#{{ $key + 2 }}</p>
                                 </div>
                             </div>
-                            <div class="user-main-corpage_top_right-text">
+                            <div class="user-main-corpage_top_right-text main__article">
                                 {!! $comment->content !!}
                             </div>
                             <div class="user-main-corpage_top_right_bottom">
@@ -455,7 +456,14 @@
                         <div class="user-main-corpage_bot_left">
                             <div class="header--notif-body--item-icon-wrapper">
                                 <div class="user-main-corpage_top_left-icon">
-                                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                                    @empty(\Illuminate\Support\Facades\Auth::user()->photo)
+                                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}"
+                                             alt="avatar">
+                                    @else
+                                        <img loading="lazy"
+                                             src="{{asset('storage/' . \Illuminate\Support\Facades\Auth::user()->photo)}}"
+                                             alt="avatar">
+                                    @endempty
                                 </div>
                             </div>
                             <div class="user-main-corpage_top_left-name-wrapper">
