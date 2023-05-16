@@ -69,13 +69,15 @@
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
                                             <div class="cpapage_info--item_main_top-icon">
-                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
+                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}"
+                                                     alt="logo">
                                             </div>
                                             <ul class="cpapage_info--item_main_top-list">
                                                 @if(!empty($i['advertising_formats']))
                                                     @foreach($i['advertising_formats'] as $tag)
                                                         <li class="article--card_info_tags-list-item mobhide">
-                                                            <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
+                                                            <p class="article--card_info_tags-list-item--link">
+                                                                #{{ $tag }}</p>
                                                         </li>
                                                     @endforeach
                                                 @endif
@@ -98,7 +100,8 @@
                                         <a class="btn--blue header_buttons-blue-btn"
                                            href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                                             <span>{{ __('messages.review') }}</span>
-                                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                            <img loading="lazy"
+                                                 src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
                                         <div class="promocode--btn-wrapper">
@@ -143,7 +146,8 @@
                                             </div>
                                         </div>
                                         <a class="link--blue-sphere" target="_blank" href="{{ $i['url'] }}">
-                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}"
+                                                 alt="sphere">
                                             <span>Site</span>
                                         </a>
 
@@ -175,7 +179,8 @@
                         <div class="filter-aside-banner to-show">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}"
+                                         alt="bunner">
                                 @else
                                     <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
                                            muted></video>
@@ -209,13 +214,15 @@
                                             <div class="cpapage_info--item_main">
                                                 <div class="cpapage_info--item_main_top">
                                                     <div class="cpapage_info--item_main_top-icon">
-                                                        <img loading="lazy" src="{{ asset('storage/'. $v['logo']) }}" alt="logo">
+                                                        <img loading="lazy" src="{{ asset('storage/'. $v['logo']) }}"
+                                                             alt="logo">
                                                     </div>
                                                     <ul class="cpapage_info--item_main_top-list">
                                                         @if(!empty($v['advertising_formats']))
                                                             @foreach($v['advertising_formats'] as $tag)
                                                                 <li class="article--card_info_tags-list-item mobhide">
-                                                                    <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
+                                                                    <p class="article--card_info_tags-list-item--link">
+                                                                        #{{ $tag }}</p>
                                                                 </li>
                                                             @endforeach
                                                         @endif
@@ -228,7 +235,8 @@
                                                 <a class="btn--blue header_buttons-blue-btn"
                                                    href="{{ route('ad.page', [$v['main_advertising_formats'], $v['link']]) }}">
                                                     <span>{{ __('messages.review') }}</span>
-                                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                                    <img loading="lazy"
+                                                         src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                          alt="arrow">
                                                 </a>
                                                 <div class="promocode--btn-wrapper">
@@ -274,7 +282,8 @@
                                                     </div>
                                                 </div>
                                                 <a class="link--blue-sphere" target="_blank" href="{{ $v['url'] }}">
-                                                    <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                                                    <img loading="lazy"
+                                                         src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                                                     <span>Site</span>
                                                 </a>
 
@@ -303,21 +312,7 @@
                 </div>
                 @if(!empty($seo))
                     <aside class="articles_seo-text">
-                        <h3 class="articles_seo-text--title">seo text</h3>
                         <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
-                        <button type="button" class="link--black-rotateble-arrows readmore--btn">
-                            <span>read more</span>
-                            <div class="link--black-rotateble-arrows-group">
-                                @for ($a=0; $a<3; $a++)
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"
-                                              fill="#272C31"/>
-                                    </svg>
-                                @endfor
-                            </div>
-                        </button>
                     </aside>
                 @endif
             </div>

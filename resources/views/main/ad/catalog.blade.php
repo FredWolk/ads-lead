@@ -48,13 +48,15 @@
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
                                             <div class="cpapage_info--item_main_top-icon">
-                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}" alt="logo">
+                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}"
+                                                     alt="logo">
                                             </div>
                                             <ul class="cpapage_info--item_main_top-list">
                                                 @if(!empty($i['advertising_formats']))
                                                     @foreach($i['advertising_formats'] as $tag)
                                                         <li class="article--card_info_tags-list-item mobhide">
-                                                            <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
+                                                            <p class="article--card_info_tags-list-item--link">
+                                                                #{{ $tag }}</p>
                                                         </li>
                                                     @endforeach
                                                 @endif
@@ -67,7 +69,8 @@
                                         <a class="btn--blue header_buttons-blue-btn"
                                            href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                                             <span>{{ __('messages.review') }}</span>
-                                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                            <img loading="lazy"
+                                                 src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
                                         <div class="promocode--btn-wrapper">
@@ -112,7 +115,8 @@
                                             </div>
                                         </div>
                                         <a class="link--blue-sphere" href="{{ $i['url'] }}">
-                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
+                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}"
+                                                 alt="sphere">
                                             <span>Site</span>
                                         </a>
 
@@ -136,7 +140,7 @@
                 </div>
 
                 {{--            <aside class="articles_seo-text">--}}
-                {{--                <h3 class="articles_seo-text--title">seo text</h3>--}}
+                {{--                --}}
                 {{--                <p class="articles_seo-text--text">--}}
                 {{--                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.--}}
                 {{--                    <br>--}}
@@ -197,7 +201,8 @@
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}"
+                                         alt="bunner">
                                 @else
                                     <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
                                            muted></video>

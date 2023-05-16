@@ -40,7 +40,8 @@
                             @foreach ($events as $event)
                                 <li class="article--card">
                                     <a class="article--card-link" href="{{ route('event.page', $event['link']) }}"></a>
-                                    <img loading="lazy" src="{{asset('storage/' . $event["{$locale}image"])}}" alt="banner">
+                                    <img loading="lazy" src="{{asset('storage/' . $event["{$locale}image"])}}"
+                                         alt="banner">
                                     <div class="article--card_info">
                                         <div class="eventcard-item">
                                             <p class="main-events__article--card_info_top-text">
@@ -71,21 +72,7 @@
                 </div>
                 @if(!empty($seo))
                     <aside class="articles_seo-text">
-                        <h3 class="articles_seo-text--title">seo text</h3>
                         <p class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</p>
-                        <button type="button" class="link--black-rotateble-arrows readmore--btn">
-                            <span>read more</span>
-                            <div class="link--black-rotateble-arrows-group">
-                                @for ($a=0; $a<3; $a++)
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"
-                                              fill="#272C31"/>
-                                    </svg>
-                                @endfor
-                            </div>
-                        </button>
                     </aside>
                 @endif
             </section>
