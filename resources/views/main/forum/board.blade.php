@@ -186,9 +186,11 @@
                                 <div class="forumpage-board_top-pagin-wrapp-right-more--body-bot">
                                     <a href="{{ route('index') }}"
                                        class="forumpage-board_top-pagin-wrapp-right-more--body-link">Edit Topic</a>
-                                    <a href="{{ route('index') }}"
-                                       class="forumpage-board_top-pagin-wrapp-right-more--body-link">Delete the
-                                        topic</a>
+                                    <div data-id="{{ $thread->id }}"
+                                         class="forumpage-board_top-pagin-wrapp-right-more--body-link author_delete">
+                                        Delete the
+                                        topic
+                                    </div>
                                 </div>
                             </div>
                         </button>
@@ -237,8 +239,6 @@
                         <div class="user-main-corpage_top_right_top">
                             <p class="user-main-corpage_top_right_top-date">{{ date('d/m/Y', strtotime($thread->created_at)) }}</p>
                             <div class="user-main-corpage_top_right_top_right">
-
-
                                 @if(false)
                                     <button class="user-main-corpage_top_right_top_right--btn" type="button">
                                         <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
@@ -296,7 +296,8 @@
                                             </svg>
                                             <span>Change</span>
                                         </button>
-                                        <button class="user-main-corpage_top_right_bottom--btn">
+                                        <button data-id="{{ $thread->id }}"
+                                                class="user-main-corpage_top_right_bottom--btn author_delete">
                                             <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/>
@@ -548,6 +549,13 @@
         $('.delete__popup-back, .popup__delete-close').on('click', function (e) {
             if (e.target === this)
                 $('.delete__popup-back').fadeOut(300);
+        })
+        $('.author_delete').on('click', function () {
+            let id = $(this).attr('data-id'),
+                route = `{{ route('delete.thread') }}/${id}`;
+
+            $('.delete__popup-body').attr('action', route);
+            $('.delete__popup-back').fadeIn(300);
         })
     </script>
 @endsection

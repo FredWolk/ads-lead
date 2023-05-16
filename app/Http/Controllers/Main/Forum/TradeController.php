@@ -25,6 +25,22 @@ class TradeController extends Controller
         return redirect()->route('forum.threads', $data['link']);
     }
 
+    public function deleteThread(Trade $trade)
+    {
+        $user_id = Auth::id();
+        if ($trade->user_id === Auth::id()) {
+            $comments = TradeComment::all()->where('user_id', $user_id)->where('threads_id', $trade->id);
+            if (!empty($comments)) {
+                foreach ($comments as $comment) {
+                    $comment->delete();
+                }
+            }
+            $trade->delete();
+        }
+
+        return redirect()->route('forum');
+    }
+
     public function createComment(Request $request, Trade $threads)
     {
         $data = $request->validate([
@@ -39,7 +55,9 @@ class TradeController extends Controller
 
     public function deleteComment(TradeComment $comment)
     {
-        $comment->delete();
+        if ($comment->user_id === Auth::id()) {
+            $comment->delete();
+        }
         return redirect()->back();
     }
 }

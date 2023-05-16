@@ -96,6 +96,7 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
     );
 
     Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');
+    Route::delete('/delete-threads/{trade?}', [TradeController::class, 'deleteThread'])->name('delete.thread');
 });
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');

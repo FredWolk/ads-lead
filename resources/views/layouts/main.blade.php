@@ -23,7 +23,6 @@
         }
 
         gtag('js', new Date());
-
         gtag('config', 'G-6XKF83635G');
     </script>
     <meta charset="UTF-8">
