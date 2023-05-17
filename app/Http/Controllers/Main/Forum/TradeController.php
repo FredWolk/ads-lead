@@ -20,6 +20,7 @@ class TradeController extends Controller
             'tags' => 'array|nullable',
             'content' => 'string|required'
         ]);
+        $data['link'] = preg_replace('/[^a-zA-Z\s 0-9-]/', '', $data['link']);
         $data['user_id'] = Auth::user()->getAuthIdentifier();
         Trade::updateOrCreate($data);
         return redirect()->route('forum.threads', $data['link']);
