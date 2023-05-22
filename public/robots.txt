@@ -1,3 +1,7 @@
 User-agent: *
-Allow: /
-Disallow: /
+Allow: *.css
+Allow: *.js
+Disallow: /*?
+Disallow: /?s=
+Disallow: /ad-networks/first%20page%20ads
+Sitemap: https://affjournal.com/sitemap.xml
