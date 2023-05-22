@@ -65,7 +65,6 @@
                     </li>
                 @endforeach
             </ul>
-            {{ $articles->lastPage() }}
             <div class="pagination">
                 {{ $articles->links() }}
             </div>
