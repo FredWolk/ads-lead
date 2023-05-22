@@ -65,8 +65,9 @@
                     </li>
                 @endforeach
             </ul>
+            {{ $articles->lastPage() }}
             <div class="pagination">
-                {{ $articles->onEachSide(5)->links() }}
+                {{ $articles->links() }}
             </div>
             @if(!empty($seo))
                 <aside class="articles_seo-text">
