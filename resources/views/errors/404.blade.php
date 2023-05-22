@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@php($locale = \Illuminate\Support\Facades\App::getLocale() == 'en' ? '' : 'pt_');
+@php($locale = \Illuminate\Support\Facades\App::getLocale() == 'en' ? '' : 'pt_')
 @section('content')
     <section class="errorpage">
         <div class="container">
