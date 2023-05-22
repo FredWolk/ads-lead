@@ -17,6 +17,9 @@ class ArticlesController extends Controller
             $seo->toArray();
         }
         $articles = Article::with('author')->where('type', 'article')->orderByDesc('id')->paginate(9);
+        if ($articles->lastPage() === $_GET['page']) {
+            return redirect()->route('articles');
+        }
         return view('main.articles.all-articles', compact('articles', 'seo', 'locale'));
     }
 }
