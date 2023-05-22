@@ -66,7 +66,7 @@
                 @endforeach
             </ul>
             <div class="pagination">
-                {{ $articles->links() }}
+                {{ $articles->onEachSide(5)->links() }}
             </div>
             @if(!empty($seo))
                 <aside class="articles_seo-text">
