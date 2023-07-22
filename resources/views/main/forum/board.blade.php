@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/plugins/summernote/summernote-bs4.min.css') }}">
     <style>
@@ -40,14 +39,84 @@
             line-height: 20px;
         }
 
-        .delete__popup-body {
+        .main__article p,
+        .main__article p *,
+        .main__article span,
+        .main__article span *,
+        .main__article li,
+        .main__article li * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+            width: 100% !important;
         }
 
-        .btn--blue {
+        .main__article a, .main__article a * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            text-decoration-line: underline !important;
+            color: #014EFF !important;
         }
 
-        .header_buttons-blue-btn {
+        .main__article h1, .main__article h1 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 30px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
         }
+
+        .main__article h2, .main__article h2 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 28px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+        }
+
+        .main__article h3, .main__article h3 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 25px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+        }
+
+
+        .main__article b, .main__article b * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+        }
+
+        .main__article i, .main__article i * {
+            font-family: 'Montserrat' !important;
+            font-style: italic !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+        }
+
+        .main__article img {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
     </style>
 @endsection
 

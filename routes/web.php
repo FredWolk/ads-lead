@@ -39,12 +39,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-//$url = explode('/', url()->current());
-//if (isset($url[3]) && $url[3] == 'pt') {
-//    App::setLocale('pt');
-//} else {
-//    App::setLocale('en');
-//}
+$url = explode('/', url()->current());
+if (isset($url[3]) && $url[3] == 'pt') {
+    $newUrl = str_replace('pt/', '', url()->current());
+    return redirect()->to($newUrl);
+}
 Route::get('/', [IndexController::class, '__invoke'])->name('index');
 Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
     Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');

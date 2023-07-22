@@ -9,6 +9,88 @@
         <meta property="og:url" content="{{ url()->current() }}"/>
     @endsection
 @endif
+@section('style')
+    <style>
+        .articles_seo-text--text p,
+        .articles_seo-text--text p *,
+        .articles_seo-text--text span,
+        .articles_seo-text--text span *,
+        .articles_seo-text--text li,
+        .articles_seo-text--text li * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+            width: 100% !important;
+        }
+
+        .articles_seo-text--text a, .articles_seo-text--text a * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            text-decoration-line: underline !important;
+            color: #014EFF !important;
+        }
+
+        .articles_seo-text--text h1, .articles_seo-text--text h1 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 30px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+        }
+
+        .articles_seo-text--text h2, .articles_seo-text--text h2 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 28px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+        }
+
+        .articles_seo-text--text h3, .articles_seo-text--text h3 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 25px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+        }
+
+
+        .articles_seo-text--text b, .articles_seo-text--text b * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+        }
+
+        .articles_seo-text--text i, .articles_seo-text--text i * {
+            font-family: 'Montserrat' !important;
+            font-style: italic !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+        }
+
+        .articles_seo-text--text img {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+    </style>
+@endsection
 @section('content')
     <section class="breadcrambs top">
         <div class="container">

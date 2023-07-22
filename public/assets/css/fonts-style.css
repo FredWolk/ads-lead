@@ -1,13 +1,3 @@
-.main__article a, .main__article a * {
-    font-family: 'Montserrat' !important;
-    font-style: normal !important;
-    font-weight: 500 !important;
-    font-size: 18px !important;
-    line-height: 160% !important;
-    text-decoration-line: underline !important;
-    color: #014EFF !important;
-}
-
 .main__article p,
 .main__article p *,
 .main__article span,
@@ -21,6 +11,16 @@
     color: #272C31 !important;
     width: 100% !important;
     height: 100% !important;
+}
+
+.main__article a, .main__article a * {
+    font-family: 'Montserrat' !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 160% !important;
+    text-decoration-line: underline !important;
+    color: #014EFF !important;
 }
 
 .main__article h1, .main__article h1 * {

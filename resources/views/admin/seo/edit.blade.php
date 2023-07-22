@@ -453,5 +453,17 @@
         $('#pt_description').on('input', function (){
             $('#pt_og_description').val($(this).val())
         })
+        $('.summernote').summernote({
+            height: 300,
+            maxHeight: 500,
+            toolbar: [
+                ['insert', ['picture','link','video','table','hr']],
+                ['fontsize', ['fontname','fontsize','fontsizeunit','color','forecolor','backcolor','bold','italic','underline','strikethrough','superscript','subscript','clear']],
+                ['paragraph', ['style','ol','ul','paragraph','height']],
+                ['misc', ['fullscreen','codeview','undo','redo','help']],
+            ],
+            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+            fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+        });
     </script>
 @endsection

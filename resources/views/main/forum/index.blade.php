@@ -772,7 +772,7 @@
                                                 @if(!empty($themes['payment-solutions']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['payment-solutions']['last_topik']['prefix']] }}">{{ $themes['payment-solutions']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['payment-solutions']['last_topik']['title']['theme'], $themes['payment-solutions']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['payment-solutions']['last_topik']['theme'], $themes['payment-solutions']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['payment-solutions']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['payment-solutions']['last_topik']['created_at'])) }}
