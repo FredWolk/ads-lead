@@ -214,7 +214,7 @@
             </aside>
 
             <div class="cpapage_main-to-show">
-                <h1 class="title">banners</h1>
+                <h3 class="title">banners</h3>
                 {{--                <p class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo--}}
                 {{--                    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,--}}
                 {{--                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>--}}

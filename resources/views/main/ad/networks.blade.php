@@ -450,9 +450,9 @@
 
             <div class="cpapage_main-to-show">
                 @empty($seo)
-                    <h1 class="title">{{ __('messages.ad') }}</h1>
+                    <h3 class="title">{{ __('messages.ad') }}</h3>
                 @else
-                    <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
+                    <h3 class="title">{{ $seo["{$locale}h1"] }}</h3>
                     <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
                 @endempty
                 <div class="cpapage_main-to-show_filter">
