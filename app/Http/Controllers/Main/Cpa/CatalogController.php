@@ -14,18 +14,19 @@ class CatalogController extends Controller
     public function __invoke($catalog)
     {
         $cpa = Cpa::where('main_verticales', $catalog)->paginate(5);
+        if ($cpa->count() === 0)
+            return redirect()->route('cpa');
         $banner = BannerAside::where('show', 'cpa')->where('status', 1)->first();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $filters = Filters::select('vertical', 'countries', 'payment_models', 'payment_schedule', 'payment_systems')->first()->toArray();
-        if (empty($cpa))
-            return redirect()->route('cpa');
-       return view('main.cpa.catalog', compact('cpa', 'catalog', 'banner', 'locale', 'filters'));
+
+        return view('main.cpa.catalog', compact('cpa', 'catalog', 'banner', 'locale', 'filters'));
     }
 
 
     public function filter(Request $request, $catalog)
     {
-        if (!empty($request->query())){
+        if (!empty($request->query())) {
             $cpa = Cpa::where('main_verticales', $catalog)->whereJsonContains('verticales', $request->query('vertical'))
                 ->orWhereJsonContains('countries', $request->query('countries'))
                 ->orWhereJsonContains('payment_models', $request->query('payment_models'))

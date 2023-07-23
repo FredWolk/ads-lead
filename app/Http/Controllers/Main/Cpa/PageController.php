@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\ViewService;
 use App\Models\BannerAside;
 use App\Models\Cpa;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class PageController extends Controller

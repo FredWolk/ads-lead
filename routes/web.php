@@ -38,11 +38,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
-
 $url = explode('/', url()->current());
 if (isset($url[3]) && $url[3] == 'pt') {
     $newUrl = str_replace('pt/', '', url()->current());
-    return redirect()->to($newUrl);
+    \Illuminate\Support\Facades\App::setLocale('en');
+    header('Location: ' . $newUrl);
+    exit();
 }
 Route::get('/', [IndexController::class, '__invoke'])->name('index');
 Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
