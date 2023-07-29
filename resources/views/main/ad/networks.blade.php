@@ -271,7 +271,7 @@
                         </div>
                     @endif
 
-                    <div class="ad__filters">
+                    <div style="width: 100%" class="ad__filters">
                         @foreach($ad->groupBy('main_advertising_formats')->toArray() as $k => $i)
                             <div class="cpapage_info--block">
                                 <div class="cpapage_info-header">
