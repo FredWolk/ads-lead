@@ -96,6 +96,9 @@
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                         </li>
+                        <li class="header_nav_list_item">
+                            <a class="header_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
+                        </li>
                     </ul>
                 </nav>
                 <div class="header_buttons">
@@ -293,6 +296,9 @@
                         </li>
                         <li class="footer_nav_list_item">
                             <a class="footer_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
+                        </li>
+                        <li class="footer_nav_list_item">
+                            <a class="footer_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
                         </li>
                     </ul>
                 </nav>

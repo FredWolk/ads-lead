@@ -9,6 +9,10 @@
 }
 
 @media (max-width: 1439px) {
+    .footer_contacts-text {
+        font-size: 68px;
+    }
+
     .container {
         max-width: 1020px;
     }
@@ -340,7 +344,7 @@
         padding-right: 14px !important;
     }
 
-    .change__lang{
+    .change__lang {
         display: none;
     }
 
@@ -366,7 +370,7 @@
         color: #272C31;
     }
 
-    .switch__lang-link.active{
+    .switch__lang-link.active {
         color: #014EFF;
     }
 
