@@ -219,11 +219,9 @@
                             <a class="burger_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
                         </li>
                     @endif
-                    @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
-                        <li class="burger_nav_list_item">
-                            <a class="burger_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
-                        </li>
-                    @endif
+                    <li class="burger_nav_list_item">
+                        <a class="burger_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
+                    </li>
                     <li class="burger_nav_list_item">
                         <a class="burger_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                     </li>
@@ -280,11 +278,9 @@
                 <p class="footer_social-title footer_nav-wrapper-first">menu</p>
                 <nav class="footer_nav">
                     <ul class="footer_nav_list">
-                        @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
-                            <li class="footer_nav_list_item">
-                                <a class="footer_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
-                            </li>
-                        @endif
+                        <li class="footer_nav_list_item">
+                            <a class="footer_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
+                        </li>
                         <li class="footer_nav_list_item">
                             <a class="footer_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                         </li>
@@ -296,9 +292,6 @@
                         </li>
                         <li class="footer_nav_list_item">
                             <a class="footer_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
-                        </li>
-                        <li class="footer_nav_list_item">
-                            <a class="footer_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
                         </li>
                     </ul>
                 </nav>
