@@ -245,13 +245,15 @@
                                 <a target="_blank" class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
                                    href="{{ $ad['url'] }}">
                                     <span>website</span>
-                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                         alt="arrow">
                                 </a>
                                 <div class="cpaartpage_card_bot--line"></div>
                                 <a class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
                                    href="{{ $ad['forum_link'] }}">
                                     <span>Forum</span>
-                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                         alt="arrow">
                                 </a>
                             </div>
                         </div>
@@ -276,7 +278,8 @@
                         </ul>
                     </div>
                     <div class="articlepage--comments">
-                        <h2 class="videopage--comments-title">Reviews of .... <span>({{ !empty($ad->comments) ? $ad->comments->count() : '0' }})</span></h2>
+                        <h2 class="videopage--comments-title">Reviews of .... <span>({{ !empty($ad->comments) ? $ad->comments->count() : '0' }})</span>
+                        </h2>
                         <div class="articlepage--comments-none-editorial-opinion">
                             <div class="articlepage--review-integration_autor">
                                 <div class="videopage_main-underimage_autor-image">
@@ -299,9 +302,13 @@
                                                 <div class="articlepage--review-integration_autor">
                                                     <div class="videopage_main-underimage_autor-image">
                                                         @empty($comment->author->photo)
-                                                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="autor">
+                                                            <img loading="lazy"
+                                                                 src="{{asset('assets/images/card-pict.jpg')}}"
+                                                                 alt="autor">
                                                         @else
-                                                            <img loading="lazy" src="{{asset('storage/'.$comment->author->photo)}}" alt="autor">
+                                                            <img loading="lazy"
+                                                                 src="{{asset('storage/'.$comment->author->photo)}}"
+                                                                 alt="autor">
                                                         @endempty
                                                     </div>
                                                     <div class="articlepage--review-integration_autor-text-wrapp">
@@ -500,33 +507,44 @@
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                     <div class="rating-area">
-                                                        <input type="radio" id="traffic_quality-5" name="traffic_quality" value="5">
+                                                        <input type="radio" id="traffic_quality-5"
+                                                               name="traffic_quality" value="5">
                                                         <label for="traffic_quality-5" title="«5»"></label>
-                                                        <input type="radio" id="traffic_quality-4" name="traffic_quality" value="4">
+                                                        <input type="radio" id="traffic_quality-4"
+                                                               name="traffic_quality" value="4">
                                                         <label for="traffic_quality-4" title="«4»"></label>
-                                                        <input type="radio" id="traffic_quality-3" name="traffic_quality" value="3">
+                                                        <input type="radio" id="traffic_quality-3"
+                                                               name="traffic_quality" value="3">
                                                         <label for="traffic_quality-3" title="«3»"></label>
-                                                        <input type="radio" id="traffic_quality-2" name="traffic_quality" value="2">
+                                                        <input type="radio" id="traffic_quality-2"
+                                                               name="traffic_quality" value="2">
                                                         <label for="traffic_quality-2" title="«2»"></label>
-                                                        <input type="radio" id="traffic_quality-1" name="traffic_quality" value="1">
+                                                        <input type="radio" id="traffic_quality-1"
+                                                               name="traffic_quality" value="1">
                                                         <label for="traffic_quality-1" title="«1»"></label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="articlepage--comments_main_list-item_top_rating-group-item">
-                                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">Number of GEOs</p>
+                                                <p class="articlepage--comments_main_list-item_top_rating-group-item-name">
+                                                    Number of GEOs</p>
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                     <div class="rating-area">
-                                                        <input type="radio" id="number_geos-5" name="number_geos" value="5">
+                                                        <input type="radio" id="number_geos-5" name="number_geos"
+                                                               value="5">
                                                         <label for="number_geos-5" title="«5»"></label>
-                                                        <input type="radio" id="number_geos-4" name="number_geos" value="4">
+                                                        <input type="radio" id="number_geos-4" name="number_geos"
+                                                               value="4">
                                                         <label for="number_geos-4" title="«4»"></label>
-                                                        <input type="radio" id="number_geos-3" name="number_geos" value="3">
+                                                        <input type="radio" id="number_geos-3" name="number_geos"
+                                                               value="3">
                                                         <label for="number_geos-3" title="«3»"></label>
-                                                        <input type="radio" id="number_geos-2" name="number_geos" value="2">
+                                                        <input type="radio" id="number_geos-2" name="number_geos"
+                                                               value="2">
                                                         <label for="number_geos-2" title="«2»"></label>
-                                                        <input type="radio" id="number_geos-1" name="number_geos" value="1">
+                                                        <input type="radio" id="number_geos-1" name="number_geos"
+                                                               value="1">
                                                         <label for="number_geos-1" title="«1»"></label>
                                                     </div>
                                                 </div>
@@ -537,15 +555,20 @@
                                                 <div
                                                     class="articlepage--comments_main_list-item_top_rating-group-item-stars">
                                                     <div class="rating-area">
-                                                        <input type="radio" id="price_click-5" name="price_click" value="5">
+                                                        <input type="radio" id="price_click-5" name="price_click"
+                                                               value="5">
                                                         <label for="price_click-5" title="«5»"></label>
-                                                        <input type="radio" id="price_click-4" name="price_click" value="4">
+                                                        <input type="radio" id="price_click-4" name="price_click"
+                                                               value="4">
                                                         <label for="price_click-4" title="«4»"></label>
-                                                        <input type="radio" id="price_click-3" name="price_click" value="3">
+                                                        <input type="radio" id="price_click-3" name="price_click"
+                                                               value="3">
                                                         <label for="price_click-3" title="«3»"></label>
-                                                        <input type="radio" id="price_click-2" name="price_click" value="2">
+                                                        <input type="radio" id="price_click-2" name="price_click"
+                                                               value="2">
                                                         <label for="price_click-2" title="«2»"></label>
-                                                        <input type="radio" id="price_click-1" name="price_click" value="1">
+                                                        <input type="radio" id="price_click-1" name="price_click"
+                                                               value="1">
                                                         <label for="price_click-1" title="«1»"></label>
                                                     </div>
                                                 </div>
@@ -556,7 +579,8 @@
                                                   class="input-textarea" name="comment"></textarea>
                                         <button class="btn--blue header_buttons-blue-btn">
                                             <span>Send</span>
-                                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                            <img loading="lazy"
+                                                 src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </button>
                                     </form>
@@ -652,21 +676,22 @@
                             </div>
                         </div>
                     </div>
-                    @if(!empty($banner))
-                        <div class="filter-aside">
-                            <div class="filter-aside-banner sticky">
-                                <a target="_blank" href="{{ $banner->link }}">
-                                    @if($banner->type == 'image')
-                                        <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
-                                    @else
-                                        <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
-                                               muted></video>
-                                    @endif
-                                </a>
-                            </div>
-                        </div>
-                    @endif
                 </aside>
+                @if(!empty($banner))
+                    <aside class="filter-aside--sticky">
+                        <div class="filter-aside-banner sticky">
+                            <a target="_blank" href="{{ $banner->link }}">
+                                @if($banner->type == 'image')
+                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}"
+                                         alt="bunner">
+                                @else
+                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                                           muted></video>
+                                @endif
+                            </a>
+                        </div>
+                    </aside>
+                @endif
             </div>
         </div>
     </section>
@@ -707,14 +732,18 @@
                 </ul>
 
                 <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black"
+                         src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue"
+                         src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
                 <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black"
+                         src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue"
+                         src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
 
                 <div class="main_articles--mobile">
