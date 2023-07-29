@@ -457,7 +457,8 @@
                 @endempty
                 <div class="cpapage_main-to-show_filter">
                     <div class="cpapage_main-to-show_filter_top">
-                        <p class="cpapage_main-to-show_filter-text">Filters@if(false)
+                        <p class="cpapage_main-to-show_filter-text">Filters
+                            @if(false)
                                 <span>32</span>
                             @endif</p>
                         <button type="button" class="btn-rectangle btn--filter">
