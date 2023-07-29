@@ -2976,6 +2976,15 @@ img {
     flex-direction: column;
     align-items: center;
     gap: 50px;
+}
+
+.filter-aside--sticky {
+    max-width: 442px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
     position: sticky;
     top: 80px;
 }
