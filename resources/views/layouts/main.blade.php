@@ -1,14 +1,6 @@
 @php
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
-//	$lang =	\Illuminate\Support\Facades\App::getLocale();
-//	if ($lang === 'en'){
-//      $urlEn = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
-//	  $urlPt = $_SERVER['APP_URL'] . '/pt' . $_SERVER['REQUEST_URI'];
-//	} else {
-//		$urlEn = $_SERVER['APP_URL'] . substr($_SERVER['REQUEST_URI'], 3);
-//		$urlPt = $_SERVER['APP_URL'] . $_SERVER['REQUEST_URI'];
-//	}
 @endphp
     <!doctype html>
 <html lang="en">
@@ -58,12 +50,7 @@
     @if(env('APP_ENV') !== 'local')
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     @endif
-
-
-    {{--    <link rel="alternate" href="{{ $urlEn }}" hreflang="en"/>--}}
-    {{--    <link rel="alternate" href="{{ $urlPt }}" hreflang="pt-br"/>--}}
-    <link rel="canonical" href="{{ url()->full() }}"/>
-
+    <link rel="canonical" href="{{ url()->current() }}"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('seo')
