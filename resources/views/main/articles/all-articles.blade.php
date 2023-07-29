@@ -150,7 +150,7 @@
             <div class="pagination">
                 {{ $articles->links() }}
             </div>
-            @if(!empty($seo))
+            @if(!empty($seo) && empty($_GET['page']))
                 <aside class="articles_seo-text">
                     <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
                 </aside>

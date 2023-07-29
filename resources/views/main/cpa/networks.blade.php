@@ -308,7 +308,7 @@
                     </div>
 
                 </div>
-                @if(!empty($seo))
+                @if(!empty($seo) && empty($_GET['page']))
                     <aside class="articles_seo-text">
                         <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
                     </aside>
@@ -428,7 +428,7 @@
                 } else {
                     $('.cpa__filters').html(`
                         <div class="cpapage_info-header">
-                            <h2 class="cpapage_info-title">Увы, мы ничего не нашли...</h2>
+                            <h2 class="cpapage_info-title">Alas, we didn't find anything...</h2>
                         </div>
                         `)
                 }
