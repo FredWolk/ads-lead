@@ -50,7 +50,7 @@ class TradeController extends Controller
             'content' => 'string|required'
         ]);
         $trade->update($data);
-        return redirect()->route('forum');
+        return redirect()->route('forum.board', $trade->theme, $trade->link);
     }
 
     public function deleteThread(Trade $trade)
