@@ -87,6 +87,8 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
     Route::get('/create-threads/{link}', [ForumCreateThreadsController::class, '__invoke'])->name(
         'forum.create.threads'
     )->middleware('auth');
+    Route::get('/edit-threads/{trade}', [TradeController::class, 'edit'])->name('edit.thread');
+    Route::post('/update-threads/{trade}', [TradeController::class, 'update'])->name('update.thread');
 
     Route::post('/store-threads-comment/{threads}', [TradeController::class, 'createComment'])->name(
         'store.thread.comment'

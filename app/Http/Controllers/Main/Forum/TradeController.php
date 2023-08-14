@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Trade;
 use App\Models\TradeComment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class TradeController extends Controller
@@ -24,6 +25,32 @@ class TradeController extends Controller
         $data['user_id'] = Auth::user()->getAuthIdentifier();
         Trade::updateOrCreate($data);
         return redirect()->route('forum.threads', $data['link']);
+    }
+
+    public function edit(Trade $trade)
+    {
+        $user = Auth::user();
+        $locale = App::getLocale() == 'en' ? '' : 'pt_';
+        if ($user->getAuthIdentifier() !== $trade->user_id) {
+            return redirect()->back();
+        }
+        return view('main.forum.create-threads', compact('locale', 'user', 'trade'));
+    }
+
+    public function update(Request $request, Trade $trade)
+    {
+        $user_id = Auth::id();
+        if ($trade->user_id !== $user_id) {
+            return false;
+        }
+        $data = $request->validate([
+            'title' => 'string|nullable',
+            'prefix' => 'string|nullable',
+            'tags' => 'array|nullable',
+            'content' => 'string|required'
+        ]);
+        $trade->update($data);
+        return redirect()->route('forum');
     }
 
     public function deleteThread(Trade $trade)

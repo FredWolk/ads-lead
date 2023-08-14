@@ -357,7 +357,8 @@
                                         <span>Complaint</span>
                                     </button>
                                     @if($thread->user_id === \Illuminate\Support\Facades\Auth::id())
-                                        <button class="user-main-corpage_top_right_bottom--btn">
+                                        <a href="{{ route('edit.thread', $thread->id) }}"
+                                           class="user-main-corpage_top_right_bottom--btn">
                                             <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -365,7 +366,7 @@
                                                     fill="#014EFF"/>
                                             </svg>
                                             <span>Change</span>
-                                        </button>
+                                        </a>
                                         <button data-id="{{ $thread->id }}"
                                                 class="user-main-corpage_top_right_bottom--btn author_delete">
                                             <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
@@ -482,7 +483,7 @@
                                         </svg>
                                         <span>Complaint</span>
                                     </button>
-                                    <button class="user-main-corpage_top_right_bottom--btn">
+                                    <button class="user-main-corpage_top_right_bottom--btn change__message">
                                         <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path

@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/plugins/summernote/summernote-bs4.min.css') }}">
@@ -88,10 +87,10 @@
                             <p class="user-main-corpage_top_left-name">{{ $user->name }}</p>
                         </div>
                     </div>
-                    <form action="{{ route('store.thread') }}" method="POST" class="user-main-corpage_bot_right">
+                    <form action="{{ !empty($trade) ? route('update.thread', $trade) : route('store.thread') }}"
+                          method="POST"
+                          class="user-main-corpage_bot_right">
                         @csrf
-                        <input type="hidden" value="{{ $link }}" name="theme">
-                        <input type="hidden" id="link" name="link">
                         <div class="user-main-corpage_bot_right-pagin">
                             <div class="create__flex">
                                 <div style="max-width: 300px" class="popup_main-inputs-item">
@@ -109,113 +108,137 @@
                                             <ul class="custom-select_list">
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color1 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color1"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Gambling">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Gambling' ? 'checked' : ''}} type="radio"
+                                                            data-color="color1"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Gambling">
                                                         <span class="custom-select_list-item-label-text">Gambling</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color2 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color2"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Betting">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Betting' ? 'checked' : ''}} type="radio"
+                                                            data-color="color2"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Betting">
                                                         <span class="custom-select_list-item-label-text">Betting</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color3 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color3"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Nutra">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Nutra' ? 'checked' : ''}} type="radio"
+                                                            data-color="color3"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Nutra">
                                                         <span class="custom-select_list-item-label-text">Nutra</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color4 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color4"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Sweepstakes">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Sweepstakes' ? 'checked' : ''}} type="radio"
+                                                            data-color="color4"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Sweepstakes">
                                                         <span
                                                             class="custom-select_list-item-label-text">Sweepstakes</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color5 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color5"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Ppc">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Ppc' ? 'checked' : ''}} type="radio"
+                                                            data-color="color5"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Ppc">
                                                         <span class="custom-select_list-item-label-text">Ppc</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color6 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color6"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Whitehat">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Whitehat' ? 'checked' : ''}} type="radio"
+                                                            data-color="color6"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Whitehat">
                                                         <span class="custom-select_list-item-label-text">Whitehat</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color7 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color7"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Cpi">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Cpi' ? 'checked' : ''}} type="radio"
+                                                            data-color="color7"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Cpi">
                                                         <span class="custom-select_list-item-label-text">Cpi</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color8 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color8"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Wap-Click">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Wap-Click' ? 'checked' : ''}} type="radio"
+                                                            data-color="color8"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Wap-Click">
                                                         <span
                                                             class="custom-select_list-item-label-text">Wap-Click</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color9 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color9"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Mobile content">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Mobile content' ? 'checked' : ''}} type="radio"
+                                                            data-color="color9"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Mobile content">
                                                         <span
                                                             class="custom-select_list-item-label-text">Mobile content</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color10 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color10"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="E-commerce">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'E-commerce' ? 'checked' : ''}} type="radio"
+                                                            data-color="color10"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="E-commerce">
                                                         <span
                                                             class="custom-select_list-item-label-text">E-commerce</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color11 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color11"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Travel">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Travel' ? 'checked' : ''}} type="radio"
+                                                            data-color="color11"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Travel">
                                                         <span class="custom-select_list-item-label-text">Travel</span>
                                                     </label>
                                                 </li>
                                                 <li class="custom-select_list-item">
                                                     <label class="forum--tag color12 custom-select_list-item-label">
-                                                        <input type="radio" data-color="color12"
-                                                               class="custom-radio input-hide"
-                                                               name="prefix"
-                                                               value="Utilites">
+                                                        <input
+                                                            {{ !empty($trade->prefix) && $trade->prefix === 'Utilites' ? 'checked' : ''}} type="radio"
+                                                            data-color="color12"
+                                                            class="custom-radio input-hide"
+                                                            name="prefix"
+                                                            value="Utilites">
                                                         <span class="custom-select_list-item-label-text">Utilites</span>
                                                     </label>
                                                 </li>
@@ -227,21 +250,28 @@
                                     <input style="height: 54px" id="name" placeholder="Theme" required
                                            class="input-style"
                                            type="text"
-                                           value="{{ old('title') }}"
+                                           value="{{ !empty($trade->title)? $trade->title : old('title') }}"
                                            name="title">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <select name="tags[]" multiple="multiple" class="form-control select1" id="select1">
-                                    @if(!empty(old('tags')))
+                                    @if(!empty(old('tags')) && empty($trade->tags))
                                         @foreach(old('tags') as $i)
+                                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @endforeach
+                                    @endif
+                                    @if(!empty($trade->tags))
+                                        @foreach($trade->tags as $i)
                                             <option value="{{ $i }}" selected>{{ $i }}</option>
                                         @endforeach
                                     @endif
                                 </select>
                             </div>
                             <textarea class="summernote" name="content" id="" cols="30"
-                                      rows="10">{{ old('content') }}</textarea>
+                                      rows="10">{{ old('content') }}
+                                {{ !empty($trade->content) ? $trade->content : '' }}
+                            </textarea>
                         </div>
                         <button style="max-width: 161px; height: 40px;" class="btn--blue header_buttons-blue-btn">
                             <span>Save</span>
@@ -261,6 +291,10 @@
     <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
     <script>
+        var prefix = $('input[name="prefix"]:checked');
+        if (prefix.length > 0) {
+            console.log(prefix)
+        }
         $('input[name="prefix"]').on('input', function () {
             let value = $(this).val(),
                 color = $(this).attr('data-color')
