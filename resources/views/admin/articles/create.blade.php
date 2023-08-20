@@ -474,27 +474,29 @@
             </div>
         </section>
     </div>
+
 @endsection
 
 @section('scripts')
     <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
-
     <script>
         $(function () {
-            $('.summernote').summernote({
-                height: 300,
-                maxHeight: 500,
-                toolbar: [
-                    ['insert', ['picture', 'link', 'video', 'table', 'hr']],
-                    ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-                    ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
-                    ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
-                ],
-                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
-                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
-            });
+            CKEDITOR.replace('summernote');
+            CKEDITOR.replace('summernote2');
+            // $('.summernote').summernote({
+            //     height: 300,
+            //     maxHeight: 500,
+            //     toolbar: [
+            //         ['insert', ['picture', 'link', 'video', 'table', 'hr']],
+            //         ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+            //         ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
+            //         ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
+            //     ],
+            //     fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+            //     fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            // });
             $('.select2').select2()
             $('#select1').select2({
                 tags: true,

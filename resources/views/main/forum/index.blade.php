@@ -588,7 +588,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                @if(!empty($themes['push-and-other-advertising-networks']['last_topik']))
+                                @if(!empty($themes['theme-and-other-advertising-networks']['last_topik']))
                                     <div class="forum_main_cards_list--item_right">
                                         <div class="forum_main_links-group-item_main-last-avatar">
                                             @empty($themes['push-and-other-advertising-networks']['last_topik']['author']['photo'])
@@ -922,7 +922,7 @@
                                                 @if(!empty($themes['cloaking-and-trackers']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['cloaking-and-trackers']['last_topik']['prefix']] }}">{{ $themes['cloaking-and-trackers']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['cloaking-and-trackers']['last_topik']['title'], theme['cloaking-and-trackers']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['cloaking-and-trackers']['last_topik']['title'], $themes['cloaking-and-trackers']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['cloaking-and-trackers']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['cloaking-and-trackers']['last_topik']['created_at'])) }}

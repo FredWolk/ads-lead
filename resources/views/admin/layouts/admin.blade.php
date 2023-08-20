@@ -209,6 +209,7 @@
 <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <script src="{{ asset('assets/admin/js/adminlte.min.js') }}"></script>
 @yield('scripts')
