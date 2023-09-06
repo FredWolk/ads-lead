@@ -684,15 +684,13 @@
                                              alt="bunner">
                                     @else
                                         <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay
-                                               loop
-                                               muted></video>
+                                               loop muted></video>
                                     @endif
                                 </a>
                             </div>
                         </div>
                     @endif
                 </aside>
-
             </div>
         </div>
     </section>
