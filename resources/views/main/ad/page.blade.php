@@ -676,22 +676,23 @@
                             </div>
                         </div>
                     </div>
-                </aside>
-                @if(!empty($banner))
-                    <aside class="filter-aside--sticky">
-                        <div class="filter-aside-banner sticky">
-                            <a target="_blank" href="{{ $banner->link }}">
-                                @if($banner->type == 'image')
-                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}"
-                                         alt="bunner">
-                                @else
-                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
-                                           muted></video>
-                                @endif
-                            </a>
+                    @if(!empty($banner))
+                        <div class="filter-aside--sticky">
+                            <div class="filter-aside-banner sticky">
+                                <a target="_blank" href="{{ $banner->link }}">
+                                    @if($banner->type == 'image')
+                                        <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}"
+                                             alt="bunner">
+                                    @else
+                                        <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                                               muted></video>
+                                    @endif
+                                </a>
+                            </div>
                         </div>
-                    </aside>
-                @endif
+                    @endif
+                </aside>
+
             </div>
         </div>
     </section>

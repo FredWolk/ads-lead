@@ -61,7 +61,8 @@
                     <div class="videopage_main-underimage">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img loading="lazy" src="{{asset('storage/'. $article['author']['photo'])}}" alt="autor">
+                                <img loading="lazy" src="{{asset('storage/'. $article['author']['photo'])}}"
+                                     alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a
                                     href="{{ route('index') }}">{{ $article['author']['name'] }}</a></p>
@@ -109,7 +110,8 @@
                     <div class="videopage_main-underimage change">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img loading="lazy" src="{{asset('storage/'. $article['author']['photo'])}}" alt="autor">
+                                <img loading="lazy" src="{{asset('storage/'. $article['author']['photo'])}}"
+                                     alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a
                                     href="{{ route('index') }}">{{ $article['author']['name'] }}</a></p>
@@ -129,16 +131,20 @@
                             <p class="articlepage__links-item-title">{{ __('messages.subscribe') }}</p>
                             <ul class="articlepage__links-item_list">
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=' : 'https://instagram.com/affjournal_br?igshid=YmMyMTA2M2Y=' }}">instagram</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank"
+                                       href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://instagram.com/affjournal?igshid=YmMyMTA2M2Y=' : 'https://instagram.com/affjournal_br?igshid=YmMyMTA2M2Y=' }}">instagram</a>
                                 </li>
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://t.me/affjournal_eng' : 'https://t.me/affiliatejournal' }}">telegram</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank"
+                                       href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://t.me/affjournal_eng' : 'https://t.me/affiliatejournal' }}">telegram</a>
                                 </li>
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://www.facebook.com/profile.php?id=100089855863483' : 'https://www.facebook.com/profile.php?id=100089869573266' }}">facebook</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank"
+                                       href="{{ \Illuminate\Support\Facades\App::getLocale() === 'en' ? 'https://www.facebook.com/profile.php?id=100089855863483' : 'https://www.facebook.com/profile.php?id=100089869573266' }}">facebook</a>
                                 </li>
                                 <li class="articlepage__links-item_list-item">
-                                    <a class="articlepage__links-item_list-item--link" target="_blank" href="https://www.linkedin.com/in/affjournal-eng-b23466265/recent-activity/">linkedin</a>
+                                    <a class="articlepage__links-item_list-item--link" target="_blank"
+                                       href="https://www.linkedin.com/in/affjournal-eng-b23466265/recent-activity/">linkedin</a>
                                 </li>
                             </ul>
                         </div>
@@ -174,10 +180,12 @@
                                             <div class="articlepage--review-integration_autor">
                                                 <div class="videopage_main-underimage_autor-image">
                                                     @if(!empty($comment->author->photo))
-                                                        <img loading="lazy" src="{{ asset('storage/'. $comment->author->photo)}}"
+                                                        <img loading="lazy"
+                                                             src="{{ asset('storage/'. $comment->author->photo)}}"
                                                              alt="autor">
                                                     @else
-                                                        <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg')}}"
+                                                        <img loading="lazy"
+                                                             src="{{ asset('assets/images/card-pict.jpg')}}"
                                                              alt="autor">
                                                     @endif
                                                 </div>
@@ -203,7 +211,8 @@
                                               class="input-textarea" name="comment"></textarea>
                                     <button class="btn--blue header_buttons-blue-btn">
                                         <span>Send</span>
-                                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                                        <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                             alt="arrow">
                                     </button>
                                 </form>
                             @else
@@ -215,8 +224,8 @@
                         </div>
                     </div>
                 </article>
-                @if(!empty($banner))
-                    <aside class="filter-aside">
+                <aside class="filter-aside--sticky">
+                    @if(!empty($banner))
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
@@ -226,9 +235,8 @@
                                 @endif
                             </a>
                         </div>
-
-                    </aside>
-                @endif
+                    @endif
+                </aside>
             </div>
         </div>
     </section>
@@ -261,14 +269,18 @@
                 </ul>
 
                 <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black"
+                         src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue"
+                         src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
                 <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                    <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                    <img loading="lazy" class="arrow--btn-black"
+                         src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                          alt="arrow">
-                    <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
+                    <img loading="lazy" class="arrow--btn-blue"
+                         src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="blue">
                 </button>
 
                 <div class="main_articles--mobile">

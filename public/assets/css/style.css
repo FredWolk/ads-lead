@@ -2971,6 +2971,7 @@ img {
 /*--FILTER-ASIDE--*/
 .filter-aside {
     max-width: 442px;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -2981,10 +2982,6 @@ img {
 .filter-aside--sticky {
     max-width: 442px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
     position: sticky;
     top: 80px;
 }
