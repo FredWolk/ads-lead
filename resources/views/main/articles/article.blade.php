@@ -224,7 +224,7 @@
                         </div>
                     </div>
                 </article>
-                <aside class="filter-aside--sticky">
+                <aside style="height: 100%" class="filter-aside--sticky">
                     @if(!empty($banner))
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">

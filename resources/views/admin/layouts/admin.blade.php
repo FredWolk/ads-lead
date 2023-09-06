@@ -162,6 +162,12 @@
                                     <p>Форум</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('popup.index') }}" class="nav-link">
+                                    <i class="fab fa-wpforms nav-icon"></i>
+                                    <p>Попап</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">

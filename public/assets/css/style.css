@@ -189,7 +189,7 @@ a, button {
     max-width: 400px;
     display: flex;
     align-items: center;
-    width: 100%;
+    width: auto;
     gap: 8px;
 }
 
@@ -2971,7 +2971,6 @@ img {
 /*--FILTER-ASIDE--*/
 .filter-aside {
     max-width: 442px;
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -3153,7 +3152,6 @@ form {
 .videopage_wrapper {
     width: 100%;
     display: flex;
-    align-items: start;
     gap: 22px;
 }
 

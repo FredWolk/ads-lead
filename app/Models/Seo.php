@@ -15,7 +15,8 @@ class Seo extends Model
         VIDEOS_PAGE = 'videos',
         EVENTS_PAGE = 'events',
         FORUM_PAGE = 'forum',
-        TOOLS_PAGE = 'tools';
+        TOOLS_PAGE = 'tools',
+        CASES_PAGE = 'cases';
 
     use HasFactory;
     use SoftDeletes;

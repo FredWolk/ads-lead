@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\Banners\BannerAsideController;
 use App\Http\Controllers\Admin\Banners\BannerButtonController;
 use App\Http\Controllers\Admin\Banners\BannerForumAsideController;
+use App\Http\Controllers\Admin\Banners\BannerPopupController;
 use App\Http\Controllers\Admin\Banners\BannerTopController;
 use App\Http\Controllers\Admin\CpaController;
 use App\Http\Controllers\Admin\EventController;
@@ -138,6 +139,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('event', EventController::class);
     Route::resource('video', \App\Http\Controllers\Admin\VideoController::class);
     Route::resource('button', BannerButtonController::class);
+    Route::resource('popup', BannerPopupController::class);
     Route::resource('top', BannerTopController::class);
     Route::resource('aside', BannerAsideController::class);
     Route::resource('forum', BannerForumAsideController::class);

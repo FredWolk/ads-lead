@@ -82,11 +82,6 @@
                                 <a class="header_nav--link" href="{{ route('video') }}">{{ __('messages.video') }}</a>
                             </li>
                         @endif
-                        @if(!empty($_GET['admin']) && $_GET['admin'] == 'login')
-                            <li class="header_nav_list_item">
-                                <a class="header_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
-                            </li>
-                        @endif
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                         </li>
@@ -98,6 +93,9 @@
                         </li>
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('forum') }}">{{ __('messages.forum') }}</a>
+                        </li>
+                        <li class="header_nav_list_item">
+                            <a class="header_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
                         </li>
                     </ul>
                 </nav>

@@ -12,7 +12,7 @@ class KnowladgeBaseController extends Controller
     public function __invoke()
     {
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
-        $seo = Seo::where('page', Seo::ARTICLES_PAGE)->first();
+        $seo = Seo::where('page', Seo::CASES_PAGE)->first();
         if (!empty($seo)) {
             $seo->toArray();
         }

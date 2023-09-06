@@ -45,6 +45,7 @@
                                     <option {{ old('page') === Seo::VIDEOS_PAGE ? 'selected' : ''}} value="{{ Seo::VIDEOS_PAGE }}">Видео</option>
                                     <option {{ old('page') === Seo::EVENTS_PAGE ? 'selected' : ''}} value="{{ Seo::EVENTS_PAGE }}">События</option>
                                     <option {{ old('page') === Seo::FORUM_PAGE ? 'selected' : ''}} value="{{ Seo::FORUM_PAGE }}">Форум</option>
+                                    <option {{ old('page') === Seo::CASES_PAGE ? 'selected' : ''}} value="{{ Seo::CASES_PAGE }}">Кейсы</option>
                                 </select>
                             </div>
 
