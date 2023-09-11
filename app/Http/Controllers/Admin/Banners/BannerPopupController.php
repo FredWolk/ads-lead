@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin\Banners;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Banners\Top\StoreBannerTopRequest;
-use App\Http\Requests\Banners\Top\UpdateBannerTopRequest;
-use App\Models\BannerTop;
+use App\Http\Requests\Banners\Popup\StoreBannerPopupRequest;
+use App\Http\Requests\Banners\Popup\UpdateBannerPopupRequest;
 use App\Models\Popup;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,79 +30,71 @@ class BannerPopupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\Banners\Top\StoreBannerTopRequest $request
+     * @param \App\Http\Requests\Banners\Popup\StoreBannerPopupRequest $request
      */
-    public function store(StoreBannerTopRequest $request)
+    public function store(StoreBannerPopupRequest $request)
     {
         $data = $request->validated();
-        if (!empty($data['file']))
-            $data['file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['file']);
-        if (!empty($data['mobile_file']))
-            $data['mobile_file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['mobile_file']);
+        if (!empty($data['logo']))
+            $data['logo'] = Storage::disk('public')->put('/admin/files/popup', $data['logo']);
 
-        $banner = BannerTop::firstOrCreate($data);
+        $banner = Popup::firstOrCreate($data);
 
         if ($banner) {
-            return redirect()->route('top.show', $banner->id);
+            return redirect()->route('popup.show', $banner->id);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\BannerTop $top
+     * @param \App\Models\Popup $popup
      */
-    public function show(BannerTop $top)
+    public function show(Popup $popup)
     {
-        return view('admin.banners.top.show', compact('top'));
+        return view('admin.banners.popup.show', compact('popup'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\BannerTop $top
+     * @param \App\Models\Popup $popup
      */
-    public function edit(BannerTop $top)
+    public function edit(Popup $popup)
     {
-        return view('admin.banners.top.edit', compact('top'));
+        return view('admin.banners.popup.edit', compact('popup'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\Banners\Top\UpdateBannerTopRequest $request
-     * @param \App\Models\BannerTop $top
+     * @param \App\Http\Requests\Banners\Popup\UpdateBannerPopupRequest $request
+     * @param \App\Models\Popup $popup
      */
-    public function update(UpdateBannerTopRequest $request, BannerTop $top)
+    public function update(UpdateBannerPopupRequest $request, Popup $popup)
     {
         $data = $request->validated();
 
-        if (!empty($data['file'])) {
-            if (!empty($top->file))
-                Storage::disk('public')->delete($top->file);
-            $data['file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['file']);
-        }
-        if (!empty($data['mobile_file'])) {
-            if (!empty($top->mobile_file))
-                Storage::disk('public')->delete($top->mobile_file);
-            $data['mobile_file'] = Storage::disk('public')->put('/admin/files/banner_top', $data['mobile_file']);
+        if (!empty($data['logo'])) {
+            if (!empty($popup->logo))
+                Storage::disk('public')->delete($popup->logo);
+            $data['logo'] = Storage::disk('public')->put('/admin/files/popup', $data['logo']);
         }
 
-        if ($top->update($data)) {
-            return redirect()->route('top.show', $top->id);
+        if ($popup->update($data)) {
+            return redirect()->route('popup.show', $popup->id);
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\BannerTop $top
+     * @param \App\Models\Popup $popup
      */
-    public function destroy(BannerTop $top)
+    public function destroy(Popup $popup)
     {
-        Storage::disk('public')->delete($top->file);
-        Storage::disk('public')->delete($top->mobile_file);
-        $top->delete();
-        return redirect()->route('top.index');
+        Storage::disk('public')->delete($popup->popup);
+        $popup->delete();
+        return redirect()->route('popup.index');
     }
 }

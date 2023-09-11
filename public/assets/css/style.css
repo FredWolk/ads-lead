@@ -2969,6 +2969,7 @@ img {
 /*--CPA--*/
 
 /*--FILTER-ASIDE--*/
+
 .filter-aside {
     max-width: 442px;
     width: 100%;
@@ -6981,3 +6982,138 @@ form {
 
 /*--RATING--*/
 
+/*--POPUP BANNER--*/
+.banner_popup {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    bottom: 100px;
+    max-width: 570px;
+    max-height: 320px;
+}
+
+.banner_popup-body {
+    padding: 30px;
+    box-shadow: 7px 7px 0px 0px #000
+}
+
+.popup_body-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.popup_header-logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.pupup_header-title {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    max-width: 380px;
+    font-family: Montserrat;
+    text-transform: uppercase;
+}
+
+.popup_body-text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin-bottom: 20px;
+}
+
+.popup_footer {
+    display: flex;
+    gap: 23px;
+    align-items: center;
+}
+
+.popup_arrow {
+}
+
+.banner_popup-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.popup_button {
+    cursor: pointer;
+    padding: 14px 20px;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 22.4px */
+    transition-duration: 0.5s;
+}
+
+.popup_button:hover {
+    filter: invert();
+}
+
+@media screen and (max-width: 600px) {
+    .banner_popup {
+        left: 50%;
+        top: 50%;
+        max-width: 345px;
+        height: 100%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    .banner_popup-body {
+        padding: 20px;
+    }
+
+    .popup_body-header {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .popup_header-logo img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .pupup_header-title {
+        font-size: 20px;
+        max-width: 215px;
+    }
+
+    .popup_body-text {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .popup_footer {
+        display: flex;
+        gap: 23px;
+        align-items: center;
+    }
+
+    .popup_arrow {
+        display: none;
+    }
+
+    .banner_popup-close {
+        top: 10px;
+        right: 10px;
+    }
+
+    .popup_button {
+        width: 100%;
+    }
+}
+
+/*--POPUP BANNER--*/

@@ -21,6 +21,8 @@ return new class extends Migration {
             $table->string('button_link');
             $table->string('color_back');
             $table->string('color_text');
+            $table->string('popup_color_back');
+            $table->string('popup_color_text');
             $table->timestamps();
         });
     }

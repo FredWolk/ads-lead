@@ -32,7 +32,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form method="post" action="{{ route('button.store') }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('popup.store') }}">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -108,6 +108,34 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
+                            <div class="form-group">
+                                <label for="popup_color_back">Цвет фона попапа</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input name="popup_color_back" type="color" class="form-control"
+                                               value="{{ old('popup_color_back') }}" id="popup_color_back"
+                                               placeholder="#ffffff">
+                                    </div>
+                                </div>
+                            </div>
+                            @error('popup_color_back')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="popup_color_text">Цвет текста попапа</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input name="popup_color_text" type="color" class="form-control"
+                                               value="{{ old('popup_color_text') }}" id="popup_color_text"
+                                               placeholder="#ffffff">
+                                    </div>
+                                </div>
+                            </div>
+                            @error('popup_color_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="card-footer">
                                 <button class="btn btn-primary">Сохранить</button>
                             </div>
@@ -121,8 +149,8 @@
 @section('scripts')
     <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script>
-        $(function () {
-            bsCustomFileInput.init();
-        });
+        // $(function () {
+        //     bsCustomFileInput.init();
+        // });
     </script>
 @endsection

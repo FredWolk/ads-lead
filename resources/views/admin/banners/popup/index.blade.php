@@ -50,45 +50,48 @@
                                     </th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        <a>
-                                            {{ $popup['title'] }}
-                                        </a>
-                                        <br>
-                                        <small>
-                                            Создано {{ date('d.m.Y', strtotime($popup['created_at'])) }}
-                                        </small>
-                                    </td>
-                                    <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm"
-                                           href="{{ route('button.show', $popup['id']) }}">
-                                            <i class="fas fa-folder">
-                                            </i>
-                                            Просмотр
-                                        </a>
-                                        <a class="btn btn-info btn-sm" href="{{ route('button.edit', $popup['id']) }}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Редактировать
-                                        </a>
-                                        <button form="delete" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Удалить
-                                        </button>
-                                        <form id="delete_{{$k}}" method="post"
-                                              action="{{route('button.destroy', $popup['id']) }}">
-                                            @method('delete')
-                                            @csrf
-                                        </form>
-                                    </td>
-                                </tr>
-                                </tbody>
+                                @if(!empty($popup))
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            <a>
+                                                {{ $popup['title'] }}
+                                            </a>
+                                            <br>
+                                            <small>
+                                                Создано {{ date('d.m.Y', strtotime($popup['created_at'])) }}
+                                            </small>
+                                        </td>
+                                        <td class="project-actions text-right">
+                                            <a class="btn btn-primary btn-sm"
+                                               href="{{ route('button.show', $popup['id']) }}">
+                                                <i class="fas fa-folder">
+                                                </i>
+                                                Просмотр
+                                            </a>
+                                            <a class="btn btn-info btn-sm"
+                                               href="{{ route('popup.edit', $popup['id']) }}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Редактировать
+                                            </a>
+                                            <button form="delete" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Удалить
+                                            </button>
+                                            <form id="delete" method="post"
+                                                  action="{{route('popup.destroy', $popup['id']) }}">
+                                                @method('delete')
+                                                @csrf
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                @endif
                             </table>
                         </div>
                     </div>

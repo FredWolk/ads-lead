@@ -21,7 +21,6 @@ class BannerButtonController extends Controller
 
     /**
      * Show the form for creating a new resource.
-
      */
     public function create()
     {
@@ -31,7 +30,7 @@ class BannerButtonController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Banners\Button\StoreBannerButtonRequest  $request
+     * @param \App\Http\Requests\Banners\Button\StoreBannerButtonRequest $request
      */
     public function store(StoreBannerButtonRequest $request)
     {
@@ -44,7 +43,7 @@ class BannerButtonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BannerButton  $button
+     * @param \App\Models\BannerButton $button
      */
     public function show(BannerButton $button)
     {
@@ -54,7 +53,7 @@ class BannerButtonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BannerButton  $button
+     * @param \App\Models\BannerButton $button
      */
     public function edit(BannerButton $button)
     {
@@ -64,8 +63,8 @@ class BannerButtonController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Banners\Button\UpdateBannerButtonRequest  $request
-     * @param  \App\Models\BannerButton  $button
+     * @param \App\Http\Requests\Banners\Button\UpdateBannerButtonRequest $request
+     * @param \App\Models\BannerButton $button
      */
     public function update(UpdateBannerButtonRequest $request, BannerButton $button)
     {
@@ -77,7 +76,7 @@ class BannerButtonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BannerButton  $button
+     * @param \App\Models\BannerButton $button
      */
     public function destroy(BannerButton $button)
     {

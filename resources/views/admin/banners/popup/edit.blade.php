@@ -32,38 +32,110 @@
                     <div class="card-header">
                         <h3 class="card-title">Заполните все поля формы</h3>
                     </div>
-                    <form method="post" action="{{ route('button.update', $button->id) }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('popup.update', $popup->id) }}">
                         @csrf
-                        @method('patch')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="text">Текст кнопки</label>
-                                <input name="text" type="text" class="form-control" value="{{ $button->text }}" id="text"
+                                <label for="title">Заголовок</label>
+                                <input name="title" type="text" class="form-control" value="{{ old('title') }}"
+                                       id="title"
                                        placeholder="Дарим бабло">
+                            </div>
+                            @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="text">Текст</label>
+                                <input name="text" type="text" class="form-control" value="{{ old('text') }}" id="text"
+                                       placeholder="Дарим бабло для вашего пикинеса">
                             </div>
                             @error('text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
                             <div class="form-group">
-                                <label for="link">Ссылка</label>
-                                <input name="link" type="url" class="form-control" value="{{ $button->link }}" id="link"
-                                       placeholder="https://google.com">
+                                <label for="button_text">Текст кнопки</label>
+                                <input name="button_text" type="text" class="form-control"
+                                       value="{{ old('button_text') }}" id="button_text"
+                                       placeholder="Дарим бабло">
                             </div>
-                            @error('link')
+                            @error('button_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
                             <div class="form-group">
-                                <label for="status">Статус страницы</label>
-                                <select name="status" id="status" class="form-control">
-                                    <option {{ $button->status == 1 ? 'selected' : '' }} value="1">Активен</option>
-                                    <option {{ $button->status == 0 ? 'selected' : '' }} value="0">Не активен</option>
-                                </select>
+                                <label for="button_link">Ссылка кнопки</label>
+                                <input name="button_link" type="url" class="form-control"
+                                       value="{{ old('button_link') }}" id="button_link"
+                                       placeholder="https://google.com">
                             </div>
-                            @error('status')
+                            @error('button_link')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
+
+                            <div class="form-group">
+                                <label for="color_text">Цвет текста кнопки</label>
+                                <input name="color_text" type="color" class="form-control"
+                                       value="{{ old('color_text') }}" id="color_text"
+                                       placeholder="#000000">
+                            </div>
+                            @error('color_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="color_back">Цвет фона кнопки</label>
+                                <input name="color_back" type="color" class="form-control"
+                                       value="{{ old('color_back') }}" id="color_back"
+                                       placeholder="#ffffff">
+                            </div>
+                            @error('color_back')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="logo">Логотип</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input value="{{ old('logo') }}" name="logo" type="file"
+                                               class="custom-file-input" id="logo">
+                                        <label class="custom-file-label" for="logo">Выберите Логотип</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('logo')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="popup_color_back">Цвет фона попапа</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input name="popup_color_back" type="color" class="form-control"
+                                               value="{{ old('popup_color_back') }}" id="popup_color_back"
+                                               placeholder="#ffffff">
+                                    </div>
+                                </div>
+                            </div>
+                            @error('popup_color_back')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="popup_color_text">Цвет текста попапа</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input name="popup_color_text" type="color" class="form-control"
+                                               value="{{ old('popup_color_text') }}" id="popup_color_text"
+                                               placeholder="#ffffff">
+                                    </div>
+                                </div>
+                            </div>
+                            @error('popup_color_text')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="card-footer">
                                 <button class="btn btn-primary">Сохранить</button>
                             </div>

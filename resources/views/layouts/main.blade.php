@@ -659,12 +659,98 @@
     </button>
 </div>
 {{-- При отправке формы добавь классы: disable для signup_wrapper_main и active для signup_wrapper_main-tnx --}}
-
+@php($popup = \App\Models\Popup::first())
+@dump($popup)
+<div style="display: none" class="banner_popup">
+    <div style="background-color: {{ $popup->popup_color_back }}" class="banner_popup-body">
+        <button type="button" style="color: {{ $popup->popup_color_text }}" class="banner_popup-close">&times;</button>
+        <div class="popup_body-header">
+            <div class="popup_header-logo">
+                <img style="border-radius: 50%"
+                     src="{{ asset('storage/'. $popup->logo) }}"
+                     alt="logo partner">
+            </div>
+            <div style="color: {{ $popup->popup_color_text }}" class="pupup_header-title">{{ $popup->title }}</div>
+        </div>
+        <div style="color: {{ $popup->popup_color_text }}" class="popup_body-text">{{ $popup->text }}</div>
+        <div class="popup_footer">
+            <div class="popup_arrow">
+                <svg width="204" height="15" viewBox="0 0 204 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M9.24253 9L5.43923 12.8033L7.56055 14.9246L14.9852 7.5L7.56055 0.0753792L5.43923 2.1967L9.24253 6L0.135925 6L0.135925 9L9.24253 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M36.2425 9L32.4392 12.8033L34.5605 14.9246L41.9852 7.5L34.5605 0.0753792L32.4392 2.1967L36.2425 6L27.1359 6L27.1359 9L36.2425 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M63.2425 9L59.4392 12.8033L61.5605 14.9246L68.9852 7.5L61.5605 0.0753792L59.4392 2.1967L63.2425 6L54.1359 6L54.1359 9L63.2425 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M90.2425 9L86.4392 12.8033L88.5605 14.9246L95.9852 7.5L88.5605 0.0753792L86.4392 2.1967L90.2425 6L81.1359 6L81.1359 9L90.2425 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M117.243 9L113.439 12.8033L115.561 14.9246L122.985 7.5L115.561 0.0753792L113.439 2.1967L117.243 6L108.136 6L108.136 9L117.243 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M144.243 9L140.439 12.8033L142.561 14.9246L149.985 7.5L142.561 0.0753792L140.439 2.1967L144.243 6L135.136 6L135.136 9L144.243 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M171.243 9L167.439 12.8033L169.561 14.9246L176.985 7.5L169.561 0.0753792L167.439 2.1967L171.243 6L162.136 6L162.136 9L171.243 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M198.243 9L194.439 12.8033L196.561 14.9246L203.985 7.5L196.561 0.0753792L194.439 2.1967L198.243 6L189.136 6L189.136 9L198.243 9Z"
+                          fill="{{ $popup->popup_color_text }}"/>
+                    <mask id="mask0_2401_22354" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-55" y="0"
+                          width="259" height="15">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M9.24253 9L5.43923 12.8033L7.56055 14.9246L14.9852 7.5L7.56055 0.0753792L5.43923 2.1967L9.24253 6L0.135925 6L0.135925 9L9.24253 9Z"
+                              fill="#272C31"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M36.2425 9L32.4392 12.8033L34.5605 14.9246L41.9852 7.5L34.5605 0.0753792L32.4392 2.1967L36.2425 6L27.1359 6L27.1359 9L36.2425 9Z"
+                              fill="#272C31"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M63.2425 9L59.4392 12.8033L61.5605 14.9246L68.9852 7.5L61.5605 0.0753792L59.4392 2.1967L63.2425 6L54.1359 6L54.1359 9L63.2425 9Z"
+                              fill="#272C31"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M90.2425 9L86.4392 12.8033L88.5605 14.9246L95.9852 7.5L88.5605 0.0753792L86.4392 2.1967L90.2425 6L81.1359 6L81.1359 9L90.2425 9Z"
+                              fill="#272C31"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M117.243 9L113.439 12.8033L115.561 14.9246L122.985 7.5L115.561 0.0753792L113.439 2.1967L117.243 6L108.136 6L108.136 9L117.243 9Z"
+                              fill="#272C31"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M144.243 9L140.439 12.8033L142.561 14.9246L149.985 7.5L142.561 0.0753792L140.439 2.1967L144.243 6L135.136 6L135.136 9L144.243 9Z"
+                              fill="#272C31"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M171.243 9L167.439 12.8033L169.561 14.9246L176.985 7.5L169.561 0.0753792L167.439 2.1967L171.243 6L162.136 6L162.136 9L171.243 9Z"
+                              fill="#272C31"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M198.243 9L194.439 12.8033L196.561 14.9246L203.985 7.5L196.561 0.0753792L194.439 2.1967L198.243 6L189.136 6L189.136 9L198.243 9Z"
+                              fill="#272C31"/>
+                    </mask>
+                    <g mask="url(#mask0_2401_22354)">
+                    </g>
+                </svg>
+            </div>
+            <a href="{{ $popup->button_link }}" target="_blank"
+               style="background-color: {{ $popup->color_back }}; color: {{ $popup->color_text }}"
+               class="popup_button">{{ $popup->button_text }}</a>
+        </div>
+    </div>
+</div>
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/cookie.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
 
 <script>
+    var cookie = $.cookie('popup');
+    if (!cookie) {
+        $('.banner_popup').fadeIn(300);
+    }
+    $('.banner_popup-close, .popup_button').on('click', function () {
+        $('.banner_popup').fadeOut(300);
+        $.cookie('popup', true)
+    })
     $('#search_form').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
