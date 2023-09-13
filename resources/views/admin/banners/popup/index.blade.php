@@ -42,11 +42,9 @@
                                     <th style="width: 20%">
                                         Название страницы
                                     </th>
-                                    <th style="width: 8%" class="text-center">
-                                        Видимость
-                                    </th>
                                     <th class="text-right" style="width: 40%">
-                                        <a href="{{ route('button.create') }}" class="btn btn-dark btn-sm">Добавить</a>
+                                        <a href="{{ route('popup.update', 1) }}"
+                                           class="btn btn-dark btn-sm">Добавить</a>
                                     </th>
                                 </tr>
                                 </thead>
@@ -66,28 +64,28 @@
                                             </small>
                                         </td>
                                         <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm"
-                                               href="{{ route('button.show', $popup['id']) }}">
-                                                <i class="fas fa-folder">
-                                                </i>
-                                                Просмотр
-                                            </a>
+                                            {{--                                            <a class="btn btn-primary btn-sm"--}}
+                                            {{--                                               href="{{ route('button.show', $popup['id']) }}">--}}
+                                            {{--                                                <i class="fas fa-folder">--}}
+                                            {{--                                                </i>--}}
+                                            {{--                                                Просмотр--}}
+                                            {{--                                            </a>--}}
                                             <a class="btn btn-info btn-sm"
                                                href="{{ route('popup.edit', $popup['id']) }}">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Редактировать
                                             </a>
-                                            <button form="delete" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Удалить
-                                            </button>
-                                            <form id="delete" method="post"
-                                                  action="{{route('popup.destroy', $popup['id']) }}">
-                                                @method('delete')
-                                                @csrf
-                                            </form>
+                                            {{--                                            <button form="delete" class="btn btn-danger btn-sm">--}}
+                                            {{--                                                <i class="fas fa-trash">--}}
+                                            {{--                                                </i>--}}
+                                            {{--                                                Удалить--}}
+                                            {{--                                            </button>--}}
+                                            {{--                                            <form id="delete" method="post"--}}
+                                            {{--                                                  action="{{route('popup.destroy', $popup['id']) }}">--}}
+                                            {{--                                                @method('delete')--}}
+                                            {{--                                                @csrf--}}
+                                            {{--                                            </form>--}}
                                         </td>
                                     </tr>
                                     </tbody>

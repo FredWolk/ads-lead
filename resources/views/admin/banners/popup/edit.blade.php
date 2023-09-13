@@ -34,10 +34,11 @@
                     </div>
                     <form method="post" enctype="multipart/form-data" action="{{ route('popup.update', $popup->id) }}">
                         @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Заголовок</label>
-                                <input name="title" type="text" class="form-control" value="{{ old('title') }}"
+                                <input name="title" type="text" class="form-control" value="{{ $popup->title }}"
                                        id="title"
                                        placeholder="Дарим бабло">
                             </div>
@@ -47,7 +48,7 @@
 
                             <div class="form-group">
                                 <label for="text">Текст</label>
-                                <input name="text" type="text" class="form-control" value="{{ old('text') }}" id="text"
+                                <input name="text" type="text" class="form-control" value="{{ $popup->text }}" id="text"
                                        placeholder="Дарим бабло для вашего пикинеса">
                             </div>
                             @error('text')
@@ -57,7 +58,7 @@
                             <div class="form-group">
                                 <label for="button_text">Текст кнопки</label>
                                 <input name="button_text" type="text" class="form-control"
-                                       value="{{ old('button_text') }}" id="button_text"
+                                       value="{{ $popup->button_text }}" id="button_text"
                                        placeholder="Дарим бабло">
                             </div>
                             @error('button_text')
@@ -67,7 +68,7 @@
                             <div class="form-group">
                                 <label for="button_link">Ссылка кнопки</label>
                                 <input name="button_link" type="url" class="form-control"
-                                       value="{{ old('button_link') }}" id="button_link"
+                                       value="{{ $popup->button_link }}" id="button_link"
                                        placeholder="https://google.com">
                             </div>
                             @error('button_link')
@@ -77,7 +78,7 @@
                             <div class="form-group">
                                 <label for="color_text">Цвет текста кнопки</label>
                                 <input name="color_text" type="color" class="form-control"
-                                       value="{{ old('color_text') }}" id="color_text"
+                                       value="{{ $popup->color_text }}" id="color_text"
                                        placeholder="#000000">
                             </div>
                             @error('color_text')
@@ -87,7 +88,7 @@
                             <div class="form-group">
                                 <label for="color_back">Цвет фона кнопки</label>
                                 <input name="color_back" type="color" class="form-control"
-                                       value="{{ old('color_back') }}" id="color_back"
+                                       value="{{ $popup->color_back }}" id="color_back"
                                        placeholder="#ffffff">
                             </div>
                             @error('color_back')
@@ -95,6 +96,7 @@
                             @enderror
 
                             <div class="form-group">
+                                <img width="150" height="150" src="{{ asset('storage/'. $popup->logo) }}" alt="">
                                 <label for="logo">Логотип</label>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -113,7 +115,7 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input name="popup_color_back" type="color" class="form-control"
-                                               value="{{ old('popup_color_back') }}" id="popup_color_back"
+                                               value="{{ $popup->popup_color_back }}" id="popup_color_back"
                                                placeholder="#ffffff">
                                     </div>
                                 </div>
@@ -127,7 +129,7 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input name="popup_color_text" type="color" class="form-control"
-                                               value="{{ old('popup_color_text') }}" id="popup_color_text"
+                                               value="{{ $popup->popup_color_text }}" id="popup_color_text"
                                                placeholder="#ffffff">
                                     </div>
                                 </div>
