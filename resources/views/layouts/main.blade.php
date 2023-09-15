@@ -266,7 +266,7 @@
                 <address class="footer_contacts-address">
                     <p class="footer_contacts-address-text">143 CECIL STREET, 17 - 04 GB BUILDING 069542 SINGAPORE</p>
                     <a class="footer_contacts-address-text"
-                       href="mailto:affjournal.media@gmail.com">affjournal.media@gmail.com</a>
+                       href="mailto:media@affjournal.com">media@affjournal.com</a>
                     <a class="footer_contacts-address-text" target="_blank"
                        href="{{ route('index') }}">{{ __('messages.policy') }}</a>
                 </address>
@@ -356,7 +356,7 @@
                         </label>
                     </div>
                 </div>
-                <button style="max-width: 100%" class="btn--blue header_buttons-blue-btn">
+                <button style="max-width: 100%" class="btn--blue header_buttons-blue-btn">affjournal
                     <span>Send</span>
                     <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
                 </button>
@@ -369,7 +369,7 @@
 </div>
 <div class="signup_wrapper">
     <div class="signup_wrapper_main">
-        <p class="signup_wrapper_main-title">sign up <br> in affjourmal</p>
+        <p class="signup_wrapper_main-title">sign up <br> in AffJournal</p>
         <form style="max-width: 300px" method="post" action="{{ route('register') }}">
             @csrf
             <div class="popup_main-inputs">
