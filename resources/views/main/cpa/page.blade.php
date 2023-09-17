@@ -2,6 +2,14 @@
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
 @endsection
+@section('seo')
+    <title>{{ $cpa["{$locale}title"] }}</title>
+    <meta name="description" content="{{ $cpa["{$locale}description"] }}">
+    <meta name="keywords" content="{{ $cpa["{$locale}keywords"] }}"/>
+    <meta property="og:title" content="{{ $cpa["{$locale}og_title"] }}"/>
+    <meta property="og:description" content="{{ $cpa["{$locale}og_description"] }}"/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+@endsection
 @section('content')
     <section class="breadcrambs top">
         <div class="container">
