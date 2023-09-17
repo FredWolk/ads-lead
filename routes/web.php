@@ -142,6 +142,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('popup', BannerPopupController::class);
     Route::resource('top', BannerTopController::class);
     Route::resource('aside', BannerAsideController::class);
+    Route::get('users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users.index');
     Route::resource('forum', BannerForumAsideController::class);
     Route::group(['prefix' => 'comments', 'namespace' => 'comments'], function () {
         Route::group(['prefix' => 'article'], function () {
