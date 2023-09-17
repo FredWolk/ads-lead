@@ -12,7 +12,6 @@
     width: 100% !important;
 }
 
-
 .main__article a, .main__article a * {
     font-family: 'Montserrat' !important;
     font-style: normal !important;
@@ -75,4 +74,9 @@
 .main__article img {
     width: 100% !important;
     height: 100% !important;
+}
+
+.main__article {
+    max-width: inherit;
+!important;
 }
