@@ -10,6 +10,8 @@
     line-height: 160% !important;
     color: #272C31 !important;
     width: 100% !important;
+    white-space: break-spaces !important;
+    margin-left: 0 !important;
 }
 
 .main__article a, .main__article a * {
@@ -76,6 +78,6 @@
     height: 100% !important;
 }
 
-.main__article, .main__article * {
+.main__article {
     max-width: inherit !important;
 }

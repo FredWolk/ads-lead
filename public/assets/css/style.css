@@ -7117,3 +7117,30 @@ form {
 }
 
 /*--POPUP BANNER--*/
+
+/*-- Hashtags --*/
+.filters__urls {
+    margin-top: 50px;
+}
+
+.filters__urls-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filters__urls-item {
+}
+
+.filters__urls-link {
+    color: #014EFF;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: lowercase;
+}
+
+/*-- Hashtags --*/

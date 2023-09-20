@@ -177,6 +177,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
             )->name('comments.adv.delete');
         });
     });
+    Route::group(['prefix' => 'seo-filters'], function () {
+        Route::resource('ads-seo-filter', \App\Http\Controllers\AdSeoFilterController::class);
+        Route::resource('cpa-seo-filter', \App\Http\Controllers\CpaSeoFilterController::class);
+    });
 });
 
 Route::group(['prefix' => 'filters'], function () {

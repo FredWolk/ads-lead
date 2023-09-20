@@ -58,6 +58,29 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-window-maximize"></i>
+                            <p>
+                                СЕО фильтрации
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="{{ route('cpa-seo-filter.index') }}" class="nav-link">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>CPA</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('ads-seo-filter.index') }}" class="nav-link">
+                                    <i class="fas fa-hands-helping nav-icon"></i>
+                                    <p>ADS</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('topick.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-filter"></i>
                             <p>
