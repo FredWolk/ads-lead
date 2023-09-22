@@ -170,7 +170,7 @@ a, button {
 
 .header_nav_list {
     display: flex;
-    gap: 40px;
+    gap: 25px;
 }
 
 .header_nav--link {
