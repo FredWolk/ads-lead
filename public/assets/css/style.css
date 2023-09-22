@@ -189,7 +189,7 @@ a, button {
     max-width: 335px;
     display: flex;
     align-items: center;
-    width: auto;
+    width: 100%;
     gap: 8px;
 }
 
