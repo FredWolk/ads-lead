@@ -50,17 +50,15 @@ Route::get('/', [IndexController::class, '__invoke'])->name('index');
 Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
     Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
     Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
+    Route::get('/filter/{catalog}', [\App\Http\Controllers\Main\Cpa\FilterSeoController::class, '__invoke'])->name('cpa.seo.catalog');
     Route::get('/{catalog}/{link}', [PageController::class, '__invoke'])->name('cpa.page');
     Route::post('/send-comment', [SendCommentController::class, 'cpaComment'])->name('cpa.comment');
 });
 Route::group(['namespace' => 'ad', 'prefix' => 'ad-networks'], function () {
     Route::get('/', [\App\Http\Controllers\Main\Ad\NetworksController::class, '__invoke'])->name('ad');
-    Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name(
-        'ad.catalog'
-    );
-    Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name(
-        'ad.page'
-    );
+    Route::get('/{catalog}', [\App\Http\Controllers\Main\Ad\CatalogController::class, '__invoke'])->name('ad.catalog');
+    Route::get('/filter/{catalog}', [\App\Http\Controllers\Main\Ad\FilterSeoController::class, '__invoke'])->name('ad.seo.catalog');
+    Route::get('/{catalog}/{page}', [\App\Http\Controllers\Main\Ad\PageController::class, '__invoke'])->name('ad.page');
     Route::post('/send-comment', [SendCommentController::class, 'adComment'])->name('ad.comment');
 });
 Route::group(['namespace' => 'services', 'prefix' => 'services'], function () {

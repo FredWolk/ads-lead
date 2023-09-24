@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main\Ad;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ad;
+use App\Models\AdSeoFilter;
 use App\Models\BannerAside;
 use App\Models\Filters;
 use Illuminate\Http\Request;
@@ -16,11 +17,12 @@ class CatalogController extends Controller
         $ad = Ad::where('main_advertising_formats', $catalog)->paginate(5);
         if ($ad->count() === 0)
             return redirect()->route('cpa');
+        $seo_filters = AdSeoFilter::all();
         $banner = BannerAside::where('show', 'ad')->where('status', 1)->first();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $filters = Filters::select('advertising_formats', 'countries', 'payment_systems', 'minimum_top_up_amount')->first()->toArray();
 
-        return view('main.ad.catalog', compact('ad', 'catalog', 'banner', 'locale', 'filters'));
+        return view('main.ad.catalog', compact('ad', 'catalog', 'banner', 'locale', 'filters', 'seo_filters'));
     }
 
     public function filter(Request $request, $catalog)

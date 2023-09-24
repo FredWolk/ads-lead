@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main\Cpa;
 use App\Http\Controllers\Controller;
 use App\Models\BannerAside;
 use App\Models\Cpa;
+use App\Models\CpaSeoFilter;
 use App\Models\Filters;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -16,11 +17,12 @@ class CatalogController extends Controller
         $cpa = Cpa::where('main_verticales', $catalog)->paginate(5);
         if ($cpa->count() === 0)
             return redirect()->route('cpa');
+        $seo_filters = CpaSeoFilter::all();
         $banner = BannerAside::where('show', 'cpa')->where('status', 1)->first();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $filters = Filters::select('vertical', 'countries', 'payment_models', 'payment_schedule', 'payment_systems')->first()->toArray();
 
-        return view('main.cpa.catalog', compact('cpa', 'catalog', 'banner', 'locale', 'filters'));
+        return view('main.cpa.catalog', compact('cpa', 'catalog', 'banner', 'locale', 'filters', 'seo_filters'));
     }
 
 

@@ -135,16 +135,16 @@
                             <div class="pagination">
                                 {{ $ad->links() }}
                             </div>
-                            <nav class="filters__urls">
-                                <ul class="filters__urls-list">
-                                    @foreach($seo_filters as $seo_item)
-                                        <li class="filters__urls-item">
-                                            <a class="filters__urls-link"
-                                               href="{{ route('ad.seo.catalog',$seo_item->filter_name) }}">#{{ $seo_item->filter_name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </nav>
+                            {{--                            <nav class="filters__urls">--}}
+                            {{--                                <ul class="filters__urls-list">--}}
+                            {{--                                    @foreach($seo_filters as $seo_item)--}}
+                            {{--                                        <li class="filters__urls-item">--}}
+                            {{--                                            <a class="filters__urls-link"--}}
+                            {{--                                               href="{{ route('ad.seo.catalog',$seo_item->filter_name) }}">#{{ $seo_item->filter_name }}</a>--}}
+                            {{--                                        </li>--}}
+                            {{--                                    @endforeach--}}
+                            {{--                                </ul>--}}
+                            {{--                            </nav>--}}
                         </ul>
                     </div>
                 </div>

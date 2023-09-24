@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main\Ad;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ad;
+use App\Models\AdSeoFilter;
 use App\Models\BannerAside;
 use App\Models\Filters;
 use App\Models\Seo;
@@ -16,6 +17,7 @@ class NetworksController extends Controller
     {
         $seo = Seo::where('page', Seo::ADS_PAGE)->first();
         $filters = Filters::select('advertising_formats', 'countries', 'payment_systems', 'minimum_top_up_amount')->first()->toArray();
+        $seo_filters = AdSeoFilter::all();
         $banner = BannerAside::where('show', 'ad')->where('status', 1)->first();
         $recomended = Ad::all()->where('is_recomendated', 1)->take(2);
         $ad = Ad::orderBy('main_advertising_formats')->paginate(5);
@@ -26,13 +28,15 @@ class NetworksController extends Controller
             'banner',
             'recomended',
             'ad',
-            'locale'
+            'locale',
+            'seo_filters'
         ));
     }
+
     public function filter(Request $request)
     {
 
-        if (!empty($request->query())){
+        if (!empty($request->query())) {
             $ad = Ad::whereJsonContains('advertising_formats', $request->query('advertising_formats'))
                 ->orWhereJsonContains('countries', $request->query('countries'))
                 ->orWhereJsonContains('payment_systems', $request->query('payment_systems'))

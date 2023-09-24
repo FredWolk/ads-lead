@@ -305,13 +305,16 @@
                         <div style="margin-top: 20px">
                             {{ $cpa->links() }}
                         </div>
-                        {{--                        <nav class="filters__urls">--}}
-                        {{--                            <ul class="filters__urls-list">--}}
-                        {{--                                <li class="filters__urls-item">--}}
-                        {{--                                    <a class="filters__urls-link" href="#">#betting</a>--}}
-                        {{--                                </li>--}}
-                        {{--                            </ul>--}}
-                        {{--                        </nav>--}}
+                        <nav class="filters__urls">
+                            <ul class="filters__urls-list">
+                                @foreach($seo_filters as $seo_item)
+                                    <li class="filters__urls-item">
+                                        <a class="filters__urls-link"
+                                           href="{{ route('cpa.seo.catalog', $seo_item->filter_name) }}">#{{ $seo_item->filter_name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </nav>
                     </div>
 
                 </div>

@@ -8,7 +8,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
+                    <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
                     {{ $catalog }}
@@ -17,12 +17,13 @@
         </div>
     </section>
 
-    <section class="ad-net-page cpapage cpa-catalog-page">
+    <section class="cpapage cpa-catalog-page">
         <div class="container">
             <section class="cpapage_main">
                 <div class="cpapage_main-to-hide" style="margin-block: 25px">
                     <h1 class="title">{{ $catalog }}</h1>
                     {{--                <p style="margin-bottom: 20px" class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>--}}
+
                     @if(false)
                         <ul class="cpapage_main-to-show_filter__tags visible">
                             <button type="button" class="cpapage_main-to-show_filter__tags--reset">
@@ -42,8 +43,8 @@
                 </div>
                 <div class="cpapage_info-wrapper">
                     <div class="cpapage_info--block">
-                        <ul class="cpapage_info-list ad__filters">
-                            @foreach($ad as $k => $i)
+                        <ul class="cpapage_info-list">
+                            @foreach($cpa as $k => $i)
                                 <li class="cpapage_info--item">
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
@@ -52,8 +53,8 @@
                                                      alt="logo">
                                             </div>
                                             <ul class="cpapage_info--item_main_top-list">
-                                                @if(!empty($i['advertising_formats']))
-                                                    @foreach($i['advertising_formats'] as $tag)
+                                                @if(!empty($i['verticales']))
+                                                    @foreach($i['verticales'] as $tag)
                                                         <li class="article--card_info_tags-list-item mobhide">
                                                             <p class="article--card_info_tags-list-item--link">
                                                                 #{{ $tag }}</p>
@@ -67,60 +68,13 @@
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
                                         <a class="btn--blue header_buttons-blue-btn"
-                                           href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
+                                           href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
                                             <span>{{ __('messages.review') }}</span>
                                             <img loading="lazy"
                                                  src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
-                                        <div class="promocode--btn-wrapper">
-                                            <button type="button" class="btn--grey-with-icons promocode promocode--btn"
-                                                    style="
-                                        font-family: 'Jost';
-                                        font-style: normal;
-                                        font-weight: 500;
-                                        font-size: 14px;
-                                        line-height: 160%;
-                                        text-transform: uppercase;
-                                        ">
-                                                {{ __('messages.promocode') }}
-                                                <svg class="svg1" width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                          d="M7.24637 0.33398C6.84877 -0.111327 6.1521 -0.111326 5.7545 0.333981L5.09449 1.07319C4.87111 1.32337 4.53718 1.44491 4.20524 1.39685L3.22449 1.25483C2.63367 1.16928 2.09999 1.61709 2.08165 2.21378L2.05121 3.2043C2.0409 3.53954 1.86322 3.84729 1.57805 4.02383L0.735463 4.54545C0.227879 4.85969 0.106904 5.54577 0.476403 6.01466L1.08977 6.79301C1.29736 7.05644 1.35907 7.4064 1.2541 7.72494L0.94393 8.66613C0.757082 9.23312 1.10542 9.83645 1.68986 9.95813L2.66004 10.1601C2.9884 10.2285 3.26062 10.4569 3.38496 10.7684L3.75235 11.6888C3.97366 12.2432 4.62832 12.4815 5.15424 12.199L6.02728 11.7301C6.32276 11.5714 6.67811 11.5714 6.97359 11.7301L7.84663 12.199C8.37255 12.4815 9.02721 12.2432 9.24852 11.6888L9.61591 10.7684C9.74025 10.4569 10.0125 10.2285 10.3408 10.1601L11.311 9.95813C11.8955 9.83645 12.2438 9.23312 12.0569 8.66614L11.7468 7.72494C11.6418 7.4064 11.7035 7.05644 11.9111 6.793L12.5245 6.01466C12.894 5.54577 12.773 4.85969 12.2654 4.54545L11.4228 4.02383C11.1376 3.84729 10.96 3.53954 10.9497 3.2043L10.9192 2.21378C10.9009 1.61709 10.3672 1.16928 9.77638 1.25483L8.79563 1.39685C8.46369 1.44491 8.12977 1.32337 7.90638 1.07319L7.24637 0.33398ZM5.62575 3.51082L5.92266 7.08175H7.13437L7.4393 3.51082H5.62575ZM5.87452 8.95147C6.04571 9.11731 6.26504 9.20023 6.53253 9.20023C6.80001 9.20023 7.01668 9.11731 7.18252 8.95147C7.35371 8.78563 7.4393 8.58769 7.4393 8.35765C7.4393 8.12227 7.35371 7.927 7.18252 7.77186C7.01668 7.61137 6.80001 7.53112 6.53253 7.53112C6.26504 7.53112 6.04571 7.61137 5.87452 7.77186C5.70332 7.927 5.61773 8.12227 5.61773 8.35765C5.61773 8.58769 5.70332 8.78563 5.87452 8.95147Z"
-                                                          fill="#181A1C"/>
-                                                </svg>
-
-                                                <svg class="svg2" width="13" height="12" viewBox="0 0 13 12" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M12.0417 1.5745L10.9255 0.458252L6.50004 4.88367L2.07462 0.458252L0.958374 1.5745L5.38379 5.99992L0.958374 10.4253L2.07462 11.5416L6.50004 7.11617L10.9255 11.5416L12.0417 10.4253L7.61629 5.99992L12.0417 1.5745Z"
-                                                        fill="white"/>
-                                                </svg>
-                                            </button>
-                                            <div class="promocode--body">
-                                                <div class="promocode--body_top">
-                                                    <p class="promocode--body_top-text">{{ $i['promocode'] }}</p>
-                                                    <button type="button" class="promocode--body_top--btn">
-                                                        <svg width="16" height="19" viewBox="0 0 16 19" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M11.6667 0.791748H2.16671C1.29587 0.791748 0.583374 1.50425 0.583374 2.37508V13.4584H2.16671V2.37508H11.6667V0.791748ZM14.0417 3.95841H5.33337C4.46254 3.95841 3.75004 4.67091 3.75004 5.54175V16.6251C3.75004 17.4959 4.46254 18.2084 5.33337 18.2084H14.0417C14.9125 18.2084 15.625 17.4959 15.625 16.6251V5.54175C15.625 4.67091 14.9125 3.95841 14.0417 3.95841ZM14.0417 16.6251H5.33337V5.54175H14.0417V16.6251Z"
-                                                                fill="white"/>
-                                                        </svg>
-                                                        <span>copy</span>
-                                                    </button>
-                                                </div>
-                                                <p class="promocode--body-text">{{ $i["{$locale}promocode_desc"] }}</p>
-                                            </div>
-                                        </div>
-                                        <a class="link--blue-sphere" href="{{ $i['url'] }}">
-                                            <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}"
-                                                 alt="sphere">
-                                            <span>Site</span>
-                                        </a>
-
-                                        <a class="btn--grey-with-icons mobile" href="{{ $i['url'] }}">
+                                        <a class="btn--grey-with-icons" target="_blank" href="{{ $i['url'] }}">
                                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -133,47 +87,63 @@
                                 </li>
                             @endforeach
                             <div class="pagination">
-                                {{ $ad->links() }}
+                                {{ $cpa->links() }}
                             </div>
-                            <nav class="filters__urls">
-                                <ul class="filters__urls-list">
-                                    @foreach($seo_filters as $seo_item)
-                                        <li class="filters__urls-item">
-                                            <a class="filters__urls-link"
-                                               href="{{ route('ad.seo.catalog',$seo_item->filter_name) }}">#{{ $seo_item->filter_name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </nav>
+                            {{--                            <nav class="filters__urls">--}}
+                            {{--                                <ul class="filters__urls-list">--}}
+                            {{--                                    @foreach($seo_filters as $seo_item)--}}
+                            {{--                                        <li class="filters__urls-item">--}}
+                            {{--                                            <a class="filters__urls-link"--}}
+                            {{--                                               href="{{ route('cpa.seo.catalog', $seo_item->filters_name) }}">#{{ $seo_item->filters_name }}</a>--}}
+                            {{--                                        </li>--}}
+                            {{--                                    @endforeach--}}
+                            {{--                                </ul>--}}
+                            {{--                            </nav>--}}
                         </ul>
                     </div>
                 </div>
 
-                {{--            <aside class="articles_seo-text">--}}
-                {{--                --}}
-                {{--                <p class="articles_seo-text--text">--}}
-                {{--                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.--}}
-                {{--                    <br>--}}
-                {{--                    <br>--}}
-                {{--                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.--}}
-                {{--                    <br>--}}
-                {{--                    <br>--}}
-                {{--                    Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.--}}
-                {{--                    <br>--}}
-                {{--                    Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit </p>--}}
+                {{--                <aside class="articles_seo-text">--}}
+                {{--                    --}}
+                {{--                    <p class="articles_seo-text--text">--}}
+                {{--                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.--}}
+                {{--                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus--}}
+                {{--                        mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa--}}
+                {{--                        quis enim.--}}
+                {{--                        <br>--}}
+                {{--                        <br>--}}
+                {{--                        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,--}}
+                {{--                        imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer--}}
+                {{--                        tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean--}}
+                {{--                        leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.--}}
+                {{--                        <br>--}}
+                {{--                        <br>--}}
+                {{--                        Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut--}}
+                {{--                        metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.--}}
+                {{--                        Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget--}}
+                {{--                        condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.--}}
+                {{--                        <br>--}}
+                {{--                        Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante--}}
+                {{--                        tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit--}}
+                {{--                    </p>--}}
                 {{--                    <button type="button" class="link--black-rotateble-arrows readmore--btn">--}}
                 {{--                        <span>read more</span>--}}
                 {{--                        <div class="link--black-rotateble-arrows-group">--}}
                 {{--                            @for ($a=0; $a<3; $a++)--}}
-                {{--                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z" fill="#272C31"/></svg>--}}
+                {{--                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"--}}
+                {{--                                     xmlns="http://www.w3.org/2000/svg">--}}
+                {{--                                    <path fill-rule="evenodd" clip-rule="evenodd"--}}
+                {{--                                          d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"--}}
+                {{--                                          fill="#272C31"/>--}}
+                {{--                                </svg>--}}
                 {{--                            @endfor--}}
                 {{--                        </div>--}}
                 {{--                    </button>--}}
-                {{--            </aside>--}}
+                {{--                </aside>--}}
             </section>
 
             <aside class="filter-aside">
-                <form class="filter__form" action="/" method="GET">
+                <form class="filter__form" method="GET">
                     <ul class="filter-aside_list">
                         @foreach($filters as $k => $i)
                             <li class="filter-aside_list-item">
@@ -224,10 +194,8 @@
             </aside>
 
             <div class="cpapage_main-to-show">
-                <h3 class="title">banners</h3>
-                {{--                <p class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo--}}
-                {{--                    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,--}}
-                {{--                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>--}}
+                <h3 class="title">{{ __('messages.cpa') }}</h3>
+                {{--            <p class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>--}}
                 <div class="cpapage_main-to-show_filter">
                     <div class="cpapage_main-to-show_filter_top">
                         <p class="cpapage_main-to-show_filter-text">Filters<span>32</span></p>
@@ -239,20 +207,28 @@
                             </div>
                         </button>
                     </div>
-                    <ul class="cpapage_main-to-show_filter__tags">
-                        <button type="button" class="cpapage_main-to-show_filter__tags--reset">
-                            <p>Remove filters</p>
-                        </button>
-                        <li class="cpapage_main-to-show_filter__tag">#sweepstakes
-                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <rect width="13" height="13" rx="6.5" fill="white"/>
-                                <path
-                                    d="M8.61978 4.80585L8.19247 4.37854L6.49837 6.07264L4.80427 4.37854L4.37695 4.80585L6.07105 6.49995L4.37695 8.19405L4.80427 8.62137L6.49837 6.92727L8.19247 8.62137L8.61978 8.19405L6.92568 6.49995L8.61978 4.80585Z"
-                                    fill="#181A1C"/>
-                            </svg>
-                        </li>
-                    </ul>
+                    @if(false)
+                        <ul class="cpapage_main-to-show_filter__tags">
+                            <button type="button" class="cpapage_main-to-show_filter__tags--reset"><p>Remove filters</p>
+                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="13" height="13" rx="6.5" fill="white"/>
+                                    <path
+                                        d="M8.61978 4.80585L8.19247 4.37854L6.49837 6.07264L4.80427 4.37854L4.37695 4.80585L6.07105 6.49995L4.37695 8.19405L4.80427 8.62137L6.49837 6.92727L8.19247 8.62137L8.61978 8.19405L6.92568 6.49995L8.61978 4.80585Z"
+                                        fill="#181A1C"/>
+                                </svg>
+                            </button>
+                            <li class="cpapage_main-to-show_filter__tag">Remove filters
+                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="13" height="13" rx="6.5" fill="white"/>
+                                    <path
+                                        d="M8.61978 4.80585L8.19247 4.37854L6.49837 6.07264L4.80427 4.37854L4.37695 4.80585L6.07105 6.49995L4.37695 8.19405L4.80427 8.62137L6.49837 6.92727L8.19247 8.62137L8.61978 8.19405L6.92568 6.49995L8.61978 4.80585Z"
+                                        fill="#181A1C"/>
+                                </svg>
+                            </li>
+                        </ul>
+                    @endif
                 </div>
             </div>
         </div>
@@ -265,7 +241,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <a href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
+                    <a href="{{ route('cpa') }}">{{ __('messages.cpa') }}</a>
                 </li>
                 <li class="breadcrambs_list-item">
                     {{ $catalog }}
@@ -279,14 +255,14 @@
         $('.filter__form').on('submit', function (e) {
             e.preventDefault();
             $.ajax({
-                url: '{{ route('ad.catalog.filter', $catalog) }}',
+                url: '{{ route('cpa.catalog.filter', $catalog) }}',
                 data: $(this).serialize(),
                 type: 'GET'
             }).done(function (rsp) {
                 if (rsp !== '') {
-                    $('.ad__filters').html(rsp);
+                    $('.cpapage_info-list').html(rsp);
                 } else {
-                    $('.ad__filters').html(`
+                    $('.cpapage_info-list').html(`
                         <div class="cpapage_info-header">
                             <h2 class="cpapage_info-title">Alas, we didn't find anything...</h2>
                         </div>

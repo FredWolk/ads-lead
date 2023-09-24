@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main\Cpa;
 use App\Http\Controllers\Controller;
 use App\Models\BannerAside;
 use App\Models\Cpa;
+use App\Models\CpaSeoFilter;
 use App\Models\Filters;
 use App\Models\Seo;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class NetworksController extends Controller
     {
         $seo = Seo::where('page', Seo::CPA_PAGE)->first();
         $filters = Filters::select('vertical', 'countries', 'payment_models', 'payment_schedule', 'payment_systems')->first()->toArray();
+        $seo_filters = CpaSeoFilter::all();
         $banner = BannerAside::where('show', 'cpa')->where('status', 1)->first();
         $recomended = Cpa::all()->where('is_recomendated', 1)->take(2);
         $cpa = Cpa::orderBy('main_verticales')->paginate(5);
@@ -26,14 +28,15 @@ class NetworksController extends Controller
             'banner',
             'recomended',
             'cpa',
-            'locale'
+            'locale',
+            'seo_filters'
         ));
     }
 
     public function filter(Request $request)
     {
 
-        if (!empty($request->query())){
+        if (!empty($request->query())) {
             $cpa = Cpa::whereJsonContains('verticales', $request->query('vertical'))
                 ->orWhereJsonContains('countries', $request->query('countries'))
                 ->orWhereJsonContains('payment_models', $request->query('payment_models'))
