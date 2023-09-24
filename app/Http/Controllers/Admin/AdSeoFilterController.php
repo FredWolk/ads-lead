@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAdSeoFilterRequest;
 use App\Http\Requests\UpdateAdSeoFilterRequest;
 use App\Models\AdSeoFilter;

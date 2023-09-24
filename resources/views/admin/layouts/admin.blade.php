@@ -224,9 +224,17 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('users.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-taxi"></i>
+                            <i class="nav-icon fas fa-user"></i>
                             <p>
                                 Пользователи
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('images.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>
+                                Изображения
                             </p>
                         </a>
                     </li>

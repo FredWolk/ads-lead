@@ -140,6 +140,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('popup', BannerPopupController::class);
     Route::resource('top', BannerTopController::class);
     Route::resource('aside', BannerAsideController::class);
+    Route::resource('images', \App\Http\Controllers\Admin\ImagesController::class);
     Route::get('users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users.index');
     Route::resource('forum', BannerForumAsideController::class);
     Route::group(['prefix' => 'comments', 'namespace' => 'comments'], function () {
@@ -176,8 +177,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         });
     });
     Route::group(['prefix' => 'seo-filters'], function () {
-        Route::resource('ads-seo-filter', \App\Http\Controllers\AdSeoFilterController::class);
-        Route::resource('cpa-seo-filter', \App\Http\Controllers\CpaSeoFilterController::class);
+        Route::resource('ads-seo-filter', \App\Http\Controllers\Admin\AdSeoFilterController::class);
+        Route::resource('cpa-seo-filter', \App\Http\Controllers\Admin\CpaSeoFilterController::class);
     });
 });
 
