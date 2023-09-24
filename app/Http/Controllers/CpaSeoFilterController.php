@@ -62,7 +62,7 @@ class CpaSeoFilterController extends Controller
 
     public function edit(CpaSeoFilter $cpa_seo_filter)
     {
-        $seo = Filters::select('vertical', 'countries', 'payment_systems', 'minimum_top_up_amount')->first();
+        $seo = Filters::select('vertical', 'countries', 'payment_models', 'payment_schedule', 'payment_systems')->first();
         $filters = [];
         $vertical = json_decode($seo->vertical, 1);
         $countries = json_decode($seo->countries, 1);

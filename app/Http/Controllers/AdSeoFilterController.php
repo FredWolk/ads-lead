@@ -17,7 +17,7 @@ class AdSeoFilterController extends Controller
 
     public function create()
     {
-        $seo = Filters::select('vertical', 'countries', 'payment_systems', 'minimum_top_up_amount')->first();
+        $seo = Filters::select('advertising_formats', 'countries', 'payment_systems', 'minimum_top_up_amount')->first();
         $filters = [];
         $vertical = json_decode($seo->vertical, 1);
         $countries = json_decode($seo->countries, 1);
