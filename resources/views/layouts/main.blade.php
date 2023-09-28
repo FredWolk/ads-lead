@@ -69,10 +69,12 @@
             background-color: {{ $popup->color_back }};
             color: {{ $popup->color_text }}
 
+
         }
 
         .popup_button:hover {
             background-color: {{ $popup->hover_color }};
+            color: {{ $popup->hover_text_color }};
         }
     </style>
 </head>

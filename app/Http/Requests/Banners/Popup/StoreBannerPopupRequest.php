@@ -31,6 +31,7 @@ class StoreBannerPopupRequest extends FormRequest
             'button_link' => 'url|required',
             'color_back' => 'string|required',
             'hover_color' => 'string|required',
+            'hover_text_color' => 'string|required',
             'color_text' => 'string|required',
             'popup_color_back' => 'string|required',
             'popup_color_text' => 'string|required',

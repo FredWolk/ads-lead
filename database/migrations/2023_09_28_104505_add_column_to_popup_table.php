@@ -14,6 +14,7 @@ return new class extends Migration {
     {
         Schema::table('popups', function (Blueprint $table) {
             $table->string('hover_color')->nullable()->after('color_back');
+            $table->string('hover_text_color')->nullable()->after('hover_color');
         });
     }
 
@@ -26,6 +27,7 @@ return new class extends Migration {
     {
         Schema::table('popups', function (Blueprint $table) {
             $table->dropColumn('hover_color');
+            $table->dropColumn('hover_text_color');
         });
     }
 };
