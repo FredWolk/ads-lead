@@ -309,7 +309,7 @@
                         <div class="articlepage--comments-none-editorial-opinion">
                             <div class="articlepage--review-integration_autor">
                                 <div class="videopage_main-underimage_autor-image">
-                                    <img loading="lazy" src="{{asset('assets/images/cpa_logo.webp')}}" alt="autor">
+                                    <img loading="lazy" src="{{asset('assets/images/logo_white.jpg')}}" alt="autor">
                                 </div>
                                 <div class="articlepage--review-integration_autor-text-wrapp">
                                     <p class="articlepage--review-integration_autor-text-wrapp-name">{{ __('messages.opinion') }}</p>
