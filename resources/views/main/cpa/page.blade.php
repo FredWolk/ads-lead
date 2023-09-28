@@ -101,8 +101,8 @@
                                                   d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
                                                   fill="#181A1C"/>
                                         </svg>
-                                        <p class="cpaartpage_card_top--item_top-text">{{ __('messages.cpa.inhouse') }}
-                                            :</p>
+                                        <p class="cpaartpage_card_top--item_top-text">
+                                            {{ __('messages.cpa.inhouse') }}:</p>
                                     </div>
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['inhaus_offers'] }}</p>
                                 </li>
@@ -116,8 +116,8 @@
                                                   d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
                                                   fill="#181A1C"/>
                                         </svg>
-                                        <p class="cpaartpage_card_top--item_top-text">{{ __('messages.cpa.payment.method') }}
-                                            :</p>
+                                        <p class="cpaartpage_card_top--item_top-text">
+                                            {{ __('messages.cpa.payment.method') }}:</p>
                                     </div>
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['payment_schedule'] }}</p>
                                 </li>
@@ -145,8 +145,8 @@
                                                   d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
                                                   fill="#181A1C"/>
                                         </svg>
-                                        <p class="cpaartpage_card_top--item_top-text">{{ __('messages.cpa.minimum') }}
-                                            :</p>
+                                        <p class="cpaartpage_card_top--item_top-text">
+                                            {{ __('messages.cpa.minimum') }}:</p>
                                     </div>
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['minimum_withdrawal_amount'] }}</p>
                                 </li>
@@ -160,8 +160,8 @@
                                                   d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
                                                   fill="#181A1C"/>
                                         </svg>
-                                        <p class="cpaartpage_card_top--item_top-text">{{ __('messages.cpa.affiliate') }}
-                                            :</p>
+                                        <p class="cpaartpage_card_top--item_top-text">
+                                            {{ __('messages.cpa.affiliate') }}:</p>
                                     </div>
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['referral_program'] }}</p>
                                 </li>
@@ -175,8 +175,8 @@
                                                   d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
                                                   fill="#181A1C"/>
                                         </svg>
-                                        <p class="cpaartpage_card_top--item_top-text">{{ __('messages.cpa.verticals') }}
-                                            :</p>
+                                        <p class="cpaartpage_card_top--item_top-text">
+                                            {{ __('messages.cpa.verticals') }}:</p>
                                     </div>
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['themes_of_offers'] }}</p>
                                 </li>
@@ -205,8 +205,8 @@
                                                   d="M8.71682 4.75578L1.83713 4.75578L1.83713 0.918579L15.2673 0.918579L15.2673 14.3488H11.4301L11.4301 7.4691L3.19378 15.7054L0.480469 12.9921L8.71682 4.75578Z"
                                                   fill="#181A1C"/>
                                         </svg>
-                                        <p class="cpaartpage_card_top--item_top-text">{{ __('messages.cpa.tools') }}
-                                            :</p>
+                                        <p class="cpaartpage_card_top--item_top-text">
+                                            {{ __('messages.cpa.tools') }}:</p>
                                     </div>
                                     <p class="cpaartpage_card_top--item-text">{{ $cpa['tools'] }}</p>
                                 </li>
