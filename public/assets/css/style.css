@@ -7083,7 +7083,7 @@ form {
     }
 
     .pupup_header-title {
-        font-size: 20px;
+        font-size: 18px;
         max-width: 215px;
     }
 
@@ -7103,8 +7103,8 @@ form {
     }
 
     .banner_popup-close {
-        top: 10px;
-        right: 10px;
+        top: 5px;
+        right: 5px;
     }
 
     .popup_button {
