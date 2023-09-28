@@ -29,6 +29,7 @@ class UpdateBannerPopupRequest extends FormRequest
             'text' => 'string|required',
             'button_text' => 'string|required',
             'button_link' => 'url|required',
+            'hover_color' => 'string|required',
             'color_back' => 'string|required',
             'color_text' => 'string|required',
             'popup_color_back' => 'string|required',

@@ -7058,10 +7058,6 @@ form {
     transition-duration: 0.5s;
 }
 
-.popup_button:hover {
-    filter: invert();
-}
-
 @media screen and (max-width: 600px) {
     .banner_popup {
         left: 50%;

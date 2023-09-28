@@ -96,6 +96,16 @@
                             @enderror
 
                             <div class="form-group">
+                                <label for="hover_color">Цвет фона кнопки при наведении</label>
+                                <input name="hover_color" type="color" class="form-control"
+                                       value="{{ $popup->hover_color }}" id="hover_color"
+                                       placeholder="#ffffff">
+                            </div>
+                            @error('hover_color')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <img width="150" height="150" src="{{ asset('storage/'. $popup->logo) }}" alt="">
                                 <label for="logo">Логотип</label>
                                 <div class="input-group">

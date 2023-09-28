@@ -1,6 +1,7 @@
 @php
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
+    $popup = \App\Models\Popup::first();
 @endphp
     <!doctype html>
 <html lang="en">
@@ -63,6 +64,17 @@
     @yield('style')
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
+    <style>
+        .popup_button {
+            background-color: {{ $popup->color_back }};
+            color: {{ $popup->color_text }}
+
+        }
+
+        .popup_button:hover {
+            background-color: {{ $popup->hover_color }};
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -659,7 +671,6 @@
     </button>
 </div>
 {{-- При отправке формы добавь классы: disable для signup_wrapper_main и active для signup_wrapper_main-tnx --}}
-@php($popup = \App\Models\Popup::first())
 @if(!empty($popup))
     <div style="display: none" class="banner_popup">
         <div style="background-color: {{ $popup->popup_color_back }}" class="banner_popup-body">
@@ -733,12 +744,13 @@
                     </svg>
                 </div>
                 <a href="{{ $popup->button_link }}" target="_blank"
-                   style="background-color: {{ $popup->color_back }}; color: {{ $popup->color_text }}"
+                   style=""
                    class="popup_button">{{ $popup->button_text }}</a>
             </div>
         </div>
     </div>
 @endif
+
 <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/cookie.js')}}"></script>
