@@ -751,8 +751,8 @@
     }
     $('.banner_popup-close, .popup_button').on('click', function () {
         $('.banner_popup').fadeOut(300);
-        $.cookie('popup', true, {expires: 1 / 8, path: '/'})
-    })
+        $.cookie('popup', true, {expires: 1 / 24, path: '/'})
+    });
 
     $('#search_form').on('submit', function (e) {
         e.preventDefault();
