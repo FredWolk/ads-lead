@@ -437,7 +437,8 @@
                                     <h3 class="card-title">Информация о менеджере</h3>
                                 </div>
 
-                                <img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->manager_image) }}" alt="">
+                                <img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->manager_image) }}"
+                                     alt="">
                                 <div class="form-group">
                                     <label for="manager_image">Фото менеджера</label>
                                     <div class="input-group">
@@ -853,18 +854,22 @@
 
     <script>
         $(function () {
-            $('.summernote').summernote({
-                height: 300,
-                maxHeight: 500,
-                toolbar: [
-                    ['insert', ['picture', 'link', 'video', 'table', 'hr']],
-                    ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-                    ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
-                    ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
-                ],
-                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
-                fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
-            });
+            CKEDITOR.replace('summernote');
+            CKEDITOR.replace('summernote1');
+            CKEDITOR.replace('summernote2');
+            CKEDITOR.replace('summernote3');
+            // $('.summernote').summernote({
+            //     height: 300,
+            //     maxHeight: 500,
+            //     toolbar: [
+            //         ['insert', ['picture', 'link', 'video', 'table', 'hr']],
+            //         ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+            //         ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
+            //         ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
+            //     ],
+            //     fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
+            //     fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
+            // });
             $('.select2').select2()
             $('#select1, #select2, #select3, #select4, #select5').select2()
             bsCustomFileInput.init();
