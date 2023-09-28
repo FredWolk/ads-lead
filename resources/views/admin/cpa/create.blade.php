@@ -849,6 +849,7 @@
         $(function () {
             CKEDITOR.replace('summernote');
             CKEDITOR.replace('summernote2');
+            CKEDITOR.replace('summernote3');
             // $('.summernote').summernote({
             //     height: 300,
             //     maxHeight: 500,
