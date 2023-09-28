@@ -18,10 +18,10 @@ class IndexController extends Controller
     {
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $article = Article::where('type', 'article')->with('author')->take(4)->orderByDesc('id')->get()->toArray();
-        $cpa = Cpa::all()->where('is_main', 1)->take(4)->toArray();
-        $top_cpa = Cpa::all()->where('is_top', 1)->take(5)->toArray();
-        $ads = Ad::all()->where('is_main', 1)->take(4)->toArray();
-        $top_ads = Ad::all()->where('is_top', 1)->take(5)->toArray();
+        $cpa = Cpa::where('is_main', 1)->orderBy('id', 'desc')->take(4)->get()->toArray();
+        $top_cpa = Cpa::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
+        $ads = Ad::where('is_main', 1)->orderBy('id', 'desc')->take(4)->get()->toArray();
+        $top_ads = Ad::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
         $video = Video::all()->take(6)->toArray();
 
         $seo = Seo::where('page', Seo::MAIN_PAGE)->first();
