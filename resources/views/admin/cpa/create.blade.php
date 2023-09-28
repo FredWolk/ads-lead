@@ -848,6 +848,7 @@
     <script>
         $(function () {
             CKEDITOR.replace('summernote');
+            CKEDITOR.replace('summernote1');
             CKEDITOR.replace('summernote2');
             CKEDITOR.replace('summernote3');
             // $('.summernote').summernote({
