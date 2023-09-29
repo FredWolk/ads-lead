@@ -673,7 +673,7 @@
                                     <li class="calendar_date init">
                                         <p>{{ date('d', strtotime($k)) }}</p>
                                         <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
-                                        <a href="{{ route('event.page', $event['link']) }}" class="popup_event-wrap">
+                                        <a href="{{ route('event.page', $i['link']) }}" class="popup_event-wrap">
                                             <div class="popup_event">
                                                 <img loading="lazy" class="popup_event-image"
                                                      src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
