@@ -23,7 +23,7 @@
                         <p>&nbsp;</p>
 
                         <p>1.3. This Operator&#39;s policy regarding the processing of personal data (hereinafter referred to as the Policy) applies to all information that the Operator can receive about website visitors <a href="https://affjournal.com/">affjournal.com</a>.&nbsp;</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>2. Basic concepts used in the Policy</strong></h2>
 
                         <p>2.1. Automated processing of personal data - processing of personal data using computer technology.</p>
@@ -79,7 +79,7 @@
                         <p>&nbsp;</p>
 
                         <p>2.14. Destruction of personal data - any actions as a result of which personal data is destroyed irretrievably with the impossibility of further restoration of the content of personal data in the information system of personal data and (or) material carriers of personal data are destroyed.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>3. Basic rights and obligations of the Operator</strong></h2>
 
                         <p>3.1. The operator has the right:</p>
@@ -108,7 +108,7 @@
                             <li>stop the transfer (distribution, provision, access) of personal data, stop processing and destroy personal data in the manner and cases provided for by the applicable legislation on the protection of personal data;</li>
                             <li>perform other duties stipulated by the applicable legislation on the protection of personal data.</li>
                         </ul>
-
+                        <p>&nbsp;</p>
                         <h2><strong>4. Basic rights and obligations of personal data subjects</strong></h2>
 
                         <p>4.1. Subjects of personal data have the right:</p>
@@ -139,7 +139,7 @@
                         <p>&nbsp;</p>
 
                         <p>4.3. Persons who have provided the Operator with false information about themselves or information about another subject of personal data without the consent of the latter, are liable in accordance with applicable law.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>5. The Operator may process the following personal data of the User:&nbsp;</strong></h2>
 
                         <p>5.1. Email address.</p>
@@ -183,7 +183,7 @@
                         <p>&nbsp;</p>
 
                         <p>5.11. Consent to the processing of personal data permitted for distribution terminates from the moment the Operator receives the request specified in clause 10.6 of this Policy regarding the processing of personal data.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>6. Principles of personal data processing</strong></h2>
 
                         <p>6.1. The processing of personal data is carried out on a legal and fair basis.</p>
@@ -211,7 +211,7 @@
                         <p>&nbsp;</p>
 
                         <p>6.7. The storage of personal data is carried out in a form that allows to determine the subject of personal data, no longer than required by the purposes of processing personal data, if the period of storage of personal data is not established. The processed personal data is destroyed or depersonalized upon achievement of the purposes of processing or in case of loss of the need to achieve these purposes, unless otherwise provided.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>7. Purposes of personal data processing</strong></h2>
 
                         <p>7.1. The purpose of processing the User&#39;s personal data:</p>
@@ -229,6 +229,7 @@
 
                         <p>7.3. Anonymized data of Users collected using Internet statistics services are used to collect information about the actions of Users on the site, improve the quality of the site and its content.</p>
 
+                        <p>&nbsp;</p>
                         <h2><strong>8. Legal grounds for the processing of personal data</strong></h2>
 
                         <p>8.1. The legal grounds for the processing of personal data by the Operator are:</p>
@@ -253,9 +254,8 @@
                         <p>&nbsp;</p>
 
                         <p>8.4. The subject of personal data independently decides on the provision of his personal data and gives consent freely of his own free will and in his own interest.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>9. Conditions for the processing of personal data</strong></h2>
-
                         <p>9.1. The processing of personal data is carried out with the consent of the subject of personal data to the processing of his personal data.</p>
 
                         <p>&nbsp;</p>
@@ -279,9 +279,7 @@
                         <p>9.6. Processing of personal data subject to publication or mandatory disclosure in accordance with applicable law.</p>
 
                         <p>&nbsp;</p>
-
                         <h2><strong>10. The procedure for collecting, storing, transferring and other types of processing of personal data</strong></h2>
-
                         <p>10.1. The security of personal data processed by the Operator is ensured through the implementation of legal, organizational and technical measures necessary to fully comply with the requirements of applicable legislation in the field of personal data protection.</p>
 
                         <p>&nbsp;</p>
@@ -323,15 +321,14 @@
                         <p>&nbsp;</p>
 
                         <p>10.11. The condition for terminating the processing of personal data may be the achievement of the purposes of processing personal data, the expiration of the consent of the subject of personal data or the identification of unlawful processing of personal data, and you can also demand the deletion of your personal data, for this you need to send a request to affjournal.media@gmail.com topic &quot;Deletion of personal data and withdrawal of consent to their processing&quot;.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>11. List of actions performed by the Operator with the received personal data</strong></h2>
-
                         <p>11.1. The operator collects, records, systematizes, accumulates, stores, clarifies (updates, changes), extracts, uses, transfers (distributes, provides, accesses), depersonalizes, blocks, deletes and destroys personal data.</p>
 
                         <p>&nbsp;</p>
 
                         <p>11.2. The operator carries out automated processing of personal data with the receipt and / or transmission of the received information via information and telecommunication networks or without it.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>12. Cross-border transfer of personal data</strong></h2>
 
                         <p>12.1. Before the start of the cross-border transfer of personal data, the operator is obliged to make sure that the foreign state to whose territory it is planned to transfer personal data provides reliable protection of the rights of subjects of personal data.</p>
@@ -339,13 +336,13 @@
                         <p>&nbsp;</p>
 
                         <p>12.2. Cross-border transfer of personal data on the territory of foreign states that do not meet the above requirements can only be carried out if there is a written consent of the subject of personal data to the cross-border transfer of his personal data and / or execution of an agreement to which the subject of personal data is a party.</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>13. Confidentiality of personal data</strong></h2>
 
                         <p>The operator and other persons who have gained access to personal data are obliged not to disclose to third parties and not to distribute personal data without the consent of the subject of personal data, unless otherwise provided by applicable law on the protection of personal data.</p>
 
                         <p>&nbsp;</p>
-
+                        <p>&nbsp;</p>
                         <h2><strong>14. Final provisions</strong></h2>
 
                         <p>14.1. The user can get any clarifications on issues of interest regarding the processing of his personal data by contacting the Operator via e-mail affjournal.media@gmail.com.</p>
