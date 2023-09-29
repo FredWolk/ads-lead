@@ -283,7 +283,7 @@
                     <a class="footer_contacts-address-text"
                        href="mailto:media@affjournal.com">media@affjournal.com</a>
                     <a class="footer_contacts-address-text" target="_blank"
-                       href="/policy.pdf">{{ __('messages.policy') }}</a>
+                       href="{{ route('policy') }}">{{ __('messages.policy') }}</a>
                 </address>
                 <span class="footer_tm">© {{ date('Y') }} affjournal media</span>
             </div>
@@ -782,14 +782,14 @@
                 r.article.map((e) => {
                     $('#desctop__search').append(`
                     <a href="https://affjournal.com/articles/${e.link}" class="search__item">
-                        <p class="search__title">${e.{{$locale}}name}</p>
+                        <p class="search__title">${e.name}</p>
                     </a>
                 `)
                 })
                 r.cpa.map((e) => {
                     $('#desctop__search').append(`
                     <a href="https://affjournal.com/cpa-networks/${e.main_verticales}/${e.link}" class="search__item">
-                        <p class="search__title">${e.{{$locale}}name}</p>
+                        <p class="search__title">${e.name}</p>
                     </a>
                 `)
                 })

@@ -47,6 +47,9 @@ if (isset($url[3]) && $url[3] == 'pt') {
     exit();
 }
 Route::get('/', [IndexController::class, '__invoke'])->name('index');
+Route::get('/policy', function (){
+    return view('main.policy');
+})->name('policy');
 Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
     Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
     Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
