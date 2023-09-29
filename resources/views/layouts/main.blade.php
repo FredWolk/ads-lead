@@ -283,7 +283,7 @@
                     <a class="footer_contacts-address-text"
                        href="mailto:media@affjournal.com">media@affjournal.com</a>
                     <a class="footer_contacts-address-text" target="_blank"
-                       href="{{ route('index') }}">{{ __('messages.policy') }}</a>
+                       href="/policy.pdf">{{ __('messages.policy') }}</a>
                 </address>
                 <span class="footer_tm">© {{ date('Y') }} affjournal media</span>
             </div>
