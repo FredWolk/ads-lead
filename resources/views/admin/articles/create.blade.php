@@ -73,14 +73,7 @@
                             @error('type')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="pt_name">Название статьи на португальском</label>
-                                <input type="text" name="pt_name" value="{{ old('pt_name') }}" class="form-control"
-                                       id="pt_name" placeholder="Название статьи">
-                            </div>
-                            @error('pt_name')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+
                             <div class="form-group">
                                 <label for="image">Изображение статьи</label>
                                 <div class="input-group">
@@ -94,20 +87,7 @@
                             @error('image')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="pt_image">Изображение статьи на португальском</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input value="{{ old('pt_image') }}" name="pt_image" type="file"
-                                               class="custom-file-input" id="pt_image">
-                                        <label class="custom-file-label" for="pt_image">Выберите изображение
-                                            статьи</label>
-                                    </div>
-                                </div>
-                            </div>
-                            @error('pt_image')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+
                             <div class="form-group">
                                 <label for="prev_text">Описание статьи</label>
                                 <textarea class="form-control" rows="3" id="prev_text" name="prev_text"
@@ -116,14 +96,7 @@
                             @error('prev_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="pt_prev_text">Описание статьи на португальском</label>
-                                <textarea class="form-control" rows="3" id="pt_prev_text" name="pt_prev_text"
-                                          placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.The point of using Lorem Ipsum is that it has a more-or-less normal distribution… ...">{{ old('pt_prev_text') }}</textarea>
-                            </div>
-                            @error('pt_prev_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+
                             <div class="form-group">
                                 <label for="views">Просмотры</label>
                                 <input type="number" min="0" name="views"
@@ -170,20 +143,7 @@
                             @error('contents')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="select3">Контент на португальском</label>
-                                <select name="pt_contents[]" multiple="multiple" class="form-control select1"
-                                        id="select3">
-                                    @if(!empty(old('pt_contents')))
-                                        @foreach(old('pt_contents') as $i)
-                                            <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            @error('pt_contents')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+
                             <div class="form-group">
                                 <label for="select4">Для кого</label>
                                 <select name="for_whom[]" multiple="multiple" class="form-control select1" id="select4">
@@ -197,20 +157,7 @@
                             @error('for_whom')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="select5">Для кого на португальском</label>
-                                <select name="pt_for_whom[]" multiple="multiple" class="form-control select1"
-                                        id="select5">
-                                    @if(!empty(old('pt_for_whom')))
-                                        @foreach(old('pt_for_whom') as $i)
-                                            <option value="{{ $i }}" selected>{{ $i }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            @error('pt_for_whom')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+
                             <div class="form-group">
                                 <label for="summernote">Контент статьи</label>
                                 <textarea class="summernote" name="main_text"
@@ -219,251 +166,122 @@
                             @error('main_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="summernote2">Контент португальской статьи</label>
-                                <textarea class="summernote" name="pt_main_text"
-                                          id="summernote2">{{ old('pt_main_text') }}</textarea>
-                            </div>
-                            @error('pt_main_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="title">TITLE</label>
-                                        <input value="{{ old('title') }}" name="title" type="text" class="form-control"
-                                               id="title"
-                                               placeholder="Заголовок страницы">
-                                    </div>
-                                    @error('title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="description">DESCRIPTION</label>
-                                        <input value="{{ old('description') }}" name="description" type="text"
-                                               class="form-control" id="description"
-                                               placeholder="Описание страницы">
-                                    </div>
-                                    @error('description')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="keywords">KEYWORDS</label>
-                                        <input value="{{ old('og_url') }}" name="keywords" type="text"
-                                               class="form-control" id="keywords"
-                                               placeholder="Введите ключевые слова через ','">
-                                    </div>
-                                    @error('keywords')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="og_title">OG_TITLE</label>
-                                        <input value="{{ old('og_url') }}" name="og_title" type="text"
-                                               class="form-control" id="og_title"
-                                               placeholder="Заголовок страницы">
-                                    </div>
-                                    @error('og_title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="og_description">OG_DESCRIPTION</label>
-                                        <input value="{{ old('og_url') }}" name="og_description" type="text"
-                                               class="form-control" id="og_description"
-                                               placeholder="Описание страницы">
-                                    </div>
-                                    @error('og_description')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="og_url">OG_URL</label>
-                                        <input value="{{ old('og_url') }}" name="og_url" type="text"
-                                               class="form-control" id="og_url"
-                                               placeholder="Ссылка на страницу">
-                                    </div>
-                                    @error('og_url')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="og_image">OG_IMAGE</label>
-                                        <input value="{{ old('og_image') }}" name="og_image" type="text"
-                                               class="form-control" id="og_image"
-                                               placeholder="Сылка на изображение">
-                                    </div>
-                                    @error('og_image')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="og_type">OG_TYPE</label>
-                                        <input value="{{ old('og_type') }}" name="og_type" type="text"
-                                               class="form-control" id="og_type"
-                                               placeholder="Тип страницы">
-                                    </div>
-                                    @error('og_type')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div id="meta_block" class="form-group gap__flex"></div>
-                                    <input value="{{ old('meta_tags') }}" type="hidden" id="meta_tags" name="meta_tags">
-                                    <div class="form-group">
-                                        <label for="meta_name">META_TAGS</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="meta_name"
-                                                   placeholder="Name">
-                                            <input type="text" class="form-control" id="meta_content"
-                                                   placeholder="Content">
-                                            <button data-lang="" data-type="meta" type="button" id="add_meta"
-                                                    class="startFunc btn btn-warning">Добавить
-                                            </button>
-                                        </div>
-                                    </div>
-                                    @error('meta_tags')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                    <div id="og_block" class="form-group gap__flex"></div>
-                                    <input value="{{ old('og_tags') }}" type="hidden" name="og_tags">
-                                    <div class="form-group">
-                                        <label for="og_name">OG_TAGS</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="og_name"
-                                                   placeholder="Name">
-                                            <input type="text" class="form-control" id="og_content"
-                                                   placeholder="Content">
-                                            <button data-lang="" data-type="og" type="button" id="add_og"
-                                                    class="startFunc btn btn-warning">Добавить
-                                            </button>
-                                        </div>
-                                    </div>
-                                    @error('og_tags')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                <div class="form-group">
+                                    <label for="title">TITLE</label>
+                                    <input value="{{ old('title') }}" name="title" type="text" class="form-control"
+                                           id="title"
+                                           placeholder="Заголовок страницы">
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="pt_title">PT TITLE</label>
-                                        <input value="{{ old('pt_title') }}" name="pt_title" type="text"
-                                               class="form-control" id="pt_title"
-                                               placeholder="Заголовок страницы">
-                                    </div>
-                                    @error('pt_title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                @error('title')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
 
-                                    <div class="form-group">
-                                        <label for="pt_description">PT DESCRIPTION</label>
-                                        <input value="{{ old('pt_description') }}" name="pt_description" type="text"
-                                               class="form-control" id="pt_description"
-                                               placeholder="Описание страницы">
-                                    </div>
-                                    @error('pt_description')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_keywords">PT KEYWORDS</label>
-                                        <input value="{{ old('pt_keywords') }}" name="pt_keywords" type="text"
-                                               class="form-control" id="pt_keywords"
-                                               placeholder="Введите ключевые слова через ','">
-                                    </div>
-                                    @error('pt_keywords')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_title">PT OG_TITLE</label>
-                                        <input value="{{ old('pt_og_title') }}" name="pt_og_title" type="text"
-                                               class="form-control" id="pt_og_title"
-                                               placeholder="Заголовок страницы">
-                                    </div>
-                                    @error('pt_og_title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_description">PT OG_DESCRIPTION</label>
-                                        <input value="{{ old('pt_og_description') }}" name="pt_og_description"
-                                               type="text" class="form-control" id="pt_og_description"
-                                               placeholder="Описание страницы">
-                                    </div>
-                                    @error('pt_og_description')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_url">PT OG_URL</label>
-                                        <input value="{{ old('pt_og_url') }}" name="pt_og_url" type="text"
-                                               class="form-control" id="pt_og_url"
-                                               placeholder="Ссылка на страницу">
-                                    </div>
-                                    @error('pt_og_url')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_image">PT OG_IMAGE</label>
-                                        <input value="{{ old('pt_og_image') }}" name="pt_og_image" type="text"
-                                               class="form-control" id="pt_og_image"
-                                               placeholder="Сылка на изображение">
-                                    </div>
-                                    @error('pt_og_image')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_type">PT OG_TYPE</label>
-                                        <input value="{{ old('pt_og_type') }}" name="pt_og_type" type="text"
-                                               class="form-control" id="pt_og_type"
-                                               placeholder="Тип страницы">
-                                    </div>
-                                    @error('pt_og_type')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div id="pt_meta_block" class="form-group pt_gap__flex"></div>
-
-                                    <input value="{{ old('pt_meta_tags') }}" type="hidden" id="pt_meta_tags"
-                                           name="pt_meta_tags">
-                                    <div class="form-group">
-                                        <label for="pt_meta_name">PT META_TAGS</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="pt_meta_name"
-                                                   placeholder="Name">
-                                            <input type="text" class="form-control" id="pt_meta_content"
-                                                   placeholder="Content">
-                                            <button data-type="meta" type="button" id="pt_add_meta"
-                                                    class="pt_startFunc btn btn-warning">Добавить
-                                            </button>
-                                        </div>
-                                    </div>
-                                    @error('pt_meta_tags')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div id="pt_og_block" class="form-group pt_gap__flex"></div>
-
-                                    <input value="{{ old('pt_og_tags') }}" type="hidden" name="pt_og_tags">
-                                    <div class="form-group">
-                                        <label for="pt_og_name">PT OG_TAGS</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="pt_og_name"
-                                                   placeholder="Name">
-                                            <input type="text" class="form-control" id="pt_og_content"
-                                                   placeholder="Content">
-                                            <button data-type="og" type="button" id="pt_add_og"
-                                                    class="pt_startFunc btn btn-warning">Добавить
-                                            </button>
-                                        </div>
-                                    </div>
-                                    @error('og_tags')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                <div class="form-group">
+                                    <label for="description">DESCRIPTION</label>
+                                    <input value="{{ old('description') }}" name="description" type="text"
+                                           class="form-control" id="description"
+                                           placeholder="Описание страницы">
                                 </div>
+                                @error('description')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="keywords">KEYWORDS</label>
+                                    <input value="{{ old('og_url') }}" name="keywords" type="text"
+                                           class="form-control" id="keywords"
+                                           placeholder="Введите ключевые слова через ','">
+                                </div>
+                                @error('keywords')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="og_title">OG_TITLE</label>
+                                    <input value="{{ old('og_url') }}" name="og_title" type="text"
+                                           class="form-control" id="og_title"
+                                           placeholder="Заголовок страницы">
+                                </div>
+                                @error('og_title')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="og_description">OG_DESCRIPTION</label>
+                                    <input value="{{ old('og_url') }}" name="og_description" type="text"
+                                           class="form-control" id="og_description"
+                                           placeholder="Описание страницы">
+                                </div>
+                                @error('og_description')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="og_url">OG_URL</label>
+                                    <input value="{{ old('og_url') }}" name="og_url" type="text"
+                                           class="form-control" id="og_url"
+                                           placeholder="Ссылка на страницу">
+                                </div>
+                                @error('og_url')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="og_image">OG_IMAGE</label>
+                                    <input value="{{ old('og_image') }}" name="og_image" type="text"
+                                           class="form-control" id="og_image"
+                                           placeholder="Сылка на изображение">
+                                </div>
+                                @error('og_image')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="og_type">OG_TYPE</label>
+                                    <input value="{{ old('og_type') }}" name="og_type" type="text"
+                                           class="form-control" id="og_type"
+                                           placeholder="Тип страницы">
+                                </div>
+                                @error('og_type')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div id="meta_block" class="form-group gap__flex"></div>
+                                <input value="{{ old('meta_tags') }}" type="hidden" id="meta_tags" name="meta_tags">
+                                <div class="form-group">
+                                    <label for="meta_name">META_TAGS</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control col-2" id="meta_name"
+                                               placeholder="Name">
+                                        <input type="text" class="form-control" id="meta_content"
+                                               placeholder="Content">
+                                        <button data-lang="" data-type="meta" type="button" id="add_meta"
+                                                class="startFunc btn btn-warning">Добавить
+                                        </button>
+                                    </div>
+                                </div>
+                                @error('meta_tags')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                <div id="og_block" class="form-group gap__flex"></div>
+                                <input value="{{ old('og_tags') }}" type="hidden" name="og_tags">
+                                <div class="form-group">
+                                    <label for="og_name">OG_TAGS</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control col-2" id="og_name"
+                                               placeholder="Name">
+                                        <input type="text" class="form-control" id="og_content"
+                                               placeholder="Content">
+                                        <button data-lang="" data-type="og" type="button" id="add_og"
+                                                class="startFunc btn btn-warning">Добавить
+                                        </button>
+                                    </div>
+                                </div>
+                                @error('og_tags')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-primary">Сохранить</button>

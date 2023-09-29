@@ -68,14 +68,7 @@
                             @error('name')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="pt_name">Название рекламы на португальском</label>
-                                <input type="text" name="pt_name" value="{{ old('pt_name') }}" class="form-control"
-                                       id="pt_name" placeholder="Название рекламы">
-                            </div>
-                            @error('pt_name')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+
 
                             <div class="form-group">
                                 <label for="logo">Логотип рекламы</label>
@@ -98,16 +91,6 @@
                                           placeholder="Превью текст рекламы">{{ old('prev_text') }}</textarea>
                             </div>
                             @error('prev_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="pt_prev_text">Превью текст рекламы на португальском</label>
-                                <textarea name="pt_prev_text" class="form-control"
-                                          id="pt_prev_text"
-                                          placeholder="Превью текст рекламы на португальском">{{ old('pt_prev_text') }}</textarea>
-                            </div>
-                            @error('pt_prev_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
@@ -145,15 +128,6 @@
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
-                                <div class="form-group">
-                                    <label for="pt_promocode_desc">Описание промокода на португальском</label>
-                                    <textarea name="pt_promocode_desc" class="form-control"
-                                              id="pt_promocode_desc"
-                                              placeholder="Описание промокода на португальском">{{ old('pt_promocode_desc') }}</textarea>
-                                </div>
-                                @error('pt_promocode_desc')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="card-footer">

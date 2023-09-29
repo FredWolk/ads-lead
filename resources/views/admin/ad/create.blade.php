@@ -95,14 +95,6 @@
                             @error('link')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="pt_name">Название рекламы на португальском</label>
-                                <input type="text" name="pt_name" value="{{ old('pt_name') }}" class="form-control"
-                                       id="pt_name" placeholder="Название рекламы">
-                            </div>
-                            @error('pt_name')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
 
                             <div class="form-group">
                                 <label for="image">Изображение рекламы</label>
@@ -119,20 +111,6 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
-                            <div class="form-group">
-                                <label for="pt_image">Изображение рекламы на португальском</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input value="{{ old('pt_image') }}" name="pt_image" type="file"
-                                               class="custom-file-input" id="pt_image">
-                                        <label class="custom-file-label" for="pt_image">Выберите изображение
-                                            рекламы</label>
-                                    </div>
-                                </div>
-                            </div>
-                            @error('pt_image')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
                             <div class="form-group">
                                 <label for="logo">Логотип рекламы</label>
                                 <div class="input-group">
@@ -154,16 +132,6 @@
                                           placeholder="Превью текст рекламы">{{ old('prev_text') }}</textarea>
                             </div>
                             @error('prev_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <label for="pt_prev_text">Превью текст рекламы на португальском</label>
-                                <textarea name="pt_prev_text" class="form-control"
-                                          id="pt_prev_text"
-                                          placeholder="Превью текст рекламы на португальском">{{ old('pt_prev_text') }}</textarea>
-                            </div>
-                            @error('pt_prev_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
@@ -193,14 +161,6 @@
                             @error('main_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="summernote1">Текст перед рекламой на португальском</label>
-                                <textarea class="summernote" name="pt_before_main_text"
-                                          id="summernote1">{{ old('pt_before_main_text') }}</textarea>
-                            </div>
-                            @error('pt_main_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
 
                             <div class="form-group">
                                 <label for="summernote2">Контент рекламы</label>
@@ -210,15 +170,6 @@
                             @error('main_text')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
-                            <div class="form-group">
-                                <label for="summernote3">Контент португальской рекламы</label>
-                                <textarea class="summernote" name="pt_main_text"
-                                          id="summernote3">{{ old('pt_main_text') }}</textarea>
-                            </div>
-                            @error('pt_main_text')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
                             {{--  ФИЛЬТРЫ  --}}
                             <div class="card card-success p-3">
                                 <div class="card-header">
@@ -320,15 +271,6 @@
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 
-                                <div class="form-group">
-                                    <label for="pt_promocode_desc">Описание промокода на португальском</label>
-                                    <textarea name="pt_promocode_desc" class="form-control"
-                                              id="pt_promocode_desc"
-                                              placeholder="Описание промокода на португальском">{{ old('pt_promocode_desc') }}</textarea>
-                                </div>
-                                @error('pt_promocode_desc')
-                                <div class="text-danger">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             {{--  Доп. информация о рекламе   --}}
@@ -644,126 +586,6 @@
                                                    placeholder="Content">
                                             <button data-lang="" data-type="og" type="button" id="add_og"
                                                     class="startFunc btn btn-warning">Добавить
-                                            </button>
-                                        </div>
-                                    </div>
-                                    @error('og_tags')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="pt_title">PT TITLE</label>
-                                        <input value="{{ old('pt_title') }}" name="pt_title" type="text"
-                                               class="form-control" id="pt_title"
-                                               placeholder="Заголовок страницы">
-                                    </div>
-                                    @error('pt_title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_description">PT DESCRIPTION</label>
-                                        <input value="{{ old('pt_description') }}" name="pt_description" type="text"
-                                               class="form-control" id="pt_description"
-                                               placeholder="Описание страницы">
-                                    </div>
-                                    @error('pt_description')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_keywords">PT KEYWORDS</label>
-                                        <input value="{{ old('pt_keywords') }}" name="pt_keywords" type="text"
-                                               class="form-control" id="pt_keywords"
-                                               placeholder="Введите ключевые слова через ','">
-                                    </div>
-                                    @error('pt_keywords')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_title">PT OG_TITLE</label>
-                                        <input value="{{ old('pt_og_title') }}" name="pt_og_title" type="text"
-                                               class="form-control" id="pt_og_title"
-                                               placeholder="Заголовок страницы">
-                                    </div>
-                                    @error('pt_og_title')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_description">PT OG_DESCRIPTION</label>
-                                        <input value="{{ old('pt_og_description') }}" name="pt_og_description"
-                                               type="text" class="form-control" id="pt_og_description"
-                                               placeholder="Описание страницы">
-                                    </div>
-                                    @error('pt_og_description')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_url">PT OG_URL</label>
-                                        <input value="{{ old('pt_og_url') }}" name="pt_og_url" type="text"
-                                               class="form-control" id="pt_og_url"
-                                               placeholder="Ссылка на страницу">
-                                    </div>
-                                    @error('pt_og_url')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_image">PT OG_IMAGE</label>
-                                        <input value="{{ old('pt_og_image') }}" name="pt_og_image" type="text"
-                                               class="form-control" id="pt_og_image"
-                                               placeholder="Сылка на изображение">
-                                    </div>
-                                    @error('pt_og_image')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div class="form-group">
-                                        <label for="pt_og_type">PT OG_TYPE</label>
-                                        <input value="{{ old('pt_og_type') }}" name="pt_og_type" type="text"
-                                               class="form-control" id="pt_og_type"
-                                               placeholder="Тип страницы">
-                                    </div>
-                                    @error('pt_og_type')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div id="pt_meta_block" class="form-group pt_gap__flex"></div>
-
-                                    <input value="{{ old('pt_meta_tags') }}" type="hidden" id="pt_meta_tags"
-                                           name="pt_meta_tags">
-                                    <div class="form-group">
-                                        <label for="pt_meta_name">PT META_TAGS</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="pt_meta_name"
-                                                   placeholder="Name">
-                                            <input type="text" class="form-control" id="pt_meta_content"
-                                                   placeholder="Content">
-                                            <button data-type="meta" type="button" id="pt_add_meta"
-                                                    class="pt_startFunc btn btn-warning">Добавить
-                                            </button>
-                                        </div>
-                                    </div>
-                                    @error('pt_meta_tags')
-                                    <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-
-                                    <div id="pt_og_block" class="form-group pt_gap__flex"></div>
-
-                                    <input value="{{ old('pt_og_tags') }}" type="hidden" name="pt_og_tags">
-                                    <div class="form-group">
-                                        <label for="pt_og_name">PT OG_TAGS</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control col-2" id="pt_og_name"
-                                                   placeholder="Name">
-                                            <input type="text" class="form-control" id="pt_og_content"
-                                                   placeholder="Content">
-                                            <button data-type="og" type="button" id="pt_add_og"
-                                                    class="pt_startFunc btn btn-warning">Добавить
                                             </button>
                                         </div>
                                     </div>
