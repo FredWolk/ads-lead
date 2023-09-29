@@ -53,6 +53,7 @@
             line-height: 120% !important;
             text-transform: uppercase !important;
             color: #014EFF !important;
+            margin-top: 15px;
         }
 
         .articles_seo-text--text h3, .articles_seo-text--text h3 * {
