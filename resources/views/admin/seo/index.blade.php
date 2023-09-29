@@ -8,6 +8,7 @@
     'videos' => 'Видео',
     'events' => 'События',
     'forum' => 'Форум',
+    'cases' => 'Кейсы',
   ]
 )
 @section('content')
