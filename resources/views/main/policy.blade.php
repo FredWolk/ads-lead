@@ -7,7 +7,7 @@
         <div class="container">
             <div class="videopage_wrapper">
                 <article class="videopage_main">
-                    <div class="videopage_main--text main__article" style="margin-bottom: 43px">
+                    <div class="videopage_main--text main__article" style="margin-bottom: 43px; margin-top: 50px">
                         <h1><strong>Policy regarding the processing of personal data</strong></h1>
 
                         <p>&nbsp;</p>
