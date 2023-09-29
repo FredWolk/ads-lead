@@ -266,7 +266,7 @@
                                             @if(!empty($i['verticales']))
                                                 @foreach($i['verticales'] as $v)
                                                     <li class="article--card_info_tags-list-item">
-                                                        <a class="article--card_info_tags-list-item--link"
+                                                        <a target="_blank" class="article--card_info_tags-list-item--link"
                                                            href="{{ route('cpa.catalog', $v) }}">#{{ $v }}</a>
                                                     </li>
                                                 @endforeach
@@ -504,7 +504,7 @@
                                             @if(!empty($i['advertising_formats']))
                                                 @foreach($i['advertising_formats'] as $v)
                                                     <li class="article--card_info_tags-list-item">
-                                                        <a class="article--card_info_tags-list-item--link"
+                                                        <a target="_blank" class="article--card_info_tags-list-item--link"
                                                            href="{{ route('ad.catalog', $v) }}">#{{ $v }}</a>
                                                     </li>
                                                 @endforeach
