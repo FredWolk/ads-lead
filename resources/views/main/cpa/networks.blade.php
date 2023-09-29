@@ -359,8 +359,8 @@
                     <button class="filter-aside--btn-show">Show Result (85)</button>
                 </form>
                 @if(!empty($banner))
-                    <aside class="filter-aside">
-                        <div class="filter-aside-banner sticky">
+                    <aside class="filter-aside--sticky">
+                        <div class="filter-aside-banner">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
                                     <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
