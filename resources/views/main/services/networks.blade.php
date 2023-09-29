@@ -261,7 +261,7 @@
 
             <aside class="filter-aside">
                 @if(!empty($banner))
-                    <aside class="filter-aside">
+                    <aside class="filter-aside--sticky">
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
