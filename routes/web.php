@@ -47,7 +47,7 @@ if (isset($url[3]) && $url[3] == 'pt') {
     exit();
 }
 Route::get('/', [IndexController::class, '__invoke'])->name('index');
-Route::get('/policy', function (){
+Route::get('/private-policy', function (){
     return view('main.policy');
 })->name('policy');
 Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
