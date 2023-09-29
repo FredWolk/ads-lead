@@ -64,19 +64,20 @@
     @yield('style')
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
-    <style>
-        .popup_button {
-            background-color: {{ $popup->color_back }};
-            color: {{ $popup->color_text }}
+    @if(!empty($popup))
+        <style>
+            .popup_button {
+                background-color: {{ $popup->color_back }};
+                color: {{ $popup->color_text }}
 
+            }
 
-        }
-
-        .popup_button:hover {
-            background-color: {{ $popup->hover_color }};
-            color: {{ $popup->hover_text_color }};
-        }
-    </style>
+            .popup_button:hover {
+                background-color: {{ $popup->hover_color }};
+                color: {{ $popup->hover_text_color }};
+            }
+        </style>
+    @endif
 </head>
 <body>
 <div class="wrapper">
