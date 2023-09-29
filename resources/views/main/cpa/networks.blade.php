@@ -213,15 +213,17 @@
                     </div>
 
                     @if(!empty($banner))
-                        <div class="filter-aside-banner to-show">
-                            <a target="_blank" href="{{ $banner->link }}">
-                                @if($banner->type == 'image')
-                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
-                                @else
-                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
-                                           muted></video>
-                                @endif
-                            </a>
+                        <div class="filter-aside--sticky">
+                            <div class="filter-aside-banner">
+                                <a target="_blank" href="{{ $banner->link }}">
+                                    @if($banner->type == 'image')
+                                        <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    @else
+                                        <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                                               muted></video>
+                                    @endif
+                                </a>
+                            </div>
                         </div>
                     @endif
 
