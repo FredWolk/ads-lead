@@ -288,7 +288,7 @@
                                                 @endfor
                                             </div>
                                         </a>
-                                        <a class="link--blue-sphere" href="{{ $i['url'] }}">
+                                        <a target="_blank" class="link--blue-sphere" href="{{ $i['url'] }}">
                                             <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
                                             <span>Site</span>
                                         </a>
@@ -504,7 +504,7 @@
                                             @if(!empty($i['advertising_formats']))
                                                 @foreach($i['advertising_formats'] as $v)
                                                     <li class="article--card_info_tags-list-item">
-                                                        <a target="_blank" class="article--card_info_tags-list-item--link"
+                                                        <a class="article--card_info_tags-list-item--link"
                                                            href="{{ route('ad.catalog', $v) }}">#{{ $v }}</a>
                                                     </li>
                                                 @endforeach
@@ -526,7 +526,7 @@
                                                 @endfor
                                             </div>
                                         </a>
-                                        <a class="link--blue-sphere" href="{{ $i['url'] }}">
+                                        <a target="_blank" class="link--blue-sphere" href="{{ $i['url'] }}">
                                             <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
                                             <span>Site</span>
                                         </a>
