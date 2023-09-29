@@ -2,6 +2,10 @@
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/css/fonts-style.css') }}">
 @endsection
+@section('seo')
+    <title>Private Policy</title>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+@endsection
 @section('content')
     <section class="videopage articlepage">
         <div class="container">
