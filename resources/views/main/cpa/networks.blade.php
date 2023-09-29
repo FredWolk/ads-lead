@@ -213,8 +213,7 @@
                     </div>
 
                     @if(!empty($banner))
-                        <div class="filter-aside--sticky">
-                            <div class="filter-aside-banner">
+                            <div class="filter-aside-banner to-show">
                                 <a target="_blank" href="{{ $banner->link }}">
                                     @if($banner->type == 'image')
                                         <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
@@ -224,7 +223,6 @@
                                     @endif
                                 </a>
                             </div>
-                        </div>
                     @endif
 
                     <div style="width: 100%" class="cpa__filters">
