@@ -303,7 +303,7 @@
                             </div>
                         @endforeach
                         <div style="margin-top: 20px">
-                            {{ $cpa->links() }}
+                            {{ $cpa->onEachSide(0)->links() }}
                         </div>
                         <nav class="filters__urls">
                             <ul class="filters__urls-list">

@@ -395,7 +395,7 @@
                     </div>
                 </div>
                 <div class="pagination">
-                    {{ $comments->links() }}
+                    {{ $comments->onEachSide(0)->links() }}
                 </div>
                 @foreach($comments as $key => $comment)
                     <div class="user-main-corpage_top">
@@ -519,7 +519,7 @@
                     </div>
                 @endforeach
                 <div class="pagination">
-                    {{ $comments->links() }}
+                    {{ $comments->onEachSide(0)->links() }}
                 </div>
                 @auth()
                     <div style="margin-top: 20px;" class="user-main-corpage_bot">

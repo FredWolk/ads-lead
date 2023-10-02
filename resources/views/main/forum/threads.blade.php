@@ -246,7 +246,7 @@
                 </ul>
 
                 <div style="margin-top: 40px;" class="pagination">
-                    {{ $threads->links() }}
+                    {{ $threads->onEachSide(0)->links() }}
                 </div>
             </section>
 

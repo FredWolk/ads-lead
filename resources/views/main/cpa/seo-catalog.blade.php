@@ -94,7 +94,7 @@
                                 </li>
                             @endforeach
                             <div class="pagination">
-                                {{ $cpa->links() }}
+                                {{ $cpa->onEachSide(0)->links() }}
                             </div>
                             {{--                            <nav class="filters__urls">--}}
                             {{--                                <ul class="filters__urls-list">--}}

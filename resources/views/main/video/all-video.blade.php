@@ -77,7 +77,7 @@
                 @endforeach
             </ul>
             <div class="pagination">
-                {{ $video->links() }}
+                {{ $video->onEachSide(0)->links() }}
             </div>
             @if(!empty($seo))
                 <aside class="articles_seo-text">
