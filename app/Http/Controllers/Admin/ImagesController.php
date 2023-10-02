@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreImagesRequest;
 use App\Http\Requests\UpdateImagesRequest;
 use App\Models\Images;
 use Illuminate\Support\Facades\Storage;
@@ -21,13 +20,15 @@ class ImagesController extends Controller
         return view('admin.images.create');
     }
 
-    public function store(StoreImagesRequest $request)
+    public function store(\Illuminate\Http\Request $request)
     {
-        $data = $request->validated();
+        $data = $request->file();
         if (!empty($data['link'])) {
-            $data['link'] = Storage::disk('public')->put('/admin/new_images', $data['link']);
+            foreach ($data['link'] as $link) {
+                $url['link'] = Storage::disk('public')->put('/admin/new_images', $link);
+                $images = Images::firstOrCreate($url);
+            }
         }
-        $images = Images::firstOrCreate($data);
         if ($images) {
             return redirect()->route('images.index');
         }

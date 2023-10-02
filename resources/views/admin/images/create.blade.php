@@ -36,7 +36,7 @@
                                 <label for="link">Изображение</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input value="{{ old('link') }}" name="link" type="file"
+                                        <input multiple value="{{ old('link') }}" name="link[]" type="file"
                                                class="custom-file-input" id="link">
                                         <label class="custom-file-label" for="link">Выберите изображение</label>
                                     </div>
