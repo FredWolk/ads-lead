@@ -149,7 +149,7 @@
                 @endforeach
             </ul>
             <div class="pagination">
-                {{ $articles->onEachSide(1)->links() }}
+                {{ $articles->links(5) }}
             </div>
             @if(!empty($seo) && empty($_GET['page']))
                 <aside class="articles_seo-text">
