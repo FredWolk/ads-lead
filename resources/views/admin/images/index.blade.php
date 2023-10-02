@@ -67,9 +67,10 @@
                                     <div class="image_button">
                                         <a class="text-success" href="{{ route('images.edit', $image['id']) }}"><i
                                                 class="fas fa-pen"></i></a>
-                                        <button form="delete_1" class="btn text-danger"><i class="fas fa-trash"></i>
+                                        <button form="delete_{{ $image['id'] }}" class="btn text-danger"><i
+                                                class="fas fa-trash"></i>
                                         </button>
-                                        <form id="delete_1" class="delete" method="post"
+                                        <form id="delete_{{ $image['id'] }}" class="delete" method="post"
                                               action="{{ route('images.destroy', $image['id']) }}">
                                             @csrf
                                             @method('delete')
