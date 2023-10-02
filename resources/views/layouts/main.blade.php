@@ -70,6 +70,10 @@
                 background-color: {{ $popup->color_back }};
                 color: {{ $popup->color_text }}
 
+
+
+
+
             }
 
             .popup_button:hover {
@@ -162,6 +166,7 @@
                             <input id="search" class="header--search-input" name="search_desc" placeholder="Search..."
                                    type="text">
                         </form>
+                        <div class="search_back"></div>
                         <div id="desctop__search" class="search__modal"></div>
                     </div>
                     @auth()
@@ -796,13 +801,13 @@
             } else {
                 $('#desctop__search').text('Ничего не найдено');
             }
-            $('#desctop__search').fadeIn(300);
+            $('#desctop__search, .search_back').fadeIn(300);
         })
     })
     let timeout
     $('#search').on('input', function () {
         if ($(this).val() == '') {
-            $('#desctop__search').fadeOut(300);
+            $('#desctop__search, .search_back').fadeOut(300);
         } else {
             clearTimeout(timeout);
             timeout = setTimeout(() => {
@@ -810,8 +815,8 @@
             }, 1000);
         }
     });
-    $('.btn--search').on('click', function () {
-        $('#desctop__search').fadeOut(300);
+    $('.btn--search, .search_back').on('click', function () {
+        $('#desctop__search, .search_back').fadeOut(300);
     })
     $('#set_lang').on('input', function (e) {
         if ($(this).val() === 'en') {
