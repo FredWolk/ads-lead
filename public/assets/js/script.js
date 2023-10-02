@@ -1,4 +1,4 @@
-$('.header--search-btn').on('click', function () {
+$('.header--search-btn, .search_back').on('click', function () {
     $(this).toggleClass('active');
     $('.header--search-input').toggleClass('active');
 });
