@@ -1,21 +1,21 @@
 @foreach($ad->groupBy('main_advertising_formats')->toArray() as $k => $i)
     <div class="cpapage_info--block">
-        <div class="cpapage_info-header">
-            <h2 class="cpapage_info-title">{{ $k }}</h2>
-            <a class="link--black-rotateble-arrows" href="{{ route('ad.catalog', $k) }}">
-                <span>See all</span>
-                <div class="link--black-rotateble-arrows-group">
-                    @for ($a=0; $a<3; $a++)
-                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"
-                                  fill="#272C31"/>
-                        </svg>
-                    @endfor
-                </div>
-            </a>
-        </div>
+        {{--        <div class="cpapage_info-header">--}}
+        {{--            <h2 class="cpapage_info-title">{{ $k }}</h2>--}}
+        {{--            <a class="link--black-rotateble-arrows" href="{{ route('ad.catalog', $k) }}">--}}
+        {{--                <span>See all</span>--}}
+        {{--                <div class="link--black-rotateble-arrows-group">--}}
+        {{--                    @for ($a=0; $a<3; $a++)--}}
+        {{--                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"--}}
+        {{--                             xmlns="http://www.w3.org/2000/svg">--}}
+        {{--                            <path fill-rule="evenodd" clip-rule="evenodd"--}}
+        {{--                                  d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"--}}
+        {{--                                  fill="#272C31"/>--}}
+        {{--                        </svg>--}}
+        {{--                    @endfor--}}
+        {{--                </div>--}}
+        {{--            </a>--}}
+        {{--        </div>--}}
         <ul class="cpapage_info-list">
             @foreach($i as $v)
                 <li class="cpapage_info--item">
