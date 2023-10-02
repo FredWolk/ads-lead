@@ -74,6 +74,7 @@
 
 
 
+
             }
 
             .popup_button:hover {
@@ -808,6 +809,7 @@
     $('#search').on('input', function () {
         if ($(this).val() == '') {
             $('#desctop__search, .search_back').fadeOut(300);
+            $('.header--search-btn').removeClass('active');
         } else {
             clearTimeout(timeout);
             timeout = setTimeout(() => {
@@ -817,6 +819,7 @@
     });
     $('.btn--search, .search_back').on('click', function () {
         $('#desctop__search, .search_back').fadeOut(300);
+        $('.header--search-btn').removeClass('active')
     })
     $('#set_lang').on('input', function (e) {
         if ($(this).val() === 'en') {
