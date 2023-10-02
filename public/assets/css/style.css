@@ -6875,7 +6875,7 @@ form {
     z-index: 10;
 }
 
-.popup_event-block {
+.popup_event-block .popup_event {
     border-bottom: 1px solid #014EFF;
 }
 
@@ -6898,6 +6898,7 @@ form {
     height: 100%;
     max-width: 170px;
     object-fit: cover;
+    border-radius: 0;
 }
 
 .popup_event-info {
