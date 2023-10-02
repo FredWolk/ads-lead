@@ -75,6 +75,8 @@
 
 
 
+
+
             }
 
             .popup_button:hover {
@@ -800,7 +802,7 @@
                 `)
                 })
             } else {
-                $('#desctop__search').text('Ничего не найдено');
+                $('#desctop__search').text('Nothing found');
             }
             $('#desctop__search, .search_back').fadeIn(300);
         })
