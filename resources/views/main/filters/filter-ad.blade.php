@@ -1,5 +1,5 @@
 @foreach($ad->groupBy('main_advertising_formats')->toArray() as $k => $i)
-    <div class="cpapage_info--block">
+    <div style="margin-bottom: 10px">
         {{--        <div class="cpapage_info-header">--}}
         {{--            <h2 class="cpapage_info-title">{{ $k }}</h2>--}}
         {{--            <a class="link--black-rotateble-arrows" href="{{ route('ad.catalog', $k) }}">--}}
