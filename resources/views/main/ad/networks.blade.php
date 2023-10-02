@@ -523,7 +523,7 @@
                 data: $(this).serialize(),
                 type: 'GET'
             }).done(function (rsp) {
-                $('.cpapage_info--block').fadeOut(300)
+                $('.cpapage_info--block').fadeOut(1)
                 if (rsp !== '') {
                     $('.ad__filters').html(rsp);
                 } else {
