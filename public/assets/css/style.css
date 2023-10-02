@@ -121,9 +121,16 @@ input:active, input:hover, input:focus {
     flex: 1 1 auto;
 }
 
-a, button {
+button {
     transition-duration: 0.3s;
     user-select: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+a {
+    transition-duration: 0.3s;
     cursor: pointer;
     border: none;
     background: none;
