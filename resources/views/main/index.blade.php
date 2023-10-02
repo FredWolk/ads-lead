@@ -709,7 +709,7 @@
                                                 <div class="popup_event-wrap">
                                                     @foreach($i as $link)
                                                         <a href="{{ route('event.page', $link['link']) }}"
-                                                           class="">
+                                                           class="popup_event-block">
                                                             <div class="popup_event">
                                                                 <img loading="lazy" class="popup_event-image"
                                                                      src="{{ asset('storage/'. $link["{$locale}image"]) }}"

@@ -6876,7 +6876,7 @@ form {
 }
 
 .popup_event-block {
-    position: static;
+    border-bottom: 1px solid #014EFF;
 }
 
 .popup_event {
@@ -6891,6 +6891,13 @@ form {
     max-width: 170px;
     object-fit: cover;
     border-radius: 14px 0 0 14px;
+}
+
+.popup_event-block .popup_event-image {
+    width: 100%;
+    height: 100%;
+    max-width: 170px;
+    object-fit: cover;
 }
 
 .popup_event-info {
