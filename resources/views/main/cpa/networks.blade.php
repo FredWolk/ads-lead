@@ -208,22 +208,21 @@
                                 </li>
                             @endforeach
                         </ul>
-
                         <a style="max-width: 200px; width: 100%;" href="{{ route('cpa') }}"
                            class="btn--grey cpapage_info--block--link">{{ __('messages.show') }}</a>
                     </div>
 
                     @if(!empty($banner))
-                            <div class="filter-aside-banner to-show">
-                                <a target="_blank" href="{{ $banner->link }}">
-                                    @if($banner->type == 'image')
-                                        <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
-                                    @else
-                                        <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
-                                               muted></video>
-                                    @endif
-                                </a>
-                            </div>
+                        <div class="filter-aside-banner to-show">
+                            <a target="_blank" href="{{ $banner->link }}">
+                                @if($banner->type == 'image')
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                @else
+                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                                           muted></video>
+                                @endif
+                            </a>
+                        </div>
                     @endif
 
                     <div style="width: 100%" class="cpa__filters">
@@ -437,6 +436,7 @@
                 data: $(this).serialize(),
                 type: 'GET'
             }).done(function (rsp) {
+                $('.cpapage_info--block').fadeOut(300);
                 if (rsp !== '') {
                     $('.cpa__filters').html(rsp);
                 } else {

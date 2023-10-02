@@ -249,6 +249,7 @@
                 data: $(this).serialize(),
                 type: 'GET'
             }).done(function (rsp) {
+
                 if (rsp !== '') {
                     $('.cpapage_info-list').html(rsp);
                 } else {
