@@ -113,13 +113,15 @@
                                 @if($k !== 0)
                                     <li class="article--card swiper-slide">
                                         <a class="article--card-link" href="{{ route('index') }}"></a>
-                                        <img loading="lazy" src="{{asset('storage/'.$a["{$locale}image"])}}" alt="banner">
+                                        <img loading="lazy" src="{{asset('storage/'.$a["{$locale}image"])}}"
+                                             alt="banner">
                                         <div class="article--card_info">
                                             <ul class="article--card_info_tags-list">
                                                 @if(!empty($a['tags']))
                                                     @foreach($a['tags'] as $tag)
                                                         <li class="article--card_info_tags-list-item mobhide">
-                                                            <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
+                                                            <p class="article--card_info_tags-list-item--link">
+                                                                #{{ $tag }}</p>
                                                         </li>
                                                     @endforeach
                                                 @endif
@@ -205,7 +207,8 @@
                                         <li class="article--card swiper-slide">
                                             <a class="article--card-link"
                                                href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}"></a>
-                                            <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
+                                            <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}"
+                                                 alt="banner">
                                             <div class="article--card_info">
                                                 <ul class="article--card_info_tags-list">
                                                     @if(!empty($i['verticales']))
@@ -251,7 +254,8 @@
                             <p class="main-cpa-subt">TOp-5</p>
                             <a class="link--blue" href="{{ route('cpa') }}">
                                 <span>{{ __('messages.show') }}</span>
-                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                                     alt="arrow">
                             </a>
                         </div>
                         <ul class="main-cpa_aside_list">
@@ -266,7 +270,8 @@
                                             @if(!empty($i['verticales']))
                                                 @foreach($i['verticales'] as $v)
                                                     <li class="article--card_info_tags-list-item">
-                                                        <a target="_blank" class="article--card_info_tags-list-item--link"
+                                                        <a target="_blank"
+                                                           class="article--card_info_tags-list-item--link"
                                                            href="{{ route('cpa.catalog', $v) }}">#{{ $v }}</a>
                                                     </li>
                                                 @endforeach
@@ -289,7 +294,8 @@
                                             </div>
                                         </a>
                                         <a target="_blank" class="link--blue-sphere" href="{{ $i['url'] }}">
-                                            <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
+                                            <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}"
+                                                 alt="sphere">
                                             <span>Site</span>
                                         </a>
                                     </div>
@@ -310,7 +316,8 @@
                             <h2 class="title">{{ __('messages.video') }}</h2>
                             <a class="link--blue" href="{{ route('video') }}">
                                 <span>{{ __('messages.show') }}</span>
-                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                                     alt="arrow">
                             </a>
                         </div>
                         <div class="main_articles_top_link-wrapp">
@@ -358,15 +365,19 @@
                         </ul>
 
                         <button type="button" class="swiper-button-prev swiper-button arrow--btn left">
-                            <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                            <img loading="lazy" class="arrow--btn-black"
+                                 src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                                  alt="arrow">
-                            <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                            <img loading="lazy" class="arrow--btn-blue"
+                                 src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                                  alt="blue">
                         </button>
                         <button type="button" class="swiper-button-next swiper-button arrow--btn">
-                            <img loading="lazy" class="arrow--btn-black" src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
+                            <img loading="lazy" class="arrow--btn-black"
+                                 src="{{asset('assets/images/icons/arrow-right-black.svg')}}"
                                  alt="arrow">
-                            <img loading="lazy" class="arrow--btn-blue" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                            <img loading="lazy" class="arrow--btn-blue"
+                                 src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
                                  alt="blue">
                         </button>
 
@@ -443,7 +454,8 @@
                                         <li class="article--card swiper-slide">
                                             <a class="article--card-link"
                                                href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
-                                            <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}" alt="banner">
+                                            <img loading="lazy" src="{{ asset('storage/'.$i["{$locale}image"]) }}"
+                                                 alt="banner">
                                             <div class="article--card_info">
                                                 <ul class="article--card_info_tags-list">
                                                     @if(!empty($i['advertising_formats']))
@@ -489,7 +501,8 @@
                             <p class="main-cpa-subt">TOp-5</p>
                             <a class="link--blue" href="{{ route('ad') }}">
                                 <span>{{ __('messages.show') }}</span>
-                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}" alt="arrow">
+                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-blue.svg')}}"
+                                     alt="arrow">
                             </a>
                         </div>
                         <ul class="main-cpa_aside_list">
@@ -527,7 +540,8 @@
                                             </div>
                                         </a>
                                         <a target="_blank" class="link--blue-sphere" href="{{ $i['url'] }}">
-                                            <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}" alt="sphere">
+                                            <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}"
+                                                 alt="sphere">
                                             <span>Site</span>
                                         </a>
                                     </div>
@@ -555,7 +569,8 @@
                     @if(!empty($firstEvent))
                         <li class="article--card hide">
                             <a class="article--card-link" href="{{ route('event.page', $firstEvent['link']) }}"></a>
-                            <img loading="lazy" src="{{ asset('storage/' . $firstEvent["{$locale}image"]) }}" alt="banner">
+                            <img loading="lazy" src="{{ asset('storage/' . $firstEvent["{$locale}image"]) }}"
+                                 alt="banner">
                             <div class="article--card_info">
                                 <div class="main-events__article--card_info_top">
                                     <div class="main-events__article--card_info_top-date">
@@ -581,7 +596,8 @@
                                     <li class="article--card swiper-slide">
                                         <a class="article--card-link"
                                            href="{{ route('event.page', $i['link']) }}"></a>
-                                        <img loading="lazy" src="{{ asset('storage/' . $i["{$locale}image"]) }}" alt="banner">
+                                        <img loading="lazy" src="{{ asset('storage/' . $i["{$locale}image"]) }}"
+                                             alt="banner">
                                         <div class="article--card_info">
                                             <p class="main-events__article--card_info_top-text">{{ $i["{$locale}location"] }}</p>
                                             <h4 class="article--card_info-title">{{ $i["{$locale}name"] }}</h4>
@@ -671,18 +687,43 @@
                                     <li class="calendar_date ">{{ date('d', strtotime($k)) }}</li>
                                 @else
                                     <li class="calendar_date init">
-                                        <p>{{ date('d', strtotime($k)) }}</p>
-                                        <p>{{ mb_strimwidth($i["{$locale}name"], 0, 20).'...' }}</p>
-                                        <a href="{{ route('event.page', $i['link']) }}" class="popup_event-wrap">
-                                            <div class="popup_event">
-                                                <img loading="lazy" class="popup_event-image"
-                                                     src="{{ asset('storage/'. $i["{$locale}image"]) }}" alt="">
-                                                <div class="popup_event-info">
-                                                    <p class="popup_event-date">{{ $i["{$locale}date"] }}</p>
-                                                    <p class="popup_event-name">{{ $i["{$locale}name"] }}</p>
+                                        @foreach($i as $key => $items)
+                                            @if($key === 0)
+                                                <p>{{ date('d', strtotime($k)) }}</p>
+                                            @endif
+                                            <p>{{ mb_strimwidth($items["{$locale}name"], 0, 20).'...' }}</p>
+                                            @if(count($i) === 1)
+                                                <a href="{{ route('event.page', $items['link']) }}"
+                                                   class="popup_event-wrap">
+                                                    <div class="popup_event">
+                                                        <img loading="lazy" class="popup_event-image"
+                                                             src="{{ asset('storage/'. $items["{$locale}image"]) }}"
+                                                             alt="">
+                                                        <div class="popup_event-info">
+                                                            <p class="popup_event-date">{{ $items["{$locale}date"] }}</p>
+                                                            <p class="popup_event-name">{{ $items["{$locale}name"] }}</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            @else
+                                                <div class="popup_event-wrap">
+                                                    @foreach($i as $link)
+                                                        <a href="{{ route('event.page', $link['link']) }}"
+                                                           class="">
+                                                            <div class="popup_event">
+                                                                <img loading="lazy" class="popup_event-image"
+                                                                     src="{{ asset('storage/'. $link["{$locale}image"]) }}"
+                                                                     alt="">
+                                                                <div class="popup_event-info">
+                                                                    <p class="popup_event-date">{{ $link["{$locale}date"] }}</p>
+                                                                    <p class="popup_event-name">{{ $link["{$locale}name"] }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    @endforeach
                                                 </div>
-                                            </div>
-                                        </a>
+                                            @endif
+                                        @endforeach
                                     </li>
                                 @endif
                             @endforeach

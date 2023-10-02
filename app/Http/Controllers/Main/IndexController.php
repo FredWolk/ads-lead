@@ -40,7 +40,7 @@ class IndexController extends Controller
             ->where('filtration_date', '>=', date('Y-m-d'))
             ->take(6)->toArray();
         foreach ($events as $i) {
-            $arr[$i['filtration_date']] = $i;
+            $arr[$i['filtration_date']][] = $i;
         }
         for ($i = $start; $i <= $finish; $i = date('Y-m-d', strtotime($i . '+1 day'))) {
             $calendar[$i] = !empty($arr[$i]) ? $arr[$i] : null;
