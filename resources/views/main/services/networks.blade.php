@@ -71,6 +71,15 @@
                                     </div>
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
+                                        @if(!empty($i['link']))
+                                            <a class="btn--blue header_buttons-blue-btn"
+                                               href="{{ $i['link'] }}">
+                                                <span>{{ __('messages.review') }}</span>
+                                                <img loading="lazy"
+                                                     src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                                     alt="arrow">
+                                            </a>
+                                        @endif
                                         <div class="promocode--btn-wrapper">
                                             <button type="button" class="btn--grey-with-icons promocode promocode--btn"
                                                     style="

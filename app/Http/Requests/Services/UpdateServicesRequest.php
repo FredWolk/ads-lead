@@ -31,6 +31,7 @@ class UpdateServicesRequest extends FormRequest
             'prev_text' => 'nullable|string',
             'pt_prev_text' => 'nullable|string',
             'url' => 'nullable|string',
+            'link' => 'nullable|string',
 
             'promocode' => 'nullable|string',
             'promocode_desc' => 'nullable|string',

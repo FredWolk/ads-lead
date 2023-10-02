@@ -51,8 +51,10 @@
                                 <div class="form-group col-4">
                                     <label for="is_recomendated">Рекомендован</label>
                                     <select name="is_recomendated" class="form-control" id="is_recomendated">
-                                        <option {{ old('is_recomendated') == true ? 'selected' : '' }} value="1">Да</option>
-                                        <option {{ old('is_recomendated') == false ? 'selected' : '' }} value="0">Нет</option>
+                                        <option {{ old('is_recomendated') == true ? 'selected' : '' }} value="1">Да
+                                        </option>
+                                        <option {{ old('is_recomendated') == false ? 'selected' : '' }} value="0">Нет
+                                        </option>
                                     </select>
                                 </div>
                                 @error('is_recomendated')
@@ -100,6 +102,16 @@
                                        id="url" placeholder="https://google.com">
                             </div>
                             @error('url')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="link">Отзыв о сервисе</label>
+                                <input type="url" name="link" value="{{ old('link') }}" class="form-control"
+                                       id="link"
+                                       placeholder="https://affjournal.com/articles/how-to-set-up-cloaking-with-cloaking.house">
+                            </div>
+                            @error('link')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
