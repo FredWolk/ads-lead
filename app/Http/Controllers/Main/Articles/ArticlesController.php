@@ -16,10 +16,10 @@ class ArticlesController extends Controller
         if (!empty($seo)) {
             $seo->toArray();
         }
-        $articles = Article::with('author')->where('type', 'article')->orderByDesc('id')->simplePaginate(9);
-//        if (!empty($_GET['page']) && $articles->lastPage() < $_GET['page']) {
-//            return redirect()->route('articles');
-//        }
+        $articles = Article::with('author')->where('type', 'article')->orderByDesc('id')->paginate(9);
+        if (!empty($_GET['page']) && $articles->lastPage() < $_GET['page']) {
+            return redirect()->route('articles');
+        }
         return view('main.articles.all-articles', compact('articles', 'seo', 'locale'));
     }
 }
