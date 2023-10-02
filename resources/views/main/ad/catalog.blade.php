@@ -133,7 +133,7 @@
                                 </li>
                             @endforeach
                             <div class="pagination">
-                                {{ $ad->onEachSide(0)->links() }}
+                                {{ $ad->onEachSide(1)->links() }}
                             </div>
                             <nav class="filters__urls">
                                 <ul class="filters__urls-list">

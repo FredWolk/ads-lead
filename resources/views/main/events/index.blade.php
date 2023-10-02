@@ -64,7 +64,7 @@
                                 </li>
                             @endforeach
                             <div class="pagination">
-                                {{ $events->onEachSide(0)->links() }}
+                                {{ $events->onEachSide(1)->links() }}
                             </div>
                         </ul>
                     </div>

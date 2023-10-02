@@ -242,7 +242,7 @@
                                 </li>
                             @endforeach
                             <div class="pagination">
-                                {{ $services->onEachSide(0)->links() }}
+                                {{ $services->onEachSide(1)->links() }}
                             </div>
                         </ul>
                     </div>

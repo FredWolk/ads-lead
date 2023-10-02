@@ -87,7 +87,7 @@
                                 </li>
                             @endforeach
                             <div class="pagination">
-                                {{ $cpa->onEachSide(0)->links() }}
+                                {{ $cpa->onEachSide(1)->links() }}
                             </div>
                         </ul>
                     </div>
