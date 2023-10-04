@@ -2806,7 +2806,10 @@ img {
 .cpaartpage_card_bot--link_wrapper {
     display: flex;
     align-items: center;
-    gap: 54px;
+    gap: 30px;
+    justify-content: space-between;
+    max-width: 230px;
+    width: 100%;
 }
 
 .cpaartpage_aside_rating {
