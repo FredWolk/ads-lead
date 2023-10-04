@@ -62,7 +62,7 @@ return [
     'support' => 'Support',
     'payouts' => 'Payouts',
     'offers' => 'Offers',
-    'rates' => 'Rates/bets',
+    'rates' => 'Tools',
 
     'cpa.year' => 'Year of foundation',
     'cpa.gep' => 'GEO of offers',
@@ -72,7 +72,7 @@ return [
     'cpa.payment' => 'Payment systems',
     'cpa.payment.method' => 'Payment frequency',
     'cpa.affiliate' => 'Affiliate program',
-    'cpa.tools' => 'Rates/bets',
+    'cpa.tools' => 'Tools',
 
     'opinion' => 'Editorial opinion',
 
