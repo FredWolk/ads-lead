@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Редактирование фильтра - {{ $cpa_seo_filter['filter_name'] }}</h1>
-                        <a class="text-success" href="{{ route('cpa-seo-filter.edit', $cpa_seo_filter['id']) }}"><i
+                        <h1 class="m-0 mr-5">Редактирование фильтра - {{ $cpa_seo_filter['filter_name'] }}</h1>
+                        <a class="text-success mr-5" href="{{ route('cpa-seo-filter.edit', $cpa_seo_filter['id']) }}"><i
                                 class="fas fa-pen"></i></a>
                         <button form="delete" class="btn text-danger"><i class="fas fa-trash"></i></button>
                         <form id="delete" method="post"

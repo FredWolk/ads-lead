@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Видео - {{ $video->name }}</h1>
-                        <a class="text-success" href="{{ route('video.edit', $video->id) }}"><i
+                        <h1 class="m-0 mr-5">Видео - {{ $video->name }}</h1>
+                        <a class="text-success mr-5" href="{{ route('video.edit', $video->id) }}"><i
                                 class="fas fa-pen"></i></a>
                         <button form="delete" class="btn text-danger"><i class="fas fa-trash"></i></button>
                         <form id="delete" method="post" action="{{ route('video.destroy', $video->id) }}">
@@ -43,7 +43,8 @@
                             </tr>
                             <tr>
                                 <td>Изображение</td>
-                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$video->image) }}" alt=""></td>
+                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$video->image) }}" alt="">
+                                </td>
                             </tr>
 
                             </tbody>

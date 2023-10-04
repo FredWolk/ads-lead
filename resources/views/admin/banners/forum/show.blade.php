@@ -6,8 +6,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Редактирование баннера форума - {{ $forum->id }}</h1>
-                        <a class="text-success" href="{{ route('forum.edit', $forum->id) }}"><i class="fas fa-pen"></i></a>
+                        <h1 class="m-0 mr-5">Редактирование баннера форума - {{ $forum->id }}</h1>
+                        <a class="text-success mr-5" href="{{ route('forum.edit', $forum->id) }}"><i
+                                class="fas fa-pen"></i></a>
                         <button form="delete" class="btn text-danger"><i class="fas fa-trash"></i></button>
                         <form id="delete" method="post" action="{{ route('forum.destroy', $forum->id) }}">
                             @csrf
@@ -43,11 +44,13 @@
                             <tr>
                                 <td>Файл</td>
                                 <td>
-                                @if($forum->type == 'image')
-                                        <img loading="lazy" width="400" src="{{ asset('storage/'.$forum->file) }}" alt="">
-                                @else
-                                        <video width="500" controls="controls" src="{{ asset('storage/'. $forum->file) }}"></video>
-                                @endif
+                                    @if($forum->type == 'image')
+                                        <img loading="lazy" width="400" src="{{ asset('storage/'.$forum->file) }}"
+                                             alt="">
+                                    @else
+                                        <video width="500" controls="controls"
+                                               src="{{ asset('storage/'. $forum->file) }}"></video>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>

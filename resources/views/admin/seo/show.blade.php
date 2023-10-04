@@ -6,8 +6,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Редактирование SEO - {{ $seo['page'] }}</h1>
-                        <a class="text-success" href="{{ route('seo.edit', $seo['id']) }}"><i class="fas fa-pen"></i></a>
+                        <h1 class="m-0 mr-5">Редактирование SEO - {{ $seo['page'] }}</h1>
+                        <a class="text-success mr-5" href="{{ route('seo.edit', $seo['id']) }}"><i
+                                class="fas fa-pen"></i></a>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -32,10 +33,10 @@
                             </thead>
                             <tbody>
                             @foreach($seo as $k => $i)
-                            <tr>
-                                <td>{{ $k }}</td>
-                                <td>{{ $i }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $k }}</td>
+                                    <td>{{ $i }}</td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>

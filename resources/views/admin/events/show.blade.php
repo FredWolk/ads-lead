@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Редактирование рекламы - {{ $event->name }}</h1>
-                        <a class="text-success" href="{{ route('event.edit', $event->id) }}"><i
+                        <h1 class="m-0 mr-5">Редактирование рекламы - {{ $event->name }}</h1>
+                        <a class="text-success mr-5" href="{{ route('event.edit', $event->id) }}"><i
                                 class="fas fa-pen"></i></a>
                         <button form="delete" class="btn text-danger"><i class="fas fa-trash"></i></button>
                         <form id="delete" method="post" action="{{ route('event.destroy', $event->id) }}">
@@ -43,7 +43,8 @@
                             </tr>
                             <tr>
                                 <td>Изображение</td>
-                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$event->image) }}" alt=""></td>
+                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$event->image) }}" alt="">
+                                </td>
                             </tr>
 
                             </tbody>

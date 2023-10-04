@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Автор - {{ $author['name'] }}</h1>
-                        <a class="text-success" href="{{ route('author.edit', $author['id']) }}"><i
+                        <h1 class="m-0 mr-5">Автор - {{ $author['name'] }}</h1>
+                        <a class="text-success mr-5" href="{{ route('author.edit', $author['id']) }}"><i
                                 class="fas fa-pen"></i></a>
                         <button form="delete" class="btn text-danger"><i class="fas fa-trash"></i></button>
                         <form id="delete" method="post" action="{{ route('author.destroy', $author['id']) }}">
@@ -43,7 +43,8 @@
                             </tr>
                             <tr>
                                 <td>Фото</td>
-                                <td><img loading="lazy" width="150" src="{{ asset('storage/'. $author['photo']) }}" alt=""></td>
+                                <td><img loading="lazy" width="150" src="{{ asset('storage/'. $author['photo']) }}"
+                                         alt=""></td>
                             </tr>
                             </tbody>
                         </table>

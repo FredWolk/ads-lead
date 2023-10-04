@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-3">Редактирование партнерки - {{ $cpa['name'] }}</h1>
-                        <a class="text-success" href="{{ route('cpa.edit', $cpa['id']) }}"><i
+                        <h1 class="m-0 mr-5">Редактирование партнерки - {{ $cpa['name'] }}</h1>
+                        <a class="text-success mr-5" href="{{ route('cpa.edit', $cpa['id']) }}"><i
                                 class="fas fa-pen"></i></a>
                         <button form="delete" class="btn text-danger"><i class="fas fa-trash"></i></button>
                         <form id="delete" method="post" action="{{ route('cpa.destroy', $cpa['id']) }}">
@@ -47,7 +47,8 @@
                             </tr>
                             <tr>
                                 <td>Изображение</td>
-                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->image) }}" alt=""></td>
+                                <td><img loading="lazy" width="150" src="{{ asset('storage/'.$cpa->image) }}" alt="">
+                                </td>
                             </tr>
                             <tr>
                                 <td>Описание</td>
