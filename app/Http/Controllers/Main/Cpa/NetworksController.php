@@ -38,7 +38,7 @@ class NetworksController extends Controller
 
         if (!empty($request->query())) {
             $cpa = Cpa::whereJsonContains('verticales', $request->query('vertical'))
-                ->whereJsonContains(function ($query) use ($request) {
+                ->orWhere(function ($query) use ($request) {
                     $query->whereJsonContains('verticales', $request->query('vertical'))
                         ->whereJsonContains('countries', $request->query('countries'));
                 })
