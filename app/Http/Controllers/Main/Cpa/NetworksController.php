@@ -38,10 +38,10 @@ class NetworksController extends Controller
 
         if (!empty($request->query())) {
             $cpa = Cpa::whereJsonContains('verticales', $request->query('vertical'))
-                ->whereJsonContains('countries', $request->query('countries'))
-                ->whereJsonContains('payment_models', $request->query('payment_models'))
-                ->whereJsonContains('payment_schedule_f', $request->query('payment_schedule'))
-                ->whereJsonContains('payment_systems', $request->query('payment_systems'))->get();
+                ->whereJsonContains('countries', !empty($request->query('countries')) ? $request->query('countries') : '')
+                ->whereJsonContains('payment_models', !empty($request->query('payment_models')) ? $request->query('payment_models') : '')
+                ->whereJsonContains('payment_schedule_f', !empty($request->query('payment_schedule')) ? $request->query('payment_schedule') : '')
+                ->whereJsonContains('payment_systems', !empty($request->query('payment_systems')) ? $request->query('payment_systems') : '')->get();
         } else {
             $cpa = Cpa::all();
         }
