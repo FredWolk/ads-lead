@@ -267,21 +267,21 @@
                                 @endif
                             </div>
                             <div class="cpaartpage_card_bot--line"></div>
-                            {{--                            <div class="cpaartpage_card_bot--link_wrapper">--}}
-                            <a target="_blank" class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
-                               href="{{ $cpa['url'] }}">
-                                <span>website</span>
-                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
-                                     alt="arrow">
-                            </a>
-                            <div class="cpaartpage_card_bot--line"></div>
-                            <a class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
-                               href="{{ $cpa['forum_link'] }}">
-                                <span>Forum</span>
-                                <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
-                                     alt="arrow">
-                            </a>
-                            {{--                            </div>--}}
+                            <div class="cpaartpage_card_bot--link_wrapper">
+                                <a target="_blank" class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
+                                   href="{{ $cpa['url'] }}">
+                                    <span>website</span>
+                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                         alt="arrow">
+                                </a>
+                                <div class="cpaartpage_card_bot--line"></div>
+                                <a class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
+                                   href="{{ $cpa['forum_link'] }}">
+                                    <span>Forum</span>
+                                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                         alt="arrow">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="videopage_main--text main__article"
