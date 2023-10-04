@@ -35,12 +35,18 @@ class NetworksController extends Controller
 
     public function filter(Request $request)
     {
-
+        $keys = [
+            'advertising_formats' => 'advertising_formats',
+            'countries' => 'countries',
+            'payment_systems' => 'payment_systems',
+            'minimum_top_up_amount' => 'minimum_top_up_amount',
+        ];
+        $array = [];
         if (!empty($request->query())) {
-            $ad = Ad::whereJsonContains('advertising_formats', $request->query('advertising_formats'))
-                ->orWhereJsonContains('countries', $request->query('countries'))
-                ->orWhereJsonContains('payment_systems', $request->query('payment_systems'))
-                ->orWhereJsonContains('minimum_top_up_amount', $request->query('minimum_top_up_amount'))->get();
+            foreach ($request->query() as $key => $item) {
+                $array[] = [$keys[$key], 'like', "%$item[0]%"];
+            }
+            $ad = Ad::where($array)->get();
         } else {
             $ad = Ad::all();
         }

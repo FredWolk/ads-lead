@@ -35,12 +35,19 @@ class NetworksController extends Controller
 
     public function filter(Request $request)
     {
+        $keys = [
+            'vertical' => 'verticales',
+            'countries' => 'countries',
+            'payment_models' => 'payment_models',
+            'payment_schedule' => 'payment_schedule_f',
+            'payment_systems' => 'payment_systems',
+        ];
+        $array = [];
         if (!empty($request->query())) {
-            $cpa = Cpa::whereJsonContains('verticales', $request->query('vertical'))
-                ->orWhereJsonContains('countries', $request->query('countries'))
-                ->orWhereJsonContains('payment_models', $request->query('payment_models'))
-                ->orWhereJsonContains('payment_schedule_f', $request->query('payment_schedule'))
-                ->orWhereJsonContains('payment_systems', $request->query('payment_systems'))->get();
+            foreach ($request->query() as $key => $item) {
+                $array[] = [$keys[$key], 'like', "%$item[0]%"];
+            }
+            $cpa = Cpa::where($array)->get();
         } else {
             $cpa = Cpa::all();
         }
