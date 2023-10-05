@@ -2894,6 +2894,8 @@ img {
 .cpaartpage_card_bot--link_wrapper.ad {
     width: 100%;
     gap: 100px;
+    max-width: none;
+    justify-content: normal;
 }
 
 .promocode--btn .svg2 {
