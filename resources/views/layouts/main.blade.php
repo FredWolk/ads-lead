@@ -77,6 +77,9 @@
 
 
 
+
+
+
             }
 
             .popup_button:hover {
@@ -290,6 +293,8 @@
                     <p class="footer_contacts-address-text">143 CECIL STREET, 17 - 04 GB BUILDING 069542 SINGAPORE</p>
                     <a class="footer_contacts-address-text"
                        href="mailto:media@affjournal.com">media@affjournal.com</a>
+                    <a target="_blank" class="footer_contacts-address-text"
+                       href="https://affjournal.com/sitemap.html">Sitemap</a>
                     <a class="footer_contacts-address-text" target="_blank"
                        href="{{ route('policy') }}">{{ __('messages.policy') }}</a>
                 </address>
