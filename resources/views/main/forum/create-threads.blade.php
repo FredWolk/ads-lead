@@ -91,7 +91,7 @@
                           method="POST"
                           class="user-main-corpage_bot_right">
                         @csrf
-                        <input type="hidden" value="{{ $link }}" name="theme">
+                        <input type="hidden" value="{{ !empty($trade->link) ?? '' }}" name="theme">
                         <input type="hidden" value="{{ !empty($trade->prefix) ?? '' }}" id="link" name="link">
                         <div class="user-main-corpage_bot_right-pagin">
                             <div class="create__flex">
