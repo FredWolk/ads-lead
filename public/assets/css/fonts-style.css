@@ -5,7 +5,6 @@
 .main__article li,
 .main__article li * {
     font-family: 'Montserrat' !important;
-    font-style: normal !important;
     font-size: 18px !important;
     line-height: 160% !important;
     color: #272C31 !important;
@@ -16,7 +15,6 @@
 
 .main__article a, .main__article a * {
     font-family: 'Montserrat' !important;
-    font-style: normal !important;
     font-weight: 500 !important;
     font-size: 18px !important;
     line-height: 160% !important;
@@ -26,7 +24,6 @@
 
 .main__article h1, .main__article h1 * {
     font-family: 'Jost' !important;
-    font-style: normal !important;
     font-weight: 700 !important;
     font-size: 30px !important;
     line-height: 120% !important;
@@ -36,7 +33,6 @@
 
 .main__article h2, .main__article h2 * {
     font-family: 'Jost' !important;
-    font-style: normal !important;
     font-weight: 700 !important;
     font-size: 28px !important;
     line-height: 120% !important;
@@ -46,7 +42,6 @@
 
 .main__article h3, .main__article h3 * {
     font-family: 'Jost' !important;
-    font-style: normal !important;
     font-weight: 700 !important;
     font-size: 25px !important;
     line-height: 120% !important;
@@ -57,7 +52,6 @@
 
 .main__article b, .main__article b * {
     font-family: 'Montserrat' !important;
-    font-style: normal !important;
     font-weight: 500 !important;
     font-size: 18px !important;
     line-height: 160% !important;
