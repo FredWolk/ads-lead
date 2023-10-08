@@ -67,6 +67,14 @@
                                         {{ $seo->page === Seo::FORUM_PAGE ? 'selected' : '' }} value="{{ Seo::FORUM_PAGE }}">
                                         Форум
                                     </option>
+                                    <option
+                                        {{ $seo->page === Seo::CASES_PAGE ? 'selected' : '' }} value="{{ Seo::CASES_PAGE }}">
+                                        Кейсы
+                                    </option>
+                                    <option
+                                        {{ $seo->page === Seo::TOOLS_PAGE ? 'selected' : '' }} value="{{ Seo::TOOLS_PAGE }}">
+                                        Сервисы
+                                    </option>
                                 </select>
                             </div>
 

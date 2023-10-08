@@ -70,6 +70,10 @@
                                         {{ old('page') === Seo::CASES_PAGE ? 'selected' : ''}} value="{{ Seo::CASES_PAGE }}">
                                         Кейсы
                                     </option>
+                                    <option
+                                        {{ old('page') === Seo::TOOLS_PAGE ? 'selected' : ''}} value="{{ Seo::TOOLS_PAGE }}">
+                                        Сервисы
+                                    </option>
                                 </select>
                             </div>
 
