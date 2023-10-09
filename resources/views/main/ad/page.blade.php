@@ -60,7 +60,7 @@
                     <div class="videopage_main-underimage">
                         <div class="videopage_main-underimage_autor to-hide">
                             <div class="videopage_main-underimage_autor-image">
-                                <img loading="lazy" src="{{ asset('storage/'. $ad["{$locale}image"]) }}" alt="autor">
+                                <img loading="lazy" src="{{ asset('assets/images/card-pict.jpg') }}" alt="autor">
                             </div>
                             <p class="videopage_main-underimage_autor-link">by <a>AFFJOURNAL</a></p>
                         </div>
