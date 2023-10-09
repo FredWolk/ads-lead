@@ -260,7 +260,7 @@
                                 @endif
                             </div>
                             <div class="cpaartpage_card_bot--line"></div>
-                            <div class="cpaartpage_card_bot--link_wrapper ad">
+                            <div class="cpaartpage_card_bot--link_wrapper">
                                 <a target="_blank" class="btn--blue header_buttons-blue-btn cpaartpage_card_bot--link"
                                    href="{{ $ad['url'] }}">
                                     <span>website</span>
