@@ -393,6 +393,63 @@
                                 @enderror
                             </div>
 
+                            {{-- Информация о менеджере --}}
+                            <div class="card card-success p-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Информация о менеджере</h3>
+                                </div>
+
+                                <img loading="lazy" width="150" src="{{ asset('storage/'.$ad->manager_image) }}"
+                                     alt="">
+                                <div class="form-group">
+                                    <label for="manager_image">Фото менеджера</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input value="{{ $ad->manager_image }}" name="manager_image" type="file"
+                                                   class="custom-file-input" id="manager_image">
+                                            <label class="custom-file-label" for="manager_image">Выберите фото
+                                                менеджера</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                @error('manager_image')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="manager_name">Имя менеджера</label>
+                                    <input value="{{ $ad->manager_name }}" name="manager_name" type="text"
+                                           class="form-control"
+                                           id="manager_name"
+                                           placeholder="Albert Flores">
+                                </div>
+                                @error('manager_name')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="manager_position">Должность менеджера</label>
+                                    <input value="{{ $ad->manager_position }}" name="manager_position" type="text"
+                                           class="form-control"
+                                           id="manager_position"
+                                           placeholder="Manager">
+                                </div>
+                                @error('manager_position')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="manager_link">Ссылка на мессенджер</label>
+                                    <input value="{{ $ad->manager_link }}" name="manager_link" type="text"
+                                           class="form-control"
+                                           id="manager_link"
+                                           placeholder="https://t.me/bla-bla-bla">
+                                </div>
+                                @error('manager_link')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="card card-success p-3">
                                 <div class="card-header">
                                     <h3 class="card-title">Соц. сети и отзыв редакции</h3>

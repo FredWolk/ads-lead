@@ -63,6 +63,11 @@ class UpdateAdRequest extends FormRequest
             'referral_program' => 'nullable|string',
             'tools' => 'nullable|string',
 
+            'manager_image' => 'image|nullable',
+            'manager_name' => 'string|nullable',
+            'manager_position' => 'string|nullable',
+            'manager_link' => 'string|nullable',
+
             'facebook' => 'nullable|string',
             'instagram' => 'nullable|string',
             'linkedin' => 'nullable|string',

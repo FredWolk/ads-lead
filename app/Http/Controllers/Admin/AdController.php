@@ -34,6 +34,8 @@ class AdController extends Controller
 
         if (!empty($data['logo']))
             $data['logo'] = Storage::disk('public')->put('/admin/images/netw', $data['logo']);
+        if (!empty($data['manager_image']))
+            $data['manager_image'] = Storage::disk('public')->put('/admin/images/netw', $data['manager_image']);
 
         $ad = Ad::firstOrCreate($data);
         if ($ad) {
@@ -70,6 +72,11 @@ class AdController extends Controller
             if (!empty($ad->logo))
                 Storage::disk('public')->delete($ad->logo);
             $data['logo'] = Storage::disk('public')->put('/admin/images/netw', $data['logo']);
+        }
+        if (!empty($data['manager_image'])) {
+            if (!empty($cpa->manager_image))
+                Storage::disk('public')->delete($cpa->manager_image);
+            $data['manager_image'] = Storage::disk('public')->put('/admin/images/netw', $data['manager_image']);
         }
         if ($ad->update($data))
             return redirect()->route('ad.show', $ad->id);
