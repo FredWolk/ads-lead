@@ -206,6 +206,17 @@
                             @endif
                         </ul>
                         <div class="cpaartpage_card_bot ad">
+                            <a href="{{ $ad['manager_link'] }}" target="_blank"
+                               class="articlepage--review-integration_autor">
+                                <div class="videopage_main-underimage_autor-image">
+                                    <img loading="lazy" src="{{asset('storage/' . $ad['manager_image'])}}" alt="autor">
+                                </div>
+                                <div class="articlepage--review-integration_autor-text-wrapp">
+                                    <p class="articlepage--review-integration_autor-text-wrapp-name">{{ $ad['manager_name'] }}</p>
+                                    <p class="articlepage--review-integration_autor-text-wrapp-company">{{ $ad['manager_position'] }}</p>
+                                </div>
+                            </a>
+                            <div class="cpaartpage_card_bot--line"></div>
                             <div class="cpaartpage_card_bot_social">
                                 @if(!empty($ad['facebook']))
                                     <a class="cpaartpage_card_bot_social-link" target="_blank"
