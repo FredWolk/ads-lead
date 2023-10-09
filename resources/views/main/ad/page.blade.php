@@ -205,7 +205,7 @@
                                 </li>
                             @endif
                         </ul>
-                        <div class="cpaartpage_card_bot ad">
+                        <div class="cpaartpage_card_bot">
                             <a href="{{ $ad['manager_link'] }}" target="_blank"
                                class="articlepage--review-integration_autor">
                                 <div class="videopage_main-underimage_autor-image">
