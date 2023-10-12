@@ -9,6 +9,7 @@
     'events' => 'События',
     'forum' => 'Форум',
     'cases' => 'Кейсы',
+    'tools' => 'Сервисы',
   ]
 )
 @section('content')
