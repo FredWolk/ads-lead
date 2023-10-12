@@ -105,9 +105,8 @@
                             @enderror
 
                             <div class="form-group">
-                                <label for="seo_text">Сео текст</label>
-                                <textarea class="form-control summernote" rows="3" id="seo_text" name="seo_text"
-                                          placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.">{{ $seo->seo_text }}</textarea>
+                                <label for="summernote">Сео текст</label>
+                                <textarea class="form-control summernote" rows="3" id="summernote" name="seo_text">{{ $seo->seo_text }}</textarea>
                             </div>
                             @error('seo_text')
                             <div class="text-danger">{{ $message }}</div>
