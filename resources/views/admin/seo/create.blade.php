@@ -283,70 +283,11 @@
             content.val('');
         });
 
-        var pt_meta = [],
-            pt_og = [];
-
-        function pt_render(type, content) {
-            var block = $('#pt_' + type + '_block');
-            block.text('');
-            content.map((e, key) => {
-                block.append(`
-                    <div data-id="${key}" data-type="${type}" class="alert alert-secondary">
-                        Название: ${e.name}; Контент: ${e.content};
-                    </div>
-                `)
-            })
-        }
-
-        function pt_remove(type, id) {
-            if (type === 'og') {
-                pt_og.splice(id, 1)
-                pt_render(type, pt_og)
-            } else {
-                pt_meta.splice(id, 1)
-                pt_render(type, pt_meta)
-            }
-        }
-
-        $('.pt_gap__flex').on('click', '.alert', function () {
-            let type = $(this).attr('data-type'),
-                id = $(this).attr('data-id');
-            pt_remove(type, id);
-        })
-
-        $('.pt_startFunc').on('click', function () {
-            let obj = {},
-                type = $(this).attr('data-type'),
-                name = $('#pt_' + type + '_name'),
-                content = $('#pt_' + type + '_content');
-
-            obj.name = name.val();
-            obj.content = content.val();
-
-            if (type === 'og') {
-                pt_og.push(obj)
-                $('#pt_' + type + '_tags').val(JSON.stringify(pt_og))
-                pt_render(type, pt_og)
-            } else {
-                pt_meta.push(obj)
-                $('#pt_' + type + '_tags').val(JSON.stringify(pt_meta))
-                pt_render(type, pt_meta)
-            }
-            name.val('');
-            content.val('');
-        });
-
         $('#title').on('input', function () {
             $('#og_title').val($(this).val())
         })
         $('#description').on('input', function () {
             $('#og_description').val($(this).val())
-        })
-        $('#pt_title').on('input', function () {
-            $('#pt_og_title').val($(this).val())
-        })
-        $('#pt_description').on('input', function () {
-            $('#pt_og_description').val($(this).val())
         })
         CKEDITOR.replace('summernote');
     </script>
