@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('cpas', function (Blueprint $table) {
-            $table->integer('listing_rating')->nullable();
+            $table->integer('listing_rating')->default(10000);
         });
     }
 
