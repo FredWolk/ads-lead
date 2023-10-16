@@ -246,7 +246,6 @@
                                 </div>
                                 <ul class="cpapage_info-list">
                                     @foreach($i->sortBy('listing_rating') as $v)
-                                        @dump($v->listing_rating);
                                         <li class="cpapage_info--item">
                                             <div class="cpapage_info--item_main">
                                                 <div class="cpapage_info--item_main_top">
