@@ -1,4 +1,4 @@
-@foreach($cpa->groupBy('main_verticales')->toArray() as $k => $i)
+@foreach($cpa->groupBy('main_verticales') as $k => $i)
     <div style="margin-bottom: 10px">
         {{--        <div class="cpapage_info-header">--}}
         {{--            <h2 class="cpapage_info-title">{{ $k }}</h2>--}}

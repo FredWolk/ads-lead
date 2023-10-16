@@ -52,8 +52,6 @@ class NetworksController extends Controller
             $cpa = Cpa::all();
         }
 
-        dd($cpa);
-
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return view('main.filters.filter-cpa', compact('cpa', 'locale'))->render();
     }
