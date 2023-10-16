@@ -99,6 +99,14 @@
                             @enderror
 
                             <div class="form-group">
+                                <label for="listing_rating">Рейтинг в листинге</label>
+                                <input type="number" name="listing_rating" value="{{ old('listing_rating') }}" class="form-control" id="listing_rating">
+                            </div>
+                            @error('listing_rating')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="image">Изображение рекламы</label>
                                 <div class="input-group">
                                     <div class="custom-file">

@@ -17,7 +17,7 @@
         {{--            </a>--}}
         {{--        </div>--}}
         <ul class="cpapage_info-list">
-            @foreach($i as $v)
+            @foreach($i->sortBy('listing_rating') as $v)
                 <li class="cpapage_info--item">
                     <div class="cpapage_info--item_main">
                         <div class="cpapage_info--item_main_top">

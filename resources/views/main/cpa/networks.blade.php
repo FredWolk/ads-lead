@@ -226,7 +226,7 @@
                     @endif
 
                     <div style="width: 100%" class="cpa__filters">
-                        @foreach($cpa->groupBy('main_verticales')->toArray() as $k => $i)
+                        @foreach($cpa->groupBy('main_verticales') as $k => $i)
                             <div class="cpapage_info--block">
                                 <div class="cpapage_info-header">
                                     <h2 class="cpapage_info-title">{{ $k }}</h2>
@@ -245,7 +245,7 @@
                                     </a>
                                 </div>
                                 <ul class="cpapage_info-list">
-                                    @foreach($i as $v)
+                                    @foreach($i->sortBy('listing_rating') as $v)
                                         <li class="cpapage_info--item">
                                             <div class="cpapage_info--item_main">
                                                 <div class="cpapage_info--item_main_top">

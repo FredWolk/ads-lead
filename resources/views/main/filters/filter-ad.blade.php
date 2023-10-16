@@ -1,4 +1,4 @@
-@foreach($ad->groupBy('main_advertising_formats')->toArray() as $k => $i)
+@foreach($ad->groupBy('main_advertising_formats') as $k => $i)
     <div style="margin-bottom: 10px">
         {{--        <div class="cpapage_info-header">--}}
         {{--            <h2 class="cpapage_info-title">{{ $k }}</h2>--}}
@@ -17,7 +17,7 @@
         {{--            </a>--}}
         {{--        </div>--}}
         <ul class="cpapage_info-list">
-            @foreach($i as $v)
+            @foreach($i->sortBy('listing_rating') as $v)
                 <li class="cpapage_info--item">
                     <div class="cpapage_info--item_main">
                         <div class="cpapage_info--item_main_top">

@@ -37,6 +37,7 @@ class StoreCpaRequest extends FormRequest
             'pt_prev_text' => 'string|nullable',
             'url' => 'url|nullable',
             'views' => 'integer|nullable',
+            'listing_rating' => 'integer|nullable',
             'main_verticales' => 'string|nullable',
             'verticales' => 'array|nullable',
             'countries' => 'array|nullable',

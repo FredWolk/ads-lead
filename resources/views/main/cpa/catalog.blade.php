@@ -44,7 +44,7 @@
                 <div class="cpapage_info-wrapper">
                     <div class="cpapage_info--block">
                         <ul class="cpapage_info-list">
-                            @foreach($cpa as $k => $i)
+                            @foreach($cpa->sortBy('listing_rating') as $k => $i)
                                 <li class="cpapage_info--item">
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">

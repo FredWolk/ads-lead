@@ -37,6 +37,7 @@ class StoreAdRequest extends FormRequest
             'pt_prev_text' => 'nullable|string',
             'url' => 'nullable|string',
             'views' => 'nullable|integer',
+            'listing_rating' => 'nullable|integer',
 
             'main_advertising_formats' => 'nullable|string',
             'advertising_formats' => 'nullable|array',
