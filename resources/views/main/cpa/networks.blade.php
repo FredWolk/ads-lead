@@ -248,7 +248,7 @@
                                     @foreach($i->sortBy('listing_rating') as $v)
                                         <li class="cpapage_info--item">
                                             <div class="cpapage_info--item_main">
-                                                ->sortBy('listing_rating')<div class="cpapage_info--item_main_top">
+                                                <div class="cpapage_info--item_main_top">
                                                     <div class="cpapage_info--item_main_top-icon">
                                                         <img loading="lazy" src="{{ asset('storage/'. $v['logo']) }}"
                                                              alt="logo">
