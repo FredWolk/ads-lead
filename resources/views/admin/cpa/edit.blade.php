@@ -153,7 +153,7 @@
 
                             <div class="form-group">
                                 <label for="listing_rating">Рейтинг в листинге</label>
-                                <input type="number" name="listing_rating" value="{{ $cpa->link }}" class="form-control" id="listing_rating">
+                                <input type="number" name="listing_rating" value="{{ $cpa->listing_rating }}" class="form-control" id="listing_rating">
                             </div>
                             @error('listing_rating')
                             <div class="text-danger">{{ $message }}</div>
