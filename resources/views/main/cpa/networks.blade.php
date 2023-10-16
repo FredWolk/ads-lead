@@ -245,15 +245,10 @@
                                     </a>
                                 </div>
                                 <ul class="cpapage_info-list">
-                                    @php
-                                        $v = $i->sortBy(function ($item){
-                                            return substr($item->listing_rating, -1);
-                                        })
-                                     @endphp
-                                    @foreach($v as $v)
+                                    @foreach($i->sortBy('listing_rating') as $v)
                                         <li class="cpapage_info--item">
                                             <div class="cpapage_info--item_main">
-                                                <div class="cpapage_info--item_main_top">
+                                                ->sortBy('listing_rating')<div class="cpapage_info--item_main_top">
                                                     <div class="cpapage_info--item_main_top-icon">
                                                         <img loading="lazy" src="{{ asset('storage/'. $v['logo']) }}"
                                                              alt="logo">
