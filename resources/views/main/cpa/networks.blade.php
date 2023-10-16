@@ -245,7 +245,12 @@
                                     </a>
                                 </div>
                                 <ul class="cpapage_info-list">
-                                    @foreach($i->sortBy('listing_rating') as $v)
+                                    @php
+                                        $v = $i->sortBy(function ($item){
+                                            return substr($item->listing_rating, -1);
+                                        })
+                                     @endphp
+                                    @foreach($v as $v)
                                         <li class="cpapage_info--item">
                                             <div class="cpapage_info--item_main">
                                                 <div class="cpapage_info--item_main_top">
