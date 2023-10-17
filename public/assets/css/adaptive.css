@@ -343,7 +343,9 @@
         padding-left: 14px !important;
         padding-right: 14px !important;
     }
-
+    .videopage_wrapper{
+        flex-direction: column;
+    }
     .change__lang {
         display: none;
     }
