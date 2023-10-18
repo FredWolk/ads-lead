@@ -73,6 +73,7 @@ class StoreAdRequest extends FormRequest
             'facebook' => 'nullable|string',
             'instagram' => 'nullable|string',
             'linkedin' => 'nullable|string',
+            'telegram' => 'nullable|string',
             'forum_link' => 'nullable|string',
             'editorial_opinion' => 'nullable|string',
 

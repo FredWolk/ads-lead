@@ -65,6 +65,7 @@ class UpdateCpaRequest extends FormRequest
             'facebook' => 'url|nullable',
             'instagram' => 'url|nullable',
             'linkedin' => 'url|nullable',
+            'telegram' => 'url|nullable',
             'forum_link' => 'url|nullable',
             'editorial_opinion' => 'string|nullable',
             'pt_editorial_opinion' => 'string|nullable',

@@ -474,11 +474,20 @@
                                 @enderror
 
                                 <div class="form-group">
-                                    <label for="linkedin">Инстаграм</label>
+                                    <label for="linkedin">Линкедин</label>
                                     <input type="url" name="linkedin" value="{{ old('linkedin') }}" class="form-control"
                                            id="linkedin" placeholder="https://linkedin.com">
                                 </div>
                                 @error('linkedin')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+
+                                <div class="form-group">
+                                    <label for="telegram">Телеграм</label>
+                                    <input type="url" name="telegram" value="{{ old('telegram') }}" class="form-control"
+                                           id="telegram" placeholder="https://telegram.com">
+                                </div>
+                                @error('telegram')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
 

@@ -258,6 +258,15 @@
                                         </svg>
                                     </a>
                                 @endif
+                                @if(!empty($ad['telegram']))
+                                    <a class="cpaartpage_card_bot_social-link" target="_blank"
+                                       href="{{ $ad['telegram'] }}">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M27.8294 14.4667L25.4529 25.6745C25.2734 26.4654 24.806 26.6623 24.1417 26.2899L20.5203 23.6214L18.7732 25.3021C18.5797 25.4956 18.4182 25.6571 18.0453 25.6571L18.3057 21.9693L25.0169 15.905C25.3089 15.6451 24.9534 15.5006 24.5635 15.761L16.2667 20.9855L12.6948 19.8673C11.918 19.6248 11.9039 19.0904 12.8568 18.7175L26.8276 13.3349C27.4745 13.0925 28.0404 13.4784 27.8294 14.4667Z" fill="white"/>
+                                            <rect x="0.5" y="0.5" width="39" height="39" stroke="white"/>
+                                        </svg>
+                                    </a>
+                                @endif
                             </div>
                             <div class="cpaartpage_card_bot--line"></div>
                             <div class="cpaartpage_card_bot--link_wrapper">
