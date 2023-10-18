@@ -158,6 +158,15 @@
                             @enderror
 
                             <div class="form-group">
+                                <label for="button_url">Веб сайт рекламы (кнопка)</label>
+                                <input type="url" name="button_url" value="{{ $ad->button_url }}" class="form-control"
+                                       id="button_url" placeholder="https://google.com">
+                            </div>
+                            @error('button_url')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="views">Просмотры</label>
                                 <input type="number" name="views" value="{{ $ad->views }}" class="form-control"
                                        id="views" placeholder="На пример: 41">

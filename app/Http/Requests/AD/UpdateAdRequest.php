@@ -36,6 +36,7 @@ class UpdateAdRequest extends FormRequest
             'prev_text' => 'nullable|string',
             'pt_prev_text' => 'nullable|string',
             'url' => 'nullable|string',
+            'button_url' => 'nullable|string',
             'views' => 'nullable|integer',
             'listing_rating' => 'nullable|integer',
 

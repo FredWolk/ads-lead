@@ -152,6 +152,15 @@
                             @enderror
 
                             <div class="form-group">
+                                <label for="button_url">Веб сайт партнерки (кнопка)</label>
+                                <input type="url" name="button_url" value="{{ $cpa->button_url }}" class="form-control"
+                                       id="button_url" placeholder="https://google.com">
+                            </div>
+                            @error('button_url')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="listing_rating">Рейтинг в листинге</label>
                                 <input type="number" name="listing_rating" value="{{ $cpa->listing_rating }}" class="form-control" id="listing_rating">
                             </div>
