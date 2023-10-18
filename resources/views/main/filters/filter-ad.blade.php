@@ -86,12 +86,12 @@
                                 <p class="promocode--body-text">{{ $v["{$locale}promocode_desc"] }}</p>
                             </div>
                         </div>
-                        <a class="link--blue-sphere" target="_blank" href="{{ $v['url'] }}">
+                        <a class="link--blue-sphere" target="_blank" href="{{ empty($v['button_url']) ? $v['url'] : $v['button_url'] }}">
                             <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                             <span>Site</span>
                         </a>
 
-                        <a class="btn--grey-with-icons mobile" href="{{ route('index') }}">
+                        <a class="btn--grey-with-icons mobile" href="{{ empty($v['button_url']) ? $v['url'] : $v['button_url'] }}">
                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path

@@ -21,3 +21,4 @@ yarn-error.log
 /public/.htaccess
 /_docker
 docker-compose.yml
+/worker.log

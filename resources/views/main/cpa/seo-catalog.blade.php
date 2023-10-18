@@ -81,7 +81,7 @@
                                                  src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
-                                        <a class="btn--grey-with-icons" target="_blank" href="{{ $i['url'] }}">
+                                        <a class="btn--grey-with-icons" target="_blank" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
                                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -114,44 +114,6 @@
                         </aside>
                     @endif
                 </div>
-
-                {{--                <aside class="articles_seo-text">--}}
-                {{--                    --}}
-                {{--                    <p class="articles_seo-text--text">--}}
-                {{--                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.--}}
-                {{--                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus--}}
-                {{--                        mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa--}}
-                {{--                        quis enim.--}}
-                {{--                        <br>--}}
-                {{--                        <br>--}}
-                {{--                        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,--}}
-                {{--                        imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer--}}
-                {{--                        tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean--}}
-                {{--                        leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.--}}
-                {{--                        <br>--}}
-                {{--                        <br>--}}
-                {{--                        Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut--}}
-                {{--                        metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.--}}
-                {{--                        Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget--}}
-                {{--                        condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.--}}
-                {{--                        <br>--}}
-                {{--                        Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante--}}
-                {{--                        tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit--}}
-                {{--                    </p>--}}
-                {{--                    <button type="button" class="link--black-rotateble-arrows readmore--btn">--}}
-                {{--                        <span>read more</span>--}}
-                {{--                        <div class="link--black-rotateble-arrows-group">--}}
-                {{--                            @for ($a=0; $a<3; $a++)--}}
-                {{--                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"--}}
-                {{--                                     xmlns="http://www.w3.org/2000/svg">--}}
-                {{--                                    <path fill-rule="evenodd" clip-rule="evenodd"--}}
-                {{--                                          d="M8.37879 4.5H3.00011V1.5H13.5001V12H10.5001V6.62132L4.06077 13.0607L1.93945 10.9393L8.37879 4.5Z"--}}
-                {{--                                          fill="#272C31"/>--}}
-                {{--                                </svg>--}}
-                {{--                            @endfor--}}
-                {{--                        </div>--}}
-                {{--                    </button>--}}
-                {{--                </aside>--}}
             </section>
 
             <aside class="filter-aside">

@@ -54,7 +54,7 @@
                             <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                  alt="arrow">
                         </a>
-                        <a target="_blank" class="btn--grey-with-icons" href="{{ $v['url'] }}">
+                        <a target="_blank" class="btn--grey-with-icons" href="{{ empty($v['button_url']) ? $v['url'] : $v['button_url'] }}">
                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
