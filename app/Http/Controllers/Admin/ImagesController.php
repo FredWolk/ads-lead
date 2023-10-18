@@ -11,7 +11,7 @@ class ImagesController extends Controller
 {
     public function index()
     {
-        $images = Images::all()->sortDesc('id');
+        $images = Images::all()->orderBy('id', 'desc');
         return view('admin.images.index', compact('images'));
     }
 
