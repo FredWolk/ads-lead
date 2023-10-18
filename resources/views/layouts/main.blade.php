@@ -306,10 +306,6 @@
                         <a class="footer_social--link" target="_blank"
                            href="https://www.facebook.com/profile.php?id=100089855863483">facebook</a>
                     </li>
-                    <li class="footer_social_list_item">
-                        <a class="footer_social--link" target="_blank"
-                           href="https://www.linkedin.com/in/affjournal-eng-b23466265/recent-activity/">linkedin</a>
-                    </li>
                 </ul>
             </div>
         </div>
