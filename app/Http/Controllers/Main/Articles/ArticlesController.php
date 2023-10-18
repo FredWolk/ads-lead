@@ -16,7 +16,7 @@ class ArticlesController extends Controller
         if (!empty($seo)) {
             $seo->toArray();
         }
-        $articles = Article::with('author')->where('type', 'article')->orderByDesc('id')->paginate(9);
+        $articles = Article::with('author')->where('active', 1)->where('type', 'article')->orderByDesc('id')->paginate(9);
         if (!empty($_GET['page']) && $articles->lastPage() < $_GET['page']) {
             return redirect()->route('articles');
         }

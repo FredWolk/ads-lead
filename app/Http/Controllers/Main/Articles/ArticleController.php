@@ -14,10 +14,10 @@ class ArticleController extends Controller
 {
     public function __invoke($link, ViewService $service)
     {
-        $article = Article::where('link', $link)->with('author')->with('comments')->first();
+        $article = Article::where('link', $link)->where('active', 1)->with('author')->with('comments')->first();
         if (empty($article))
             return redirect()->route('articles');
-        $moreArticle = Article::where('id', '!=', $article->id)->take(6)->inRandomOrder()->get();
+        $moreArticle = Article::where('id', '!=', $article->id)->where('active', 1)->take(6)->inRandomOrder()->get();
         $cookie = $service->View($article, 'article_views');
         $article->toArray();
         $locale = App::getLocale() == 'en' ? '' : 'pt_';

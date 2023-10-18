@@ -43,6 +43,7 @@ class UpdateRequest extends FormRequest
             'pt_main_text'              => 'nullable|string',
             'title'                     => 'nullable|string',
             'description'               => 'nullable|string',
+            'active'                    => 'integer',
 
             'keywords'                  => 'nullable|string',
             'meta_tags'                 => 'nullable|string',

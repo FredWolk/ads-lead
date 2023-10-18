@@ -50,6 +50,17 @@
                         <div class="card-body">
 
                             <div class="form-group">
+                                <label for="active">Статус публикации</label>
+                                <select name="active" class="form-control" id="active">
+                                    <option {{ $article->active == true ? 'selected' : '' }} value="1">Опубликовать</option>
+                                    <option {{ $article->active == false ? 'selected' : '' }} value="0">Отложить</option>
+                                </select>
+                            </div>
+                            @error('active')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="name">Название статьи</label>
                                 <input type="text" name="name" value="{{ $article->name }}" class="form-control"
                                        id="name" placeholder="Название статьи">
