@@ -308,17 +308,17 @@
                         });
                         rsp.ad.map((e)=>{
                             $('#search_body').append(`<strong><a href="https://affjournal.com/admin/ad/${e.id}">${e.name}</a></strong>
-                                <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
+                                <p style="margin-bottom: 5px;" class="text-muted">ad-net</p>
                                 <hr style="margin: 5px;">`)
                         });
                         rsp.event.map((e)=>{
                             $('#search_body').append(`<strong><a href="https://affjournal.com/admin/event/${e.id}">${e.name}</a></strong>
-                                <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
+                                <p style="margin-bottom: 5px;" class="text-muted">event</p>
                                 <hr style="margin: 5px;">`)
                         });
                         rsp.services.map((e)=>{
                             $('#search_body').append(`<strong><a href="https://affjournal.com/admin/services/${e.id}">${e.name}</a></strong>
-                                <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
+                                <p style="margin-bottom: 5px;" class="text-muted">services</p>
                                 <hr style="margin: 5px;">`)
                         });
                         if (body.text() !== ''){
