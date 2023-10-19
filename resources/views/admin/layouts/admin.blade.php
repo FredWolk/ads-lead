@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div id="search_result" style="position: absolute; top: 35px; display: none" class="card">
-                            <div id="search_body" style="padding: 5px; max-height: 600px" class="card-body">
+                            <div id="search_body" style="padding: 5px; max-height: 600px; overflow: auto" class="card-body">
 
                             </div>
                         </div>
