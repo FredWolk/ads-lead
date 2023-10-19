@@ -183,6 +183,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::resource('ads-seo-filter', \App\Http\Controllers\Admin\AdSeoFilterController::class);
         Route::resource('cpa-seo-filter', \App\Http\Controllers\Admin\CpaSeoFilterController::class);
     });
+    Route::post('/search', [\App\Http\Controllers\Admin\IndexController::class, 'adminSearch'])->name('admin.search');
 });
 
 Route::group(['prefix' => 'filters'], function () {

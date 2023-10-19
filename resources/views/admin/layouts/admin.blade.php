@@ -33,6 +33,29 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                    <i class="fas fa-search"></i>
+                </a>
+                <div class="navbar-search-block">
+                    <form style="position: relative" id="search_form" class="form-inline">
+                        @csrf
+                        <div class="input-group input-group-sm">
+                            <input name="search_text" id="search_input" class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="search_result" style="position: absolute; top: 35px; display: none" class="card">
+                            <div id="search_body" style="padding: 5px;" class="card-body">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
@@ -257,6 +280,59 @@
 <script src="{{ asset('assets/admin/plugins/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <script src="{{ asset('assets/admin/js/adminlte.min.js') }}"></script>
+<script>
+
+    let timeout;
+    $('#search_input').on('input', function(){
+        clearInterval(timeout)
+        if($(this).val() !== ''){
+            timeout = setTimeout(function () {
+                $.ajax({
+                    url: "{{ route('admin.search') }}",
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: $('#search_form').serialize()
+                }).done(function (rsp) {
+                    if(rsp){
+                        var body = $('#search_body');
+                        body.text('');
+                        rsp.article.map((e)=>{
+                            $('#search_body').append(`<strong><a href="/admin/article/${e.id}">${e.name}</a></strong>
+                                <p style="margin-bottom: 5px;" class="text-muted">article</p>
+                                <hr style="margin: 5px;">`)
+                        });
+                        rsp.cpa.map((e)=>{
+                            $('#search_body').append(`<strong><a href="/admin/cpa/${e.id}">${e.name}</a></strong>
+                                <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
+                                <hr style="margin: 5px;">`)
+                        });
+                        rsp.ad.map((e)=>{
+                            $('#search_body').append(`<strong><a href="/admin/ad/${e.id}">${e.name}</a></strong>
+                                <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
+                                <hr style="margin: 5px;">`)
+                        });
+                        rsp.event.map((e)=>{
+                            $('#search_body').append(`<strong><a href="/admin/event/${e.id}">${e.name}</a></strong>
+                                <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
+                                <hr style="margin: 5px;">`)
+                        });
+                        rsp.services.map((e)=>{
+                            $('#search_body').append(`<strong><a href="/admin/services/${e.id}">${e.name}</a></strong>
+                                <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
+                                <hr style="margin: 5px;">`)
+                        });
+                        if (body.text() !== ''){
+                            $('#search_result').fadeIn(300);
+                        }
+                    }
+                })
+            }, 1000)
+        } else {
+            $('#search_result').fadeOut(300);
+        }
+
+})
+</script>
 @yield('scripts')
 </body>
 </html>
