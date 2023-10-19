@@ -178,6 +178,8 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
+                            <button class="btn btn-warning" type="button" id="auto_text">Автозаполнение</button>
+
                             <div class="row">
                                 <div class="form-group">
                                     <label for="title">TITLE</label>
@@ -313,19 +315,29 @@
     <script>
         $(function () {
             CKEDITOR.replace('summernote');
-            CKEDITOR.replace('summernote2');
-            // $('.summernote').summernote({
-            //     height: 300,
-            //     maxHeight: 500,
-            //     toolbar: [
-            //         ['insert', ['picture', 'link', 'video', 'table', 'hr']],
-            //         ['fontsize', ['fontname', 'fontsize', 'fontsizeunit', 'color', 'forecolor', 'backcolor', 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-            //         ['paragraph', ['style', 'ol', 'ul', 'paragraph', 'height']],
-            //         ['misc', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
-            //     ],
-            //     fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
-            //     fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
-            // });
+            $('#auto_text').on('click', function () {
+                let iframe = $('.form-group .cke_wysiwyg_frame')[0].contentDocument.all
+                for(var el of iframe){
+                    if (el.nodeName === 'H2'){
+                        var opt = document.createElement('option');
+                        opt.value = el.textContent.toLowerCase();
+                        opt.innerHTML = el.textContent.toLowerCase();
+                        opt.setAttribute('data-select2-tag', true)
+                        opt.setAttribute('selected', true)
+                        document.querySelector('#select2').appendChild(opt)
+                    }
+                }
+                let arr = ['webmasters', 'affiliates'];
+                arr.map((e) => {
+                    console.log(e);
+                    var val = document.createElement('option');
+                    val.value = e;
+                    val.innerHTML = e;
+                    val.setAttribute('data-select4-tag', true)
+                    val.setAttribute('selected', true)
+                    document.querySelector('#select4').appendChild(val)
+                })
+            })
             $('.select2').select2()
             $('#select1').select2({
                 tags: true,
