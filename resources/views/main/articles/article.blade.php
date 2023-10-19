@@ -85,7 +85,7 @@
                                 <ul class="articlepage_menu--item_list">
                                     @foreach($article["{$locale}contents"] as $k => $v)
                                         <li class="articlepage_menu--item_list-item">
-                                            {{ $k+1 . '. ' . $v }}
+                                            <a class="contents_link" href="">{{ $k+1 . '. ' . $v }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -318,6 +318,25 @@
 @endsection
 @section('scripts')
     <script>
+        var headers = $('.videopage_main--text')[0].children;
+        let iterator = 1;
+        for (let e of headers){
+            if (e.nodeName === 'H2'){
+                e.setAttribute('id', iterator++);
+            }
+        }
+        let i = 1;
+        for (let a of $('.articlepage_menu--item_list-item a')){
+            a.setAttribute('href', `#${i++}`);
+        }
+
+        $('.contents_link').on('click', function (e) {
+            var link = this.getAttribute('href');
+            $('html, body').animate({
+                scrollTop: $(link).offset().top - 100
+            }, 1000);
+        })
+
         $('#comment_send').on('submit', function (e) {
             e.preventDefault();
             $.ajax({

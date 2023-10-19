@@ -1969,6 +1969,13 @@ img {
     color: #181A1C;
 }
 
+.articlepage_menu--item_list-item a, .articlepage_menu--item_list-item a:visited{
+    color: #181A1C;
+}
+.articlepage_menu--item_list-item a:hover{
+    color: var(--blue);
+}
+
 .articlepage--table {
     width: 100%;
     margin-bottom: 20px;
