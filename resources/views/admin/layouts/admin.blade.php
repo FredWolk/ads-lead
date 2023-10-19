@@ -297,27 +297,27 @@
                         var body = $('#search_body');
                         body.text('');
                         rsp.article.map((e)=>{
-                            $('#search_body').append(`<strong><a href="/admin/article/${e.id}">${e.name}</a></strong>
+                            $('#search_body').append(`<strong><a href="https://affjournal.com/admin/article/${e.id}">${e.name}</a></strong>
                                 <p style="margin-bottom: 5px;" class="text-muted">article</p>
                                 <hr style="margin: 5px;">`)
                         });
                         rsp.cpa.map((e)=>{
-                            $('#search_body').append(`<strong><a href="/admin/cpa/${e.id}">${e.name}</a></strong>
+                            $('#search_body').append(`<strong><a href="https://affjournal.com/admin/cpa/${e.id}">${e.name}</a></strong>
                                 <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
                                 <hr style="margin: 5px;">`)
                         });
                         rsp.ad.map((e)=>{
-                            $('#search_body').append(`<strong><a href="/admin/ad/${e.id}">${e.name}</a></strong>
+                            $('#search_body').append(`<strong><a href="https://affjournal.com/admin/ad/${e.id}">${e.name}</a></strong>
                                 <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
                                 <hr style="margin: 5px;">`)
                         });
                         rsp.event.map((e)=>{
-                            $('#search_body').append(`<strong><a href="/admin/event/${e.id}">${e.name}</a></strong>
+                            $('#search_body').append(`<strong><a href="https://affjournal.com/admin/event/${e.id}">${e.name}</a></strong>
                                 <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
                                 <hr style="margin: 5px;">`)
                         });
                         rsp.services.map((e)=>{
-                            $('#search_body').append(`<strong><a href="/admin/services/${e.id}">${e.name}</a></strong>
+                            $('#search_body').append(`<strong><a href="https://affjournal.com/admin/services/${e.id}">${e.name}</a></strong>
                                 <p style="margin-bottom: 5px;" class="text-muted">cpa-net</p>
                                 <hr style="margin: 5px;">`)
                         });
