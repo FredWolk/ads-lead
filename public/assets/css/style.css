@@ -1924,6 +1924,7 @@ img {
 
 .articlepage_menu {
     width: 100%;
+    position: relative;
     margin-bottom: 30px;
     padding: 30px 25px;
     border: 1px solid var(--blue);
@@ -1932,6 +1933,35 @@ img {
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    transition: 0.2s ease-out;
+}
+.article__menu-arrow{
+    position: absolute;
+    right: 32px;
+    cursor: pointer;
+    top: 32px;
+}
+.article__menu--prev{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #014EFF;
+    padding: 25px;
+    width: 100%;
+    cursor: pointer;
+}
+.article__menu--prev-text{
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 30px */
+    text-transform: uppercase;
+    color: #ffffff;
+}
+.articlepage_menu.active{
+    height: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .articlepage_menu--item {

@@ -78,7 +78,23 @@
                             @endif
                         </ul>
                     </div>
-                    <div class="articlepage_menu">
+                    <div class="article__menu--prev">
+                        <p class="article__menu--prev-text">View the table of contents</p>
+                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_2443_22702)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M6.00079 10.2425L2.19749 6.43923L0.0761718 8.56055L7.50079 15.9852L14.9254 8.56055L12.8041 6.43923L9.00079 10.2425L9.00079 1.13593L6.00079 1.13593L6.00079 10.2425Z"
+                                      fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_2443_22702">
+                                    <rect width="16" height="15" fill="white"
+                                          transform="matrix(-4.37114e-08 1 1 4.37114e-08 0 0)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="articlepage_menu active">
                         @if(!empty($article["{$locale}contents"]))
                             <div class="articlepage_menu--item">
                                 <p class="articlepage_menu--item-title">{{ __('messages.сontent') }}</p>
@@ -103,6 +119,20 @@
                                 </ul>
                             </div>
                         @endif
+                        <svg class="article__menu-arrow" width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_2443_22714)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M8.99921 5.75747L12.8025 9.56077L14.9238 7.43945L7.49921 0.0148326L0.0745858 7.43945L2.19591 9.56077L5.99921 5.75747L5.99921 14.8641L8.99921 14.8641L8.99921 5.75747Z"
+                                      fill="#181A1C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_2443_22714">
+                                    <rect width="16" height="15" fill="white"
+                                          transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 15 16)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
                     </div>
                     <div class="videopage_main--text main__article" style="margin-bottom: 43px">
                         {!! $article["{$locale}main_text"] !!}
@@ -320,13 +350,13 @@
     <script>
         var headers = $('.videopage_main--text')[0].children;
         let iterator = 1;
-        for (let e of headers){
-            if (e.nodeName === 'H2'){
+        for (let e of headers) {
+            if (e.nodeName === 'H2') {
                 e.setAttribute('id', iterator++);
             }
         }
         let i = 1;
-        for (let a of $('.articlepage_menu--item_list-item a')){
+        for (let a of $('.articlepage_menu--item_list-item a')) {
             a.setAttribute('href', `#${i++}`);
         }
 
@@ -335,6 +365,15 @@
             $('html, body').animate({
                 scrollTop: $(link).offset().top - 100
             }, 1000);
+        })
+
+        $('.article__menu--prev').on('click', function () {
+            $(this).slideUp(300);
+            $('.articlepage_menu').removeClass('active')
+        })
+        $('.article__menu-arrow').on('click', function () {
+            $('.article__menu--prev').slideDown(300);
+            $('.articlepage_menu').addClass('active')
         })
 
         $('#comment_send').on('submit', function (e) {
