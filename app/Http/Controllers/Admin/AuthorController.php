@@ -37,7 +37,8 @@ class AuthorController extends Controller
     public function store(StoreAuthorRequest $request)
     {
         $data = $request->validated();
-        $data['photo'] = Storage::disk('public')->put('/admin/images/authors', $data['photo']);
+        if (!empty($data['photo']))
+            $data['photo'] = Storage::disk('public')->put('/admin/images/authors', $data['photo']);
         $article = Author::firstOrCreate($data);
         if ($article) {
             return redirect()->route('author.show', $article->id);
