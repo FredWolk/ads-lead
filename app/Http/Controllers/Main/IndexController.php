@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use App\Models\Ad;
 use App\Models\Article;
+use App\Models\ArticleSeoTags;
 use App\Models\Cpa;
 use App\Models\Events;
 use App\Models\Seo;
@@ -16,6 +17,11 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+        $tags = ArticleSeoTags::all();
+        $tagArr = [];
+        $tags->each(function ($e) use (&$tagArr){
+            $tagArr[$e->tag_name] = $e->link;
+        });
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $article = Article::where('type', 'article')->where('active', 1)->with('author')->take(4)->orderByDesc('id')->get()->toArray();
         $cpa = Cpa::where('is_main', 1)->orderBy('id', 'desc')->take(4)->get()->toArray();
@@ -57,6 +63,7 @@ class IndexController extends Controller
             'calendar',
             'firstEvent',
             'mobileEvents',
+            'tagArr'
         ));
     }
 

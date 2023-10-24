@@ -30,4 +30,5 @@ class Article extends Model
     {
         return $this->hasMany(ArticleComments::class, 'article_id', 'id')->with('author')->where('confirm', 1);
     }
+
 }

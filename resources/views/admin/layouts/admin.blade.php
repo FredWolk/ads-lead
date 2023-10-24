@@ -145,6 +145,12 @@
                                     <p>Авторы</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('article-tags.index') }}" class="nav-link pl-4">
+                                    <i class="nav-icon fas fa-hashtag"></i>
+                                    <p>Хештеги</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

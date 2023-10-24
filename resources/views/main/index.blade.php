@@ -42,7 +42,7 @@
                                         @if(!empty($a['tags']))
                                             @foreach($a['tags'] as $tag)
                                                 <li class="article--card_info_tags-list-item mobhide">
-                                                    <p class="article--card_info_tags-list-item--link">#{{ $tag }}</p>
+                                                    <a href="{{ !empty($tagArr[$tag]) ? route('article.tag', $tagArr[$tag]) : '#' }}" class="article--card_info_tags-list-item--link">#{{ $tag }}</a>
                                                 </li>
                                             @endforeach
                                         @endif
@@ -83,7 +83,7 @@
                                         @if(!empty($a['tags']))
                                             @foreach($a['tags'] as $tag)
                                                 <li class="article--card_info_tags-list-item mobhide">
-                                                    <a href="" class="article--card_info_tags-list-item--link">#{{ $tag }}</a>
+                                                    <a href="{{ !empty($tagArr[$tag]) ? route('article.tag', $tagArr[$tag]) : '#' }}" class="article--card_info_tags-list-item--link">#{{ $tag }}</a>
                                                 </li>
                                             @endforeach
                                         @endif

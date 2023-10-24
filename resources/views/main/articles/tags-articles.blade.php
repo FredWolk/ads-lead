@@ -1,14 +1,12 @@
 @extends('layouts.main')
-@if(!empty($seo))
-    @section('seo')
-        <title>{{ $seo["{$locale}title"] }}</title>
-        <meta name="description" content="{{ $seo["{$locale}description"] }}">
-        <meta name="keywords" content="{{ $seo["{$locale}keywords"] }}"/>
-        <meta property="og:title" content="{{ $seo["{$locale}og_title"] }}"/>
-        <meta property="og:description" content="{{ $seo["{$locale}og_description"] }}"/>
-        <meta property="og:url" content="{{ url()->current() }}"/>
-    @endsection
-@endif
+@section('seo')
+    <title>{{ $tag->title }}</title>
+    <meta name="description" content="{{ $tag->description }}">
+    <meta name="keywords" content="{{ $tag->keywords }}"/>
+    <meta property="og:title" content="{{ $tag->og_title }}"/>
+    <meta property="og:description" content="{{ $tag->og_description }}"/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+@endsection
 @section('style')
     <style>
         .articles_seo-text--text p,
@@ -100,7 +98,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.base') }}
+                    <a href="{{ route('articles') }}">Articles</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $tag->tag_name }}
                 </li>
             </ul>
         </div>
@@ -108,33 +109,30 @@
 
     <section class="articlespage">
         <div class="container">
-            @empty($seo)
-                <h1 class="title">{{ __('messages.base') }}</h1>
-            @else
-                <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
-                <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
-            @endempty
+            <h1 class="title">{{ $tag->tag_name }}</h1>
 
             <ul class="main_articles_info">
                 @foreach($articles as $article)
+                    @continue(empty($article["image"]) && empty($article["name"]))
                     <li class="article--card">
                         <a class="article--card-link" href="{{ route('article', $article['link']) }}"></a>
-                        <img loading="lazy" src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
+                        <img loading="lazy" src="{{asset('storage/' . $article["image"])}}" alt="banner">
                         <div class="article--card_info">
                             <p class="article--card_info-date">{{ date('d/m/Y', strtotime($article['created_at'])) }}</p>
                             <ul class="article--card_info_tags-list">
                                 @if(!empty($article['tags']))
-                                    @foreach($article['tags'] as $tag)
+                                    @foreach($article['tags'] as $t)
                                         <li class="article--card_info_tags-list-item mobhide">
-                                            <a href="{{ !empty($tagArr[$tag]) ? route('article.tag', $tagArr[$tag]) : '#' }}" class="article--card_info_tags-list-item--link">#{{ $tag }}</a>
+                                            <a href="{{ !empty($tagArr[$t]) ? route('article.tag', $tagArr[$t]) : '#' }}" class="article--card_info_tags-list-item--link">#{{ $t }}</a>
                                         </li>
                                     @endforeach
                                 @endif
                             </ul>
-                            <h2 class="article--card_info-title">{{ $article["{$locale}name"] }}</h2>
+                            <h2 class="article--card_info-title">{{ $article["name"] }}</h2>
                             <p class="article--card_info-author">by <a
                                     href="{{ route('article.author', $article['author']['link']) }}">{{ $article['author']['name'] }}</a>
                             </p>
+
                             <div class="article--card_info-views">
                                 <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -151,9 +149,9 @@
             <div class="pagination">
                 {{ $articles->onEachSide(1)->links() }}
             </div>
-            @if(!empty($seo) && empty($_GET['page']))
+            @if(!empty($tag->seo_text) && empty($_GET['page']))
                 <aside class="articles_seo-text">
-                    <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
+                    <div class="articles_seo-text--text">{!! $tag->seo_text !!}</div>
                 </aside>
             @endif
         </div>
@@ -166,7 +164,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.base') }}
+                    <a href="{{ route('articles') }}">Articles</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $tag->tag_name }}
                 </li>
             </ul>
         </div>

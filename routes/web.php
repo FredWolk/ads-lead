@@ -72,6 +72,7 @@ Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
     Route::get('/base', [KnowladgeBaseController::class, '__invoke'])->name('base');
     Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
     Route::get('/author/{link}', [ArticlesController::class, 'author'])->name('article.author');
+    Route::get('/tags/{tag}', [ArticlesController::class, 'tag'])->name('article.tag');
     Route::post('/send-comment', [SendCommentController::class, 'articleComment'])->name('article.comment');
 });
 Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
@@ -133,6 +134,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     });
     Route::resource('seo', SeoController::class);
     Route::resource('article', AdminArticleController::class);
+    Route::resource('article-tags', \App\Http\Controllers\Admin\ArticleSeoTagsController::class);
     Route::resource('author', AuthorController::class);
     Route::resource('topick', TopickController::class);
     Route::resource('cpa', CpaController::class);
