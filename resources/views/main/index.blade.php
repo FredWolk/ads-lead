@@ -50,7 +50,7 @@
                                     <h3 class="article--card_info-title">{{ $a["{$locale}name"] }}</h3>
                                     <p class="article--card_info-text">{{ $a["{$locale}prev_text"] }}</p>
                                     <p class="article--card_info-author">by <a
-                                            href="{{ route('index') }}">{{ $a['author']['name'] }}</a>
+                                            href="{{ route('article.author', $a['author']['link']) }}">{{ $a['author']['name'] }}</a>
                                     </p>
 
                                     <div class="article--card_info-views">
@@ -89,7 +89,9 @@
                                         @endif
                                     </ul>
                                     <h3 class="article--card_info-title">{{ $a["{$locale}name"] }}</h3>
-                                    <p class="article--card_info-author">by {{ $a['author']['name'] }}</p>
+                                    <p class="article--card_info-author">by <a
+                                            href="{{ route('article.author', $a['author']['link']) }}">{{ $a['author']['name'] }}</a>
+                                    </p>
 
                                     <div class="article--card_info-views">
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none"

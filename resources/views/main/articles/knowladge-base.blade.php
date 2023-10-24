@@ -132,8 +132,9 @@
                                 @endif
                             </ul>
                             <h2 class="article--card_info-title">{{ $article["{$locale}name"] }}</h2>
-                            <p class="article--card_info-author">by {{ $article['author']['name'] }}</p>
-
+                            <p class="article--card_info-author">by <a
+                                    href="{{ route('article.author', $article['author']['link']) }}">{{ $article['author']['name'] }}</a>
+                            </p>
                             <div class="article--card_info-views">
                                 <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">

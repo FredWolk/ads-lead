@@ -1,14 +1,12 @@
 @extends('layouts.main')
-@if(!empty($seo))
-    @section('seo')
-        <title>{{ $seo["{$locale}title"] }}</title>
-        <meta name="description" content="{{ $seo["{$locale}description"] }}">
-        <meta name="keywords" content="{{ $seo["{$locale}keywords"] }}"/>
-        <meta property="og:title" content="{{ $seo["{$locale}og_title"] }}"/>
-        <meta property="og:description" content="{{ $seo["{$locale}og_description"] }}"/>
-        <meta property="og:url" content="{{ url()->current() }}"/>
-    @endsection
-@endif
+@section('seo')
+    <title>{{ $author->title }}</title>
+    <meta name="description" content="{{ $author->description }}">
+    <meta name="keywords" content="{{ $author->keywords }}"/>
+    <meta property="og:title" content="{{ $author->og_title }}"/>
+    <meta property="og:description" content="{{ $author->og_description }}"/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+@endsection
 @section('style')
     <style>
         .articles_seo-text--text p,
@@ -100,7 +98,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.articles') }}
+                    <a href="{{ route('articles') }}">Articles</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $author->name }}
                 </li>
             </ul>
         </div>
@@ -108,19 +109,14 @@
 
     <section class="articlespage">
         <div class="container">
-            @empty($seo)
-                <h1 class="title">{{ __('messages.articles') }}</h1>
-            @else
-                <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
-                <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
-            @endempty
+            <h1 class="title">{{ $author->name }}</h1>
 
             <ul class="main_articles_info">
                 @foreach($articles as $article)
-                    @continue(empty($article["{$locale}image"]) && empty($article["{$locale}name"]))
+                    @continue(empty($article["image"]) && empty($article["name"]))
                     <li class="article--card">
                         <a class="article--card-link" href="{{ route('article', $article['link']) }}"></a>
-                        <img loading="lazy" src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
+                        <img loading="lazy" src="{{asset('storage/' . $article["image"])}}" alt="banner">
                         <div class="article--card_info">
                             <p class="article--card_info-date">{{ date('d/m/Y', strtotime($article['created_at'])) }}</p>
                             <ul class="article--card_info_tags-list">
@@ -132,10 +128,8 @@
                                     @endforeach
                                 @endif
                             </ul>
-                            <h2 class="article--card_info-title">{{ $article["{$locale}name"] }}</h2>
-                            <p class="article--card_info-author">by <a
-                                    href="{{ route('article.author', $article['author']['link']) }}">{{ $article['author']['name'] }}</a>
-                            </p>
+                            <h2 class="article--card_info-title">{{ $article["name"] }}</h2>
+                            <p class="article--card_info-author">by {{ $article['author']['name'] }}</p>
 
                             <div class="article--card_info-views">
                                 <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
@@ -153,9 +147,9 @@
             <div class="pagination">
                 {{ $articles->onEachSide(1)->links() }}
             </div>
-            @if(!empty($seo) && empty($_GET['page']))
+            @if(!empty($author->seo_text) && empty($_GET['page']))
                 <aside class="articles_seo-text">
-                    <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
+                    <div class="articles_seo-text--text">{!! $author->seo_text !!}</div>
                 </aside>
             @endif
         </div>
@@ -168,7 +162,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.articles') }}
+                    <a href="{{ route('articles') }}">Articles</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $author->name }}
                 </li>
             </ul>
         </div>

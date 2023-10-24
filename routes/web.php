@@ -68,9 +68,10 @@ Route::group(['namespace' => 'services', 'prefix' => 'services'], function () {
     Route::get('/', [\App\Http\Controllers\Main\Services\NetworksController::class, '__invoke'])->name('services');
 });
 Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
-    Route::get('/', [ArticlesController::class, '__invoke'])->name('articles');
+    Route::get('/', [ArticlesController::class, 'index'])->name('articles');
     Route::get('/base', [KnowladgeBaseController::class, '__invoke'])->name('base');
     Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
+    Route::get('/author/{link}', [ArticlesController::class, 'author'])->name('article.author');
     Route::post('/send-comment', [SendCommentController::class, 'articleComment'])->name('article.comment');
 });
 Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {

@@ -25,7 +25,19 @@ class UpdateAuthorRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'photo' => 'file'
+            'photo' => 'file',
+            'link' => 'nullable|string',
+            'title' => 'nullable|string',
+            'description' => 'nullable|string',
+            'keywords' => 'nullable|string',
+            'og_title' => 'nullable|string',
+            'og_description' => 'nullable|string',
+            'og_url' => 'nullable|string',
+            'og_image' => 'nullable|string',
+            'og_type' => 'nullable|string',
+            'meta_tags' => 'nullable|string',
+            'og_tags' => 'nullable|string',
+            'seo_text' => 'nullable|string',
         ];
     }
 }
