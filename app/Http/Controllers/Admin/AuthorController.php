@@ -37,8 +37,7 @@ class AuthorController extends Controller
     public function store(StoreAuthorRequest $request)
     {
         $data = $request->validated();
-        if (!empty($data['photo']))
-            $data['photo'] = Storage::disk('public')->put('/admin/images/authors', $data['photo']);
+        $data['photo'] = Storage::disk('public')->put('/admin/images/authors', $data['photo']);
         $article = Author::firstOrCreate($data);
         if ($article) {
             return redirect()->route('author.show', $article->id);
@@ -75,9 +74,10 @@ class AuthorController extends Controller
     {
 
         $data = $request->validated();
-        Storage::disk('public')->delete($author->photo);
-        $data['photo'] = Storage::disk('public')->put('/admin/images/authors', $data['photo']);
-
+        if (!empty($data['photo'])) {
+            Storage::disk('public')->delete($author->photo);
+            $data['photo'] = Storage::disk('public')->put('/admin/images/authors', $data['photo']);
+        }
         if ($author->update($data))
             return redirect()->route('author.show', $author->id);
     }
