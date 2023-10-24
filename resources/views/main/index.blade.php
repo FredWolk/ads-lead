@@ -89,9 +89,9 @@
                                         @endif
                                     </ul>
                                     <h3 class="article--card_info-title">{{ $a["{$locale}name"] }}</h3>
-                                    <p class="article--card_info-author">by <a
-                                            href="{{ route('article.author', $a['author']['link']) }}">{{ $a['author']['name'] }}</a>
-                                    </p>
+{{--                                    <p class="article--card_info-author">by <a--}}
+{{--                                            href="{{ route('article.author', $a['author']['link']) }}">{{ $a['author']['name'] }}</a>--}}
+{{--                                    </p>--}}
 
                                     <div class="article--card_info-views">
                                         <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
