@@ -9,6 +9,89 @@
         <meta property="og:url" content="{{ url()->current() }}"/>
     @endsection
 @endif
+@section('style')
+    <style>
+        .articles_seo-text--text p,
+        .articles_seo-text--text p *,
+        .articles_seo-text--text span,
+        .articles_seo-text--text span *,
+        .articles_seo-text--text li,
+        .articles_seo-text--text li * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+            width: 100% !important;
+        }
+
+        .articles_seo-text--text a, .articles_seo-text--text a * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            text-decoration-line: underline !important;
+            color: #014EFF !important;
+        }
+
+        .articles_seo-text--text h1, .articles_seo-text--text h1 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 30px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+        }
+
+        .articles_seo-text--text h2, .articles_seo-text--text h2 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 28px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+            margin-top: 15px;
+        }
+
+        .articles_seo-text--text h3, .articles_seo-text--text h3 * {
+            font-family: 'Jost' !important;
+            font-style: normal !important;
+            font-weight: 700 !important;
+            font-size: 25px !important;
+            line-height: 120% !important;
+            text-transform: uppercase !important;
+            color: #014EFF !important;
+        }
+
+
+        .articles_seo-text--text b, .articles_seo-text--text b * {
+            font-family: 'Montserrat' !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+        }
+
+        .articles_seo-text--text i, .articles_seo-text--text i * {
+            font-family: 'Montserrat' !important;
+            font-style: italic !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            line-height: 160% !important;
+            color: #272C31 !important;
+        }
+
+        .articles_seo-text--text img {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+    </style>
+@endsection
 @section('content')
     <section class="breadcrambs top">
         <div class="container">
@@ -70,9 +153,9 @@
                     </div>
 
                 </div>
-                @if(!empty($seo))
+                @if(!empty($seo) && empty($_GET['page']))
                     <aside class="articles_seo-text">
-                        <p class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</p>
+                        <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
                     </aside>
                 @endif
             </section>
@@ -193,26 +276,29 @@
                     </ul>
                 </form>
                 @if(!empty($banner))
-                    <aside class="filter-aside">
+                    <div class="filter-aside--sticky">
                         <div class="filter-aside-banner sticky">
                             <a target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
-                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    <img loading="lazy" width="100%" src="{{asset('storage/'. $banner->file)}}"
+                                         alt="bunner">
                                 @else
-                                    <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
+                                    <video width="100%" src="{{ asset('storage/'. $banner->file) }}" autoplay loop
+                                           muted></video>
                                 @endif
                             </a>
                         </div>
-                    </aside>
+                    </div>
                 @endif
             </aside>
-
-            <div class="cpapage_main-to-show">
-                <h3 class="title">CPA-networks</h3>
-                <p class="articlespage-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellen.</p>
-            </div>
+            @empty($seo)
+                <h1 class="title">Events</h1>
+            @else
+                <div class="cpapage_main-to-show">
+                    <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
+                    <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
+                </div>
+            @endempty
         </div>
     </section>
 
