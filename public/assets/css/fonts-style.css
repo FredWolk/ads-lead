@@ -13,6 +13,14 @@
     margin-left: 0 !important;
 }
 
+.main__article{
+    width: 100%;
+}
+
+.main__article div:has(table){
+    overflow: auto;
+}
+
 .main__article a, .main__article a * {
     font-family: 'Montserrat' !important;
     font-weight: 500 !important;
