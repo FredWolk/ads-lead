@@ -740,7 +740,6 @@
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/cookie.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
-<script src="{{asset('assets/js/banner-show.js')}}"></script>
 @if(!empty($banner) && $banner->type == 'video')
     <script>
         if ($(window).width() <= 600) {
