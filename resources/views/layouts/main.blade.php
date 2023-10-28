@@ -103,7 +103,8 @@
                     {{--                    @endif--}}
 
                     @if(!empty($banner_button))
-                        <a class="btn--blue header_buttons-blue-btn" target="_blank" href="{{ $banner_button->link }}">
+                        <a data-type="header_button" class="btn--blue header_buttons-blue-btn banner_check"
+                           target="_blank" href="{{ $banner_button->link }}">
                             <span>{{ $banner_button->text }}</span>
                             <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                  alt="arrow">
@@ -238,7 +239,7 @@
 
     @if(!empty($banner))
         <section class="banner">
-            <a href="{{ $banner->link }}" target="_blank">
+            <a data-type="big_top_banner" class="banner_check" href="{{ $banner->link }}" target="_blank">
                 @if($banner->type == 'image')
                     <picture>
                         <source srcset="{{asset('storage/'. $banner->file)}}"
@@ -253,6 +254,7 @@
             </a>
         </section>
     @endif
+
     <main class="main">
         @yield('content')
     </main>
@@ -726,9 +728,9 @@
                         </g>
                     </svg>
                 </div>
-                <a href="{{ $popup->button_link }}" target="_blank"
+                <a data-type="popup_banner" href="{{ $popup->button_link }}" target="_blank"
                    style=""
-                   class="popup_button">{{ $popup->button_text }}</a>
+                   class="popup_button banner_check">{{ $popup->button_text }}</a>
             </div>
         </div>
     </div>
@@ -738,7 +740,15 @@
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/cookie.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
-
+<script src="{{asset('assets/js/banner-show.js')}}"></script>
+@if(!empty($banner) && $banner->type == 'video')
+    <script>
+        if ($(window).width() <= 600) {
+            var vid = $('#video');
+            vid.attr('src', "{{ asset('storage/'. $banner->mobile_file) }}")
+        }
+    </script>
+@endif
 <script>
     var cookie = $.cookie('popup');
     if (!cookie) {
@@ -795,17 +805,6 @@
         $('#desctop__search, .search_back').fadeOut(300);
         $('.header--search-btn').removeClass('active')
     })
-    $('#set_lang').on('input', function (e) {
-        if ($(this).val() === 'en') {
-            let path = window.location.pathname.substring(3);
-            var url = window.location.origin + path;
-        } else {
-            let lang = '/pt';
-            var url = window.location.origin + lang + window.location.pathname;
-        }
-        window.location.href = url
-    })
-
 </script>
 
 @yield('scripts')
