@@ -69,7 +69,7 @@
             </div>
             @if(!empty($seo) && empty($_GET['page']))
                 <aside class="articles_seo-text">
-                    <div class="articles_seo-text--text">{!! $seo["seo_text"] !!}</div>
+                    <div class="articles_seo-text--text">{!! $seo["seo_text"] ?? '' !!}</div>
                 </aside>
             @endif
         </div>
