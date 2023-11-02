@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('seo')
     @if(!empty($seo))
-        <title>{{ $seo["title"] }}</title>
-        <meta name="description" content="{{ $seo["description"] }}">
-        <meta name="keywords" content="{{ $seo["keywords"] }}"/>
-        <meta property="og:title" content="{{ $seo["og_title"] }}"/>
-        <meta property="og:description" content="{{ $seo["og_description"] }}"/>
+        <title>{{ $seo["title"] ?? '' }}</title>
+        <meta name="description" content="{{ $seo["description"] ?? '' }}">
+        <meta name="keywords" content="{{ $seo["keywords"] ?? '' }}"/>
+        <meta property="og:title" content="{{ $seo["og_title"] ?? '' }}"/>
+        <meta property="og:description" content="{{ $seo["og_description"] ?? '' }}"/>
         <meta property="og:url" content="{{ url()->current() }}"/>
     @endif
 @endsection
