@@ -16,6 +16,7 @@ class Seo extends Model
         EVENTS_PAGE = 'events',
         FORUM_PAGE = 'forum',
         TOOLS_PAGE = 'tools',
+        SHOP_PAGE = 'shop',
         CASES_PAGE = 'cases';
 
     use HasFactory;

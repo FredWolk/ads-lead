@@ -692,6 +692,39 @@
     .forum_userpage-main_info_troph + .user-main_trophies_list {
         margin-bottom: 20px;
     }
+    .shop_block-item{
+        max-width: none;
+    }
+    .shop_block-item-link{
+        max-width: none;
+    }
+    .shop_block-title{
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .shop_block-arrow{
+        display: block;
+        cursor: pointer;
+    }
+    .shop_body{
+        gap: 5px;
+    }
+    .shop_block.hide{
+        height: 48px;
+        overflow: hidden;
+        background-color: #014EFF;
+    }
+    .shop_block.hide .shop_block-title{
+        color: #ffffff;
+        padding: 13px 12px;
+    }
+    .shop_block.hide .shop_block-arrow path{
+        fill: #ffffff;
+    }
+    .shop_block.hide .shop_block-arrow{
+        transform: rotate(180deg);
+        top: 15px;
+    }
 }
 
 @media (max-width: 760px) {

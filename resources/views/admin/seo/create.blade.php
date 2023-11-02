@@ -74,6 +74,10 @@
                                         {{ old('page') === Seo::TOOLS_PAGE ? 'selected' : ''}} value="{{ Seo::TOOLS_PAGE }}">
                                         Сервисы
                                     </option>
+                                    <option
+                                        {{ old('page') === Seo::SHOP_PAGE ? 'selected' : ''}} value="{{ Seo::SHOP_PAGE }}">
+                                        Магазин
+                                    </option>
                                 </select>
                             </div>
 

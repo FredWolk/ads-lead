@@ -7204,3 +7204,112 @@ form {
 }
 
 /*-- Hashtags --*/
+
+/*-- SHOP --*/
+.shop_body {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+}
+
+.shop_block {
+    position: relative;
+    transition: 0.5s;
+}
+.shop_block-arrow{
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    display: none;
+}
+
+.shop_block-title {
+    color: #014EFF;
+    font-family: Jost;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.shop_block-description {
+    color: #272C31;
+    font-family: Montserrat;
+    max-width: 640px;
+    width: 100%;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 20px;
+}
+
+.shop_block-list {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    flex-wrap: wrap;
+}
+
+.shop_block-item {
+    width: 100%;
+    max-width: 325px;
+}
+
+.shop_block-item-link{
+    display: flex;
+    border: 1px solid #272C31;
+    width: 100%;
+    max-width: 325px;
+}
+.shop_block-item-link:hover .shop_block-item-info{
+    background-color: #014EFF;
+}
+.shop_block-item-link:hover .shop_block-item-title{
+    color: #ffffff;
+}
+.shop_block-item-img {
+    max-width: 170px;
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    max-height: 101px;
+    object-fit: cover;
+}
+
+.shop_block-item-info {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding-left: 10px;
+    transition: 0.5s;
+}
+
+.shop_block-item-arrow {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    transition: 0.5s;
+}
+.shop_block-item-link:hover .shop_block-item-arrow{
+    transform: rotate(45deg);
+}
+.shop_block-item-link:hover .shop_block-item-arrow path{
+    fill: #ffffff;
+}
+.shop_block-item-title {
+    max-width: 125px;
+    color: #181A1C;
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+    align-self: center;
+    transition: 0.5s;
+}
+
+/*-- SHOP --*/

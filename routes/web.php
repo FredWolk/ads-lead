@@ -47,9 +47,13 @@ if (isset($url[3]) && $url[3] == 'pt') {
     exit();
 }
 Route::get('/', [IndexController::class, '__invoke'])->name('index');
-Route::get('/private-policy', function (){
+Route::post('/banner-check', [\App\Http\Controllers\Main\ShowBannerController::class, 'views'])->name('banner.check.views');
+Route::get('/private-policy', function () {
     return view('main.policy');
 })->name('policy');
+
+Route::get('/shop', [\App\Http\Controllers\Main\ShopController::class, '__invoke'])->name('shop');
+
 Route::group(['namespace' => 'cpa', 'prefix' => 'cpa-networks'], function () {
     Route::get('/', [NetworksController::class, '__invoke'])->name('cpa');
     Route::get('/{catalog}', [CatalogController::class, '__invoke'])->name('cpa.catalog');
@@ -136,6 +140,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('article', AdminArticleController::class);
     Route::resource('article-tags', \App\Http\Controllers\Admin\ArticleSeoTagsController::class);
     Route::resource('author', AuthorController::class);
+    Route::resource('shop', \App\Http\Controllers\Admin\ShopController::class);
+    Route::resource('category-shop', \App\Http\Controllers\Admin\ShopCategoryController::class);
     Route::resource('topick', TopickController::class);
     Route::resource('cpa', CpaController::class);
     Route::resource('ad', AdController::class);

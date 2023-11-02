@@ -265,6 +265,29 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-window-maximize"></i>
+                            <p>
+                                Магазин
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="{{ route('category-shop.index') }}" class="nav-link pl-4">
+                                    <i class="fas fa-newspaper nav-icon"></i>
+                                    <p>Категории</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('shop.index') }}" class="nav-link pl-4">
+                                    <i class="fas fa-hands-helping nav-icon"></i>
+                                    <p>Магазин</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('users.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>
