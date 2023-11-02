@@ -417,7 +417,7 @@
                     <div class="main-cpa_review">
                         <p class="main-cpa-subt">{{ __('messages.review') }}</p>
                         <ul class="main_articles_info">
-                            @foreach($ads as $i)
+                            @foreach($ads->sortBy('listing_rating') as $i)
                                 <li class="article--card">
                                     <a class="article--card-link"
                                        href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
@@ -452,7 +452,7 @@
                         <div class="main_articles--mobile">
                             <div class="swiper">
                                 <ul class="swiper-wrapper">
-                                    @foreach ($ads as $i)
+                                    @foreach ($ads->sortBy('listing_rating') as $i)
                                         <li class="article--card swiper-slide">
                                             <a class="article--card-link"
                                                href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}"></a>
