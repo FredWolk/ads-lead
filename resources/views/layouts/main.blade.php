@@ -93,6 +93,9 @@
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('base') }}">{{ __('messages.base') }}</a>
                         </li>
+                        <li class="header_nav_list_item">
+                            <a class="header_nav--link" href="{{ route('shop') }}">Shop</a>
+                        </li>
                     </ul>
                 </nav>
                 <div class="header_buttons">
@@ -226,6 +229,9 @@
                     </li>
                     <li class="burger_nav_list_item">
                         <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
+                    </li>
+                    <li class="burger_nav_list_item">
+                        <a class="burger_nav--link" href="{{ route('shop') }}">Shop</a>
                     </li>
                 </ul>
                 {{--                <div class="switch__lang">--}}
