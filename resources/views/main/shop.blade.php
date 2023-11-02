@@ -67,6 +67,11 @@
                     </div>
                 @endforeach
             </div>
+            @if(!empty($seo) && empty($_GET['page']))
+                <aside class="articles_seo-text">
+                    <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
+                </aside>
+            @endif
         </div>
     </section>
     <section class="breadcrambs bot">
