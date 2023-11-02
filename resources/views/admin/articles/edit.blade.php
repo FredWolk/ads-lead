@@ -79,8 +79,8 @@
                             <div class="form-group">
                                 <label for="type">Тип статьи</label>
                                 <select name="type" id="type" class="form-control">
-                                    <option value="article">Статья</option>
-                                    <option value="base">База знаний</option>
+                                    <option {{ $article->type === 'article' ? 'selected' : '' }} value="article">Статья</option>
+                                    <option {{ $article->type === 'base' ? 'selected' : '' }} value="base">База знаний</option>
                                 </select>
                             </div>
                             @error('type')
