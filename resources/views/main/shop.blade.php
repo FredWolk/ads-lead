@@ -30,8 +30,8 @@
             @empty($seo)
                 <h1 class="title">Shop</h1>
             @else
-                <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
-                <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
+                <h1 class="title">{{ $seo["h1"] }}</h1>
+                <p class="articlespage-text">{{ $seo["after_h1_text"] }}</p>
             @endempty
             <div class="shop_body">
                 @foreach($category as $cat)
