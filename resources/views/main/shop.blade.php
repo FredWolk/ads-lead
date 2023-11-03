@@ -67,12 +67,29 @@
                     </div>
                 @endforeach
             </div>
-            @if(!empty($seo) && empty($_GET['page']))
-                <aside class="articles_seo-text">
-                    <div class="articles_seo-text--text">{!! $seo["seo_text"] ?? '' !!}</div>
-                </aside>
-            @endif
         </div>
+
+        <div class="items-wrap">
+            <div class="items marquee">
+                <div class="item">
+                    <img src="{{ asset('assets/images/Frame 109.svg') }}" alt="">
+                </div>
+            </div>
+            <div aria-hidden="true" class="items marquee">
+                <div class="item">
+                    <img src="{{ asset('assets/images/Frame 109.svg') }}" alt="">
+                </div>
+            </div>
+        </div>
+        @if(isset($seo['seo_text']) && $seo['seo_text'] !== '')
+            <div class="container">
+                @if(!empty($seo) && empty($_GET['page']))
+                    <aside class="articles_seo-text">
+                        <div class="articles_seo-text--text">{!! $seo["seo_text"] ?? '' !!}</div>
+                    </aside>
+                @endif
+            </div>
+        @endif
     </section>
     <section class="breadcrambs bot">
         <div class="container">
