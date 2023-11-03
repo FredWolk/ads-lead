@@ -725,6 +725,9 @@
         transform: rotate(180deg);
         top: 15px;
     }
+    .marquee .item img{
+        height: 50px;
+    }
 }
 
 @media (max-width: 760px) {
@@ -814,6 +817,9 @@
         gap: 0px;
     }
 
+    .marquee .item img{
+        height: 30px;
+    }
     .footer_nav-wrapper-first {
         display: block;
     }
