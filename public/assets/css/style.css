@@ -7367,3 +7367,117 @@ form {
 /*-- MARQUEE --*/
 
 /*-- SHOP --*/
+
+/*-- VACANCIES --*/
+.vacancies_main{
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.vacancies_card {
+    padding: 35px 25px;
+    position: relative;
+    border: 1px solid #272C31;
+    max-width: 675px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.vacancies_card svg{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.vacancies_card-main {
+    max-width: 442px;
+    width: 100%;
+    border-right: 1px solid #272C31;
+    padding-right: 22px;
+}
+
+.vacancies_hr{
+    background-color: #272C31;
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.vacancies_main-title {
+    color: #181A1C;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 24px */
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.vacancies_main-firma {
+    color: #014EFF;
+    font-size: 14px;
+    font-style: normal;
+    font-family: Montserrat;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.vacancies_main-block {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.vacancies_block-info {
+}
+
+.vacancies_block-title {
+    color: #014EFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.vacancies_block-text {
+    color: #181A1C;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vacancies_card-more {
+    max-width: 160px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.vacancies_info-title {
+    color: #014EFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.vacancies_info-text {
+    color: #181A1C;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 32px */
+}
+
+/*-- VACANCIES --*/

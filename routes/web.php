@@ -83,6 +83,10 @@ Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
     Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
     Route::get('/{link}', [VideoController::class, '__invoke'])->name('video.page');
 });
+Route::group(['namespace' => 'vacancies', 'prefix' => 'vacancies'], function (){
+   Route::get('/', [\App\Http\Controllers\Main\VacanciesController::class, 'index'])->name('vacancies');
+   Route::get('/{link}', [\App\Http\Controllers\Main\VacanciesController::class, 'page'])->name('vacancies.page');
+});
 Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
     Route::get('/', [EventsController::class, '__invoke'])->name('events');
     Route::get('/{link}', [EventPageController::class, '__invoke'])->name('event.page');
@@ -142,6 +146,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('author', AuthorController::class);
     Route::resource('shop', \App\Http\Controllers\Admin\ShopController::class);
     Route::resource('category-shop', \App\Http\Controllers\Admin\ShopCategoryController::class);
+    Route::resource('vacancies', \App\Http\Controllers\Admin\VacanciesController::class);
     Route::resource('topick', TopickController::class);
     Route::resource('cpa', CpaController::class);
     Route::resource('ad', AdController::class);

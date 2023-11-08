@@ -338,6 +338,7 @@
 }
 
 @media (max-width: 1020px) {
+
     .container {
         max-width: 600px;
         padding-left: 14px !important;
@@ -1882,5 +1883,21 @@
         flex-direction: column;
         align-items: start;
         gap: 5px;
+    }
+    .vacancies_card{
+        flex-direction: column;
+    }
+    .vacancies_card-main{
+        border: none;
+    }
+    .vacancies_info-text{
+        margin-bottom: 30px;
+    }
+    .vacancies_card-more{
+        max-width: none;
+    }
+    .vacancies_card-more a{
+        width: 100%;
+        max-width: none;
     }
 }
