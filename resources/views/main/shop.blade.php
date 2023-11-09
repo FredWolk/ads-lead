@@ -47,7 +47,7 @@
                         <ul class="shop_block-list">
                             @foreach($cat->shops as $shop)
                                 <li class="shop_block-item">
-                                    <a class="shop_block-item-link" href="{{ $shop->link }}">
+                                    <a target="_blank" class="shop_block-item-link" href="{{ $shop->link }}">
                                         <img class="shop_block-item-img" src="{{ asset('storage/'.$shop->image) }}"
                                              alt="">
                                         <div class="shop_block-item-info">
