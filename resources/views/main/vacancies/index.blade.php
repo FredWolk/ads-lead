@@ -100,7 +100,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["h1"] : __('messages.articles') }}
+                    {{ !empty($seo) ? $seo["h1"] : 'Vacancies' }}
                 </li>
             </ul>
         </div>
@@ -109,7 +109,7 @@
     <section class="articlespage">
         <div class="container">
             @empty($seo)
-                <h1 class="title">{{ __('messages.articles') }}</h1>
+                <h1 class="title">Vacancies</h1>
             @else
                 <h1 class="title">{{ $seo["h1"] }}</h1>
                 <p class="articlespage-text">{{ $seo["after_h1_text"] }}</p>
@@ -182,7 +182,7 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["h1"] : __('messages.articles') }}
+                    {{ !empty($seo) ? $seo["h1"] : 'Vacancies' }}
                 </li>
             </ul>
         </div>

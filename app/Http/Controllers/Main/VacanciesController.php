@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
+use App\Models\BannerAside;
+use App\Models\Banners;
 use App\Models\Seo;
 use App\Models\Vacancies;
 use Illuminate\Http\Request;
@@ -19,6 +21,8 @@ class VacanciesController extends Controller
     public function page($link)
     {
         $vacinci = Vacancies::firstWhere('link', $link);
-        return view('main.vacancies.page', compact('link'));
+        $vacancies = Vacancies::all()->where('link', '!==', $link)->random(2);
+        $banner = BannerAside::where('status', 1)->where('show', 'all')->first();
+        return view('main.vacancies.page', compact('vacinci', 'vacancies', 'banner'));
     }
 }
