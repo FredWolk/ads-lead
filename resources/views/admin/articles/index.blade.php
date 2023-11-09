@@ -91,6 +91,9 @@
                             </table>
                         </div>
                     </div>
+                    <div class="pagination">
+                        {{ $article->onEachSide(1)->links() }}
+                    </div>
                 </section>
             </div>
         </section>
