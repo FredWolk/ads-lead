@@ -114,7 +114,7 @@
                             @foreach ($article as $k => $a)
                                 @if($k !== 0)
                                     <li class="article--card swiper-slide">
-                                        <a class="article--card-link" href="{{ route('index') }}"></a>
+                                        <a class="article--card-link" href="{{ route('article', $a['link']) }}"></a>
                                         <img loading="lazy" src="{{asset('storage/'.$a["{$locale}image"])}}"
                                              alt="banner">
                                         <div class="article--card_info">
