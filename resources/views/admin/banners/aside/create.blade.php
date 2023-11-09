@@ -76,6 +76,7 @@
                                     <option {{ old('show') == 'all' ? 'selected' : '' }} value="all">Общий</option>
                                     <option {{ old('show') == 'cpa' ? 'selected' : '' }} value="cpa">ПП</option>
                                     <option {{ old('show') == 'ad' ? 'selected' : '' }} value="ad">Сетки</option>
+                                    <option {{ old('show') == 'tools' ? 'selected' : '' }} value="tools">Сервисы</option>
                                 </select>
                             </div>
                             @error('show')

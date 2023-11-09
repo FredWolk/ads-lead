@@ -83,6 +83,7 @@
                                     <option {{ $aside->show == 'all' ? 'selected' : '' }} value="all">Общий</option>
                                     <option {{ $aside->show == 'cpa' ? 'selected' : '' }} value="cpa">ПП</option>
                                     <option {{ $aside->show == 'ad' ? 'selected' : '' }} value="ad">Сетки</option>
+                                    <option {{ $aside->show == 'tools' ? 'selected' : '' }} value="tools">Сервисы</option>
                                 </select>
                             </div>
                             @error('show')
