@@ -96,6 +96,9 @@
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('shop') }}">Shop</a>
                         </li>
+                        <li class="header_nav_list_item">
+                            <a class="header_nav--link" href="{{ route('vacancies') }}">Vacancies</a>
+                        </li>
                     </ul>
                 </nav>
                 <div class="header_buttons">
