@@ -96,9 +96,9 @@
                         <li class="header_nav_list_item">
                             <a class="header_nav--link" href="{{ route('shop') }}">Shop</a>
                         </li>
-{{--                        <li class="header_nav_list_item">--}}
-{{--                            <a class="header_nav--link" href="{{ route('vacancies') }}">Vacancies</a>--}}
-{{--                        </li>--}}
+                        <li class="header_nav_list_item">
+                            <a class="header_nav--link" href="{{ route('vacancies') }}">Job</a>
+                        </li>
                     </ul>
                 </nav>
                 <div class="header_buttons">
@@ -237,7 +237,7 @@
                         <a class="burger_nav--link" href="{{ route('shop') }}">Shop</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('vacancies') }}">Vacancies</a>
+                        <a class="burger_nav--link" href="{{ route('vacancies') }}">Job</a>
                     </li>
                 </ul>
                 {{--                <div class="switch__lang">--}}
