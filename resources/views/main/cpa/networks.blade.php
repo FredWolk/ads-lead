@@ -214,7 +214,7 @@
 
                     @if(!empty($banner))
                         <div class="filter-aside-banner to-show">
-                            <a target="_blank" href="{{ $banner->link }}">
+                            <a data-type="aside_banner" class="banner_check" target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
                                     <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else
@@ -361,7 +361,7 @@
                 @if(!empty($banner))
                     <aside class="filter-aside--sticky">
                         <div class="filter-aside-banner">
-                            <a target="_blank" href="{{ $banner->link }}">
+                            <a data-type="aside_banner" class="banner_check" target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
                                     <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else

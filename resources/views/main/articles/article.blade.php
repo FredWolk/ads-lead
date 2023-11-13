@@ -258,7 +258,7 @@
                 <aside style="height: 100%" class="filter-aside--sticky">
                     @if(!empty($banner))
                         <div class="filter-aside-banner sticky">
-                            <a target="_blank" href="{{ $banner->link }}">
+                            <a data-type="aside_banner" class="banner_check" target="_blank" href="{{ $banner->link }}">
                                 @if($banner->type == 'image')
                                     <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
                                 @else

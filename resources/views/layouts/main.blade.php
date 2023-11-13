@@ -816,6 +816,43 @@
         $('#desctop__search, .search_back').fadeOut(300);
         $('.header--search-btn').removeClass('active')
     })
+
+    $(window).ready(() => {
+        var array = [];
+        $('.banner_check').each( function (key, e) {
+            array.push($(this).attr('data-type'));
+        })
+        $.ajax({
+            data: {arr: array},
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            type: 'POST',
+            dataType: 'JSON',
+            url: "{{ route('banner.check.views') }}"
+        })
+
+        $('.banner_check').on('click', function (e) {
+            e.preventDefault();
+            let href = $(this).attr('href'),
+                type = $(this).attr('data-type');
+            $.ajax({
+                data: {type},
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                type: 'POST',
+                dataType: 'JSON',
+                url: "{{ route('banner.check.click') }}"
+            }).done((rsp) => {
+                if(rsp.status){
+                    window.open(href);
+                }
+            })
+
+        })
+    })
+
 </script>
 
 @yield('scripts')

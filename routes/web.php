@@ -48,6 +48,7 @@ if (isset($url[3]) && $url[3] == 'pt') {
 }
 Route::get('/', [IndexController::class, '__invoke'])->name('index');
 Route::post('/banner-check', [\App\Http\Controllers\Main\ShowBannerController::class, 'views'])->name('banner.check.views');
+Route::post('/banner-click', [\App\Http\Controllers\Main\ShowBannerController::class, 'click'])->name('banner.check.click');
 Route::get('/private-policy', function () {
     return view('main.policy');
 })->name('policy');
@@ -108,7 +109,6 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
     Route::delete('/delete-threads-comment/{comment?}', [TradeController::class, 'deleteComment'])->name(
         'delete.thread.comment'
     );
-
     Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');
     Route::delete('/delete-threads/{trade?}', [TradeController::class, 'deleteThread'])->name('delete.thread');
 });
