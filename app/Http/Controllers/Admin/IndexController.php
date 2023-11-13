@@ -8,13 +8,15 @@ use App\Models\Article;
 use App\Models\Cpa;
 use App\Models\Events;
 use App\Models\Services;
+use App\Models\ShowBanner;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
     public function __invoke()
     {
-        return view('admin.index');
+        $banners = ShowBanner::all();
+        return view('admin.index', compact('banners'));
     }
 
     public function adminSearch(\Illuminate\Http\Request $request)
