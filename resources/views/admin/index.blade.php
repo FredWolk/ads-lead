@@ -10,8 +10,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                            <li class="breadcrumb-item active">Баннеры</li>
                         </ol>
                     </div>
                 </div>
@@ -48,10 +48,6 @@
                                     <th style="width: 30%">
                                         Клики
                                     </th>
-
-                                    <th class="text-right" style="width: 40%">
-                                        <a href="{{ route('article.create') }}" class="btn btn-dark btn-sm">Добавить</a>
-                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -80,6 +76,21 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </section>
+                <section class="content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Баннеры</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </section>
