@@ -258,6 +258,12 @@
                                     <p>Хештеги</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('article-category.index') }}" class="nav-link pl-4">
+                                    <i class="nav-icon fas fa-hashtag"></i>
+                                    <p>Категории</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

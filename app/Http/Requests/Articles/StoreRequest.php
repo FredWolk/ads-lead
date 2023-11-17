@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
             'link'                      => 'required|string',
             'pt_name'                   => 'nullable|string',
             'type'                      => 'required|string',
+            'category'                  => 'required|string',
             'image'                     => 'required|image',
             'pt_image'                  => 'nullable|image',
             'prev_text'                 => 'nullable|string',

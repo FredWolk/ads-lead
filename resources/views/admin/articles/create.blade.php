@@ -85,6 +85,40 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
+
+                            <div class="form-group">
+                                <label for="pageSelect">Категория</label>
+                                <select name="category" id="pageSelect" class="form-control">
+                                    <option
+                                        {{ old('category') === 'facebook' ? 'selected' : ''}} value="facebook">
+                                        Facebook
+                                    </option>
+                                    <option
+                                        {{ old('category') === 'google' ? 'selected' : ''}} value="google">
+                                        Google
+                                    </option>
+                                    <option
+                                        {{ old('category') === 'pop-up' ? 'selected' : ''}} value="pop-up">
+                                        Pop-up
+                                    </option>
+                                    <option
+                                        {{ old('category') === 'guides' ? 'selected' : ''}} value="guides">
+                                        Guides
+                                    </option>
+                                    <option
+                                        {{ old('category') === 'wiki' ? 'selected' : ''}} value="wiki">
+                                        Wiki
+                                    </option>
+                                    <option
+                                        {{ old('category') === 'creatives' ? 'selected' : ''}} value="creatives">
+                                        Creatives
+                                    </option>
+                                </select>
+                            </div>
+                            @error('category')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="form-group">
                                 <label for="image">Изображение статьи</label>
                                 <div class="input-group">

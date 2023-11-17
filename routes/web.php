@@ -149,6 +149,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('vacancies', \App\Http\Controllers\Admin\VacanciesController::class);
     Route::resource('topick', TopickController::class);
     Route::resource('cpa', CpaController::class);
+    Route::resource('article-category', \App\Http\Controllers\Admin\CategoryArticlesController::class);
     Route::resource('ad', AdController::class);
     Route::resource('services', ServicesController::class);
     Route::resource('event', EventController::class);

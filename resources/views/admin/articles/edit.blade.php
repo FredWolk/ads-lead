@@ -87,6 +87,39 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
+                            <div class="form-group">
+                                <label for="pageSelect">Категория</label>
+                                <select name="category" id="pageSelect" class="form-control">
+                                    <option
+                                        {{ $article->category === 'facebook' ? 'selected' : ''}} value="facebook">
+                                        Facebook
+                                    </option>
+                                    <option
+                                        {{ $article->category === 'google' ? 'selected' : ''}} value="google">
+                                        Google
+                                    </option>
+                                    <option
+                                        {{ $article->category === 'pop-up' ? 'selected' : ''}} value="pop-up">
+                                        Pop-up
+                                    </option>
+                                    <option
+                                        {{ $article->category === 'guides' ? 'selected' : ''}} value="guides">
+                                        Guides
+                                    </option>
+                                    <option
+                                        {{ $article->category === 'wiki' ? 'selected' : ''}} value="wiki">
+                                        Wiki
+                                    </option>
+                                    <option
+                                        {{ $article->category === 'creatives' ? 'selected' : ''}} value="creatives">
+                                        Creatives
+                                    </option>
+                                </select>
+                            </div>
+                            @error('category')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <img loading="lazy" width="150" src="{{ asset('storage/'.$article->image) }}" alt="">
                             <div class="form-group">
                                 <label for="image">Изображение статьи</label>
