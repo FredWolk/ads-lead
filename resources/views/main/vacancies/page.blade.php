@@ -93,7 +93,7 @@
             </div>
         </div>
     </section>
-    @if($vacancies->count() === 0)
+    @if($vacancies->count() > 0)
         <aside class="main-video aside-other-wideos">
             <div class="container">
                 <h3 class="aside-other-wideos-title">Related Ad-networks</h3>
