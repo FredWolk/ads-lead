@@ -73,7 +73,7 @@
 
                             <div class="form-group">
                                 <label for="salary">Зарплата</label>
-                                <input type="number" name="salary" value="{{ old('salary') }}" class="form-control" id="salary"
+                                <input type="text" name="salary" value="{{ old('salary') }}" class="form-control" id="salary"
                                        placeholder="2000">
                             </div>
                             @error('salary')

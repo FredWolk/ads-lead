@@ -27,7 +27,7 @@ class StoreVacanciesRequest extends FormRequest
             'name' => 'string|required',
             'link' => 'string|required',
             'firma' => 'string|required',
-            'salary' => 'integer|required',
+            'salary' => 'string|required',
             'location' => 'string|required',
             'text' => 'string|required',
             'is_top' => 'boolean',

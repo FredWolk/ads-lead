@@ -154,7 +154,7 @@
                         <div class="vacancies_card-more">
                             <div class="vacancies_more-info">
                                 <p class="vacancies_info-title">SALARY</p>
-                                <p class="vacancies_info-text">from ${{$v->salary}}</p>
+                                <p class="vacancies_info-text">{{$v->salary}}</p>
                             </div>
                             <a class="btn--blue header_buttons-blue-btn" href="{{ route('vacancies.page', $v->link) }}">
                                 <span>show more</span>
