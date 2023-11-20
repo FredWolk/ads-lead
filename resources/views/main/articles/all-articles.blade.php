@@ -115,6 +115,54 @@
                 <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
             @endempty
 
+            @if(!empty($category))
+                @php
+                    $arCat = [
+                       'facebook' => [
+                           'assets/images/article-category/facebook.webp','assets/images/article-category/facebook_b.webp'
+                           ],
+                       'google' => [
+                           'assets/images/article-category/google.webp',
+                           'assets/images/article-category/google_b.webp'
+                            ],
+                       'pop-up' => [
+                           'assets/images/article-category/pop-up.webp',
+                           'assets/images/article-category/pop-up_b.webp'
+                            ],
+                       'guides' => [
+                           'assets/images/article-category/guide.webp',
+                           'assets/images/article-category/guides_b.webp'
+                            ],
+                       'wiki' => [
+                           'assets/images/article-category/wiki.webp',
+                           'assets/images/article-category/wiki_b.webp'
+                            ],
+                       'creatives' => [
+                           'assets/images/article-category/creative.webp',
+                           'assets/images/article-category/creo_b.webp'
+                            ],
+                        ]
+                @endphp
+                <nav class="articlesCategory">
+                    <ul class="articlesCategory_list">
+                        @foreach($category as $c)
+                            <li data-stable="{{ asset($arCat[$c->name][0]) }}" data-hover="{{ asset($arCat[$c->name][1]) }}" class="articlesCategory_item">
+                                <a class="articlesCategory_link" href="#">
+                                    <img src="{{ asset($arCat[$c->name][0]) }}" alt="{{ $c->name }}">
+                                    <p>{{ $c->name }}</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16"
+                                         fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M8.37879 5H3.00011V2H13.5001V12.5H10.5001V7.12132L4.06077 13.5607L1.93945 11.4393L8.37879 5Z"
+                                              fill="#181A1C"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </nav>
+            @endif
+
             <ul class="main_articles_info">
                 @foreach($articles as $article)
                     @continue(empty($article["{$locale}image"]) && empty($article["{$locale}name"]))
@@ -127,7 +175,8 @@
                                 @if(!empty($article['tags']))
                                     @foreach($article['tags'] as $tag)
                                         <li class="article--card_info_tags-list-item mobhide">
-                                            <a href="{{ !empty($tagArr[$tag]) ? route('article.tag', $tagArr[$tag]) : '#' }}" class="article--card_info_tags-list-item--link">#{{ $tag }}</a>
+                                            <a href="{{ !empty($tagArr[$tag]) ? route('article.tag', $tagArr[$tag]) : '#' }}"
+                                               class="article--card_info_tags-list-item--link">#{{ $tag }}</a>
                                         </li>
                                     @endforeach
                                 @endif
@@ -173,4 +222,15 @@
             </ul>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    <script>
+        $('.articlesCategory_item').on('mouseenter', function () {
+            $(this).find('img').attr('src', $(this).attr('data-hover'))
+        })
+        $('.articlesCategory_item').on('mouseleave', function () {
+            $(this).find('img').attr('src', $(this).attr('data-stable'));
+        })
+    </script>
 @endsection

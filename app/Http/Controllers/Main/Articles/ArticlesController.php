@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\ArticleSeoTags;
 use App\Models\Author;
+use App\Models\CategoryArticles;
 use App\Models\Seo;
 use Illuminate\Support\Facades\App;
 
@@ -23,11 +24,12 @@ class ArticlesController extends Controller
         if (!empty($seo)) {
             $seo->toArray();
         }
+        $category = CategoryArticles::all();
         $articles = Article::with('author')->where('active', 1)->where('type', 'article')->orderByDesc('id')->paginate(9);
         if (!empty($_GET['page']) && $articles->lastPage() < $_GET['page']) {
             return redirect()->route('articles');
         }
-        return view('main.articles.all-articles', compact('articles', 'seo', 'locale', 'tagArr'));
+        return view('main.articles.all-articles', compact('articles', 'seo', 'locale', 'tagArr', 'category'));
     }
 
     public function author($link)
