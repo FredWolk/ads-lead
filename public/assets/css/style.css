@@ -7517,7 +7517,7 @@ form {
     transform: rotate(45deg);
 }
 .articlesCategory_item:hover svg path{
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
     fill: #ffffff;
 }
 .articlesCategory_link{
