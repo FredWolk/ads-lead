@@ -78,6 +78,7 @@ Route::group(['namespace' => 'article', 'prefix' => 'articles'], function () {
     Route::get('/{link}', [ArticleController::class, '__invoke'])->name('article');
     Route::get('/author/{link}', [ArticlesController::class, 'author'])->name('article.author');
     Route::get('/tags/{tag}', [ArticlesController::class, 'tag'])->name('article.tag');
+    Route::get('/category/{tag}', [ArticlesController::class, 'category'])->name('article.category');
     Route::post('/send-comment', [SendCommentController::class, 'articleComment'])->name('article.comment');
 });
 Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {

@@ -1,14 +1,12 @@
 @extends('layouts.main')
-@if(!empty($seo))
-    @section('seo')
-        <title>{{ $seo["{$locale}title"] }}</title>
-        <meta name="description" content="{{ $seo["{$locale}description"] }}">
-        <meta name="keywords" content="{{ $seo["{$locale}keywords"] }}"/>
-        <meta property="og:title" content="{{ $seo["{$locale}og_title"] }}"/>
-        <meta property="og:description" content="{{ $seo["{$locale}og_description"] }}"/>
-        <meta property="og:url" content="{{ url()->current() }}"/>
-    @endsection
-@endif
+@section('seo')
+    <title>{{ $tag->title }}</title>
+    <meta name="description" content="{{ $tag->description }}">
+    <meta name="keywords" content="{{ $tag->keywords }}"/>
+    <meta property="og:title" content="{{ $tag->og_title }}"/>
+    <meta property="og:description" content="{{ $tag->og_description }}"/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+@endsection
 @section('style')
     <style>
         .articles_seo-text--text p,
@@ -100,7 +98,10 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.articles') }}
+                    <a href="{{ route('articles') }}">Articles</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $tag->name }}
                 </li>
             </ul>
         </div>
@@ -108,80 +109,26 @@
 
     <section class="articlespage">
         <div class="container">
-            @empty($seo)
-                <h1 class="title">{{ __('messages.articles') }}</h1>
-            @else
-                <h1 class="title">{{ $seo["{$locale}h1"] }}</h1>
-                <p class="articlespage-text">{{ $seo["{$locale}after_h1_text"] }}</p>
-            @endempty
-
-            @if(!empty($category))
-                @php
-                    $arCat = [
-                       'facebook' => [
-                           'assets/images/article-category/facebook.webp','assets/images/article-category/facebook_b.webp'
-                           ],
-                       'google' => [
-                           'assets/images/article-category/google.webp',
-                           'assets/images/article-category/google_b.webp'
-                            ],
-                       'pop-up' => [
-                           'assets/images/article-category/pop-up.webp',
-                           'assets/images/article-category/pop-up_b.webp'
-                            ],
-                       'guides' => [
-                           'assets/images/article-category/guide.webp',
-                           'assets/images/article-category/guides_b.webp'
-                            ],
-                       'wiki' => [
-                           'assets/images/article-category/wiki.webp',
-                           'assets/images/article-category/wiki_b.webp'
-                            ],
-                       'creatives' => [
-                           'assets/images/article-category/creative.webp',
-                           'assets/images/article-category/creo_b.webp'
-                            ],
-                        ]
-                @endphp
-                <nav class="articlesCategory">
-                    <ul class="articlesCategory_list">
-                        @foreach($category as $c)
-                            <li data-stable="{{ asset($arCat[$c->name][0]) }}" data-hover="{{ asset($arCat[$c->name][1]) }}" class="articlesCategory_item">
-                                <a class="articlesCategory_link" href="{{ route('article.category', $c->name) }}">
-                                    <img src="{{ asset($arCat[$c->name][0]) }}" alt="{{ $c->name }}">
-                                    <p>{{ $c->name }}</p>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16"
-                                         fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M8.37879 5H3.00011V2H13.5001V12.5H10.5001V7.12132L4.06077 13.5607L1.93945 11.4393L8.37879 5Z"
-                                              fill="#181A1C"/>
-                                    </svg>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </nav>
-            @endif
+            <h1 class="title">{{ $tag->name }}</h1>
 
             <ul class="main_articles_info">
                 @foreach($articles as $article)
-                    @continue(empty($article["{$locale}image"]) && empty($article["{$locale}name"]))
+                    @continue(empty($article["image"]) && empty($article["name"]))
                     <li class="article--card">
                         <a class="article--card-link" href="{{ route('article', $article['link']) }}"></a>
-                        <img loading="lazy" src="{{asset('storage/' . $article["{$locale}image"])}}" alt="banner">
+                        <img loading="lazy" src="{{asset('storage/' . $article["image"])}}" alt="banner">
                         <div class="article--card_info">
                             <p class="article--card_info-date">{{ date('d/m/Y', strtotime($article['created_at'])) }}</p>
                             <ul class="article--card_info_tags-list">
                                 @if(!empty($article['tags']))
-                                    @foreach($article['tags'] as $tag)
+                                    @foreach($article['tags'] as $t)
                                         <li class="article--card_info_tags-list-item mobhide">
-                                            <a href="{{ !empty($tagArr[$tag]) ? route('article.tag', $tagArr[$tag]) : '#' }}"
-                                               class="article--card_info_tags-list-item--link">#{{ $tag }}</a>
+                                            <a href="{{ !empty($tagArr[$t]) ? route('article.tag', $tagArr[$t]) : '#' }}" class="article--card_info_tags-list-item--link">#{{ $t }}</a>
                                         </li>
                                     @endforeach
                                 @endif
                             </ul>
-                            <h2 class="article--card_info-title">{{ $article["{$locale}name"] }}</h2>
+                            <h2 class="article--card_info-title">{{ $article["name"] }}</h2>
                             <p class="article--card_info-author">by <a
                                     href="{{ route('article.author', $article['author']['link']) }}">{{ $article['author']['name'] }}</a>
                             </p>
@@ -202,9 +149,9 @@
             <div class="pagination">
                 {{ $articles->onEachSide(1)->links() }}
             </div>
-            @if(!empty($seo) && empty($_GET['page']))
+            @if(!empty($tag->seo_text) && empty($_GET['page']))
                 <aside class="articles_seo-text">
-                    <div class="articles_seo-text--text">{!! $seo["{$locale}seo_text"] !!}</div>
+                    <div class="articles_seo-text--text">{!! $tag->seo_text !!}</div>
                 </aside>
             @endif
         </div>
@@ -217,20 +164,12 @@
                     <a href="{{ route('index') }}">Homepage</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    {{ !empty($seo) ? $seo["{$locale}h1"] : __('messages.articles') }}
+                    <a href="{{ route('articles') }}">Articles</a>
+                </li>
+                <li class="breadcrambs_list-item">
+                    {{ $tag->name }}
                 </li>
             </ul>
         </div>
     </section>
-@endsection
-
-@section('scripts')
-    <script>
-        $('.articlesCategory_item').on('mouseenter', function () {
-            $(this).find('img').attr('src', $(this).attr('data-hover'))
-        })
-        $('.articlesCategory_item').on('mouseleave', function () {
-            $(this).find('img').attr('src', $(this).attr('data-stable'));
-        })
-    </script>
 @endsection

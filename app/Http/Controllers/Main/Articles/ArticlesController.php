@@ -72,5 +72,22 @@ class ArticlesController extends Controller
         }
         return view('main.articles.tags-articles', compact('articles', 'tag', 'tagArr'));
     }
+    public function category($link)
+    {
+        $tag = CategoryArticles::firstWhere('name', $link);
+        if (empty($tag)){
+            return redirect()->route('articles');
+        }
+
+        $articles = Article::with('author')
+            ->where('category', $tag->name)
+            ->where('active', 1)
+            ->orderByDesc('id')->paginate(9);
+
+        if (!empty($_GET['page']) && $articles->lastPage() < $_GET['page']) {
+            return redirect()->route('article.tag', $link);
+        }
+        return view('main.articles.category-articles', compact('articles', 'tag'));
+    }
 
 }
