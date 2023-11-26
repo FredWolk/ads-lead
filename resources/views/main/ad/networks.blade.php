@@ -147,7 +147,9 @@
                             </div>
                         </div>
                         <ul class="cpapage_info-list ad__filters">
+                            @php($k = 0)
                             @foreach($recomended as $i)
+                                @php($k = $k + 1)
                                 <li class="cpapage_info--item">
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
@@ -180,7 +182,7 @@
                                     </div>
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
-                                        <a class="btn--blue header_buttons-blue-btn"
+                                        <a data-type="rec_pp_{{$k}}_rev" class="btn--blue header_buttons-blue-btn banner_check"
                                            href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                                             <span>{{ __('messages.review') }}</span>
                                             <img loading="lazy"
@@ -228,7 +230,7 @@
                                                 <p class="promocode--body-text">{{ $i["{$locale}promocode_desc"] }}</p>
                                             </div>
                                         </div>
-                                        <a class="link--blue-sphere" target="_blank" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
+                                        <a data-type="rec_pp_{{$k}}" class="link--blue-sphere banner_check" target="_blank" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
                                             <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}"
                                                  alt="sphere">
                                             <span>Site</span>

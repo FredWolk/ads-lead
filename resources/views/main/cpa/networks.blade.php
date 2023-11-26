@@ -149,7 +149,9 @@
                             </div>
                         </div>
                         <ul class="cpapage_info-list">
+                            @php($k = 0)
                             @foreach($recomended as $i)
+                                @php($k = $k + 1)
                                 <li class="cpapage_info--item">
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
@@ -182,14 +184,14 @@
                                     </div>
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
-                                        <a class="btn--blue header_buttons-blue-btn"
+                                        <a data-type="rec_cpa_{{$k}}_rev" class="btn--blue header_buttons-blue-btn banner_check"
                                            href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
                                             <span>{{ __('messages.review') }}</span>
                                             <img loading="lazy"
                                                  src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                  alt="arrow">
                                         </a>
-                                        <a target="_blank" class="btn--grey-with-icons" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
+                                        <a data-type="rec_cpa_{{$k}}" target="_blank" class="btn--grey-with-icons banner_check" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
                                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path

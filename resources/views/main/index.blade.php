@@ -261,7 +261,7 @@
                             </a>
                         </div>
                         <ul class="main-cpa_aside_list">
-                            @foreach ($top_cpa as $i)
+                            @foreach ($top_cpa as $k => $i)
                                 <li class="main-cpa_aside_list-item">
                                     <div class="main-cpa_aside_list-item_top">
                                         <div class="main-cpa_aside_list-item_top-logo">
@@ -281,7 +281,7 @@
                                         </ul>
                                     </div>
                                     <div class="main-cpa_aside_list-item_links">
-                                        <a class="link--black-rotateble-arrows"
+                                        <a data-type="top_pp_{{$k + 1}}_read" class="link--black-rotateble-arrows banner_check"
                                            href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
                                             <span>read more</span>
                                             <div class="link--black-rotateble-arrows-group">
@@ -295,7 +295,7 @@
                                                 @endfor
                                             </div>
                                         </a>
-                                        <a target="_blank" class="link--blue-sphere" href="{{ $i['url'] }}">
+                                        <a data-type="top_pp_{{$k + 1}}" target="_blank" class="link--blue-sphere banner_check" href="{{ $i['url'] }}">
                                             <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}"
                                                  alt="sphere">
                                             <span>Site</span>
@@ -508,7 +508,7 @@
                             </a>
                         </div>
                         <ul class="main-cpa_aside_list">
-                            @foreach ($top_ads as $i)
+                            @foreach ($top_ads as $k => $i)
                                 <li class="main-cpa_aside_list-item">
                                     <div class="main-cpa_aside_list-item_top">
                                         <div class="main-cpa_aside_list-item_top-logo">
@@ -527,7 +527,7 @@
                                         </ul>
                                     </div>
                                     <div class="main-cpa_aside_list-item_links">
-                                        <a class="link--black-rotateble-arrows"
+                                        <a data-type="top_cpa_{{$k + 1}}_read" class="link--black-rotateble-arrows banner_check"
                                            href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
                                             <span>read more</span>
                                             <div class="link--black-rotateble-arrows-group">
@@ -541,7 +541,7 @@
                                                 @endfor
                                             </div>
                                         </a>
-                                        <a target="_blank" class="link--blue-sphere" href="{{ $i['url'] }}">
+                                        <a data-type="top_cpa_{{$k + 1}}" target="_blank" class="link--blue-sphere banner_check" href="{{ $i['url'] }}">
                                             <img loading="lazy" src="{{ asset('assets/images/icons/sphere.svg') }}"
                                                  alt="sphere">
                                             <span>Site</span>
