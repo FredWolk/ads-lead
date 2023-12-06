@@ -20,7 +20,7 @@ class ArticleController extends Controller
         $tags->each(function ($e) use (&$tagArr){
             $tagArr[$e->tag_name] = $e->link;
         });
-        $article = Article::where('link', $link)->where('active', 1)->with('author')->with('comments')->first();
+        $article = Article::where('link', $link)->with('author')->with('comments')->first();
         if (empty($article))
             return redirect()->route('articles');
         $moreArticle = Article::where('id', '!=', $article->id)->where('active', 1)->take(6)->inRandomOrder()->get();

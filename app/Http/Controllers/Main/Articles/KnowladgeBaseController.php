@@ -22,7 +22,10 @@ class KnowladgeBaseController extends Controller
         if (!empty($seo)) {
             $seo->toArray();
         }
-        $articles = Article::with('author')->where('active', 1)->where('type', 'base')->orderByDesc('id')->paginate(9);
+        $articles = Article::with('author')
+            ->where('active', 1)
+            ->where('type', 'base')
+            ->orderByDesc('id')->paginate(9);
         return view('main.articles.knowladge-base', compact('articles', 'seo', 'locale', 'tagArr'));
     }
 }
