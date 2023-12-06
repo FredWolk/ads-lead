@@ -147,7 +147,7 @@
                                 <a class="btn--blue header_buttons-blue-btn"
                                    href="{{ route('vacancies.page', $v->link) }}">
                                     <span>show more</span>
-                                    <img loading="lazy" src="http://localhost/assets/images/icons/arrow-right-white.svg"
+                                    <img loading="lazy" src="{{ asset('assets/images/icons/arrow-right-white.svg') }}"
                                          alt="arrow">
                                 </a>
                             </div>
