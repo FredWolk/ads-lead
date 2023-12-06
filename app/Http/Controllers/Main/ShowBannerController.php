@@ -48,6 +48,11 @@ class ShowBannerController extends Controller
         'rec_cpa_1_rev' => 'Рекомендации СЕТОК 1 место REVIEW',
         'rec_cpa_2' => 'Рекомендации СЕТОК 2 место',
         'rec_cpa_2_rev' => 'Рекомендации СЕТОК 2 место REVIEW',
+
+        'rec_tools_1' => 'Рекомендации СЕРВИСОВ 1 место',
+        'rec_tools_1_rev' => 'Рекомендации СЕРВИСОВ 1 место REVIEW',
+        'rec_tools_2' => 'Рекомендации СЕРВИСОВ 2 место',
+        'rec_tools_2_rev' => 'Рекомендации СЕРВИСОВ 2 место REVIEW',
     ];
 
     public function views(Request $request)

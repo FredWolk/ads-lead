@@ -49,7 +49,9 @@
                             </div>
                         </div>
                         <ul class="cpapage_info-list ad__filters">
-                            @foreach($recomended as $i)
+                            @php($key = 0)
+                            @foreach($recomended as $k => $i)
+                                @php($key = $key + 1)
                                 <li class="cpapage_info--item">
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
@@ -72,7 +74,7 @@
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
                                         @if(!empty($i['link']))
-                                            <a class="btn--blue header_buttons-blue-btn"
+                                            <a data-type="rec_tools_{{$key}}_rev" class="btn--blue header_buttons-blue-btn banner_check"
                                                href="{{ $i['link'] }}">
                                                 <span>{{ __('messages.review') }}</span>
                                                 <img loading="lazy"
@@ -121,7 +123,7 @@
                                                 <p class="promocode--body-text">{{ $i["{$locale}promocode_desc"] }}</p>
                                             </div>
                                         </div>
-                                        <a class="link--blue-sphere" target="_blank" href="{{ $i['url'] }}">
+                                        <a data-type="rec_tools_{{$key}}" class="link--blue-sphere banner_check" target="_blank" href="{{ $i['url'] }}">
                                             <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}"
                                                  alt="sphere">
                                             <span>Site</span>
