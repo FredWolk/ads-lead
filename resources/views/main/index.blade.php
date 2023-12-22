@@ -310,7 +310,7 @@
         </section>
     @endif
         @if(!empty($video))
-            <section class="main-video">_
+            <section class="main-video">
                 <div class="container">
                     <div class="main_articles_top">
                         <div class="main-video-top-left">
@@ -332,7 +332,7 @@
                                     </svg>
                                 @endfor
                             </div>
-                            <a class="btn--red" target="_blank" href="https://youtube.com">
+                            <a class="btn--red" target="_blank" href="https://youtube.com/@AffJournal?si=iPvmhqnrCMmJLYVw">
                                 <span>{{ __('messages.youtube') }}</span>
                                 <img loading="lazy" src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                             </a>

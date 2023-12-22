@@ -46,7 +46,7 @@
                             </svg>
                         @endfor
                     </div>
-                    <a class="btn--red" href="{{ route('index') }}">
+                    <a class="btn--red" target="_blank" href="https://youtube.com/@AffJournal?si=iPvmhqnrCMmJLYVw">
                         <span>{{ __('messages.youtube') }}</span>
                         <img loading="lazy" src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                     </a>
