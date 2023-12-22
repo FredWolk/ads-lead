@@ -20,7 +20,7 @@ class NetworksController extends Controller
         $seo_filters = AdSeoFilter::all();
         $banner = BannerAside::where('show', 'ad')->where('status', 1)->first();
         $recomended = Ad::all()->where('is_recomendated', 1)->sortBy('listing_rating')->take(2);
-        $ad = Ad::orderBy('main_advertising_formats')->paginate(5);
+        $ad = Ad::orderBy('main_advertising_formats')->paginate(25);
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return view('main.ad.networks', compact(
             'seo',

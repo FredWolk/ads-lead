@@ -20,7 +20,7 @@ class NetworksController extends Controller
         $seo_filters = CpaSeoFilter::all();
         $banner = BannerAside::where('show', 'cpa')->where('status', 1)->first();
         $recomended = Cpa::all()->where('is_recomendated', 1)->sortBy('listing_rating')->take(2);
-        $cpa = Cpa::orderBy('main_verticales')->paginate(5);
+        $cpa = Cpa::orderBy('main_verticales')->paginate(25);
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return view('main.cpa.networks', compact(
             'seo',
