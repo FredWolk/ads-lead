@@ -14,7 +14,7 @@ class AllVideoController extends Controller
     {
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         $seo = Seo::where('page', Seo::VIDEOS_PAGE)->first();
-        $video = Video::orderByDesk('id')->paginate(9);
+        $video = Video::orderByDesc('id')->paginate(9);
         return view('main.video.all-video', compact('locale', 'seo', 'video'));
     }
 }
