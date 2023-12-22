@@ -309,7 +309,6 @@
             </div>
         </section>
     @endif
-    @if(false)
         @if(!empty($video))
             <section class="main-video">_
                 <div class="container">
@@ -408,7 +407,6 @@
                 </div>
             </section>
         @endif
-    @endif
     @if(!empty($ads))
         <section class="main-adn">
             <div class="container">

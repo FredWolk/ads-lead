@@ -71,7 +71,7 @@ return [
     'cpa.minimum' => 'Minimum for cashout',
     'cpa.payment' => 'Payment systems',
     'cpa.payment.method' => 'Payment frequency',
-    'cpa.affiliate' => 'Affiliate program',
+    'cpa.affiliate' => 'Referral program',
     'cpa.tools' => 'Tools',
 
     'opinion' => 'Editorial opinion',
@@ -83,7 +83,7 @@ return [
     'ad.minimum' => 'Minimum fee for click',
     'ad.payment' => 'Payment tools',
     'ad.minimal' => 'Minimal deposit',
-    'ad.affiliate' => 'Affiliate program',
+    'ad.affiliate' => 'Referral program',
     'ad.tools' => 'Tools',
 
     'quality' => 'Traffic quality',
