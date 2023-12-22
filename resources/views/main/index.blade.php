@@ -343,7 +343,7 @@
                         <ul class="swiper-wrapper">
                             @foreach ($video as $k => $v)
                                 <li class="article--card swiper-slide">
-                                    <a class="article--card-link" href="{{ route('index') }}"></a>
+                                    <a class="article--card-link" href="{{ route('video.page', $v['link']) }}"></a>
                                     <img loading="lazy" src="{{asset('storage/'. $v["{$locale}image"])}}" alt="banner">
                                     <div class="article--card_info">
                                         <p class="article--card_info-date">{{ date('d/m/Y', strtotime($v['created_at'])) }}</p>
@@ -394,12 +394,11 @@
                                 @endfor
                             </div>
                         </div>
-
                         <div class="swiper-pagination"></div>
                     </div>
 
                     <div class="main_articles--mobile">
-                        <a class="btn--red" href="{{ route('index') }}">
+                        <a class="btn--red" href="{{ route('video') }}">
                             <span>{{ __('messages.youtube') }}</span>
                             <img loading="lazy" src="{{asset('assets/images/icons/youtube.svg')}}" alt="youtube">
                         </a>
