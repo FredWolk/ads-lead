@@ -81,7 +81,7 @@
 
                 <div class="swiper">
                     <ul class="swiper-wrapper">
-                        @foreach ($moreVideo as $video)
+                        @foreach ($moreVideo as $i)
                             <li class="article--card swiper-slide">
                                 <a class="article--card-link" href="{{ route('video.page', $i['link']) }}"></a>
                                 <img loading="lazy" src="{{asset('storage/'.$i["{$locale}image"])}}" alt="banner">
