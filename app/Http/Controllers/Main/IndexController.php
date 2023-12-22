@@ -29,7 +29,7 @@ class IndexController extends Controller
         $top_cpa = Cpa::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
         $ads = Ad::where('is_main', 1)->orderBy('id', 'desc')->take(4)->get();
         $top_ads = Ad::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
-        $video = Video::all()->orderByDesk('id')->take(6)->toArray();
+        $video = Video::all()->take(6)->toArray();
 
         $seo = Seo::where('page', Seo::MAIN_PAGE)->first();
 
