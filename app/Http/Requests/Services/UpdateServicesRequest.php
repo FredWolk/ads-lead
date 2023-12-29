@@ -32,6 +32,7 @@ class UpdateServicesRequest extends FormRequest
             'pt_prev_text' => 'nullable|string',
             'url' => 'nullable|string',
             'link' => 'nullable|string',
+            'listing_rating' => 'nullable|integer',
 
             'promocode' => 'nullable|string',
             'promocode_desc' => 'nullable|string',
