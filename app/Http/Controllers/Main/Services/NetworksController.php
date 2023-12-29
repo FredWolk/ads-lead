@@ -14,7 +14,7 @@ class NetworksController extends Controller
     {
         $seo = Seo::where('page', Seo::TOOLS_PAGE)->first();
         $banner = BannerAside::where('show', 'tools')->where('status', 1)->first();
-        $recomended = Services::where('is_recomendated', 1)->sortBy('listing_rating')->take(2)->get();
+        $recomended = Services::where('is_recomendated', 1)->take(2)->get()->sortBy('listing_rating');
         $services = Services::orderBy('id', 'desc')->paginate(5);
         $locale = App::getLocale() == 'en' ? '' : 'pt_';
         return view(
