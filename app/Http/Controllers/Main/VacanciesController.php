@@ -21,7 +21,7 @@ class VacanciesController extends Controller
     public function page($link)
     {
         $vacinci = Vacancies::firstWhere('link', $link);
-        $vacancies = Vacancies::where('link', '!==', $link)->inRandomOrder()->limit(2)->get();
+        $vacancies = Vacancies::whereNot('link', $link)->inRandomOrder()->limit(2)->get();
         $banner = BannerAside::where('status', 1)->where('show', 'all')->first();
         return view('main.vacancies.page', compact('vacinci', 'vacancies', 'banner'));
     }
