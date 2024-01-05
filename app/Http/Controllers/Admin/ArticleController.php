@@ -98,7 +98,7 @@ class ArticleController extends Controller
         $result = $article->update($data);
         if ($result)
             $changes = $article->getChanges();
-            if (!empty($changes['active']) && $changes['active'] === true){
+            if (!empty($changes['active']) && $changes['active'] === '1'){
                 $article->update(['created_at' => date('Y-m-d H:i:s')]);
             }
             return redirect()->route('article.show', $article->id);
