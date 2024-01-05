@@ -94,9 +94,15 @@ class ArticleController extends Controller
             }
             $data['pt_image'] = Storage::disk('public')->put('/admin/images/article', $data['pt_image']);
         }
-        if ($article->update($data)) {
+
+        $result = $article->update($data);
+        if ($result)
+            $changes = $article->getChanges();
+            if (!empty($changes['active']) && $changes['active'] === true){
+                $article->update(['created_at' => date('Y-m-d H:i:s')]);
+            }
             return redirect()->route('article.show', $article->id);
-        }
+
     }
 
     /**
