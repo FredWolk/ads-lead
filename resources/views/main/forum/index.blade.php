@@ -1022,7 +1022,7 @@
                                                 @if(!empty($themes['domains-and-hosting']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['domains-and-hosting']['last_topik']['prefix']] }}">{{ $themes['domains-and-hosting']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['domains-and-hosting']['last_topik']['title'], theme['domains-and-hosting']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['domains-and-hosting']['last_topik']['title'], $themes['domains-and-hosting']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['domains-and-hosting']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['domains-and-hosting']['last_topik']['created_at'])) }}
