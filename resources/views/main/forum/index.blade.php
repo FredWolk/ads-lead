@@ -605,7 +605,7 @@
                                                 @if(!empty($themes['push-and-other-advertising-networks']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['push-and-other-advertising-networks']['last_topik']['prefix']] }}">{{ $themes['push-and-other-advertising-networks']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['push-and-other-advertising-networks']['last_topik']['title'], $themes['theme-and-other-advertising-networks']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['push-and-other-advertising-networks']['last_topik']['theme'], $themes['theme-and-other-advertising-networks']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['push-and-other-advertising-networks']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['push-and-other-advertising-networks']['last_topik']['created_at'])) }}
@@ -868,7 +868,7 @@
                                                 @if(!empty($themes['anti-detect-browsers']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['anti-detect-browsers']['last_topik']['prefix']] }}">{{ $themes['anti-detect-browsers']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['anti-detect-browsers']['last_topik']['title'], $themes['anti-detect-browsers']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['anti-detect-browsers']['last_topik']['theme'], $themes['anti-detect-browsers']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['anti-detect-browsers']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['anti-detect-browsers']['last_topik']['created_at'])) }}
@@ -922,7 +922,7 @@
                                                 @if(!empty($themes['cloaking-and-trackers']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['cloaking-and-trackers']['last_topik']['prefix']] }}">{{ $themes['cloaking-and-trackers']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['cloaking-and-trackers']['last_topik']['title'], $themes['cloaking-and-trackers']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['cloaking-and-trackers']['last_topik']['theme'], $themes['cloaking-and-trackers']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['cloaking-and-trackers']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['cloaking-and-trackers']['last_topik']['created_at'])) }}
@@ -1022,7 +1022,7 @@
                                                 @if(!empty($themes['domains-and-hosting']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['domains-and-hosting']['last_topik']['prefix']] }}">{{ $themes['domains-and-hosting']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['domains-and-hosting']['last_topik']['title'], $themes['domains-and-hosting']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['domains-and-hosting']['last_topik']['theme'], $themes['domains-and-hosting']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['domains-and-hosting']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['domains-and-hosting']['last_topik']['created_at'])) }}
@@ -1074,7 +1074,7 @@
                                                 @if(!empty($themes['spy-services']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['spy-services']['last_topik']['prefix']] }}">{{ $themes['spy-services']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['spy-services']['last_topik']['title'], $themes['spy-services']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['spy-services']['last_topik']['theme'], $themes['spy-services']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['spy-services']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['spy-services']['last_topik']['created_at'])) }}
