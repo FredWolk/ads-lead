@@ -1074,7 +1074,7 @@
                                                 @if(!empty($themes['spy-services']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['spy-services']['last_topik']['prefix']] }}">{{ $themes['spy-services']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['spy-services']['last_topik']['title']['theme'], $themes['spy-services']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['spy-services']['last_topik']['title'], $themes['spy-services']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['spy-services']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['spy-services']['last_topik']['created_at'])) }}
