@@ -971,7 +971,6 @@
                                                 @if(!empty($themes['proxy']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['proxy']['last_topik']['prefix']] }}">{{ $themes['proxy']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                @dump($themes)
                                                 <a href="{{ route('forum.board', [$themes['proxy']['last_topik']['theme'], $themes['proxy']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['proxy']['last_topik']['title'] }}</a>
                                             </div>
@@ -983,6 +982,7 @@
                                     </div>
                                 @endif
                             </li>
+                            @dump($themes)
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
                                     <div class="forum_main_cards_list--item_left_icon">
