@@ -982,7 +982,6 @@
                                     </div>
                                 @endif
                             </li>
-                            @dump($themes)
                             <li class="forum_main_cards_list--item">
                                 <div class="forum_main_cards_list--item_left">
                                     <div class="forum_main_cards_list--item_left_icon">
