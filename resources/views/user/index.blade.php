@@ -24,6 +24,18 @@
                 </form>
             @endif
             <div class="user_card--line"></div>
+            <form action="{{ route('setting.change.name') }}" method="post" class="new-name-group">
+                @csrf
+                <div class="new-email-group_left">
+                    <label class="input-email-label" for="input-email">New Name</label>
+                    <input name="name" type="text" class="input-style" required placeholder="New Name">
+                </div>
+                <button style="max-width: 161px; height: 50px" class="btn--blue header_buttons-blue-btn">
+                    <span>Save</span>
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
+                </button>
+            </form>
+            <div class="user_card--line"></div>
 
             @if(Session::has('success'))
                 <h2 style="color: green; margin-bottom: 20px;">{{Session::get('success')}}</h2>

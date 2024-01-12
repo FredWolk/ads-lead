@@ -132,6 +132,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
             'setting.status.change'
         );
         Route::post('/change-photo', [UserSettingsController::class, 'changePhoto'])->name('setting.photo.change');
+        Route::post('/change-name', [UserSettingsController::class, 'changeName'])->name('setting.change.name');
     });
 });
 

@@ -65,4 +65,18 @@ class UserSettingsController extends Controller
             return redirect()->route('user.index')->withErrors(['error' => 'Server error']);
         }
     }
+
+    public function changeName(Request $request)
+    {
+        $user = Auth::user();
+        $data = $request->validate([
+            'name' => 'required|string'
+        ]);
+        if ($user->update(['name' => $data['name']])) {
+            return redirect()->route('user.index')->withSuccess('Name changed');
+        } else {
+            return redirect()->route('user.index')->withErrors(['error' => 'Server error']);
+        }
+
+    }
 }
