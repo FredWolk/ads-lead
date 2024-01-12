@@ -588,6 +588,7 @@
                                         </p>
                                     </div>
                                 </div>
+                                @dump($themes)
                                 @if(!empty($themes['theme-and-other-advertising-networks']['last_topik']))
                                     <div class="forum_main_cards_list--item_right">
                                         <div class="forum_main_links-group-item_main-last-avatar">
