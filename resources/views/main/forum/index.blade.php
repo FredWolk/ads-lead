@@ -605,7 +605,7 @@
                                                 @if(!empty($themes['push-and-other-advertising-networks']['last_topik']['prefix']))
                                                     <p class="forum--tag {{ $colors[$themes['push-and-other-advertising-networks']['last_topik']['prefix']] }}">{{ $themes['push-and-other-advertising-networks']['last_topik']['prefix'] }}</p>
                                                 @endif
-                                                <a href="{{ route('forum.board', [$themes['push-and-other-advertising-networks']['last_topik']['theme'], $themes['theme-and-other-advertising-networks']['last_topik']['link']]) }}"
+                                                <a href="{{ route('forum.board', [$themes['push-and-other-advertising-networks']['last_topik']['theme'], $themes['push-and-other-advertising-networks']['last_topik']['link']]) }}"
                                                    class="forum_main_links-group-item_main-last-info-title">{{ $themes['push-and-other-advertising-networks']['last_topik']['title'] }}</a>
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['push-and-other-advertising-networks']['last_topik']['created_at'])) }}
