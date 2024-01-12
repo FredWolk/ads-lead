@@ -103,6 +103,7 @@ $('.custom-radio').on('change', function () {
         $(this).parent().parent().parent().parent().prev().addClass('checked');
     }
     $(this).parent().parent().parent().parent().prev().find('span').text($(this).val());
+    $(this).parent().parent().parent().parent().slideUp(300);
 });
 $('.custom-select--btn').on('click', function () {
     $(this).toggleClass('active');
@@ -112,6 +113,7 @@ $('.custom-select--btn').on('click', function () {
         $(this).next().slideUp(300);
     }
 });
+
 $('.readmore--btn').on('click', function () {
     $(this).toggleClass('active');
     $(this).prev().toggleClass('active');

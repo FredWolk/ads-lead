@@ -383,16 +383,16 @@
             @csrf
             <div class="popup_main-inputs">
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="Name">Name</label>
+                    <label class="popup_main-inputs-label" for="Name">Name <span style="color: red">*</span></label>
                     <input placeholder="Enter your name" required class="input-style" type="text" name="name" id="Name">
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="E-mail">E-mail</label>
+                    <label class="popup_main-inputs-label" for="E-mail">E-mail <span style="color: red">*</span></label>
                     <input placeholder="Enter your e-mail" required class="input-style" type="email" name="email"
                            id="E-mail">
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="password">Password</label>
+                    <label class="popup_main-inputs-label" for="password">Password <span style="color: red">*</span></label>
                     <div class="popup_main-input-password-wrapper">
                         <input placeholder="Enter your password" required class="input-style input-password"
                                type="password" name="password" id="password">
@@ -407,7 +407,7 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="rp-password">Repeat your password</label>
+                    <label class="popup_main-inputs-label" for="rp-password">Repeat your password <span style="color: red">*</span></label>
                     <div class="popup_main-input-password-wrapper">
                         <input placeholder="Enter your password" required class="input-style input-password"
                                type="password" name="password_confirmation" id="rp-password">
@@ -422,7 +422,7 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="vertical">Vertical</label>
+                    <label class="popup_main-inputs-label" for="vertical">Vertical <span style="color: red">*</span></label>
                     <div class="custom-select_wrapper">
                         <button type="button" class="custom-select--btn">
                             <span>Choose a vertical</span>
@@ -438,112 +438,112 @@
                             <ul class="custom-select_list">
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Gambling">
                                         <span class="custom-select_list-item-label-text">Gambling</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Betting">
                                         <span class="custom-select_list-item-label-text">Betting</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Nutra">
                                         <span class="custom-select_list-item-label-text">Nutra</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Sweepstakes">
                                         <span class="custom-select_list-item-label-text">Sweepstakes</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Ppc">
                                         <span class="custom-select_list-item-label-text">Ppc</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Whitehat">
                                         <span class="custom-select_list-item-label-text">Whitehat</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Cpi">
                                         <span class="custom-select_list-item-label-text">Cpi</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Wap-Click">
                                         <span class="custom-select_list-item-label-text">Wap-Click</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Mobile content">
                                         <span class="custom-select_list-item-label-text">Mobile content</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="E-commerce">
                                         <span class="custom-select_list-item-label-text">E-commerce</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Travel">
                                         <span class="custom-select_list-item-label-text">Travel</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Utilites">
                                         <span class="custom-select_list-item-label-text">Utilites</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Dating">
                                         <span class="custom-select_list-item-label-text">Dating</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Finance">
                                         <span class="custom-select_list-item-label-text">Finance</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Crypto">
                                         <span class="custom-select_list-item-label-text">Crypto</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="vertical"
+                                        <input required type="radio" class="custom-radio input-hide" name="vertical"
                                                value="Ivr">
                                         <span class="custom-select_list-item-label-text">Ivr</span>
                                     </label>
@@ -553,7 +553,7 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="profession">Profession
+                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="profession">Profession <span style="color: red">*</span>
                         <div class="tooltip-wrapper">
                             <div class="tooltip-wrapper-icon">
                                 <svg width="5" height="7" viewBox="0 0 5 7" fill="none"
@@ -584,42 +584,35 @@
                             <ul class="custom-select_list">
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                        <input required type="radio" class="custom-radio input-hide" name="profession"
                                                value="Media-Bar">
-                                        <span class="custom-select_list-item-label-text">Media-Bar</span>
+                                        <span class="custom-select_list-item-label-text">Mediabuyer</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                        <input required type="radio" class="custom-radio input-hide" name="profession"
                                                value="Account Manager">
                                         <span class="custom-select_list-item-label-text">Account Manager</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                        <input required type="radio" class="custom-radio input-hide" name="profession"
                                                value="Seller">
                                         <span class="custom-select_list-item-label-text">Seller</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="profession"
-                                               value="CPA network">
-                                        <span class="custom-select_list-item-label-text">CPA network</span>
-                                    </label>
-                                </li>
-                                <li class="custom-select_list-item">
-                                    <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                        <input required type="radio" class="custom-radio input-hide" name="profession"
                                                value="Representative">
                                         <span class="custom-select_list-item-label-text">Representative</span>
                                     </label>
                                 </li>
                                 <li class="custom-select_list-item">
                                     <label class="custom-select_list-item-label">
-                                        <input type="radio" class="custom-radio input-hide" name="profession"
+                                        <input required type="radio" class="custom-radio input-hide" name="profession"
                                                value="AD network representative">
                                         <span
                                             class="custom-select_list-item-label-text">AD network representative</span>
