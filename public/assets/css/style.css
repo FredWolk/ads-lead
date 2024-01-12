@@ -3561,6 +3561,11 @@ form {
     position: relative;
 }
 
+.eventpage .videopage_main--image,
+.eventpage .videopage_main--image img{
+    max-height: 500px;
+}
+
 .videopage_main--image .conference--evetn {
     display: none;
     position: absolute;
