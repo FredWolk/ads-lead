@@ -43,16 +43,22 @@ class ShowBannerController extends Controller
         'rec_pp_1_rev' => 'Рекомендации ПП 1 место REVIEW',
         'rec_pp_2' => 'Рекомендации ПП 2 место',
         'rec_pp_2_rev' => 'Рекомендации ПП 2 место REVIEW',
+        'rec_pp_3' => 'Рекомендации ПП 3 место',
+        'rec_pp_3_rev' => 'Рекомендации ПП 3 место REVIEW',
 
         'rec_cpa_1' => 'Рекомендации СЕТОК 1 место',
         'rec_cpa_1_rev' => 'Рекомендации СЕТОК 1 место REVIEW',
         'rec_cpa_2' => 'Рекомендации СЕТОК 2 место',
         'rec_cpa_2_rev' => 'Рекомендации СЕТОК 2 место REVIEW',
+        'rec_cpa_3' => 'Рекомендации СЕТОК 3 место',
+        'rec_cpa_3_rev' => 'Рекомендации СЕТОК 3 место REVIEW',
 
         'rec_tools_1' => 'Рекомендации СЕРВИСОВ 1 место',
         'rec_tools_1_rev' => 'Рекомендации СЕРВИСОВ 1 место REVIEW',
         'rec_tools_2' => 'Рекомендации СЕРВИСОВ 2 место',
         'rec_tools_2_rev' => 'Рекомендации СЕРВИСОВ 2 место REVIEW',
+        'rec_tools_3' => 'Рекомендации СЕРВИСОВ 3 место',
+        'rec_tools_3_rev' => 'Рекомендации СЕРВИСОВ 3 место REVIEW',
     ];
 
     public function views(Request $request)
