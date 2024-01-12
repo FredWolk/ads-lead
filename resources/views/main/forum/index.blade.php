@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('seo')
-    <title>{{ $seo["{$locale}title"] }}</title>
-    <meta name="description" content="{{ $seo["{$locale}description"] }}">
-    <meta name="keywords" content="{{ $seo["{$locale}keywords"] }}"/>
-    <meta property="og:title" content="{{ $seo["{$locale}og_title"] }}"/>
-    <meta property="og:description" content="{{ $seo["{$locale}og_description"] }}"/>
+    <title>{{ $seo["title"] }}</title>
+    <meta name="description" content="{{ $seo["description"] }}">
+    <meta name="keywords" content="{{ $seo["keywords"] }}"/>
+    <meta property="og:title" content="{{ $seo["og_title"] }}"/>
+    <meta property="og:description" content="{{ $seo["og_description"] }}"/>
     <meta property="og:url" content="{{ url()->current() }}"/>
 @endsection
 @php
