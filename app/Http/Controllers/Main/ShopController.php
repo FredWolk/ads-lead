@@ -12,7 +12,7 @@ class ShopController extends Controller
     public function __invoke()
     {
         $category = ShopCategory::with('shops')->get();
-        $seo = Seo::where('page', Seo::SHOP_PAGE)->get();
+        $seo = Seo::where('page', Seo::SHOP_PAGE)->first();
         return view('main.shop', compact('category', 'seo'));
     }
 }
