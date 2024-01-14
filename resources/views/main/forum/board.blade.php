@@ -44,6 +44,7 @@
         .main__article span,
         .main__article span *,
         .main__article li,
+        .main__article div,
         .main__article li * {
             font-family: 'Montserrat' !important;
             font-style: normal !important;
