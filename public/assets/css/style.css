@@ -6209,7 +6209,7 @@ form {
     flex-direction: column;
     align-items: start;
     gap: 13px;
-    padding: 30px;
+    padding: 29px;
     background: var(--blue);
 }
 
