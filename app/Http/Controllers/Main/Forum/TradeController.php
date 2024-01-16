@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Main\Forum;
 
 use App\Http\Controllers\Controller;
+use App\Models\Complaints;
 use App\Models\Trade;
 use App\Models\TradeComment;
 use Illuminate\Http\Request;
@@ -87,5 +88,21 @@ class TradeController extends Controller
             $comment->delete();
         }
         return redirect()->back();
+    }
+
+    public function complaint(Request $request)
+    {
+        $data = $request->validate([
+            'message' => 'required|string',
+            'trade_id' => 'required|integer',
+        ]);
+        $data['user_id'] = Auth::id();
+        $complaint = Complaints::create($data);
+        if ($complaint){
+            return redirect()->back()->withSuccess('You message sended');
+        } else {
+            return redirect()->back()->withErrors(['error' => 'Server error']);
+        }
+
     }
 }

@@ -116,7 +116,15 @@
                 </button>
 
                 <div class="header-user-icon">
-                    <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                    @empty($userInfo->photo)
+                        <img
+                            src="{{asset('assets/images/card-pict.jpg')}}"
+                            alt="avatar">
+                    @else
+                        <img
+                            src="{{asset('storage/' . $userInfo->photo)}}"
+                            alt="avatar">
+                    @endempty
                 </div>
             </div>
         </div>
@@ -259,7 +267,15 @@
             </button>
 
             <div class="header-user-icon">
-                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+                @empty($userInfo->photo)
+                    <img
+                        src="{{asset('assets/images/card-pict.jpg')}}"
+                        alt="avatar">
+                @else
+                    <img
+                        src="{{asset('storage/' . $userInfo->photo)}}"
+                        alt="avatar">
+                @endempty
             </div>
         </div>
         <p class="burger-menu-title">menu</p>

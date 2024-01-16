@@ -85,14 +85,16 @@ Route::group(['namespace' => 'video', 'prefix' => 'video'], function () {
     Route::get('/', [AllVideoController::class, '__invoke'])->name('video');
     Route::get('/{link}', [VideoController::class, '__invoke'])->name('video.page');
 });
-Route::group(['namespace' => 'vacancies', 'prefix' => 'vacancies'], function (){
-   Route::get('/', [\App\Http\Controllers\Main\VacanciesController::class, 'index'])->name('vacancies');
-   Route::get('/{link}', [\App\Http\Controllers\Main\VacanciesController::class, 'page'])->name('vacancies.page');
+Route::group(['namespace' => 'vacancies', 'prefix' => 'vacancies'], function () {
+    Route::get('/', [\App\Http\Controllers\Main\VacanciesController::class, 'index'])->name('vacancies');
+    Route::get('/{link}', [\App\Http\Controllers\Main\VacanciesController::class, 'page'])->name('vacancies.page');
 });
 Route::group(['namespace' => 'event', 'prefix' => 'events'], function () {
     Route::get('/', [EventsController::class, '__invoke'])->name('events');
     Route::get('/{link}', [EventPageController::class, '__invoke'])->name('event.page');
 });
+
+
 Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
     Route::get('/', [ForumController::class, '__invoke'])->name('forum');
     Route::get('/threads/{link}', [ForumThreadsController::class, '__invoke'])->name('forum.threads');
@@ -112,7 +114,10 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
     );
     Route::post('/store-threads', [TradeController::class, 'store'])->name('store.thread');
     Route::delete('/delete-threads/{trade?}', [TradeController::class, 'deleteThread'])->name('delete.thread');
+    Route::post('/complaint', [TradeController::class, 'complaint'])->name('complaint');
 });
+
+
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
     Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
@@ -195,6 +200,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
             Route::delete('/delete/{advComments}', [\App\Http\Controllers\Admin\Comments\AdvController::class, 'delete']
             )->name('comments.adv.delete');
         });
+    });
+    Route::group(['prefix' => 'complaint'], function (){
+       Route::get('index', [\App\Http\Controllers\Admin\ComplaintController::class, 'index'])->name('complaint.index');
+       Route::get('page/{id}', [\App\Http\Controllers\Admin\ComplaintController::class, 'page'])->name('complaint.page');
+       Route::delete('delete/{id}', [\App\Http\Controllers\Admin\ComplaintController::class, 'delete'])->name('complaint.delete');
     });
     Route::group(['prefix' => 'seo-filters'], function () {
         Route::resource('ads-seo-filter', \App\Http\Controllers\Admin\AdSeoFilterController::class);

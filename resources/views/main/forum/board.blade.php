@@ -138,6 +138,9 @@
                     <p>{{ $thread->title }}</p>
                 </li>
             </ul>
+            @if(Session::has('success'))
+                <h4 style="color: green;">{{Session::get('success')}}</h4>
+            @endif
         </div>
     </section>
 
@@ -348,7 +351,7 @@
                         @auth()
                             <div class="user-main-corpage_top_right_bottom">
                                 <div class="user-main-corpage_top_right_bottom_left">
-                                    <button class="user-main-corpage_top_right_bottom--btn">
+                                    <button class="complaint user-main-corpage_top_right_bottom--btn">
                                         <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -600,6 +603,28 @@
             </form>
         </div>
     </div>
+    <div style="display:none;" id="complaint" class="delete__popup-back">
+        <div class="delete__popup-modal">
+            <div class="delete__popup-header">
+                <h4 class="user-main-corpage_top_right-title">COMPLAINT</h4>
+                <button class="popup__delete-close">&times;</button>
+            </div>
+            <form class="delete__popup-body" action="{{ route('complaint') }}" method="post">
+                @csrf
+                <input type="hidden" name="trade_id" value="{{ $thread->id }}">
+                <textarea style="resize: none; width: 100%; border: 1px solid; padding: 20px;"
+                          placeholder="Type you message" name="message"
+                          id="" cols="30"
+                          required
+                          rows="4"></textarea>
+                <button style="max-width: 161px; height: 40px;" class="btn--blue header_buttons-blue-btn">
+                    <span>Send</span>
+                    <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                         alt="arrow">
+                </button>
+            </form>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -635,6 +660,9 @@
 
             $('.delete__popup-body').attr('action', route);
             $('.delete__popup-back').fadeIn(300);
+        })
+        $('.complaint').on('click', ()=>{
+            $('#complaint').fadeIn(300)
         })
     </script>
 @endsection

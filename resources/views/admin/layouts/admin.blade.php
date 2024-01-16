@@ -424,6 +424,14 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('complaint.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>
+                                Жалобы
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
