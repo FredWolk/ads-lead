@@ -28,7 +28,7 @@ class ArticlesController extends Controller
         $articles = Article::with('author')
             ->where('active', 1)
             ->where('type', 'article')
-            ->orderByDesc('id')->paginate(9);
+            ->orderByDesc('created_at')->paginate(9);
         if (!empty($_GET['page']) && $articles->lastPage() < $_GET['page']) {
             return redirect()->route('articles');
         }
