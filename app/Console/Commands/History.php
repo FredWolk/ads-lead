@@ -34,6 +34,7 @@ class History extends Command
                     'banner' => $show['banner'],
                     'views' => $show['views'],
                     'clicks' => $show['clicks'],
+                    'created_at' => date('Y-m-d 00:00:01')
                 ]);
             }
             \App\Models\ShowBanner::truncate();

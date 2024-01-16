@@ -7,6 +7,7 @@ use App\Models\Ad;
 use App\Models\Article;
 use App\Models\Cpa;
 use App\Models\Events;
+use App\Models\HistoryShowBanners;
 use App\Models\Services;
 use App\Models\ShowBanner;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class IndexController extends Controller
     public function __invoke()
     {
         $banners = ShowBanner::all();
-        return view('admin.index', compact('banners'));
+        $history = HistoryShowBanners::get()->groupBy('created_at');
+        return view('admin.index', compact('banners', 'history'));
     }
 
     public function adminSearch(\Illuminate\Http\Request $request)

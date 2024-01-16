@@ -92,6 +92,73 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="card-body">
+                            <div id="accordion">
+                                @if(!empty($history))
+                                    @php($id = 0)
+                                    @foreach($history as $k => $h)
+                                        @php($id = $id + 1)
+                                        <div class="card card-primary">
+                                            <div class="card-header">
+                                                <h4 class="card-title w-100">
+                                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse_{{$id}}">
+                                                        {{ date('d.m.Y', strtotime($k)) }}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse_{{$id}}" class="collapse" data-parent="#accordion">
+                                                <div class="card-body p-0" style="display: block;">
+                                                    <table class="table table-striped projects">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="width: 1%">
+                                                                #
+                                                            </th>
+                                                            <th style="width: 30%">
+                                                                Название баннера
+                                                            </th>
+                                                            <th style="width: 30%">
+                                                                Просмотры
+                                                            </th>
+                                                            <th style="width: 30%">
+                                                                Клики
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($h as $ke => $i)
+                                                            <tr>
+                                                                <td>
+                                                                    {{ $ke + 1 }}
+                                                                </td>
+                                                                <td>
+                                                                    <a>
+                                                                        <b>{{ $i['banner'] }}</b>
+                                                                    </a>
+                                                                    <br>
+                                                                    <small>
+                                                                        Создано {{ date('d.m.Y', strtotime($i['created_at'])) }}
+                                                                    </small>
+                                                                </td>
+                                                                <td>
+                                                                    {{ $i['views'] }}
+                                                                </td>
+                                                                <td>
+                                                                    {{ $i['clicks'] }}
+                                                                </td>
+                                                            </tr>
+
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
