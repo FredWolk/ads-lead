@@ -350,7 +350,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-window-maximize"></i>
+                            <i class="nav-icon fas fa-comments"></i>
                             <p>
                                 Комментарии
                                 <i class="right fas fa-angle-left"></i>
@@ -379,7 +379,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-window-maximize"></i>
+                            <i class="nav-icon fas fa-shopping-cart"></i>
                             <p>
                                 Магазин
                                 <i class="right fas fa-angle-left"></i>
@@ -418,7 +418,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('vacancies.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-image"></i>
+                            <i class="nav-icon fas fa-user-md"></i>
                             <p>
                                 Вакансии
                             </p>
@@ -426,7 +426,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('complaint.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-image"></i>
+                            <i class="nav-icon fas fa-comment-slash"></i>
                             <p>
                                 Жалобы
                             </p>
