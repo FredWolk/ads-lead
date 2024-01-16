@@ -1643,6 +1643,7 @@ img {
     line-height: 160%;
     color: #272C31;
     opacity: 0.6;
+    text-transform: capitalize;
 }
 
 .breadcrambs.bot {
