@@ -4845,7 +4845,6 @@ form {
 
 .user_alerts_list {
     border-top: 1px solid #181a1c59;
-    margin-top: 25px;
     padding-top: 14px !important;
     padding-right: 50px !important;
     height: 100%;
@@ -4853,6 +4852,7 @@ form {
     width: 100%;
     display: flex;
     flex-direction: column;
+    max-height: 70vh;
 }
 
 .user_alerts_list::-webkit-scrollbar {
@@ -5528,6 +5528,15 @@ form {
     line-height: 20px;
     text-transform: uppercase;
     color: var(--blue);
+}
+
+.user-main-corpage_top_right_bottom--btn.active{
+    background: var(--blue);
+}
+
+
+.user-main-corpage_top_right_bottom--btn.active span{
+    color: #ffffff;
 }
 
 .user-main-corpage_bot {

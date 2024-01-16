@@ -383,16 +383,26 @@
                                             <span>delete</span>
                                         </button>
                                     @endif
-                                    <button class="user-main-corpage_top_right_bottom--btn">
-                                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/>
-                                            <path
-                                                d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z"
-                                                fill="white"/>
-                                        </svg>
-                                        <span>Like</span>
-                                    </button>
+                                    <form class="like_thread" method="post">
+                                        @csrf
+                                        <input value="{{ $thread->theme.'/'.$thread->link }}" type="hidden" name="link">
+                                        <input value="{{ $thread->title }}" type="hidden" name="title">
+                                        <input value="{{ $thread->content }}" type="hidden" name="text">
+                                        <input value="{{ $thread->author->name }}" type="hidden" name="user_name">
+                                        <input
+                                            value="{{ !empty($thread->author->photo) ? $thread->author->photo : '' }}"
+                                            type="hidden" name="user_photo">
+                                        <button class="user-main-corpage_top_right_bottom--btn like_thread_btn {{ !empty($favorite) ? 'active' : '' }}">
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/>
+                                                <path
+                                                    d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z"
+                                                    fill="white"/>
+                                            </svg>
+                                            <span>Like</span>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         @endauth
@@ -507,16 +517,18 @@
                                         </svg>
                                         <span>delete</span>
                                     </button>
-                                    <button class="user-main-corpage_top_right_bottom--btn">
-                                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/>
-                                            <path
-                                                d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z"
-                                                fill="white"/>
-                                        </svg>
-                                        <span>Like</span>
-                                    </button>
+                                    <form action="" method="post">
+                                        <button class="user-main-corpage_top_right_bottom--btn">
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/>
+                                                <path
+                                                    d="M6.925 6C5.86187 6 5 6.86086 5 7.92274C5 9.84548 7.275 11.5934 8.5 12C9.725 11.5934 12 9.84548 12 7.92274C12 6.86086 11.1381 6 10.075 6C9.424 6 8.84825 6.32285 8.5 6.81699C8.32249 6.56445 8.08668 6.35834 7.81252 6.21613C7.53836 6.07392 7.23393 5.99978 6.925 6Z"
+                                                    fill="white"/>
+                                            </svg>
+                                            <span>Like</span>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -661,8 +673,22 @@
             $('.delete__popup-body').attr('action', route);
             $('.delete__popup-back').fadeIn(300);
         })
-        $('.complaint').on('click', ()=>{
+        $('.complaint').on('click', () => {
             $('#complaint').fadeIn(300)
+        })
+
+        $('.like_thread').on('submit', function (e) {
+            e.preventDefault()
+            $.ajax({
+                url: "{{ route('forum.like') }}",
+                data: $(this).serialize(),
+                dataType: 'JSON',
+                method: 'POST'
+            }).done(function (rsp) {
+                if(rsp.status){
+                    $('.like_thread_btn').toggleClass('active');
+                }
+            })
         })
     </script>
 @endsection

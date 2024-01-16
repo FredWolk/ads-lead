@@ -206,6 +206,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
        Route::get('page/{id}', [\App\Http\Controllers\Admin\ComplaintController::class, 'page'])->name('complaint.page');
        Route::delete('delete/{id}', [\App\Http\Controllers\Admin\ComplaintController::class, 'delete'])->name('complaint.delete');
     });
+
+    Route::post('like', [\App\Http\Controllers\Admin\LikeController::class, 'like'])->name('forum.like');
+
     Route::group(['prefix' => 'seo-filters'], function () {
         Route::resource('ads-seo-filter', \App\Http\Controllers\Admin\AdSeoFilterController::class);
         Route::resource('cpa-seo-filter', \App\Http\Controllers\Admin\CpaSeoFilterController::class);

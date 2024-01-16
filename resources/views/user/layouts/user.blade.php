@@ -396,6 +396,17 @@
                         </svg>
                     </a>
                 </li>
+                <li class="user_nav-menu--item">
+                    <a href="{{ route('user.favorite') }}" class="user_nav-menu--link">
+                        <p class="user_nav-menu--link-text">Favorite entries</p>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
+                                  fill="#181A1C"/>
+                        </svg>
+                    </a>
+                </li>
                 @if(false)
                 <li class="user_nav-menu--item">
                     <a href="{{ route('user.subscriptions') }}" class="user_nav-menu--link">
@@ -422,17 +433,6 @@
                 <li class="user_nav-menu--item">
                     <a href="{{ route('user.correspondence') }}" class="user_nav-menu--link">
                         <p class="user_nav-menu--link-text">Correspondence</p>
-                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M8.87684 4.5H3.49816V1.5H13.9982V12H10.9982V6.62132L4.55882 13.0607L2.4375 10.9393L8.87684 4.5Z"
-                                  fill="#181A1C"/>
-                        </svg>
-                    </a>
-                </li>
-                <li class="user_nav-menu--item">
-                    <a href="{{ route('user.favorite') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Favorite entries</p>
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"

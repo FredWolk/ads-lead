@@ -9,6 +9,7 @@ class UserFavoriteController extends Controller
 {
     public function __invoke()
     {
+
         return view('user.favorite');
     }
 }
