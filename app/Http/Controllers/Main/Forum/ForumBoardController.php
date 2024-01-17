@@ -19,7 +19,7 @@ class ForumBoardController extends Controller
         if (empty($thread)) {
             return redirect()->route('forum.threads', $theme);
         }
-        $favorite = Favorite::where('link', $theme.'/'.$thread->link)->where('user_id', Auth::id())->select('id')->first();
+        $favorite = Favorite::where('thread_id', $thread->id)->where('user_id', Auth::id())->select('id')->first();
         $comments = TradeComment::where('threads_id', $thread->id)->with('author')->paginate(5);
         $cookie = $service->View($thread, 'threads');
         return response()->view('main.forum.board', compact('locale', 'thread', 'comments', 'favorite'))->withCookie($cookie);

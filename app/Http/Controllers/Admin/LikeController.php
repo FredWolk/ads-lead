@@ -12,14 +12,10 @@ class LikeController extends Controller
     public function like(Request $request)
     {
         $data = $request->validate([
-            'link' => 'string|required',
-            'title' => 'string|required',
-            'text' => 'string|required',
-            'user_name' => 'string|required',
-            'user_photo' => 'string|required',
+            'thread_id' => 'integer|required',
         ]);
         $data['user_id'] = Auth::id();
-        $favorite = Favorite::where('link', $data['link'])->where('user_id', $data['user_id'])->first();
+        $favorite = Favorite::where('thread_id', $data['thread_id'])->where('user_id', $data['user_id'])->first();
         if (empty($favorite)) {
             $favor = Favorite::create($data);
             if ($favor) {

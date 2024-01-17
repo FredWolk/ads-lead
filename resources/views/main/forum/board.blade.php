@@ -385,13 +385,7 @@
                                     @endif
                                     <form class="like_thread" method="post">
                                         @csrf
-                                        <input value="{{ $thread->theme.'/'.$thread->link }}" type="hidden" name="link">
-                                        <input value="{{ $thread->title }}" type="hidden" name="title">
-                                        <input value="{{ $thread->content }}" type="hidden" name="text">
-                                        <input value="{{ $thread->author->name }}" type="hidden" name="user_name">
-                                        <input
-                                            value="{{ !empty($thread->author->photo) ? $thread->author->photo : '' }}"
-                                            type="hidden" name="user_photo">
+                                        <input value="{{ $thread->id }}" type="hidden" name="thread_id">
                                         <button class="user-main-corpage_top_right_bottom--btn like_thread_btn {{ !empty($favorite) ? 'active' : '' }}">
                                             <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
