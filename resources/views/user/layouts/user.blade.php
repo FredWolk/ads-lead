@@ -407,7 +407,6 @@
                         </svg>
                     </a>
                 </li>
-                @if(false)
                 <li class="user_nav-menu--item">
                     <a href="{{ route('user.subscriptions') }}" class="user_nav-menu--link">
                         <p class="user_nav-menu--link-text">Subscriptions</p>
@@ -419,6 +418,8 @@
                         </svg>
                     </a>
                 </li>
+                @if(false)
+
                 <li class="user_nav-menu--item">
                     <a href="{{ route('user.alerts') }}" class="user_nav-menu--link">
                         <p class="user_nav-menu--link-text">Alerts <span>(9)</span></p>

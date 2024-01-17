@@ -219,7 +219,8 @@
             <div class="forumpage-board_top-pagin-wrapp">
                 <div class="forumpage-board_top-pagin-wrapp-right">
                     @auth()
-                        <button class="forum_treads_list--item_left_info_bottom-tracking" type="button">
+                        <button id="subscribe" data-author="{{ $thread->author->id }}"
+                                class="forum_treads_list--item_left_info_bottom-tracking {{ !empty($subscribe) ? 'active' : '' }}" type="button">
                             <svg class="svg1" width="14" height="14" viewBox="0 0 14 14" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_752_21272)">
@@ -386,7 +387,8 @@
                                     <form class="like_thread" method="post">
                                         @csrf
                                         <input value="{{ $thread->id }}" type="hidden" name="thread_id">
-                                        <button class="user-main-corpage_top_right_bottom--btn like_thread_btn {{ !empty($favorite) ? 'active' : '' }}">
+                                        <button
+                                            class="user-main-corpage_top_right_bottom--btn like_thread_btn {{ !empty($favorite) ? 'active' : '' }}">
                                             <svg width="17" height="18" viewBox="0 0 17 18" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <circle cx="8.50688" cy="9.00492" r="7.085" fill="#014EFF"/>
@@ -679,8 +681,24 @@
                 dataType: 'JSON',
                 method: 'POST'
             }).done(function (rsp) {
-                if(rsp.status){
+                if (rsp.status) {
                     $('.like_thread_btn').toggleClass('active');
+                }
+            })
+        })
+
+        $('#subscribe').on('click', function () {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                url: "{{ route('forum.subscribe') }}",
+                data: {author_id: $(this).attr('data-author')},
+                dataType: 'JSON',
+                method: 'POST'
+            }).done((rsp) => {
+                if(rsp.status){
+                    $(this).toggleClass('active')
                 }
             })
         })

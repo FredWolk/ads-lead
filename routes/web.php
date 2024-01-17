@@ -121,7 +121,8 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
     Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
-    Route::get('/subscriptions', [UserSubscriptionController::class, '__invoke'])->name('user.subscriptions');
+    Route::get('/subscriptions', [UserSubscriptionController::class, 'index'])->name('user.subscriptions');
+    Route::post('/subscribe', [UserSubscriptionController::class, 'subscribe'])->name('forum.subscribe');
     Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
     Route::get('/security', [UserSecurityController::class, '__invoke'])->name('user.security');
     Route::get('/correspondence', [UserCorrespondenceController::class, '__invoke'])->name('user.correspondence');

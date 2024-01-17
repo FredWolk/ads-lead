@@ -214,6 +214,9 @@ $('.user-main_subscribers-show-all--btn').on('click', function () {
     $(this).prev().find('.user-main__subscribers_list-item').css({
         'display': 'flex',
     });
+    $(this).prev().css({
+        'overflow': 'auto',
+    });
     $(this).hide();
 });
 
@@ -241,10 +244,6 @@ $('.forum_main_card_top--tab-btn').on('click', function () {
             $(this).addClass('active');
         }
     });
-});
-
-$('.forum_treads_list--item_left_info_bottom-tracking').on('click', function () {
-    $(this).toggleClass('active');
 });
 
 $('.forumpage-board_top-pagin-wrapp-right-more--btn').on('click', function () {
