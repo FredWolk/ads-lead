@@ -10,4 +10,9 @@ class Favorite extends Model
     use HasFactory;
 
     protected $guarded = false;
+
+    public function thread()
+    {
+        return $this->hasOne(Trade::class, 'id', 'thread_id')->with('author');
+    }
 }

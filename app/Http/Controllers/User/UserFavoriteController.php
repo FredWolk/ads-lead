@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserFavoriteController extends Controller
 {
     public function __invoke()
     {
-
-        return view('user.favorite');
+        $favorite = Favorite::where('user_id', Auth::id())->with('thread')->paginate(30);
+        return view('user.favorite', compact('favorite'));
     }
 }
