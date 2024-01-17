@@ -26,5 +26,6 @@
                 </li>
             @endforeach
         </ul>
+        {{ $favorite->onEachSide(1)->links() }}
     </section>
 @endsection

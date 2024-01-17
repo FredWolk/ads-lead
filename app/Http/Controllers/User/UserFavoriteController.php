@@ -11,7 +11,7 @@ class UserFavoriteController extends Controller
 {
     public function __invoke()
     {
-        $favorite = Favorite::where('user_id', Auth::id())->with('thread')->paginate(30);
+        $favorite = Favorite::where('user_id', Auth::id())->with('thread')->paginate(20);
         return view('user.favorite', compact('favorite'));
     }
 }
