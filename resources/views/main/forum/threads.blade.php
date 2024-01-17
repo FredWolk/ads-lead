@@ -152,29 +152,32 @@
 
                                         <p class="forum_treads_list--item_left_info_bottom-date">
                                             | {{ date('d/m/Y', strtotime($thread['created_at'])) }}</p>
-
-                                        <button class="forum_treads_list--item_left_info_bottom-tracking" type="button">
-                                            <svg class="svg1" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <g clip-path="url(#clip0_752_21272)">
+                                        @if(false)
+                                            <button data-author="{{ $thread['author']['id'] }}"
+                                                    class="trackThread forum_treads_list--item_left_info_bottom-tracking"
+                                                    type="button">
+                                                <svg class="svg1" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_752_21272)">
+                                                        <path
+                                                            d="M11.0807 3.73913L10.2582 2.91663L6.9974 6.17746L3.73656 2.91663L2.91406 3.73913L6.1749 6.99996L2.91406 10.2608L3.73656 11.0833L6.9974 7.82246L10.2582 11.0833L11.0807 10.2608L7.8199 6.99996L11.0807 3.73913Z"
+                                                            fill="#F7FAFF"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_752_21272">
+                                                            <rect width="14" height="14" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                                <svg class="svg2" width="11" height="12" viewBox="0 0 11 12" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
-                                                        d="M11.0807 3.73913L10.2582 2.91663L6.9974 6.17746L3.73656 2.91663L2.91406 3.73913L6.1749 6.99996L2.91406 10.2608L3.73656 11.0833L6.9974 7.82246L10.2582 11.0833L11.0807 10.2608L7.8199 6.99996L11.0807 3.73913Z"
-                                                        fill="#F7FAFF"/>
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_752_21272">
-                                                        <rect width="14" height="14" fill="white"/>
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-                                            <svg class="svg2" width="11" height="12" viewBox="0 0 11 12" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M5.50521 10.2854L4.84063 9.68042C2.48021 7.54 0.921875 6.12375 0.921875 4.39583C0.921875 2.97958 2.03104 1.875 3.44271 1.875C4.24021 1.875 5.00563 2.24625 5.50521 2.82833C6.00479 2.24625 6.77021 1.875 7.56771 1.875C8.97937 1.875 10.0885 2.97958 10.0885 4.39583C10.0885 6.12375 8.53021 7.54 6.16979 9.68042L5.50521 10.2854Z"
-                                                    fill="#181A1C"/>
-                                            </svg>
-                                            <span>Tracking</span>
-                                        </button>
+                                                        d="M5.50521 10.2854L4.84063 9.68042C2.48021 7.54 0.921875 6.12375 0.921875 4.39583C0.921875 2.97958 2.03104 1.875 3.44271 1.875C4.24021 1.875 5.00563 2.24625 5.50521 2.82833C6.00479 2.24625 6.77021 1.875 7.56771 1.875C8.97937 1.875 10.0885 2.97958 10.0885 4.39583C10.0885 6.12375 8.53021 7.54 6.16979 9.68042L5.50521 10.2854Z"
+                                                        fill="#181A1C"/>
+                                                </svg>
+                                                <span>Tracking</span>
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
