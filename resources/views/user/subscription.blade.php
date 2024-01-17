@@ -35,9 +35,13 @@
                     <li class="user-main__subscribers_list-item">
                         <a class="user-main__subscribers_list-item-link" href="{{ route('index') }}"></a>
                         <div class="user-main__subscribers_list-item-icon">
-                            <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                            @empty($my->my->photo)
+                                <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
+                            @else
+                                <img loading="lazy" src="{{asset('storage/'. $my->my->photo)}}" alt="avatar">
+                            @endempty
                         </div>
-                        <p class="user-main__subscribers_list-item-name">Darrell Steward</p>
+                        <p class="user-main__subscribers_list-item-name">{{ $my->my->name }}</p>
                     </li>
                 @endforeach
             </ul>
