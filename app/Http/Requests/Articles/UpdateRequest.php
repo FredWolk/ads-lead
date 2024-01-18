@@ -45,6 +45,7 @@ class UpdateRequest extends FormRequest
             'title'                     => 'nullable|string',
             'description'               => 'nullable|string',
             'active'                    => 'integer',
+            'pin'                       => 'integer|nullable|max:4|unique:App\Models\Article,pin',
 
             'keywords'                  => 'nullable|string',
             'meta_tags'                 => 'nullable|string',

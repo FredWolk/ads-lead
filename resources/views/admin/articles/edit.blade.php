@@ -61,6 +61,16 @@
                             @enderror
 
                             <div class="form-group">
+                                <label for="pin">Позиция в закрепе</label>
+                                <input type="number" max="4" min="1" name="pin"
+                                       value="{{ !empty($article->pin) ? $article->pin : '' }}" class="form-control"
+                                       id="pin" placeholder="От 1 до 4">
+                            </div>
+                            @error('pin')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="name">Название статьи</label>
                                 <input type="text" name="name" value="{{ $article->name }}" class="form-control"
                                        id="name" placeholder="Название статьи">
