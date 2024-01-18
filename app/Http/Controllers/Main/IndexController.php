@@ -46,7 +46,7 @@ class IndexController extends Controller
 
         $cpa = Cpa::where('is_main', 1)->orderBy('created_at', 'desc')->take(4)->get()->toArray();
         $top_cpa = Cpa::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
-        $ads = Ad::where('is_main', 1)->orderBy('date', 'desc')->take(4)->get();
+        $ads = Ad::where('is_main', 1)->orderBy('created_at', 'desc')->take(4)->get();
         $top_ads = Ad::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
         $video = Video::orderBy('id', 'DESC')->take(6)->get()->toArray();
 
