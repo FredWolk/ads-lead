@@ -40,7 +40,7 @@ class IndexController extends Controller
             ->get()
             ->toArray();
 
-        if (!empty($pin))
+        if ($pin->count() > 0)
             foreach ($pin->toArray() as $i)
                 $article[$i['pin'] - 1] = $i;
 
