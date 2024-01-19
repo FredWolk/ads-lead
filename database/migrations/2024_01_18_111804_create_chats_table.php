@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->integer('pin')->nullable();
+        Schema::create('chats', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_1');
+            $table->integer('user_2');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('pin');
-        });
+        Schema::dropIfExists('chats');
     }
 };

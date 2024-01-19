@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/adaptive.css')}}">
+    @stack('style')
 </head>
 <body class="body-user">
 

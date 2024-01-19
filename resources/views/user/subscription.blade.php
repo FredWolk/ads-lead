@@ -8,7 +8,7 @@
             <ul class="user-main__subscribers_list">
                 @foreach($imSubscribed as $i)
                     <li class="user-main__subscribers_list-item">
-                        <a class="user-main__subscribers_list-item-link" href="{{ route('index') }}"></a>
+                        <a class="user-main__subscribers_list-item-link" href="{{ route('user.correspondence.page', $i->im->id) }}"></a>
                         <div class="user-main__subscribers_list-item-icon">
                             @empty($i->im->photo)
                                 <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">
@@ -33,7 +33,7 @@
             <ul class="user-main__subscribers_list">
                 @foreach($mySubscribers as $my)
                     <li class="user-main__subscribers_list-item">
-                        <a class="user-main__subscribers_list-item-link" href="{{ route('index') }}"></a>
+                        <a class="user-main__subscribers_list-item-link" href="{{ route('user.correspondence.page', $my->my->id) }}"></a>
                         <div class="user-main__subscribers_list-item-icon">
                             @empty($my->my->photo)
                                 <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="avatar">

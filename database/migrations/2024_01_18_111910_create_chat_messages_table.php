@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->integer('pin')->nullable();
+        Schema::create('chat_messages', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('chat_id');
+            $table->integer('user_id');
+            $table->text('message');
+            $table->timestamps();
+
+            $table->foreign('chat_id')->references('id')->on('chats')->onDelete('cascade');
         });
     }
 
@@ -25,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('pin');
-        });
+        Schema::dropIfExists('chat_messages');
     }
 };

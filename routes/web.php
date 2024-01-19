@@ -126,9 +126,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
     Route::get('/security', [UserSecurityController::class, '__invoke'])->name('user.security');
     Route::get('/correspondence', [UserCorrespondenceController::class, '__invoke'])->name('user.correspondence');
-    Route::get('/correspondence/{page}', [UserCorrespondencePageController::class, '__invoke'])->name(
+    Route::get('/correspondence/{id}', [UserCorrespondencePageController::class, '__invoke'])->name(
         'user.correspondence.page'
     );
+    Route::post('/correspondence-send/{chat}',[\App\Http\Controllers\User\ChatController::class, 'send'])->name('chat.message.send');
 
     Route::group(['prefix' => 'settings'], function () {
         Route::post('/change-password', [UserSettingsController::class, 'changePass'])->name(

@@ -5309,6 +5309,9 @@ form {
     border: 1px solid rgba(39, 44, 49, 0.1);
     display: flex;
 }
+.user-main-corpage_top.revers {
+    flex-direction: row-reverse;
+}
 
 .user-main-corpage_top_left {
     max-width: 250px;
@@ -5483,7 +5486,6 @@ form {
 .user-main-corpage_top_right-text {
     width: 100%;
     padding-bottom: 30px;
-    border-bottom: 1px solid #272C31;
     margin-bottom: 30px;
 }
 
@@ -5542,6 +5544,7 @@ form {
 .user-main-corpage_bot {
     width: 100%;
     display: flex;
+    flex-direction: row-reverse;
     align-items: start;
 }
 

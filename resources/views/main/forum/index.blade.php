@@ -133,7 +133,7 @@
                                         <div class="forum_main_card_list--item_right">
                                             <p class="forum_main_card_list--item_right-time">{{ date('d/m/Y', strtotime($v->created_at)) }}</p>
                                             <div class="forum_main_card_list--item_right-wrapper">
-                                                <a href="{{ route('index') }}"
+                                                <a href="{{ route('user.correspondence.page', $v->author->id) }}"
                                                    class="forum_main_card_list--item_right-name">{{ $v->author->name }}</a>
                                                 <div
                                                     class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
@@ -254,7 +254,7 @@
                                             <div class="forum_main_card_list--item_right">
                                                 <p class="forum_main_card_list--item_right-time">{{ date('d/m/Y', strtotime($val->created_at)) }}</p>
                                                 <div class="forum_main_card_list--item_right-wrapper">
-                                                    <a href="{{ route('index') }}"
+                                                    <a href="{{ route('user.correspondence.page', $val->author->id) }}"
                                                        class="forum_main_card_list--item_right-name">{{ $val->author->name }}</a>
                                                     <div
                                                         class="forum-user-preview_card forum_main_card_list--item_right-user-preview">
@@ -435,7 +435,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['facebook']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['facebook']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['facebook']['last_topik']['author']['id']) }}">{{ $themes['facebook']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -496,7 +496,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['tiktok']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['tiktok']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['tiktok']['last_topik']['author']['id']) }}">{{ $themes['tiktok']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -558,7 +558,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['google-ads']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['google-ads']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['google-ads']['last_topik']['author']['id']) }}">{{ $themes['google-ads']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -617,7 +617,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['push-and-other-advertising-networks']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['push-and-other-advertising-networks']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['push-and-other-advertising-networks']['last_topik']['author']['id']) }}">{{ $themes['push-and-other-advertising-networks']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -667,7 +667,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['ad-network']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['ad-network']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['ad-network']['last_topik']['author']['id']) }}">{{ $themes['ad-network']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -733,7 +733,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['faq']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['faq']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['faq']['last_topik']['author']['id']) }}">{{ $themes['faq']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -784,7 +784,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['payment-solutions']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['payment-solutions']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['payment-solutions']['last_topik']['author']['id']) }}">{{ $themes['payment-solutions']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -880,7 +880,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['anti-detect-browsers']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['anti-detect-browsers']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['anti-detect-browsers']['last_topik']['author']['id']) }}">{{ $themes['anti-detect-browsers']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -934,7 +934,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['cloaking-and-trackers']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['cloaking-and-trackers']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['cloaking-and-trackers']['last_topik']['author']['id']) }}">{{ $themes['cloaking-and-trackers']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -983,7 +983,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['proxy']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['proxy']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['proxy']['last_topik']['author']['id']) }}">{{ $themes['proxy']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1034,7 +1034,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['domains-and-hosting']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['domains-and-hosting']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['domains-and-hosting']['last_topik']['author']['id']) }}">{{ $themes['domains-and-hosting']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1086,7 +1086,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['spy-services']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['spy-services']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['spy-services']['last_topik']['author']['id']) }}">{{ $themes['spy-services']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1144,7 +1144,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['creatives']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['creatives']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['creatives']['last_topik']['author']['id']) }}">{{ $themes['creatives']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1199,7 +1199,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['jobs']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['jobs']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['jobs']['last_topik']['author']['id']) }}">{{ $themes['jobs']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1251,7 +1251,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['sell']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['sell']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['sell']['last_topik']['author']['id']) }}">{{ $themes['sell']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1303,7 +1303,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['floodlight']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['floodlight']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['floodlight']['last_topik']['author']['id']) }}">{{ $themes['floodlight']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1352,7 +1352,7 @@
                                             </div>
                                             <p class="forum_main_links-group-item_main-last-info-text">{{ date('d/m/Y', strtotime($themes['humor']['last_topik']['created_at'])) }}
                                                 | <a
-                                                    href="{{ route('index') }}">{{ $themes['humor']['last_topik']['author']['name'] }}</a>
+                                                    href="{{ route('user.correspondence.page', $themes['humor']['last_topik']['author']['id']) }}">{{ $themes['humor']['last_topik']['author']['name'] }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -1387,7 +1387,7 @@
                         <li class="forum_aside_stats--item">
                             <p class="forum_aside_stats--item-type">New user</p>
                             <div class="forum_aside_stats--item-user-wrapper">
-                                <a href="{{ route('index') }}"
+                                <a href="{{ route('user.correspondence.page', $statistic['new_user']->id) }}"
                                    class="forum_aside_stats--item-value">{{ $statistic['new_user']->name }}</a>
 
                                 <div
