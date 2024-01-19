@@ -106,7 +106,7 @@
                 headers: {
                   'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                url: "{{ route('chat.message.delete') }}"+"/"+id,
+                url: "http://affjournal.com/user/correspondence-delete/"+id,
                 method: 'DELETE',
                 dataType: 'JSON'
             }).done(function (rsp) {
