@@ -106,7 +106,7 @@
                 headers: {
                   'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                url: "http://affjournal.com/user/correspondence-delete/"+id,
+                url: "https://affjournal.com/user/correspondence-delete/"+id,
                 method: 'DELETE',
                 dataType: 'JSON'
             }).done(function (rsp) {
