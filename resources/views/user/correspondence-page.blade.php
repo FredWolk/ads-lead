@@ -219,5 +219,21 @@
             fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'],
             fontNamesIgnoreCheck: ['Roboto', 'Montserrat']
         });
+
+        var interval = setTimeout(function () {
+            location.reload();
+        }, 30000);
+        $(window).on('mousemove', function () {
+            clearTimeout(interval)
+            interval = setTimeout(function () {
+                location.reload();
+            }, 30000);
+        })
+        $(window).on('keydown', function () {
+            clearTimeout(interval)
+            interval = setTimeout(function () {
+                location.reload();
+            }, 30000);
+        })
     </script>
 @endpush
