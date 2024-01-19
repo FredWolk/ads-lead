@@ -235,5 +235,6 @@
                 location.reload();
             }, 30000);
         })
+        $(window).scrollTop($(window).height())
     </script>
 @endpush
