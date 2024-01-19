@@ -220,10 +220,6 @@ $('.user-main_subscribers-show-all--btn').on('click', function () {
     $(this).hide();
 });
 
-$('.user_correspondence-delete--btn').on('click', function () {
-    $('.popup--delete-wrapper-back').fadeIn(300);
-});
-
 $('.popup--delete--btn-close').on('click', function () {
     $('.popup--delete-wrapper-back').fadeOut(300);
 });

@@ -15,4 +15,18 @@ class Chat extends Model
     {
         return $this->hasMany(ChatMessage::class, 'chat_id', 'id');
     }
+
+    public function userOne()
+    {
+        return $this->hasOne(User::class, 'id', 'user_1');
+    }
+    public function userTwo()
+    {
+        return $this->hasOne(User::class, 'id', 'user_2');
+    }
+
+    public function lastComment()
+    {
+        return $this->hasOne(ChatMessage::class, 'chat_id', 'id')->latest('id');
+    }
 }

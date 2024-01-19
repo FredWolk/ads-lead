@@ -419,11 +419,9 @@
                         </svg>
                     </a>
                 </li>
-                @if(false)
-
                 <li class="user_nav-menu--item">
-                    <a href="{{ route('user.alerts') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Alerts <span>(9)</span></p>
+                    <a href="{{ route('user.correspondence') }}" class="user_nav-menu--link">
+                        <p class="user_nav-menu--link-text">Correspondence</p>
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -432,9 +430,10 @@
                         </svg>
                     </a>
                 </li>
+                @if(false)
                 <li class="user_nav-menu--item">
-                    <a href="{{ route('user.correspondence') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Correspondence</p>
+                    <a href="{{ route('user.alerts') }}" class="user_nav-menu--link">
+                        <p class="user_nav-menu--link-text">Alerts <span>(9)</span></p>
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"

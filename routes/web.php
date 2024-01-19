@@ -130,6 +130,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
         'user.correspondence.page'
     );
     Route::post('/correspondence-send/{chat}',[\App\Http\Controllers\User\ChatController::class, 'send'])->name('chat.message.send');
+    Route::delete('/correspondence-delete/{chat?}',[\App\Http\Controllers\User\ChatController::class, 'delete'])->name('chat.message.delete');
 
     Route::group(['prefix' => 'settings'], function () {
         Route::post('/change-password', [UserSettingsController::class, 'changePass'])->name(

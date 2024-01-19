@@ -24,4 +24,17 @@ class ChatController extends Controller
         else
             return redirect()->back();
     }
+
+    public function delete(Chat $chat)
+    {
+        if ($chat->user_1 === Auth::id() || $chat->user_2 === Auth::id()) {
+            if ($chat->delete()) {
+                return response()->json(['status' => true]);
+            } else {
+                return response()->json(['status' => false]);
+            }
+        } else {
+            return response()->json(['status' => false]);
+        }
+    }
 }
