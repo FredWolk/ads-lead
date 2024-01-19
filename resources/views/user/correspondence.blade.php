@@ -29,7 +29,7 @@
                                 ...</a>
                             <div class="user_correspondence--item_first_main_bot">
                                 <p class="user_correspondence--item_first_main-link">{{ Auth::id() === $chat->user_1 ? $chat->userTwo->name : $chat->userOne->name }}</p>
-                                <p class="user_correspondence--item_first_main-date">{{ date('d/m/Y', strtotime($chat->lastComment->created_at)) }}</p>
+                                <p class="user_correspondence--item_first_main-date">{{ date('d/m/Y H:i:s', strtotime($chat->lastComment->created_at)) }}</p>
                             </div>
                         </div>
                     </div>
