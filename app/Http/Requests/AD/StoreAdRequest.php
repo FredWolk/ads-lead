@@ -39,6 +39,7 @@ class StoreAdRequest extends FormRequest
             'button_url' => 'nullable|string',
             'views' => 'nullable|integer',
             'listing_rating' => 'nullable|integer',
+            'review' => 'boolean|required',
 
             'main_advertising_formats' => 'nullable|string',
             'advertising_formats' => 'nullable|array',

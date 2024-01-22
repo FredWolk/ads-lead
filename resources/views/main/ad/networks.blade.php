@@ -182,13 +182,16 @@
                                     </div>
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
-                                        <a data-type="rec_pp_{{$k}}_rev" class="btn--blue header_buttons-blue-btn banner_check"
-                                           href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
-                                            <span>{{ __('messages.review') }}</span>
-                                            <img loading="lazy"
-                                                 src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
-                                                 alt="arrow">
-                                        </a>
+                                        @if($i['review'])
+                                            <a data-type="rec_pp_{{$k}}_rev"
+                                               class="btn--blue header_buttons-blue-btn banner_check"
+                                               href="{{ route('ad.page', [$i['main_advertising_formats'], $i['link']]) }}">
+                                                <span>{{ __('messages.review') }}</span>
+                                                <img loading="lazy"
+                                                     src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                                     alt="arrow">
+                                            </a>
+                                        @endif
                                         <div class="promocode--btn-wrapper">
                                             <button type="button" class="btn--grey-with-icons promocode promocode--btn"
                                                     style="
@@ -230,13 +233,16 @@
                                                 <p class="promocode--body-text">{{ $i["{$locale}promocode_desc"] }}</p>
                                             </div>
                                         </div>
-                                        <a data-type="rec_pp_{{$k}}" class="link--blue-sphere banner_check" target="_blank" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
+                                        <a data-type="rec_pp_{{$k}}" class="link--blue-sphere banner_check"
+                                           target="_blank"
+                                           href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
                                             <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}"
                                                  alt="sphere">
                                             <span>Site</span>
                                         </a>
 
-                                        <a class="btn--grey-with-icons mobile" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
+                                        <a class="btn--grey-with-icons mobile"
+                                           href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
                                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -317,6 +323,7 @@
                                             </div>
                                             <div class="cpapage_info--item-line"></div>
                                             <div class="cpapage_info--item_buttons">
+                                                @if($v['review'])
                                                 <a class="btn--blue header_buttons-blue-btn"
                                                    href="{{ route('ad.page', [$v['main_advertising_formats'], $v['link']]) }}">
                                                     <span>{{ __('messages.review') }}</span>
@@ -324,6 +331,7 @@
                                                          src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
                                                          alt="arrow">
                                                 </a>
+                                                @endif
                                                 <div class="promocode--btn-wrapper">
                                                     <button type="button"
                                                             class="btn--grey-with-icons promocode promocode--btn"
@@ -366,13 +374,15 @@
                                                         <p class="promocode--body-text">{{ $v["{$locale}promocode_desc"] }}</p>
                                                     </div>
                                                 </div>
-                                                <a class="link--blue-sphere" target="_blank" href="{{ empty($v['button_url']) ? $v['url'] : $v['button_url'] }}">
+                                                <a class="link--blue-sphere" target="_blank"
+                                                   href="{{ empty($v['button_url']) ? $v['url'] : $v['button_url'] }}">
                                                     <img loading="lazy"
                                                          src="{{asset('assets/images/icons/sphere.svg')}}" alt="sphere">
                                                     <span>Site</span>
                                                 </a>
 
-                                                <a class="btn--grey-with-icons mobile" href="{{ empty($v['button_url']) ? $v['url'] : $v['button_url'] }}">
+                                                <a class="btn--grey-with-icons mobile"
+                                                   href="{{ empty($v['button_url']) ? $v['url'] : $v['button_url'] }}">
                                                     <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path

@@ -81,7 +81,16 @@
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
+                            <div class="form-group">
+                                <label for="review">Обзор куплен</label>
+                                <select name="review" class="form-control" id="review">
+                                    <option {{ old('review') == true ? 'selected' : '' }} value="1">Да</option>
+                                    <option {{ old('review') == false ? 'selected' : '' }} value="0">Нет</option>
+                                </select>
+                            </div>
+                            @error('review')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
 
                             <div class="form-group">
                                 <label for="name">Название партнерки</label>

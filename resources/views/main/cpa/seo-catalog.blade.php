@@ -74,14 +74,17 @@
                                     </div>
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
-                                        <a class="btn--blue header_buttons-blue-btn"
-                                           href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
-                                            <span>{{ __('messages.review') }}</span>
-                                            <img loading="lazy"
-                                                 src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
-                                                 alt="arrow">
-                                        </a>
-                                        <a class="btn--grey-with-icons" target="_blank" href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
+                                        @if($i['review'])
+                                            <a class="btn--blue header_buttons-blue-btn"
+                                               href="{{ route('cpa.page', [$i['main_verticales'], $i['link']]) }}">
+                                                <span>{{ __('messages.review') }}</span>
+                                                <img loading="lazy"
+                                                     src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
+                                                     alt="arrow">
+                                            </a>
+                                        @endif
+                                        <a class="btn--grey-with-icons" target="_blank"
+                                           href="{{ empty($i['button_url']) ? $i['url'] : $i['button_url'] }}">
                                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
