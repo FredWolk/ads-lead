@@ -86,8 +86,8 @@
                             <div class="form-group">
                                 <label for="review">Обзор куплен</label>
                                 <select name="review" class="form-control" id="review">
-                                    <option {{ $ad->review == true ? 'selected' : '' }} value="1">Да</option>
-                                    <option {{ $ad->review == false ? 'selected' : '' }} value="0">Нет</option>
+                                    <option {{ $cpa->review == true ? 'selected' : '' }} value="1">Да</option>
+                                    <option {{ $cpa->review == false ? 'selected' : '' }} value="0">Нет</option>
                                 </select>
                             </div>
                             @error('review')
