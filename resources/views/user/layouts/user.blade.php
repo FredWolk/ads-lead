@@ -1,6 +1,7 @@
 @php
     $userInfo = \Illuminate\Support\Facades\Auth::user();
 	$banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
+    $notification = \App\Models\Notification::where('user_id', \Illuminate\Support\Facades\Auth::id())->where('read', 0)->get();
 @endphp
     <!doctype html>
 <html lang="en">
@@ -112,8 +113,9 @@
                         <rect x="13" y="14.1665" width="1.64975" height="18.1473" transform="rotate(-45 13 14.1665)"
                               fill="white"/>
                     </svg>
-
-                    <div class="header--notif-btn-new"></div>
+                    @if($notification->count() > 0)
+                        <div class="header--notif-btn-new"></div>
+                    @endif
                 </button>
 
                 <div class="header-user-icon">
@@ -130,86 +132,22 @@
             </div>
         </div>
         <div class="header--notif-body">
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
+            @foreach($notification as $not)
+                <div class="header--notif-body--item">
+                    <div class="header--notif-body--item-icon-wrapper">
+                        <div class="header--notif-body--item-icon">
+                            <img loading="lazy" src="{{asset('storage/'. $not->init_user_photo)}}" alt="user">
+                        </div>
                     </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
+                    <div class="header--notif-body--item-main">
+                        <div class="header--notif-body--item-main_top">
+                            <p class="header--notif-body--item-main-type">{{ $not->title }}</p>
+                            <p class="header--notif-body--item-main-time">{{ date('d/m/Y', strtotime($not->created_at)) }}</p>
+                        </div>
+                        <p class="header--notif-body--item-main-text">{!! $not->message !!}</p>
                     </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
                 </div>
-            </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
-            <div class="header--notif-body--item">
-                <div class="header--notif-body--item-icon-wrapper">
-                    <div class="header--notif-body--item-icon">
-                        <img loading="lazy" src="{{asset('assets/images/card-pict.jpg')}}" alt="user">
-                    </div>
-                    <div class="header--notif-body--item-icon-online"></div>
-                </div>
-                <div class="header--notif-body--item-main">
-                    <div class="header--notif-body--item-main_top">
-                        <a href="{{ route('index') }}" class="header--notif-body--item-main-type">New subscriber</a>
-                        <p class="header--notif-body--item-main-time">13 minutes ago</p>
-                    </div>
-                    <p class="header--notif-body--item-main-text">You are subscribed to a user Jendosina <a
-                            href="{{ route('index') }}">Jendosina</a></p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </header>
@@ -430,10 +368,9 @@
                         </svg>
                     </a>
                 </li>
-                @if(false)
                 <li class="user_nav-menu--item">
                     <a href="{{ route('user.alerts') }}" class="user_nav-menu--link">
-                        <p class="user_nav-menu--link-text">Alerts <span>(9)</span></p>
+                        <p class="user_nav-menu--link-text">Alerts <span>({{ $notification->count() }})</span></p>
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -442,7 +379,6 @@
                         </svg>
                     </a>
                 </li>
-                @endif
             </ul>
         </div>
         <div class="user_nav_first-last">
@@ -476,6 +412,15 @@
 <script>
     $('#photo_inp').on('input', function () {
         $('#photo_change').submit();
+    })
+    $('.header--notif-btn').on('click', function () {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            url: "{{route('user.alerts.read')}}",
+            type: 'POST',
+        })
     })
 </script>
 @stack('scripts')

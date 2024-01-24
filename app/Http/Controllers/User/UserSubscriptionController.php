@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\Subscribe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +33,12 @@ class UserSubscriptionController extends Controller
             }
         } else {
             $sub = Subscribe::create($data);
+            $user = User::firstWhere('id', $data['user_id']);
+            $notif = Notification::newSubscriber($user);
+            $notif['user_id'] = $data['author_id'];
+            $notif['init_user_id'] = $data['user_id'];
+            $notif['init_user_photo'] = $user->photo;
+            Notification::create($notif);
             if ($sub) {
                 return response()->json(['status' => true]);
             } else {

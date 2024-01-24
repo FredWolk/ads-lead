@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Chat;
 use App\Models\ChatMessage;
+use App\Models\Notification;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,10 +20,16 @@ class ChatController extends Controller
         $data['chat_id'] = $chat->id;
         $data['user_id'] = Auth::id();
         $message = ChatMessage::create($data);
-        if ($message)
+        if ($message){
+            $user = User::firstWhere('id', $data['user_id']);
+            $notif = Notification::newMessage($user);
+            $notif['user_id'] = $data['user_id'] === $chat->user_1 ? $chat->user_2 : $chat->user_1;
+            $notif['init_user_id'] = $data['user_id'];
+            $notif['init_user_photo'] = $user->photo;
+            Notification::create($notif);
             return redirect()->route('user.correspondence.page',
-                Auth::id() === $chat->user_1 ? $chat->user_2 : $chat->user_1);
-        else
+                $data['user_id'] === $chat->user_1 ? $chat->user_2 : $chat->user_1);
+        } else
             return redirect()->back();
     }
 

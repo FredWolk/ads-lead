@@ -121,6 +121,7 @@ Route::group(['namespace' => 'forum', 'prefix' => 'forum'], function () {
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/', [UserIndexController::class, '__invoke'])->name('user.index');
     Route::get('/alerts', [UserAlertController::class, '__invoke'])->name('user.alerts');
+    Route::post('/read-alerts', [UserAlertController::class, 'readNotification'])->name('user.alerts.read');
     Route::get('/subscriptions', [UserSubscriptionController::class, 'index'])->name('user.subscriptions');
     Route::post('/subscribe', [UserSubscriptionController::class, 'subscribe'])->name('forum.subscribe');
     Route::get('/favorite', [UserFavoriteController::class, '__invoke'])->name('user.favorite');
@@ -229,4 +230,10 @@ Route::group(['prefix' => 'filters'], function () {
     );
     Route::get('/events', [EventsController::class, 'filter'])->name('event.filter');
     Route::post('/search', [IndexController::class, 'search'])->name('index.search');
+});
+
+Route::get('/test', function (){
+   $user = \App\Models\User::firstWhere('id', 2);
+   $trade = \App\Models\Trade::first();
+   dd(\App\Models\Notification::newComment($user, $trade));
 });

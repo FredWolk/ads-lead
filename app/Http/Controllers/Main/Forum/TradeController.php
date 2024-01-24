@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Main\Forum;
 
 use App\Http\Controllers\Controller;
 use App\Models\Complaints;
+use App\Models\Notification;
+use App\Models\Subscribe;
 use App\Models\Trade;
 use App\Models\TradeComment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -23,8 +26,26 @@ class TradeController extends Controller
             'content' => 'string|required'
         ]);
         $data['link'] = preg_replace('/[^a-zA-Z\s 0-9-]/', '', $data['link']);
-        $data['user_id'] = Auth::user()->getAuthIdentifier();
-        Trade::updateOrCreate($data);
+        $data['user_id'] = Auth::id();
+        $trade = Trade::where('title', $data['title'])->where('link', $data['link'])->first();
+        if (!empty($trade)){
+            $trade->update($data);
+        } else {
+            $trade = Trade::create($data);
+            if ($trade){
+                $subscribers = Subscribe::where('author_id', $data['user_id'])->get();
+                if ($subscribers->count() > 0){
+                    $subscribers->each(function ($e) use ($data, $trade){
+                        $user = User::firstWhere('id', $data['user_id']);
+                        $notif = Notification::newPost($trade);
+                        $notif['user_id'] = $e->user_id;
+                        $notif['init_user_id'] = $data['user_id'];
+                        $notif['init_user_photo'] = $user->photo;
+                        Notification::create($notif);
+                    });
+                }
+            }
+        }
         return redirect()->route('forum.threads', $data['link']);
     }
 
@@ -78,7 +99,15 @@ class TradeController extends Controller
         $data['theme'] = $threads->theme;
         $data['user_id'] = Auth::id();
         $data['threads_id'] = $threads->id;
-        TradeComment::create($data);
+        $comment = TradeComment::create($data);
+        if ($comment){
+            $user = User::firstWhere('id', $data['user_id']);
+            $notif = Notification::newComment($threads);
+            $notif['user_id'] = $threads->user_id;
+            $notif['init_user_id'] = $data['user_id'];
+            $notif['init_user_photo'] = $user->photo;
+            Notification::create($notif);
+        }
         return redirect()->route('forum.board', [$threads->theme, $threads->link]);
     }
 

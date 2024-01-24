@@ -590,13 +590,13 @@
             </ul>
         </div>
     </section>
-    <div style="display:none;" class="delete__popup-back">
+    <div style="display:none;" id="delete" class="delete__popup-back">
         <div class="delete__popup-modal">
             <div class="delete__popup-header">
                 <h4 class="user-main-corpage_top_right-title">Delete Message</h4>
                 <button class="popup__delete-close">&times;</button>
             </div>
-            <form class="delete__popup-body" action="" method="post">
+            <form class="delete__popup-body delete__form" action="" method="post">
                 @csrf
                 @method('DELETE')
                 <textarea style="resize: none; width: 100%; border: 1px solid; padding: 20px;"
@@ -655,8 +655,8 @@
             let id = $(this).attr('data-id'),
                 route = `{{ route('delete.thread.comment') }}/${id}`;
 
-            $('.delete__popup-body').attr('action', route);
-            $('.delete__popup-back').fadeIn(300);
+            $('.delete__form').attr('action', route);
+            $('#delete').fadeIn(300);
         })
         $('.delete__popup-back, .popup__delete-close').on('click', function (e) {
             if (e.target === this)
@@ -666,8 +666,8 @@
             let id = $(this).attr('data-id'),
                 route = `{{ route('delete.thread') }}/${id}`;
 
-            $('.delete__popup-body').attr('action', route);
-            $('.delete__popup-back').fadeIn(300);
+            $('.delete__form').attr('action', route);
+            $('#delete').fadeIn(300);
         })
         $('.complaint').on('click', () => {
             $('#complaint').fadeIn(300)
