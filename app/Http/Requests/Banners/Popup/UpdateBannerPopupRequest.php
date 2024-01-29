@@ -26,6 +26,7 @@ class UpdateBannerPopupRequest extends FormRequest
         return [
             'logo' => 'file|nullable',
             'title' => 'string|required',
+            'page' => 'string|required',
             'text' => 'string|required',
             'button_text' => 'string|required',
             'button_link' => 'url|required',

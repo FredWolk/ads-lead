@@ -15,7 +15,7 @@ class BannerPopupController extends Controller
      */
     public function index()
     {
-        $popup = Popup::first();
+        $popup = Popup::all();
         return view('admin.banners.popup.index', compact('popup'));
     }
 

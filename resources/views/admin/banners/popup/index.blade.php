@@ -50,28 +50,29 @@
                                 </thead>
                                 @if(!empty($popup))
                                     <tbody>
+                                    @foreach($popup as $p)
                                     <tr>
                                         <td>
                                             1
                                         </td>
                                         <td>
                                             <a>
-                                                {{ $popup['title'] }}
+                                                {{ $p['title'] }}
                                             </a>
                                             <br>
                                             <small>
-                                                Создано {{ date('d.m.Y', strtotime($popup['created_at'])) }}
+                                                Создано {{ date('d.m.Y', strtotime($p['created_at'])) }}
                                             </small>
                                         </td>
                                         <td class="project-actions text-right">
                                             {{--                                            <a class="btn btn-primary btn-sm"--}}
-                                            {{--                                               href="{{ route('button.show', $popup['id']) }}">--}}
+                                            {{--                                               href="{{ route('button.show', $p['id']) }}">--}}
                                             {{--                                                <i class="fas fa-folder">--}}
                                             {{--                                                </i>--}}
                                             {{--                                                Просмотр--}}
                                             {{--                                            </a>--}}
                                             <a class="btn btn-info btn-sm"
-                                               href="{{ route('popup.edit', $popup['id']) }}">
+                                               href="{{ route('popup.edit', $p['id']) }}">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Редактировать
@@ -82,12 +83,13 @@
                                             {{--                                                Удалить--}}
                                             {{--                                            </button>--}}
                                             {{--                                            <form id="delete" method="post"--}}
-                                            {{--                                                  action="{{route('popup.destroy', $popup['id']) }}">--}}
+                                            {{--                                                  action="{{route('popup.destroy', $p['id']) }}">--}}
                                             {{--                                                @method('delete')--}}
                                             {{--                                                @csrf--}}
                                             {{--                                            </form>--}}
                                         </td>
                                     </tr>
+                                    @endforeach
                                     </tbody>
                                 @endif
                             </table>

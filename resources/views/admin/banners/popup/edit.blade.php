@@ -14,13 +14,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавить рекламную кнопку</h1>
+                        <h1 class="m-0">Добавить рекламный попап</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('button.index') }}">Рекламная кнопка</a></li>
-                            <li class="breadcrumb-item active">Добавить рекламную кнопку</li>
+                            <li class="breadcrumb-item"><a href="{{ route('popup.index') }}">Рекламный попап</a></li>
+                            <li class="breadcrumb-item active">Добавить рекламный попап</li>
                         </ol>
                     </div>
                 </div>
@@ -36,6 +36,24 @@
                         @csrf
                         @method('PATCH')
                         <div class="card-body">
+
+                            <div class="form-group">
+                                <label for="page">Страница для показа</label>
+                                <select name="page" id="page" class="form-control">
+                                    <option
+                                        {{ $popup->page == \App\Models\Popup::FORUM_PAGE ? 'selected' : '' }} value="{{\App\Models\Popup::FORUM_PAGE}}">
+                                        Форум
+                                    </option>
+                                    <option
+                                        {{ $popup->page == \App\Models\Popup::MAIN_PAGE ? 'selected' : '' }} value="{{ \App\Models\Popup::MAIN_PAGE }}">
+                                        Главная
+                                    </option>
+                                </select>
+                            </div>
+                            @error('page')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="form-group">
                                 <label for="title">Заголовок</label>
                                 <input name="title" type="text" class="form-control" value="{{ $popup->title }}"

@@ -1,7 +1,12 @@
 @php
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
-    $popup = \App\Models\Popup::first();
+    $prefix = Request::route()->getPrefix();
+    if($prefix === '/forum'){
+        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::FORUM_PAGE);
+    } else {
+        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::MAIN_PAGE);
+    }
 @endphp
     <!doctype html>
 <html lang="en">
@@ -392,7 +397,8 @@
                            id="E-mail">
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="password">Password <span style="color: red">*</span></label>
+                    <label class="popup_main-inputs-label" for="password">Password <span
+                            style="color: red">*</span></label>
                     <div class="popup_main-input-password-wrapper">
                         <input placeholder="Enter your password" required class="input-style input-password"
                                type="password" name="password" id="password">
@@ -407,7 +413,8 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="rp-password">Repeat your password <span style="color: red">*</span></label>
+                    <label class="popup_main-inputs-label" for="rp-password">Repeat your password <span
+                            style="color: red">*</span></label>
                     <div class="popup_main-input-password-wrapper">
                         <input placeholder="Enter your password" required class="input-style input-password"
                                type="password" name="password_confirmation" id="rp-password">
@@ -422,7 +429,8 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label" for="vertical">Vertical <span style="color: red">*</span></label>
+                    <label class="popup_main-inputs-label" for="vertical">Vertical <span
+                            style="color: red">*</span></label>
                     <div class="custom-select_wrapper">
                         <button type="button" class="custom-select--btn">
                             <span>Choose a vertical</span>
@@ -553,7 +561,8 @@
                     </div>
                 </div>
                 <div class="popup_main-inputs-item">
-                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="profession">Profession <span style="color: red">*</span>
+                    <label class="popup_main-inputs-label popup_main-inputs-label-tooltip" for="profession">Profession
+                        <span style="color: red">*</span>
                         <div class="tooltip-wrapper">
                             <div class="tooltip-wrapper-icon">
                                 <svg width="5" height="7" viewBox="0 0 5 7" fill="none"
@@ -662,9 +671,9 @@
 </div>
 {{-- При отправке формы добавь классы: disable для signup_wrapper_main и active для signup_wrapper_main-tnx --}}
 @if(!empty($popup))
-    <div style="display: none" class="banner_popup">
+    <div style="display: none" class="banner_popup {{ $prefix === '/forum' ? 'forum_popup' : 'main_popup' }}">
         <div style="background-color: {{ $popup->popup_color_back }}" class="banner_popup-body">
-            <button type="button" style="color: {{ $popup->popup_color_text }}" class="banner_popup-close">&times;
+            <button type="button" style="color: {{ $popup->popup_color_text }}" class="banner_popup-close {{ $prefix === '/forum' ? 'forum_popup-close' : 'main_popup-close' }}">&times;
             </button>
             <div class="popup_body-header">
                 <div class="popup_header-logo">
@@ -735,7 +744,7 @@
                 </div>
                 <a data-type="popup_banner" href="{{ $popup->button_link }}" target="_blank"
                    style=""
-                   class="popup_button banner_check">{{ $popup->button_text }}</a>
+                   class="popup_button {{ $prefix === '/forum' ? 'forum_popup_button' : 'main_popup_button' }} banner_check">{{ $popup->button_text }}</a>
             </div>
         </div>
     </div>
@@ -754,13 +763,22 @@
     </script>
 @endif
 <script>
-    var cookie = $.cookie('popup');
-    if (!cookie) {
-        $('.banner_popup').fadeIn(300);
+    var cookie_main = $.cookie('popup_main');
+    if (!cookie_main) {
+        $('.main_popup').fadeIn(300);
     }
-    $('.banner_popup-close, .popup_button').on('click', function () {
-        $('.banner_popup').fadeOut(300);
-        $.cookie('popup', true, {expires: 1 / 24, path: '/'})
+    $('.main_popup-close, .main_popup_button').on('click', function () {
+        $('.main_popup').fadeOut(300);
+        $.cookie('popup_main', true, {expires: 1 / 24, path: '/'})
+    });
+
+    var cookie_forum = $.cookie('popup_forum');
+    if (!cookie_forum) {
+        $('.forum_popup').fadeIn(300);
+    }
+    $('.forum_popup-close, .forum_popup_button').on('click', function () {
+        $('.forum_popup').fadeOut(300);
+        $.cookie('popup_forum', true, {expires: 1 / 24, path: '/'})
     });
 
     $('#search_form').on('submit', function (e) {
@@ -812,7 +830,7 @@
 
     $(window).ready(() => {
         var array = [];
-        $('.banner_check').each( function (key, e) {
+        $('.banner_check').each(function (key, e) {
             array.push($(this).attr('data-type'));
         })
         $.ajax({
@@ -838,7 +856,7 @@
                 dataType: 'JSON',
                 url: "{{ route('banner.check.click') }}"
             }).done((rsp) => {
-                if(rsp.status){
+                if (rsp.status) {
                     window.open(href);
                 }
             })

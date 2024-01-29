@@ -19,7 +19,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('button.index') }}">Рекламный попап</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('popup.index') }}">Рекламный попап</a></li>
                             <li class="breadcrumb-item active">Добавить рекламный попап</li>
                         </ol>
                     </div>
@@ -35,6 +35,24 @@
                     <form method="post" enctype="multipart/form-data" action="{{ route('popup.store') }}">
                         @csrf
                         <div class="card-body">
+
+                            <div class="form-group">
+                                <label for="page">Страница для показа</label>
+                                <select name="page" id="page" class="form-control">
+                                    <option
+                                        {{ old('page') == \App\Models\Popup::FORUM_PAGE ? 'selected' : '' }} value="{{\App\Models\Popup::FORUM_PAGE}}">
+                                        Форум
+                                    </option>
+                                    <option
+                                        {{ old('page') == \App\Models\Popup::MAIN_PAGE ? 'selected' : '' }} value="{{ \App\Models\Popup::MAIN_PAGE }}">
+                                        Главная
+                                    </option>
+                                </select>
+                            </div>
+                            @error('page')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="form-group">
                                 <label for="title">Заголовок</label>
                                 <input name="title" type="text" class="form-control" value="{{ old('title') }}"

@@ -10,4 +10,7 @@ class Popup extends Model
     use HasFactory;
 
     protected $guarded = false;
+
+    const MAIN_PAGE = 'main',
+        FORUM_PAGE = 'forum';
 }
