@@ -232,8 +232,4 @@ Route::group(['prefix' => 'filters'], function () {
     Route::post('/search', [IndexController::class, 'search'])->name('index.search');
 });
 
-Route::get('/test', function (){
-   $user = \App\Models\User::firstWhere('id', 2);
-   $trade = \App\Models\Trade::first();
-   dd(\App\Models\Notification::newComment($user, $trade));
-});
+Route::get('/confirm-register/{i}', [IndexController::class, 'confirmRegister']);

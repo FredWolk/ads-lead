@@ -127,4 +127,9 @@ class IndexController extends Controller
 
         return $arr;
     }
+
+    public function confirmRegister($i)
+    {
+        dd($i);
+    }
 }

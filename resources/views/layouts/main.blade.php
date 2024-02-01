@@ -384,7 +384,7 @@
 <div class="signup_wrapper">
     <div class="signup_wrapper_main">
         <p class="signup_wrapper_main-title">sign up <br> in AffJournal</p>
-        <form style="max-width: 300px" method="post" action="{{ route('register') }}">
+        <form id="register_form" style="max-width: 300px">
             @csrf
             <div class="popup_main-inputs">
                 <div class="popup_main-inputs-item">
@@ -650,15 +650,15 @@
                 <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
             </button>
         </form>
-        {{--        <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}
-        {{--                href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
+{{--                <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}
+{{--                        href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
     </div>
     <div class="signup_wrapper_main-tnx">
         <p class="signup_wrapper_main-title">Thanks for <br> registering!</p>
-        {{--        <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave--}}
-        {{--            comments on our materials and communicate on our forum.</p>--}}
-        {{--        <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>--}}
-        {{--            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
+                <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave
+                    comments on our materials and communicate on our forum.</p>
+                <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>
+                    <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>
     </div>
 
     <button type="button" class="btn--close-mobile">
@@ -828,6 +828,21 @@
         $('.header--search-btn').removeClass('active')
     })
 
+    $('#register_form').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '{{ route('register') }}',
+            data: $(this).serialize(),
+            type: 'POST',
+        }).done((rsp) => {
+           // if(rsp.status){
+           //     $('.signup_wrapper_main').fadeOut(300, () => {
+           //         $('.signup_wrapper_main-tnx').fadeIn(300)
+           //     })
+           // }
+        });
+    })
+
     $(window).ready(() => {
         var array = [];
         $('.banner_check').each(function (key, e) {
@@ -860,9 +875,8 @@
                     window.open(href);
                 }
             })
-
         })
-    })
+    });
 
 </script>
 
