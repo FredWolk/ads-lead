@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\File;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function index()
     {
         $tags = ArticleSeoTags::all();
         $tagArr = [];

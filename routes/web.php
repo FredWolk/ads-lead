@@ -46,7 +46,7 @@ if (isset($url[3]) && $url[3] == 'pt') {
     header('Location: ' . $newUrl);
     exit();
 }
-Route::get('/', [IndexController::class, '__invoke'])->name('index');
+Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::post('/banner-check', [\App\Http\Controllers\Main\ShowBannerController::class, 'views'])->name('banner.check.views');
 Route::post('/banner-click', [\App\Http\Controllers\Main\ShowBannerController::class, 'click'])->name('banner.check.click');
 Route::get('/private-policy', function () {
