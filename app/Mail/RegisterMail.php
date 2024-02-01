@@ -13,15 +13,15 @@ class RegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public string $hash;
+    public string $email;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($hash)
+    public function __construct($email)
     {
-        $this->hash = $hash;
+        $this->email = $email;
     }
 
     /**
@@ -46,7 +46,7 @@ class RegisterMail extends Mailable
         return new Content(
             markdown: 'mail.register-mail',
             with: [
-                'hash' => $this->hash,
+                'hash' => $this->email,
             ]
         );
     }

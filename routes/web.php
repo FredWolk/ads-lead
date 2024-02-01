@@ -232,4 +232,4 @@ Route::group(['prefix' => 'filters'], function () {
     Route::post('/search', [IndexController::class, 'search'])->name('index.search');
 });
 
-Route::get('/confirm-register/{i}', [IndexController::class, 'confirmRegister']);
+Route::get('/confirm-register/{email}', [IndexController::class, 'confirmRegister']);

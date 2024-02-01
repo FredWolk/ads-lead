@@ -128,8 +128,8 @@ class IndexController extends Controller
         return $arr;
     }
 
-    public function confirmRegister($i)
+    public function confirmRegister($email)
     {
-        dd($i);
+        dd($email);
     }
 }
