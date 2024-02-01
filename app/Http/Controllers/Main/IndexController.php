@@ -9,9 +9,11 @@ use App\Models\ArticleSeoTags;
 use App\Models\Cpa;
 use App\Models\Events;
 use App\Models\Seo;
+use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class IndexController extends Controller
@@ -130,6 +132,16 @@ class IndexController extends Controller
 
     public function confirmRegister($email)
     {
-        dd($email);
+        $user = User::firstWhere('email', $email);
+        if (empty($user)){
+            dd('NOT FOUND');
+        }
+        $rsp = $user->update([
+            'activate' => 1
+        ]);
+        if ($rsp){
+            Auth::login($user);
+            return redirect()->route('user.index');
+        }
     }
 }

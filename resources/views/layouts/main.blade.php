@@ -835,11 +835,11 @@
             data: $(this).serialize(),
             type: 'POST',
         }).done((rsp) => {
-           // if(rsp.status){
-           //     $('.signup_wrapper_main').fadeOut(300, () => {
-           //         $('.signup_wrapper_main-tnx').fadeIn(300)
-           //     })
-           // }
+           if(rsp.status){
+               $('.signup_wrapper_main').fadeOut(300, () => {
+                   $('.signup_wrapper_main-tnx').fadeIn(300)
+               })
+           }
         });
     })
 
