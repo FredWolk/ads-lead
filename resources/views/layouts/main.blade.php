@@ -4,7 +4,6 @@
     $prefix = Request::route()->getPrefix();
     if($prefix === '/forum'){
         $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::FORUM_PAGE);
-        dump($popup);
     } else {
         $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::MAIN_PAGE);
     }
