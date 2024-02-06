@@ -738,24 +738,25 @@
             </div>
         </div>
     </section>
-    @section('scripts')
-        <script>
-            $('.main-events_right').on('click', '.dateChange', function () {
-                let date = $(this).attr('data-date');
-                $.ajax({
-                    url: '{{ route('index.calendar') }}',
-                    type: 'GET',
-                    data: {date},
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                }).done((rsp) => {
-                    $('.main-events_right').html(rsp);
-                });
-            })
+@endsection
+@section('scripts')
+    <script>
+        $('.main-events_right').on('click', '.dateChange', function () {
+            let date = $(this).attr('data-date');
+            $.ajax({
+                url: '{{ route('index.calendar') }}',
+                type: 'GET',
+                data: {date},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).done((rsp) => {
+                $('.main-events_right').html(rsp);
+            });
+        })
 
-            $('.main-events_right').on('click', '.init', function () {
-                $(this).children('.popup_event-wrap').fadeToggle(300);
-            })
-        </script>
-    @endsection
+        $('.main-events_right').on('click', '.init', function () {
+            $(this).children('.popup_event-wrap').fadeToggle(300);
+        })
+    </script>
+@endsection

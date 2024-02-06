@@ -2,11 +2,11 @@
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
     $prefix = Request::route()->getPrefix();
-//    if($prefix === '/forum'){
-//        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::FORUM_PAGE);
-//    } else {
-//        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::MAIN_PAGE);
-//    }
+    if($prefix === '/forum'){
+        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::FORUM_PAGE);
+    } else {
+        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::MAIN_PAGE);
+    }
 @endphp
     <!doctype html>
 <html lang="en">
