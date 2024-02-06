@@ -2,11 +2,11 @@
     $banner = App\Models\BannerTop::where('status', 1)->inRandomOrder()->first();
     $banner_button = App\Models\BannerButton::where('status', 1)->inRandomOrder()->first();
     $prefix = Request::route()->getPrefix();
-    if($prefix === '/forum'){
-        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::FORUM_PAGE);
-    } else {
-        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::MAIN_PAGE);
-    }
+//    if($prefix === '/forum'){
+//        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::FORUM_PAGE);
+//    } else {
+//        $popup = \App\Models\Popup::firstWhere('page', \App\Models\Popup::MAIN_PAGE);
+//    }
 @endphp
     <!doctype html>
 <html lang="en">
@@ -650,15 +650,15 @@
                 <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}" alt="arrow">
             </button>
         </form>
-        {{--                <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}
-        {{--                        href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
+{{--                <p class="popup_main-no-acc">Contact AFFjournal Support:<br><a href="{{ route('index') }}">Mail,</a> <a--}}
+{{--                        href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>--}}
     </div>
     <div class="signup_wrapper_main-tnx">
         <p class="signup_wrapper_main-title">Thanks for <br> registering!</p>
-        <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave
-            comments on our materials and communicate on our forum.</p>
-        <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>
-            <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>
+                <p class="signup_wrapper_main-tnx-text">Check your mailbox. After you're uprooted, you'll be able to leave
+                    comments on our materials and communicate on our forum.</p>
+                <p class="popup_main-no-acc">If you don't get the email, contact support: <br><a href="{{ route('index') }}">Mail,</a>
+                    <a href="{{ route('index') }}">Skype,</a> <a href="{{ route('index') }}">Telegram</a></p>
     </div>
 
     <button type="button" class="btn--close-mobile">
@@ -673,9 +673,7 @@
 @if(!empty($popup))
     <div style="display: none" class="banner_popup {{ $prefix === '/forum' ? 'forum_popup' : 'main_popup' }}">
         <div style="background-color: {{ $popup->popup_color_back }}" class="banner_popup-body">
-            <button type="button" style="color: {{ $popup->popup_color_text }}"
-                    class="banner_popup-close {{ $prefix === '/forum' ? 'forum_popup-close' : 'main_popup-close' }}">
-                &times;
+            <button type="button" style="color: {{ $popup->popup_color_text }}" class="banner_popup-close {{ $prefix === '/forum' ? 'forum_popup-close' : 'main_popup-close' }}">&times;
             </button>
             <div class="popup_body-header">
                 <div class="popup_header-logo">
@@ -837,11 +835,11 @@
             data: $(this).serialize(),
             type: 'POST',
         }).done((rsp) => {
-            if (rsp.status) {
-                $('.signup_wrapper_main').fadeOut(300, () => {
-                    $('.signup_wrapper_main-tnx').fadeIn(300)
-                })
-            }
+           if(rsp.status){
+               $('.signup_wrapper_main').fadeOut(300, () => {
+                   $('.signup_wrapper_main-tnx').fadeIn(300)
+               })
+           }
         });
     })
 
