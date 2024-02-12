@@ -152,11 +152,11 @@
                         <form id="search_form">
                             @csrf
                             <input type="hidden" name="desc_locale" value="{{ App::getLocale() }}">
-                            <input id="search" class="header--search-input" name="search_desc" placeholder="Search..."
+                            <input data-form="search_form" id="search" class="header--search-input" name="search_desc" placeholder="Search..."
                                    type="text">
+                            <div class="search_back"></div>
+                            <div class="search__modal desctop__search"></div>
                         </form>
-                        <div class="search_back"></div>
-                        <div id="desctop__search" class="search__modal"></div>
                     </div>
                     @auth()
                         <a href="{{ route('user.index') }}" class="header-user-icon">
@@ -186,8 +186,10 @@
     <section class="burger-menu">
         <div class="container">
             <div class="burger-menu--top">
-                <div class="burger-menu--search">
-                    <input id="burger__search" class="burger-menu--search-input" placeholder="Search..." type="text">
+                <form id="burger_form" class="burger-menu--search">
+                    @csrf
+                    <input type="hidden" name="desc_locale" value="{{ App::getLocale() }}">
+                    <input id="burger__search" data-form="burger_form" class="burger-menu--search-input" placeholder="Search..." type="text">
                     <button type="submit" class="btn-rectangle burger-menu--search--btn">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -206,7 +208,9 @@
                             </defs>
                         </svg>
                     </button>
-                </div>
+                    <div class="search_back"></div>
+                    <div class="search__modal desctop__search"></div>
+                </form>
                 <button type="button" class="btn-rectangle btn--exit login--btn">
                     <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -236,7 +240,7 @@
                         <a class="burger_nav--link" href="{{ route('ad') }}">{{ __('messages.ad') }}</a>
                     </li>
                     <li class="burger_nav_list_item">
-                        <a class="burger_nav--link" href="{{ route('index') }}">{{ __('messages.services') }}</a>
+                        <a class="burger_nav--link" href="{{ route('services') }}">{{ __('messages.services') }}</a>
                     </li>
                     <li class="burger_nav_list_item">
                         <a class="burger_nav--link" href="{{ route('shop') }}">Shop</a>
@@ -781,7 +785,8 @@
         $.cookie('popup_forum', true, {expires: 1 / 24, path: '/'})
     });
 
-    $('#search_form').on('submit', function (e) {
+    var form;
+    $('#search_form, #burger_form').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             url: '{{ route('index.search') }}',
@@ -790,36 +795,37 @@
             data: $(this).serialize()
         }).done(function (r) {
             if (r.article.length > 0 || r.cpa.length > 0) {
-                $('#desctop__search').text('');
+                $('#'+form+' .desctop__search').text('');
                 r.article.map((e) => {
-                    $('#desctop__search').append(`
+                    $('#'+form+' .desctop__search').append(`
                     <a href="https://affjournal.com/articles/${e.link}" class="search__item">
                         <p class="search__title">${e.name}</p>
                     </a>
                 `)
                 })
                 r.cpa.map((e) => {
-                    $('#desctop__search').append(`
+                    $('#'+form+' .desctop__search').append(`
                     <a href="https://affjournal.com/cpa-networks/${e.main_verticales}/${e.link}" class="search__item">
                         <p class="search__title">${e.name}</p>
                     </a>
                 `)
                 })
             } else {
-                $('#desctop__search').text('Nothing found');
+                $('#'+form+' .desctop__search').text('Nothing found');
             }
-            $('#desctop__search, .search_back').fadeIn(300);
+            $('#'+form+' .desctop__search, .search_back').fadeIn(300);
         })
     })
     let timeout
-    $('#search').on('input', function () {
+    $('#search, #burger__search').on('input', function () {
+        form = $(this).attr('data-form');
         if ($(this).val() == '') {
             $('#desctop__search, .search_back').fadeOut(300);
             $('.header--search-btn').removeClass('active');
         } else {
             clearTimeout(timeout);
             timeout = setTimeout(() => {
-                $('#search_form').submit();
+                $('#'+form).submit();
             }, 1000);
         }
     });

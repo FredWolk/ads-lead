@@ -215,8 +215,6 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <a style="max-width: 200px; width: 100%;" href="{{ route('cpa') }}"
-                           class="btn--grey cpapage_info--block--link">{{ __('messages.show') }}</a>
                     </div>
 
                     @if(!empty($banner))
@@ -308,7 +306,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <a style="max-width: 200px; width: 100%;" href="{{ route('cpa') }}"
+                                <a style="max-width: 200px; width: 100%;" href="{{ route('cpa.catalog', $k) }}"
                                    class="btn--grey cpapage_info--block--link">{{ __('messages.show') }}</a>
                             </div>
                         @endforeach
@@ -365,8 +363,6 @@
                             </li>
                         @endforeach
                     </ul>
-
-                    <button class="filter-aside--btn-show">Show Result (85)</button>
                 </form>
                 @if(!empty($banner))
                     <aside class="filter-aside--sticky">

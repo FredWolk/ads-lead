@@ -133,8 +133,22 @@
                                 </clipPath>
                             </defs>
                         </svg>
-
                     </div>
+
+                    <div class="banner_mobile">
+                        @if(!empty($banner))
+                            <div class="filter-aside-banner sticky">
+                                <a data-type="aside_banner" class="banner_check" target="_blank" href="{{ $banner->link }}">
+                                    @if($banner->type == 'image')
+                                        <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                    @else
+                                        <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
+                                    @endif
+                                </a>
+                            </div>
+                        @endif
+                    </div>
+
                     <div class="videopage_main--text main__article" style="margin-bottom: 43px">
                         {!! $article["{$locale}main_text"] !!}
                     </div>
