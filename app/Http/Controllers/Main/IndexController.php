@@ -32,25 +32,39 @@ class IndexController extends Controller
             ->with('author')
             ->whereNotNull('pin')
             ->orderBy('pin')
+            ->select('link', 'image', 'created_at', 'tags', 'name', 'prev_text', 'views', 'author_id')
             ->get();
         $article = Article::where('type', 'article')
             ->where('active', 1)
             ->with('author')
             ->whereNull('pin')
             ->take(4)
+            ->select('link', 'image', 'created_at', 'tags', 'name', 'prev_text', 'views', 'author_id')
             ->orderByDesc('created_at')
             ->get()
             ->toArray();
-
         if ($pin->count() > 0)
             foreach ($pin->toArray() as $i)
                 $article[$i['pin'] - 1] = $i;
 
-        $cpa = Cpa::where('is_main', 1)->orderBy('created_at', 'desc')->take(4)->get()->toArray();
-        $top_cpa = Cpa::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
-        $ads = Ad::where('is_main', 1)->orderBy('created_at', 'desc')->take(4)->get();
-        $top_ads = Ad::where('is_top', 1)->orderBy('id', 'desc')->take(5)->get()->toArray();
-        $video = Video::orderBy('id', 'DESC')->take(6)->get()->toArray();
+        $cpa = Cpa::where('is_main', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(4)
+            ->select('main_verticales','link','image','verticales','name','views')
+            ->get()
+            ->toArray();
+        $top_cpa = Cpa::where('is_top', 1)->orderBy('id', 'desc')
+            ->select('main_verticales', 'link','verticales','name','url', 'logo')
+            ->take(5)->get()->toArray();
+        $ads = Ad::where('is_main', 1)->orderBy('created_at', 'desc')
+            ->select('main_advertising_formats','link','image','advertising_formats','name','views')
+            ->take(4)->get();
+        $top_ads = Ad::where('is_top', 1)->orderBy('id', 'desc')
+            ->select('main_advertising_formats', 'link','advertising_formats','name', 'logo', 'url')
+            ->take(5)->get()->toArray();
+        $video = Video::orderBy('id', 'DESC')
+            ->select('link','image','created_at','name')
+            ->take(6)->get()->toArray();
 
         $seo = Seo::where('page', Seo::MAIN_PAGE)->first();
 
