@@ -28,7 +28,7 @@
                     <a href="{{ route('forum') }}">Forum</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <p>{{ $theme->name }}</p>
+                    <p>{{ $link }}</p>
                 </li>
             </ul>
         </div>
@@ -38,8 +38,7 @@
         <div class="container">
             <section class="cpapage_main">
                 <div class="forum_treads_top">
-                    <h1 class="forum_treads_top-title">{{ $theme->name }}</h1>
-                    <p class="forum_treads_top-text">{{ $theme->desc }}</p>
+                    <h1 class="forum_treads_top-title">{{ $link }}</h1>
 
                     <div class="cpapage_main-to-show">
                         <form action="/" method="GET">
@@ -56,30 +55,20 @@
                                     </button>
                                     <div class="filter-aside_list-item_wrapper">
                                         <ul class="filter-aside_list-item_wrap_list">
-                                            @for ($a=0; $a<8; $a++)
-                                                <li class="filter-aside_list-item_wrap_list-item">
-                                                    <label class="filter-aside_label">
-                                                        <input class="filter-aside--checkbox" type="checkbox"
-                                                               name="tags" value="#gambling">
-                                                        <p class="filter-aside_label-text">#gambling</p>
-                                                    </label>
-                                                </li>
-                                            @endfor
+                                            @foreach (array_values($arrTags) as $key => $value)
+                                                @if($key < 20)
+                                                    <li class="filter-aside_list-item_wrap_list-item">
+                                                        <a class="filter-aside_label-text"
+                                                           href="{{ route('forum.filter', $value) }}">#{{ $value }}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </li>
                             </ul>
                         </form>
                     </div>
-
-                    @auth()
-                        <a style="max-width: 200px; height: 40px;" class="btn--blue header_buttons-blue-btn"
-                           href="{{ route('forum.create.threads', $theme->link) }}">
-                            <span>Create a topic</span>
-                            <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
-                                 alt="arrow">
-                        </a>
-                    @endauth
                 </div>
 
                 <div class="filter-aside-banner to-show">
@@ -298,7 +287,7 @@
                     <a href="{{ route('forum') }}">Forum</a>
                 </li>
                 <li class="breadcrambs_list-item">
-                    <p>{{ $theme->name }}</p>
+                    <p>{{ $link }}</p>
                 </li>
             </ul>
         </div>

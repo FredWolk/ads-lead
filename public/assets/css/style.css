@@ -3140,21 +3140,6 @@ form {
     gap: 8px;
 }
 
-.filter-aside_label {
-    user-select: none;
-    cursor: pointer;
-    transition-duration: 0.3s;
-}
-
-.filter-aside--checkbox {
-    width: 1px;
-    height: 1px;
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    visibility: none;
-}
-
 .filter-aside_label-text {
     display: flex;
     align-items: center;
@@ -3172,17 +3157,11 @@ form {
     transition-duration: 0.3s;
 }
 
-.filter-aside_label:hover
-.filter-aside_label-text {
+.filter-aside_label-text:hover {
     color: #F7FAFF;
     background: var(--blue);
 }
 
-.filter-aside--checkbox:checked +
-.filter-aside_label-text {
-    color: #F7FAFF;
-    background: var(--blue);
-}
 
 .filter-aside-banner, .filter-aside-banner * {
     width: 100%;
