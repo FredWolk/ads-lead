@@ -1,27 +1,15 @@
 <?php
 
+use App\Mail\RegisterMail;
 use App\Http\Controllers\Main\Articles\{ArticleController, ArticlesController, KnowladgeBaseController};
 use App\Http\Controllers\Main\Cpa\{CatalogController, NetworksController, PageController};
 use App\Http\Controllers\Main\Event\EventPageController;
 use App\Http\Controllers\Main\Event\EventsController;
-use App\Http\Controllers\Main\Forum\ForumBoardController;
-use App\Http\Controllers\Main\Forum\ForumController;
-use App\Http\Controllers\Main\Forum\ForumCreateThreadsController;
-use App\Http\Controllers\Main\Forum\ForumThreadsController;
-use App\Http\Controllers\Main\Forum\ForumUserController;
-use App\Http\Controllers\Main\Forum\TradeController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Main\SendCommentController;
 use App\Http\Controllers\Main\Video\{AllVideoController, VideoController};
-use App\Http\Controllers\User\Correspondence\UserCorrespondenceController;
-use App\Http\Controllers\User\Correspondence\UserCorrespondencePageController;
-use App\Http\Controllers\User\UserAlertController;
-use App\Http\Controllers\User\UserFavoriteController;
-use App\Http\Controllers\User\UserIndexController;
-use App\Http\Controllers\User\UserSecurityController;
-use App\Http\Controllers\User\UserSettingsController;
-use App\Http\Controllers\User\UserSubscriptionController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -91,5 +79,4 @@ Route::group(['prefix' => 'filters'], function () {
     Route::get('/events', [EventsController::class, 'filter'])->name('event.filter');
     Route::post('/search', [IndexController::class, 'search'])->name('index.search');
 });
-
 Route::get('/confirm-register/{email}', [IndexController::class, 'confirmRegister']);
