@@ -73,7 +73,8 @@
 
                             <div class="form-group">
                                 <label for="listing_rating">Рейтинг в листинге</label>
-                                <input type="number" name="listing_rating" value="{{ old('listing_rating') }}" class="form-control" id="listing_rating">
+                                <input type="number" name="listing_rating" value="{{ old('listing_rating') }}"
+                                       class="form-control" id="listing_rating">
                             </div>
                             @error('listing_rating')
                             <div class="text-danger">{{ $message }}</div>
@@ -90,6 +91,18 @@
                                 </div>
                             </div>
                             @error('logo')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
+                                <label for="select1">Тип сервиса</label>
+                                <select name="type[]" multiple="multiple" class="form-control select1" id="select1">
+                                    @foreach(\App\Models\Services::getType() as $type)
+                                        <option value="{{ $type }}" {{ old('type') === $type ? 'selected' : '' }}>{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('type')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
@@ -168,6 +181,9 @@
     <script>
         $(function () {
             bsCustomFileInput.init();
+            $('#select1').select2({
+                tags: true,
+            })
         });
     </script>
 

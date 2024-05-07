@@ -28,6 +28,7 @@ class StoreServicesRequest extends FormRequest
             'name' => 'required|string',
             'pt_name' => 'nullable|string',
             'logo' => 'nullable|image',
+            'type' => 'nullable|array',
             'prev_text' => 'nullable|string',
             'pt_prev_text' => 'nullable|string',
             'url' => 'nullable|string',

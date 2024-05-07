@@ -235,7 +235,6 @@
                         </ul>
                     </div>
 
-
                     <div class="cpapage_info--block">
                         <div class="cpapage_info-header">
                             <h2 class="cpapage_info-title">{{ __('messages.all_services') }}</h2>
@@ -246,7 +245,7 @@
                                     <div class="cpapage_info--item_main">
                                         <div class="cpapage_info--item_main_top">
                                             <div class="cpapage_info--item_main_top-icon">
-                                                <img loading="lazy" src="{{ asset('storage/'. $i['logo']) }}"
+                                                <img loading="lazy" src="{{ asset('storage/'. $i->logo) }}"
                                                      alt="logo">
                                             </div>
                                             <div class="article--card-top">
@@ -259,7 +258,7 @@
                                                 <p>TOP</p>
                                             </div>
                                         </div>
-                                        <p class="cpapage_info--item_main-text">{{ $i["{$locale}prev_text"] }}</p>
+                                        <p class="cpapage_info--item_main-text">{{ $i->prev_text }}</p>
                                     </div>
                                     <div class="cpapage_info--item-line"></div>
                                     <div class="cpapage_info--item_buttons">
@@ -290,7 +289,7 @@
                                             </button>
                                             <div class="promocode--body">
                                                 <div class="promocode--body_top">
-                                                    <p class="promocode--body_top-text">{{ $i['promocode'] }}</p>
+                                                    <p class="promocode--body_top-text">{{ $i->promocode }}</p>
                                                     <button type="button" class="promocode--body_top--btn">
                                                         <svg width="16" height="19" viewBox="0 0 16 19" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -301,16 +300,16 @@
                                                         <span>copy</span>
                                                     </button>
                                                 </div>
-                                                <p class="promocode--body-text">{{ $i["{$locale}promocode_desc"] }}</p>
+                                                <p class="promocode--body-text">{{ $i->promocode_desc }}</p>
                                             </div>
                                         </div>
-                                        <a class="link--blue-sphere" target="_blank" href="{{ $i['url'] }}">
+                                        <a class="link--blue-sphere" target="_blank" href="{{ $i->url }}">
                                             <img loading="lazy" src="{{asset('assets/images/icons/sphere.svg')}}"
                                                  alt="sphere">
                                             <span>Site</span>
                                         </a>
 
-                                        <a class="btn--grey-with-icons mobile" href="{{ $i['url'] }}">
+                                        <a class="btn--grey-with-icons mobile" href="{{ $i->url }}">
                                             <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -369,6 +368,37 @@
                         </div>
                     </aside>
                 @endif
+                    <aside class="filter-aside">
+                        <form class="filter__form" action="{{ route('services') }}" method="GET">
+                            <ul class="filter-aside_list">
+                                <li class="filter-aside_list-item">
+                                    <button type="button" class="filter-aside--btn">
+                                        <p class="filter-aside--btn-text">TYPE</p>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12.9971 3.09753H11.0031V11.003H3.09761V12.997H11.0031V20.9025H12.9971V12.997H20.9026V11.003H12.9971V3.09753Z"
+                                                fill="#181A1C"/>
+                                        </svg>
+                                    </button>
+                                    <div class="filter-aside_list-item_wrapper">
+                                        <ul class="filter-aside_list-item_wrap_list">
+                                            @foreach (\App\Models\Services::getType() as $v)
+                                                <li class="filter-aside_list-item_wrap_list-item">
+                                                    <label class="filter-aside_label">
+                                                        <input class="filter-aside--checkbox filter__change" type="radio"
+                                                               name="type"
+                                                               value="{{ $v }}">
+                                                        <p class="filter-aside_label-text">#{{ $v }}</p>
+                                                    </label>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </aside>
             </aside>
 
             <div class="cpapage_main-to-show">
@@ -394,4 +424,12 @@
             </ul>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    <script>
+        $('.filter__change').on('change', function () {
+            $('.filter__form').submit();
+        })
+    </script>
 @endsection

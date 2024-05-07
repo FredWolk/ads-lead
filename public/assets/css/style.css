@@ -297,7 +297,9 @@ a {
     justify-content: center;
     align-items: center;
 }
-
+.filter__change{
+    display: none;
+}
 .burger--btn_wrapper {
     position: relative;
     display: flex;

@@ -99,6 +99,18 @@
                             @enderror
 
                             <div class="form-group">
+                                <label for="select1">Тип сервиса</label>
+                                <select name="type[]" multiple="multiple" class="form-control select1" id="select1">
+                                    @foreach(\App\Models\Services::getType() as $type)
+                                        <option value="{{ $type }}" {{ in_array($type, $service->type) ? 'selected' : '' }}>{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('type')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                            <div class="form-group">
                                 <label for="prev_text">Превью текст рекламы</label>
                                 <textarea name="prev_text" class="form-control"
                                           id="prev_text"
@@ -168,10 +180,14 @@
 @section('scripts')
     <script src="{{ asset('assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/seo-function.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
 
     <script>
         $(function () {
             bsCustomFileInput.init();
+            $('#select1').select2({
+                tags: true,
+            })
         });
     </script>
 
