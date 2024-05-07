@@ -366,9 +366,6 @@
                                 @endif
                             </a>
                         </div>
-                    </aside>
-                @endif
-                    <aside class="filter-aside">
                         <form class="filter__form" action="{{ route('services') }}" method="GET">
                             <ul class="filter-aside_list">
                                 <li class="filter-aside_list-item">
@@ -399,6 +396,7 @@
                             </ul>
                         </form>
                     </aside>
+                @endif
             </aside>
 
             <div class="cpapage_main-to-show">
