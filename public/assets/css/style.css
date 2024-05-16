@@ -227,8 +227,26 @@ a {
     max-width: 100%;
     width: 100%;
     transition-timing-function: cubic-bezier(.5, -1, .5, 2);
-
 }
+
+.btn--gren {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #424242;
+    padding: 10px;
+    background-color: #0dd220;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 100%;
+    transition-timing-function: cubic-bezier(.5, -1, .5, 2);
+}
+
 
 .header_buttons-blue-btn span {
     margin-right: -10px;

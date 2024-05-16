@@ -114,7 +114,7 @@
                     {{--                    @endif--}}
 
                     @if(!empty($banner_button))
-                        <a data-type="header_button" class="btn--blue header_buttons-blue-btn banner_check"
+                        <a data-type="header_button" class="btn--gren header_buttons-blue-btn banner_check"
                            target="_blank" href="{{ $banner_button->link }}">
                             <span>{{ $banner_button->text }}</span>
                             <img loading="lazy" src="{{asset('assets/images/icons/arrow-right-white.svg')}}"
