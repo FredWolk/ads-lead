@@ -1426,9 +1426,19 @@
                     </ul>
                 </div>
 
-                <div class="filter-aside-banner sticky">
-                    <img loading="lazy" src="{{asset('assets/images/filter-bunner.png')}}" alt="bunner">
-                </div>
+                @if(!empty($banner))
+                    <aside class="filter-aside--sticky">
+                        <div class="filter-aside-banner">
+                            <a data-type="aside_banner" class="banner_check" target="_blank" href="{{ $banner->link }}">
+                                @if($banner->type == 'image')
+                                    <img loading="lazy" src="{{asset('storage/'. $banner->file)}}" alt="bunner">
+                                @else
+                                    <video src="{{ asset('storage/'. $banner->file) }}" autoplay loop muted></video>
+                                @endif
+                            </a>
+                        </div>
+                    </aside>
+                @endif
             </aside>
         </div>
     </section>
